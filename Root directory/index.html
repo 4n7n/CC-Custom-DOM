@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de narrativas comunitarias interactivas con sistema de patrocinio integrado">
+    <meta name="keywords" content="community, stories, narrative, sponsorship, social impact">
+    <meta name="author" content="Community Stories Platform">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Community Stories Platform">
+    <meta property="og:description" content="Historias comunitarias interactivas que conectan con patrocinadores">
+    <meta property="og:url" content="https://community-stories.com">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Community Stories Platform">
+    <meta property="twitter:description" content="Narrativas comunitarias interactivas con impacto social">
+    
+    <title>Community Stories Platform - Narrativas que Conectan</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/base/reset.css">
+    <link rel="stylesheet" href="css/base/variables.css">
+    <link rel="stylesheet" href="css/base/typography.css">
+    <link rel="stylesheet" href="css/base/utilities.css">
+    <link rel="stylesheet" href="css/base/accessibility.css">
+    <link rel="stylesheet" href="css/layout/community-grid.css">
+    <link rel="stylesheet" href="css/layout/story-container.css">
+    <link rel="stylesheet" href="css/layout/navigation.css">
+    <link rel="stylesheet" href="css/layout/footer.css">
+    <link rel="stylesheet" href="css/layout/responsive-base.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <h1>Community Stories</h1>
+            <div class="loading-spinner"></div>
+            <p>Cargando historia comunitaria...</p>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Navigation -->
+        <nav class="main-navigation" role="navigation" aria-label="Navegación principal">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Community Stories</h1>
+                </div>
+                <div class="nav-menu">
+                    <a href="#story" class="nav-link" aria-current="page">Historia</a>
+                    <a href="#community" class="nav-link">Comunidad</a>
+                    <a href="#sponsors" class="nav-link">Patrocinadores</a>
+                    <a href="#impact" class="nav-link">Impacto</a>
+                </div>
+                <div class="nav-actions">
+                    <button id="donate-btn" class="btn-primary" aria-describedby="donate-description">
+                        Donar
+                    </button>
+                    <button id="sponsor-btn" class="btn-secondary" aria-describedby="sponsor-description">
+                        Patrocinar
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="main-content" class="main-content" role="main">
+            <!-- Hero Section -->
+            <section id="hero" class="hero-section" aria-labelledby="hero-title">
+                <div class="hero-content">
+                    <h2 id="hero-title" class="hero-title">Historias que Transforman Comunidades</h2>
+                    <p class="hero-subtitle">Descubre narrativas auténticas que conectan patrocinadores con impacto social real</p>
+                    <button id="start-story-btn" class="btn-hero" aria-describedby="story-description">
+                        Comenzar Historia
+                    </button>
+                    <div id="story-description" class="sr-only">
+                        Inicia la experiencia interactiva de la historia comunitaria
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div id="community-preview" class="community-preview" role="img" aria-label="Vista previa de la comunidad">
+                        <!-- Contenido dinámico -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Story Container -->
+            <section id="story-container" class="story-container" aria-labelledby="story-title">
+                <h2 id="story-title" class="sr-only">Historia Comunitaria Interactiva</h2>
+                <div id="story-content" class="story-content" role="region" aria-live="polite" aria-label="Contenido de la historia">
+                    <!-- Historia se carga dinámicamente -->
+                    <div class="story-placeholder">
+                        <p>La historia comunitaria se está cargando...</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Community Section -->
+            <section id="community" class="community-section" aria-labelledby="community-title">
+                <div class="community-grid">
+                    <div class="community-info">
+                        <h3 id="community-title">Nuestra Comunidad</h3>
+                        <p>Una historia auténtica de esperanza, crecimiento y unidad.</p>
+                    </div>
+                    <div class="community-stats" role="region" aria-label="Estadísticas de la comunidad">
+                        <div class="stat-item">
+                            <span class="stat-number" id="community-members" aria-label="Número de miembros">0</span>
+                            <span class="stat-label">Miembros</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="years-history" aria-label="Años de historia">0</span>
+                            <span class="stat-label">Años de Historia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="impact-projects" aria-label="Proyectos de impacto">0</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sponsors Section -->
+            <section id="sponsors" class="sponsors-section" aria-labelledby="sponsors-title">
+                <div class="sponsors-container">
+                    <h3 id="sponsors-title">Patrocinadores que Creen en Nosotros</h3>
+                    <div id="sponsors-grid" class="sponsors-grid" role="region" aria-label="Lista de patrocinadores">
+                        <!-- Patrocinadores se cargan dinámicamente -->
+                        <div class="sponsors-placeholder">
+                            <p>Cargando patrocinadores...</p>
+                        </div>
+                    </div>
+                    <div class="become-sponsor">
+                        <p>¿Quieres apoyar esta historia?</p>
+                        <button id="become-sponsor-btn" class="btn-sponsor" aria-describedby="sponsor-info">
+                            Ser Patrocinador
+                        </button>
+                        <div id="sponsor-info" class="sr-only">
+                            Únete como patrocinador y apoya el impacto social de esta comunidad
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Impact Section -->
+            <section id="impact" class="impact-section" aria-labelledby="impact-title">
+                <div class="impact-container">
+                    <h3 id="impact-title">Nuestro Impacto</h3>
+                    <div class="impact-metrics" role="region" aria-label="Métricas de impacto social">
+                        <div class="metric-card">
+                            <span class="metric-number" id="funds-raised">$0</span>
+                            <span class="metric-label">Fondos Recaudados</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number" id="families-helped">0</span>
+                            <span class="metric-label">Familias Ayudadas</span>
+                        </div>
+                        <div class="metric-card">
+                            <span class="metric-number" id="projects-completed">0</span>
+                            <span class="metric-label">Proyectos Completados</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer" role="contentinfo">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Community Stories Platform</h4>
+                    <p>Conectando historias con impacto</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <nav aria-label="Enlaces del pie de página">
+                        <a href="#about">Acerca de</a>
+                        <a href="#privacy">Privacidad</a>
+                        <a href="#contact">Contacto</a>
+                        <a href="#accessibility">Accesibilidad</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <nav aria-label="Redes sociales">
+                        <a href="#facebook" aria-label="Síguenos en Facebook">Facebook</a>
+                        <a href="#twitter" aria-label="Síguenos en Twitter">Twitter</a>
+                        <a href="#instagram" aria-label="Síguenos en Instagram">Instagram</a>
+                    </nav>
+                </div>
+                <div class="footer-section">
+                    <h4>Soporte</h4>
+                    <nav aria-label="Enlaces de soporte">
+                        <a href="#help">Ayuda</a>
+                        <a href="#faq">Preguntas Frecuentes</a>
+                        <a href="#feedback">Feedback</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Community Stories Platform. Todos los derechos reservados.</p>
+                <p>Plataforma diseñada para el impacto social y la preservación cultural.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Hidden descriptions for screen readers -->
+    <div class="sr-only">
+        <div id="donate-description">Hacer una donación para apoyar los proyectos comunitarios</div>
+        <div id="sponsor-description">Convertirse en patrocinador corporativo de la comunidad</div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/core/app.js"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then((registration) => {
+                        console.log('✅ Service Worker registrado:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('❌ Error registrando Service Worker:', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
