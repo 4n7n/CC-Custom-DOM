@@ -1,0 +1,239 @@
+# Workflow para construir y desplegar en GitHub Pages
+name: Deploy to GitHub Pages
+
+# Triggers del workflow
+on:
+  # Se ejecuta en push a main
+  push:
+    branches: ["main"]
+    
+  # Se ejecuta en pull requests a main
+  pull_request:
+    branches: ["main"]
+    
+  # Permite ejecutar manualmente desde la pestaña Actions
+  workflow_dispatch:
+
+# Establece permisos del GITHUB_TOKEN para permitir deployment a GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite solo un deployment concurrente, omitiendo runs en cola
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job de Build
+  build:
+    name: Build Community Stories Platform
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
+    steps:
+      # Checkout del código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Obtiene todo el historial para métricas
+      
+      # Setup de Node.js
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      # Cache de dependencias
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      
+      # Instalar dependencias
+      - name: Install dependencies
+        run: |
+          npm ci --prefer-offline --no-audit
+          npm run postinstall --if-present
+      
+      # Linting y tests
+      - name: Run linting
+        run: npm run lint
+        continue-on-error: true
+      
+      - name: Run tests
+        run: npm test -- --passWithNoTests
+        continue-on-error: true
+      
+      # Build del proyecto
+      - name: Build project
+        run: |
+          npm run build:prod
+          echo "communitystories.platform" > ./dist/CNAME
+        env:
+          NODE_ENV: production
+          PUBLIC_URL: https://communitystories.platform
+          GENERATE_SOURCEMAP: false
+      
+      # Optimización de assets
+      - name: Optimize assets
+        run: |
+          # Comprimir imágenes
+          find ./dist -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | xargs -I {} npx imagemin {} --out-dir=$(dirname {})
+          
+          # Generar versiones WebP
+          find ./dist -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" | xargs -I {} npx imagemin {} --plugin=webp --out-dir=$(dirname {})
+      
+      # Generar sitemap
+      - name: Generate sitemap
+        run: |
+          npm run generate:sitemap || echo "No sitemap generator configured"
+      
+      # Setup de GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          static_site_generator: "next"
+      
+      # Upload artifact
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+      
+      # Generar reporte de build
+      - name: Generate build report
+        run: |
+          echo "# Build Report" > build-report.md
+          echo "## Bundle Size" >> build-report.md
+          du -sh dist/* | sort -h >> build-report.md
+          echo "## File Count" >> build-report.md
+          find dist -type f | wc -l >> build-report.md
+          echo "## Lighthouse Scores" >> build-report.md
+          npx lighthouse https://communitystories.platform --output=json --output-path=./lighthouse-report.json || true
+      
+      # Upload build reports
+      - name: Upload build reports
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-reports
+          path: |
+            build-report.md
+            lighthouse-report.json
+          retention-days: 30
+
+  # Job de Deployment
+  deploy:
+    name: Deploy to GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    runs-on: ubuntu-latest
+    needs: build
+    
+    # Solo despliega en push a main, no en PRs
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # Job de validación post-deployment
+  validate:
+    name: Validate Deployment
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Wait for deployment
+        run: sleep 60
+      
+      - name: Check deployment health
+        run: |
+          response=$(curl -s -o /dev/null -w "%{http_code}" https://communitystories.platform)
+          if [ $response -eq 200 ]; then
+            echo "✅ Deployment successful!"
+          else
+            echo "❌ Deployment failed with status code: $response"
+            exit 1
+          fi
+      
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          urls: |
+            https://communitystories.platform
+            https://communitystories.platform/stories
+            https://communitystories.platform/sponsors
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+      
+      # Notificación de Slack (opcional)
+      - name: Notify Slack
+        if: always()
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          text: |
+            Community Stories Platform deployment ${{ job.status }}
+            Branch: ${{ github.ref }}
+            Commit: ${{ github.sha }}
+            Author: ${{ github.actor }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        continue-on-error: true
+
+# Workflow adicional para preview de PRs
+  preview:
+    name: Preview Pull Request
+    runs-on: ubuntu-latest
+    
+    # Solo en pull requests
+    if: github.event_name == 'pull_request'
+    
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
+    steps:
+      - name: Checkout PR
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      
+      - name: Install and Build
+        run: |
+          npm ci
+          npm run build:preview
+        env:
+          NODE_ENV: development
+      
+      - name: Deploy to Netlify Preview
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './dist'
+          production-deploy: false
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Preview PR #${{ github.event.pull_request.number }}"
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+          alias: pr-${{ github.event.pull_request.number }}
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 10

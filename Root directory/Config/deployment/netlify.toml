@@ -1,0 +1,96 @@
+# Configuración de build para Netlify
+[build]
+  # Directorio donde se ejecutan los comandos de build
+  base = ""
+  
+  # Comando de build
+  command = "npm run build"
+  
+  # Directorio que Netlify publicará
+  publish = "dist"
+  
+  # Directorio de funciones serverless (si las usamos en el futuro)
+  functions = "netlify/functions"
+
+# Variables de entorno para el build
+[build.environment]
+  NODE_VERSION = "18"
+  NPM_VERSION = "9"
+
+# Configuración para el contexto de producción
+[context.production]
+  command = "npm run build:prod"
+  
+[context.production.environment]
+  NODE_ENV = "production"
+  GENERATE_SOURCEMAP = "true"
+
+# Configuración para el contexto de staging/branch deploys
+[context.staging]
+  command = "npm run build:staging"
+  
+[context.staging.environment]
+  NODE_ENV = "staging"
+  ROBOTS_TXT = "User-agent: *\nDisallow: /"
+
+# Configuración para previews de pull requests
+[context.deploy-preview]
+  command = "npm run build:preview"
+  
+[context.deploy-preview.environment]
+  NODE_ENV = "development"
+  ROBOTS_TXT = "User-agent: *\nDisallow: /"
+
+# Headers personalizados
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Seguridad
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Content Security Policy
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net https://unpkg.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: blob:;
+      media-src 'self' https: blob:;
+      connect-src 'self' https://api.communitystories.platform wss://api.communitystories.platform;
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+      upgrade-insecure-requests;
+    """
+
+# Headers para assets estáticos
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Redirecciones
+[[redirects]]
+  from = "/api/*"
+  to = "https://api.communitystories.platform/:splat"
+  status = 200

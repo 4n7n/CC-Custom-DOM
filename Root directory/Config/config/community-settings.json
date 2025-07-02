@@ -1,0 +1,203 @@
+{
+  "app": {
+    "name": "Community Stories Platform",
+    "version": "1.0.0",
+    "description": "El Netflix de las Narrativas Comunitarias con Sistema de Patrocinio Integrado",
+    "author": "Community Stories Team",
+    "copyright": "© 2025 Community Stories Platform. All rights reserved.",
+    "contact": {
+      "email": "hello@communitystories.platform",
+      "support": "support@communitystories.platform",
+      "phone": "+1-800-STORIES"
+    }
+  },
+  
+  "features": {
+    "storytelling": {
+      "enabled": true,
+      "scrollType": "cinematic",
+      "autoplay": true,
+      "defaultDuration": 8000,
+      "parallaxEnabled": true,
+      "audioSpatial": true,
+      "webglEffects": true
+    },
+    
+    "sponsorship": {
+      "enabled": true,
+      "tiers": {
+        "bronze": {
+          "min": 2000,
+          "max": 5000,
+          "benefits": ["logo", "basic_analytics", "certificate"]
+        },
+        "silver": {
+          "min": 5000,
+          "max": 10000,
+          "benefits": ["logo", "advanced_analytics", "certificate", "co_branding"]
+        },
+        "gold": {
+          "min": 10000,
+          "max": 25000,
+          "benefits": ["logo", "premium_analytics", "certificate", "co_branding", "custom_section"]
+        },
+        "platinum": {
+          "min": 25000,
+          "max": null,
+          "benefits": ["naming_rights", "full_analytics", "certificate", "co_branding", "custom_features"]
+        }
+      }
+    },
+    
+    "donations": {
+      "enabled": true,
+      "platforms": ["stripe", "paypal", "crypto"],
+      "minimumAmount": 1,
+      "suggestedAmounts": [5, 10, 25, 50, 100, 250, 500],
+      "recurringEnabled": true
+    },
+    
+    "analytics": {
+      "enabled": true,
+      "trackingEnabled": true,
+      "heatmapsEnabled": true,
+      "dashboardAccess": ["sponsors", "communities", "admin"],
+      "exportFormats": ["pdf", "csv", "json"]
+    },
+    
+    "pwa": {
+      "enabled": true,
+      "offlineMode": true,
+      "installPrompt": true,
+      "updateStrategy": "lazy",
+      "cacheFirst": ["assets", "stories"],
+      "networkFirst": ["api", "analytics"]
+    }
+  },
+  
+  "content": {
+    "languages": {
+      "default": "es",
+      "supported": ["es", "en", "pt", "fr", "de", "it", "zh", "ja", "ar", "hi"],
+      "autoDetect": true,
+      "rtlSupport": true
+    },
+    
+    "media": {
+      "images": {
+        "formats": ["webp", "jpg", "png", "svg"],
+        "lazyLoad": true,
+        "responsive": true,
+        "maxSize": 2048,
+        "quality": 85
+      },
+      "video": {
+        "formats": ["mp4", "webm"],
+        "streaming": true,
+        "autoplay": false,
+        "maxDuration": 300
+      },
+      "audio": {
+        "formats": ["mp3", "ogg", "wav"],
+        "spatialAudio": true,
+        "backgroundMusic": true,
+        "voiceNarration": true
+      }
+    },
+    
+    "stories": {
+      "maxLength": 50000,
+      "chaptersEnabled": true,
+      "interactiveElements": true,
+      "userChoices": true,
+      "saveProgress": true,
+      "shareEnabled": true
+    }
+  },
+  
+  "performance": {
+    "targets": {
+      "lighthouseScore": 95,
+      "firstContentfulPaint": 1500,
+      "timeToInteractive": 3000,
+      "bundleSize": 500000
+    },
+    "optimization": {
+      "minifyCode": true,
+      "compressAssets": true,
+      "cdnEnabled": true,
+      "http2Push": true,
+      "criticalCSS": true
+    }
+  },
+  
+  "security": {
+    "cors": {
+      "enabled": true,
+      "origins": ["https://communitystories.platform", "https://api.communitystories.platform"]
+    },
+    "csp": {
+      "enabled": true,
+      "directives": {
+        "defaultSrc": ["'self'"],
+        "scriptSrc": ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        "styleSrc": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        "imgSrc": ["'self'", "data:", "https:"],
+        "connectSrc": ["'self'", "https://api.communitystories.platform"]
+      }
+    },
+    "headers": {
+      "xFrameOptions": "DENY",
+      "xContentTypeOptions": "nosniff",
+      "referrerPolicy": "strict-origin-when-cross-origin"
+    }
+  },
+  
+  "social": {
+    "sharing": {
+      "enabled": true,
+      "platforms": ["twitter", "facebook", "linkedin", "whatsapp", "telegram", "email"],
+      "customMessage": true,
+      "trackShares": true
+    },
+    "meta": {
+      "ogImage": "/assets/images/og-default.jpg",
+      "twitterCard": "summary_large_image",
+      "schema": true
+    }
+  },
+  
+  "accessibility": {
+    "wcag": "AA",
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "highContrast": true,
+    "fontSize": {
+      "adjustable": true,
+      "min": 14,
+      "max": 24,
+      "default": 16
+    },
+    "animations": {
+      "reducedMotion": true,
+      "pauseEnabled": true
+    }
+  },
+  
+  "api": {
+    "endpoints": {
+      "stories": "https://api.communitystories.platform/v1/stories",
+      "sponsors": "https://api.communitystories.platform/v1/sponsors",
+      "donations": "https://api.communitystories.platform/v1/donations",
+      "analytics": "https://api.communitystories.platform/v1/analytics"
+    },
+    "auth": {
+      "type": "jwt",
+      "expiresIn": 86400
+    },
+    "rateLimit": {
+      "requests": 100,
+      "window": 3600
+    }
+  }
+}

@@ -1,0 +1,73 @@
+# Community Stories Platform - robots.txt
+# Configuración de rastreo web para SEO
+
+User-agent: *
+Allow: /
+
+# Permitir acceso completo a contenido público
+Allow: /stories/
+Allow: /communities/
+Allow: /impact/
+Allow: /assets/images/
+Allow: /assets/icons/
+
+# Bloquear áreas sensibles y administrativas
+Disallow: /admin/
+Disallow: /api/private/
+Disallow: /sponsors/dashboard/
+Disallow: /analytics/
+Disallow: /config/
+Disallow: /temp/
+Disallow: /*?preview=
+Disallow: /*?debug=
+Disallow: /*?test=
+
+# Bloquear archivos temporales y de desarrollo
+Disallow: /*.tmp
+Disallow: /*.log
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /src/
+Disallow: /build/
+
+# User-agents específicos
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+Allow: /assets/images/og-*
+
+User-agent: Twitterbot
+Allow: /
+Allow: /assets/images/twitter-*
+
+User-agent: LinkedInBot
+Allow: /
+Allow: /assets/images/linkedin-*
+
+# Bloquear bots maliciosos comunes
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Información del sitemap
+Sitemap: https://communitystories.platform/sitemap.xml
+Sitemap: https://communitystories.platform/sitemap-stories.xml
+Sitemap: https://communitystories.platform/sitemap-images.xml
+
+# Información del host
+Host: communitystories.platform

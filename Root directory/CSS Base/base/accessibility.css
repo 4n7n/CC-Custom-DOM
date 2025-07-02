@@ -1,0 +1,879 @@
+/**
+ * Community Stories Platform - Accessibility Styles
+ * Estilos para garantizar WCAG 2.1 AA compliance
+ */
+
+/* === SKIP LINKS === */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  z-index: 1000;
+  padding: var(--space-2) var(--space-4);
+  background-color: var(--color-primary-600);
+  color: white;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+  transition: top var(--duration-200) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* === FOCUS MANAGEMENT === */
+/* Focus visible solo para navegación por teclado */
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Focus específico para elementos interactivos */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* Focus para elementos personalizados */
+.focusable:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+/* === SCREEN READER UTILITIES === */
+/* Ocultar visualmente pero mantener accesible para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Mostrar solo para lectores de pantalla en focus */
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* === CONTRASTE Y LEGIBILIDAD === */
+/* Asegurar contraste mínimo WCAG AA */
+.text-contrast-high {
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-0);
+}
+
+.text-contrast-reverse {
+  color: var(--color-neutral-0);
+  background-color: var(--color-neutral-900);
+}
+
+/* Enlaces con suficiente contraste */
+.link-accessible {
+  color: var(--color-primary-700);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
+}
+
+.link-accessible:hover,
+.link-accessible:focus {
+  color: var(--color-primary-800);
+  text-decoration-thickness: 3px;
+}
+
+.link-accessible:visited {
+  color: var(--color-secondary-700);
+}
+
+/* === BOTONES ACCESIBLES === */
+.btn-accessible {
+  min-height: 44px; /* Tamaño mínimo de toque WCAG */
+  min-width: 44px;
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-primary-600);
+  color: white;
+  border: 2px solid var(--color-primary-600);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-200) var(--ease-out);
+  
+  /* Asegurar que el texto no se corte */
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+
+.btn-accessible:hover {
+  background-color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-accessible:active {
+  background-color: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-accessible:disabled {
+  background-color: var(--color-neutral-300);
+  border-color: var(--color-neutral-300);
+  color: var(--color-neutral-500);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Botón secundario accesible */
+.btn-secondary-accessible {
+  background-color: transparent;
+  color: var(--color-primary-600);
+  border: 2px solid var(--color-primary-600);
+}
+
+.btn-secondary-accessible:hover {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+}
+
+/* === FORMULARIOS ACCESIBLES === */
+.form-group-accessible {
+  margin-bottom: var(--space-6);
+}
+
+.label-accessible {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-800);
+  cursor: pointer;
+}
+
+.input-accessible {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-3);
+  border: 2px solid var(--color-neutral-300);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  background-color: var(--color-neutral-0);
+  color: var(--color-neutral-900);
+  transition: border-color var(--duration-200) var(--ease-out);
+}
+
+.input-accessible::placeholder {
+  color: var(--color-neutral-500);
+  opacity: 1;
+}
+
+.input-accessible:focus {
+  border-color: var(--color-primary-500);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  outline: none;
+}
+
+.input-accessible[aria-invalid="true"] {
+  border-color: var(--color-error-500);
+}
+
+.input-accessible[aria-invalid="true"]:focus {
+  border-color: var(--color-error-600);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* Mensajes de error accesibles */
+.error-message-accessible {
+  margin-top: var(--space-1);
+  color: var(--color-error-600);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Texto de ayuda accesible */
+.help-text-accessible {
+  margin-top: var(--space-1);
+  color: var(--color-neutral-600);
+  font-size: var(--font-size-sm);
+}
+
+/* === NAVEGACIÓN ACCESIBLE === */
+.nav-accessible {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item-accessible {
+  margin: 0;
+}
+
+.nav-link-accessible {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-neutral-700);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-200) var(--ease-out);
+  
+  /* Área de toque mínima */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-link-accessible:hover,
+.nav-link-accessible:focus {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+}
+
+.nav-link-accessible[aria-current="page"] {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-800);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* === MODAL ACCESIBLE === */
+.modal-overlay-accessible {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-index-modal);
+  padding: var(--space-4);
+}
+
+.modal-content-accessible {
+  background-color: var(--color-neutral-0);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+}
+
+.modal-close-accessible {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  color: var(--color-neutral-500);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.modal-close-accessible:hover,
+.modal-close-accessible:focus {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-700);
+}
+
+/* === TOOLTIPS ACCESIBLES === */
+.tooltip-accessible {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-content-accessible {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-neutral-900);
+  color: white;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  z-index: var(--z-index-tooltip);
+  transition: all var(--duration-200) var(--ease-out);
+  
+  /* Flecha del tooltip */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--color-neutral-900);
+  }
+}
+
+.tooltip-accessible:hover .tooltip-content-accessible,
+.tooltip-accessible:focus .tooltip-content-accessible {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* === CARDS ACCESIBLES === */
+.card-accessible {
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--duration-200) var(--ease-out);
+  cursor: pointer;
+}
+
+.card-accessible:hover,
+.card-accessible:focus-within {
+  border-color: var(--color-primary-300);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.card-accessible:focus-visible {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+/* === BADGES ACCESIBLES === */
+.badge-accessible {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-800);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid var(--color-primary-200);
+}
+
+.badge-success-accessible {
+  background-color: var(--color-success-100);
+  color: var(--color-success-800);
+  border-color: var(--color-success-200);
+}
+
+.badge-warning-accessible {
+  background-color: var(--color-warning-100);
+  color: var(--color-warning-800);
+  border-color: var(--color-warning-200);
+}
+
+.badge-error-accessible {
+  background-color: var(--color-error-100);
+  color: var(--color-error-800);
+  border-color: var(--color-error-200);
+}
+
+/* === MODO ALTO CONTRASTE === */
+@media (prefers-contrast: high) {
+  .btn-accessible {
+    border-width: 3px;
+  }
+  
+  .input-accessible {
+    border-width: 3px;
+  }
+  
+  .nav-link-accessible {
+    border: 2px solid transparent;
+  }
+  
+  .nav-link-accessible:focus {
+    border-color: var(--color-primary-500);
+  }
+  
+  .card-accessible {
+    border-width: 2px;
+  }
+}
+
+/* === MODO REDUCIR MOVIMIENTO === */
+@media (prefers-reduced-motion: reduce) {
+  .btn-accessible,
+  .input-accessible,
+  .nav-link-accessible,
+  .card-accessible,
+  .tooltip-content-accessible,
+  .modal-overlay-accessible,
+  .modal-content-accessible {
+    transition: none;
+  }
+  
+  .card-accessible:hover,
+  .card-accessible:focus-within {
+    transform: none;
+  }
+  
+  .btn-accessible:hover {
+    transform: none;
+  }
+}
+
+/* === UTILIDADES DE TAMAÑO DE FUENTE === */
+/* Para usuarios que prefieren texto más grande */
+@media (min-resolution: 2dppx) {
+  .text-large-accessible {
+    font-size: calc(var(--font-size-base) * 1.125);
+  }
+}
+
+/* === ESTADOS DE CARGA ACCESIBLES === */
+.loading-accessible {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.loading-accessible::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-neutral-300);
+  border-top-color: var(--color-primary-500);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-accessible::after {
+    animation: none;
+    border: 2px solid var(--color-primary-500);
+  }
+}
+
+/* === INDICADORES DE ERROR ACCESIBLES === */
+.error-indicator-accessible {
+  position: relative;
+}
+
+.error-indicator-accessible::before {
+  content: '⚠';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-error-500);
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* === TABLAS ACCESIBLES === */
+.table-accessible {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--color-neutral-300);
+}
+
+.table-accessible th,
+.table-accessible td {
+  padding: var(--space-3);
+  text-align: left;
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.table-accessible th {
+  background-color: var(--color-neutral-50);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-800);
+  border-bottom: 2px solid var(--color-neutral-300);
+}
+
+.table-accessible tbody tr:hover {
+  background-color: var(--color-neutral-25);
+}
+
+.table-accessible tbody tr:focus-within {
+  background-color: var(--color-primary-25);
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: -2px;
+}
+
+/* === LISTAS ACCESIBLES === */
+.list-accessible {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list-item-accessible {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--color-neutral-200);
+  transition: background-color var(--duration-200) var(--ease-out);
+}
+
+.list-item-accessible:hover,
+.list-item-accessible:focus-within {
+  background-color: var(--color-neutral-50);
+}
+
+.list-item-accessible:last-child {
+  border-bottom: none;
+}
+
+/* Para listas ordenadas accesibles */
+.ordered-list-accessible {
+  counter-reset: list-counter;
+  list-style: none;
+  padding-left: 0;
+}
+
+.ordered-list-accessible li {
+  counter-increment: list-counter;
+  position: relative;
+  padding-left: var(--space-8);
+  margin-bottom: var(--space-2);
+}
+
+.ordered-list-accessible li::before {
+  content: counter(list-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--color-primary-500);
+  color: white;
+  width: var(--space-6);
+  height: var(--space-6);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+}
+
+/* === BREADCRUMBS ACCESIBLES === */
+.breadcrumb-accessible {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: var(--font-size-sm);
+}
+
+.breadcrumb-item-accessible {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-item-accessible:not(:last-child)::after {
+  content: '/';
+  margin: 0 var(--space-2);
+  color: var(--color-neutral-400);
+  font-weight: var(--font-weight-normal);
+}
+
+.breadcrumb-link-accessible {
+  color: var(--color-primary-600);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.breadcrumb-link-accessible:hover,
+.breadcrumb-link-accessible:focus {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-700);
+  text-decoration: underline;
+}
+
+.breadcrumb-current-accessible {
+  color: var(--color-neutral-600);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-1) var(--space-2);
+}
+
+/* === ALERTAS ACCESIBLES === */
+.alert-accessible {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border-left: 4px solid;
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.alert-info-accessible {
+  background-color: var(--color-info-50);
+  border-color: var(--color-info-500);
+  color: var(--color-info-800);
+}
+
+.alert-success-accessible {
+  background-color: var(--color-success-50);
+  border-color: var(--color-success-500);
+  color: var(--color-success-800);
+}
+
+.alert-warning-accessible {
+  background-color: var(--color-warning-50);
+  border-color: var(--color-warning-500);
+  color: var(--color-warning-800);
+}
+
+.alert-error-accessible {
+  background-color: var(--color-error-50);
+  border-color: var(--color-error-500);
+  color: var(--color-error-800);
+}
+
+.alert-icon-accessible {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.alert-content-accessible {
+  flex: 1;
+}
+
+.alert-title-accessible {
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-1);
+}
+
+.alert-description-accessible {
+  margin: 0;
+  line-height: var(--line-height-relaxed);
+}
+
+/* === ACORDEÓN ACCESIBLE === */
+.accordion-accessible {
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.accordion-item-accessible {
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.accordion-item-accessible:last-child {
+  border-bottom: none;
+}
+
+.accordion-button-accessible {
+  width: 100%;
+  padding: var(--space-4);
+  background-color: var(--color-neutral-0);
+  border: none;
+  text-align: left;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color var(--duration-200) var(--ease-out);
+}
+
+.accordion-button-accessible:hover,
+.accordion-button-accessible:focus {
+  background-color: var(--color-neutral-50);
+}
+
+.accordion-button-accessible[aria-expanded="true"] {
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-800);
+}
+
+.accordion-icon-accessible {
+  transition: transform var(--duration-200) var(--ease-out);
+}
+
+.accordion-button-accessible[aria-expanded="true"] .accordion-icon-accessible {
+  transform: rotate(180deg);
+}
+
+.accordion-content-accessible {
+  padding: var(--space-4);
+  background-color: var(--color-neutral-25);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+/* === TABS ACCESIBLES === */
+.tabs-accessible {
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.tab-list-accessible {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: var(--space-2);
+}
+
+.tab-button-accessible {
+  padding: var(--space-3) var(--space-4);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-neutral-600);
+  transition: all var(--duration-200) var(--ease-out);
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.tab-button-accessible:hover,
+.tab-button-accessible:focus {
+  color: var(--color-primary-600);
+  background-color: var(--color-primary-25);
+}
+
+.tab-button-accessible[aria-selected="true"] {
+  color: var(--color-primary-700);
+  border-bottom-color: var(--color-primary-500);
+  background-color: var(--color-primary-50);
+}
+
+.tab-panel-accessible {
+  padding: var(--space-6) var(--space-4);
+}
+
+/* === UTILIDADES PARA LECTORES DE PANTALLA === */
+.announce-polite {
+  /* Para anuncios no urgentes */
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.announce-assertive {
+  /* Para anuncios urgentes */
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* === ESTADOS ARIA === */
+[aria-busy="true"] {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+[aria-hidden="true"] {
+  display: none !important;
+}
+
+[aria-expanded="false"] + * {
+  display: none;
+}
+
+[aria-expanded="true"] + * {
+  display: block;
+}
+
+/* === RESPONSIVE ACCESSIBILITY === */
+@media (max-width: 768px) {
+  .btn-accessible,
+  .input-accessible,
+  .nav-link-accessible {
+    min-height: 48px; /* Área de toque más grande en móvil */
+  }
+  
+  .modal-content-accessible {
+    margin: var(--space-2);
+    max-width: calc(100vw - var(--space-4));
+  }
+  
+  .tooltip-content-accessible {
+    position: fixed;
+    bottom: var(--space-4);
+    left: var(--space-4);
+    right: var(--space-4);
+    transform: none;
+    white-space: normal;
+  }
+}
+
+/* === IMPRESIÓN ACCESIBLE === */
+@media print {
+  .skip-link,
+  .tooltip-accessible,
+  .modal-overlay-accessible,
+  .loading-accessible::after {
+    display: none !important;
+  }
+  
+  .btn-accessible,
+  .nav-link-accessible,
+  .card-accessible {
+    border: 1px solid black !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .alert-accessible {
+    border: 2px solid black !important;
+    background: white !important;
+    color: black !important;
+  }
+}

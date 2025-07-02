@@ -1,0 +1,157 @@
+{
+  "name": "Community Stories Platform",
+  "short_name": "Community Stories",
+  "description": "El Netflix de las narrativas comunitarias con sistema de patrocinio integrado",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#1a1a2e",
+  "background_color": "#ffffff",
+  "lang": "es",
+  "scope": "/",
+  "categories": ["social", "education", "lifestyle"],
+  "icons": [
+    {
+      "src": "/assets/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/desktop-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Vista principal en escritorio"
+    },
+    {
+      "src": "/assets/screenshots/mobile-narrow.png",
+      "sizes": "320x640",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Vista principal en móvil"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Explorar Historias",
+      "short_name": "Historias",
+      "description": "Navegar las narrativas comunitarias disponibles",
+      "url": "/#stories",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-stories.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Panel Patrocinadores",
+      "short_name": "Dashboard",
+      "description": "Acceder al panel de patrocinadores",
+      "url": "/sponsors/dashboard",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-sponsors.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Donar Ahora",
+      "short_name": "Donar",
+      "description": "Apoyar a las comunidades directamente",
+      "url": "/#support",
+      "icons": [
+        {
+          "src": "/assets/icons/shortcut-donate.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "share_target": {
+    "action": "/share",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "media",
+          "accept": ["image/*", "video/*", "audio/*"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+communitystories",
+      "url": "/story?id=%s"
+    }
+  ],
+  "file_handlers": [
+    {
+      "action": "/import",
+      "accept": {
+        "application/json": [".json"],
+        "text/csv": [".csv"],
+        "application/vnd.ms-excel": [".xlsx"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Página principal -->
+  <url>
+    <loc>https://communitystories.platform/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://communitystories.platform/assets/images/og-image.jpg</image:loc>
+      <image:title>Community Stories Platform - Narrativas que Transforman</image:title>
+      <image:caption>El Netflix de las narrativas comunitarias con sistema de patrocinio integrado</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Secciones principales -->
+  <url>
+    <loc>https://communitystories.platform/stories/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/communities/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/sponsors/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/impact/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Historias destacadas (ejemplo) -->
+  <url>
+    <loc>https://communitystories.platform/stories/costa-rica-renewable-village/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://communitystories.platform/assets/images/stories/costa-rica-village-hero.jpg</image:loc>
+      <image:title>Pueblo Renovable de Costa Rica</image:title>
+      <image:caption>La transformación energética de una comunidad rural</image:caption>
+    </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://communitystories.platform/assets/video/costa-rica-thumb.jpg</video:thumbnail_loc>
+      <video:title>Costa Rica: De la Pobreza Energética a la Autosuficiencia</video:title>
+      <video:description>Documenta la transformación de una comunidad rural que logró la autosuficiencia energética</video:description>
+      <video:content_loc>https://communitystories.platform/assets/video/costa-rica-story.mp4</video:content_loc>
+      <video:duration>420</video:duration>
+      <video:publication_date>2025-01-01T00:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/stories/philippines-education-boat/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://communitystories.platform/assets/images/stories/philippines-boat-hero.jpg</image:loc>
+      <image:title>Barco Escuela de Filipinas</image:title>
+      <image:caption>Educación flotante para comunidades remotas</image:caption>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/stories/kenya-water-innovation/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://communitystories.platform/assets/images/stories/kenya-water-hero.jpg</image:loc>
+      <image:title>Innovación Hídrica en Kenia</image:title>
+      <image:caption>Tecnología solar para acceso al agua limpia</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Páginas informativas -->
+  <url>
+    <loc>https://communitystories.platform/about/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/how-it-works/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/pricing/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/submit-story/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/resources/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/case-studies/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/contact/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <!-- Páginas legales -->
+  <url>
+    <loc>https://communitystories.platform/privacy/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/terms/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/cookies/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  
+  <!-- Comunidades específicas -->
+  <url>
+    <loc>https://communitystories.platform/communities/rural-development/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/communities/renewable-energy/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/communities/education-access/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/communities/water-sanitation/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Páginas de patrocinadores -->
+  <url>
+    <loc>https://communitystories.platform/sponsors/tiers/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/sponsors/benefits/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://communitystories.platform/sponsors/analytics/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

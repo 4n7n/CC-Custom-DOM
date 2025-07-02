@@ -1,0 +1,185 @@
+{
+  "version": 2,
+  "name": "community-stories-platform",
+  "alias": ["communitystories.platform", "stories.community"],
+  
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  
+  "framework": null,
+  
+  "public": true,
+  
+  "github": {
+    "enabled": true,
+    "autoAlias": true,
+    "silent": true,
+    "autoJobCancelation": true
+  },
+  
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/js/(.*).js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/css/(.*).css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.json",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        }
+      ]
+    }
+  ],
+  
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/story/:path*",
+      "destination": "/stories/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/donate/:path*",
+      "destination": "/support/:path*",
+      "permanent": false
+    }
+  ],
+  
+  "functions": {
+    "api/stories.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "api/sponsors.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "api/analytics.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    },
+    "api/donations.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  
+  "env": {
+    "NODE_ENV": "production",
+    "API_URL": "https://api.communitystories.platform",
+    "CDN_URL": "https://cdn.communitystories.platform",
+    "STRIPE_PUBLIC_KEY": "@stripe_public_key",
+    "ANALYTICS_ID": "@analytics_id",
+    "SENTRY_DSN": "@sentry_dsn"
+  },
+  
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "GENERATE_SOURCEMAP": "true",
+      "INLINE_RUNTIME_CHUNK": "false",
+      "IMAGE_INLINE_SIZE_LIMIT": "10000"
+    }
+  },
+  
+  "regions": ["iad1", "sfo1", "cdg1"],
+  
+  "trailingSlash": false,
+  
+  "cleanUrls": true,
+  
+  "crons": [
+    {
+      "path": "/api/cron/analytics",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/cron/backup",
+      "schedule": "0 3 * * *"
+    }
+  ]
+}
