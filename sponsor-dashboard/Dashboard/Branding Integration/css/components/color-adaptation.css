@@ -1,0 +1,575 @@
+/* ===================================
+   COLOR ADAPTATION SYSTEM
+   Sistema dinámico de adaptación de colores para marcas patrocinadoras
+   =================================== */
+
+/* Variables base del sistema de colores */
+:root {
+  /* Colores neutros del sistema */
+  --system-white: #ffffff;
+  --system-black: #000000;
+  --system-gray-50: #f9fafb;
+  --system-gray-100: #f3f4f6;
+  --system-gray-200: #e5e7eb;
+  --system-gray-300: #d1d5db;
+  --system-gray-400: #9ca3af;
+  --system-gray-500: #6b7280;
+  --system-gray-600: #4b5563;
+  --system-gray-700: #374151;
+  --system-gray-800: #1f2937;
+  --system-gray-900: #111827;
+
+  /* Variables dinámicas para adaptación de marca */
+  --brand-primary: #3b82f6;
+  --brand-secondary: #1e40af;
+  --brand-accent: #60a5fa;
+  --brand-light: #dbeafe;
+  --brand-dark: #1d4ed8;
+  
+  /* Valores derivados automáticamente */
+  --brand-primary-rgb: 59, 130, 246;
+  --brand-secondary-rgb: 30, 64, 175;
+  --brand-accent-rgb: 96, 165, 250;
+  
+  /* Opacidades estándar */
+  --opacity-subtle: 0.05;
+  --opacity-light: 0.1;
+  --opacity-medium: 0.2;
+  --opacity-strong: 0.3;
+  --opacity-bold: 0.5;
+  
+  /* Configuración de contraste automático */
+  --contrast-threshold: 0.5;
+  --text-on-brand: var(--system-white);
+  --text-on-brand-light: var(--system-gray-800);
+}
+
+/* ===================================
+   SISTEMA DE ADAPTACIÓN AUTOMÁTICA
+   =================================== */
+
+/* Contenedor principal con adaptación de color */
+.color-adaptive {
+  --current-brand: var(--brand-primary);
+  --current-contrast: var(--text-on-brand);
+  color: var(--current-contrast);
+  transition: all 0.3s ease;
+}
+
+/* Detectar luminosidad y ajustar contraste automáticamente */
+.color-adaptive.light-brand {
+  --current-contrast: var(--system-gray-800);
+}
+
+.color-adaptive.dark-brand {
+  --current-contrast: var(--system-white);
+}
+
+/* ===================================
+   ESQUEMAS DE COLOR PREDEFINIDOS
+   =================================== */
+
+/* Esquema Azul Corporativo */
+.color-scheme-corporate-blue {
+  --brand-primary: #1e40af;
+  --brand-secondary: #1d4ed8;
+  --brand-accent: #3b82f6;
+  --brand-light: #dbeafe;
+  --brand-dark: #1e3a8a;
+  --brand-primary-rgb: 30, 64, 175;
+}
+
+/* Esquema Verde Sostenible */
+.color-scheme-sustainable-green {
+  --brand-primary: #059669;
+  --brand-secondary: #047857;
+  --brand-accent: #10b981;
+  --brand-light: #d1fae5;
+  --brand-dark: #064e3b;
+  --brand-primary-rgb: 5, 150, 105;
+}
+
+/* Esquema Naranja Energético */
+.color-scheme-energetic-orange {
+  --brand-primary: #ea580c;
+  --brand-secondary: #c2410c;
+  --brand-accent: #fb923c;
+  --brand-light: #fed7aa;
+  --brand-dark: #9a3412;
+  --brand-primary-rgb: 234, 88, 12;
+}
+
+/* Esquema Púrpura Innovación */
+.color-scheme-innovation-purple {
+  --brand-primary: #7c3aed;
+  --brand-secondary: #6d28d9;
+  --brand-accent: #8b5cf6;
+  --brand-light: #e9d5ff;
+  --brand-dark: #5b21b6;
+  --brand-primary-rgb: 124, 58, 237;
+}
+
+/* Esquema Rosa Empático */
+.color-scheme-empathetic-pink {
+  --brand-primary: #ec4899;
+  --brand-secondary: #db2777;
+  --brand-accent: #f472b6;
+  --brand-light: #fce7f3;
+  --brand-dark: #be185d;
+  --brand-primary-rgb: 236, 72, 153;
+}
+
+/* Esquema Teal Tecnológico */
+.color-scheme-tech-teal {
+  --brand-primary: #0891b2;
+  --brand-secondary: #0e7490;
+  --brand-accent: #06b6d4;
+  --brand-light: #cffafe;
+  --brand-dark: #164e63;
+  --brand-primary-rgb: 8, 145, 178;
+}
+
+/* Esquema Rojo Impacto */
+.color-scheme-impact-red {
+  --brand-primary: #dc2626;
+  --brand-secondary: #b91c1c;
+  --brand-accent: #ef4444;
+  --brand-light: #fee2e2;
+  --brand-dark: #991b1b;
+  --brand-primary-rgb: 220, 38, 38;
+}
+
+/* Esquema Amarillo Optimista */
+.color-scheme-optimistic-yellow {
+  --brand-primary: #d97706;
+  --brand-secondary: #b45309;
+  --brand-accent: #f59e0b;
+  --brand-light: #fed7aa;
+  --brand-dark: #92400e;
+  --brand-primary-rgb: 217, 119, 6;
+  --text-on-brand: var(--system-gray-800);
+}
+
+/* ===================================
+   APLICACIÓN DE COLORES ADAPTATIVOS
+   =================================== */
+
+/* Fondos principales */
+.bg-brand-primary {
+  background-color: var(--brand-primary);
+  color: var(--text-on-brand);
+}
+
+.bg-brand-secondary {
+  background-color: var(--brand-secondary);
+  color: var(--text-on-brand);
+}
+
+.bg-brand-accent {
+  background-color: var(--brand-accent);
+  color: var(--text-on-brand);
+}
+
+.bg-brand-light {
+  background-color: var(--brand-light);
+  color: var(--text-on-brand-light);
+}
+
+.bg-brand-dark {
+  background-color: var(--brand-dark);
+  color: var(--text-on-brand);
+}
+
+/* Fondos con opacidad */
+.bg-brand-subtle {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-subtle));
+  color: var(--brand-dark);
+}
+
+.bg-brand-light-opacity {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-light));
+  color: var(--brand-dark);
+}
+
+.bg-brand-medium-opacity {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-medium));
+  color: var(--brand-dark);
+}
+
+.bg-brand-strong-opacity {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-strong));
+  color: var(--text-on-brand);
+}
+
+/* Gradientes adaptativos */
+.bg-brand-gradient-primary {
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
+  color: var(--text-on-brand);
+}
+
+.bg-brand-gradient-accent {
+  background: linear-gradient(135deg, var(--brand-accent), var(--brand-primary));
+  color: var(--text-on-brand);
+}
+
+.bg-brand-gradient-soft {
+  background: linear-gradient(135deg, var(--brand-light), var(--brand-accent));
+  color: var(--text-on-brand-light);
+}
+
+.bg-brand-gradient-radial {
+  background: radial-gradient(circle, var(--brand-primary), var(--brand-dark));
+  color: var(--text-on-brand);
+}
+
+/* ===================================
+   TEXTOS Y ELEMENTOS ADAPTATIVOS
+   =================================== */
+
+/* Colores de texto */
+.text-brand-primary {
+  color: var(--brand-primary);
+}
+
+.text-brand-secondary {
+  color: var(--brand-secondary);
+}
+
+.text-brand-accent {
+  color: var(--brand-accent);
+}
+
+.text-brand-dark {
+  color: var(--brand-dark);
+}
+
+/* Bordes adaptativos */
+.border-brand-primary {
+  border-color: var(--brand-primary);
+}
+
+.border-brand-secondary {
+  border-color: var(--brand-secondary);
+}
+
+.border-brand-accent {
+  border-color: var(--brand-accent);
+}
+
+.border-brand-light {
+  border-color: var(--brand-light);
+}
+
+/* Bordes con opacidad */
+.border-brand-subtle {
+  border-color: rgba(var(--brand-primary-rgb), var(--opacity-medium));
+}
+
+.border-brand-strong {
+  border-color: rgba(var(--brand-primary-rgb), var(--opacity-bold));
+}
+
+/* ===================================
+   EFECTOS VISUALES ADAPTATIVOS
+   =================================== */
+
+/* Sombras con color de marca */
+.shadow-brand-sm {
+  box-shadow: 0 1px 2px rgba(var(--brand-primary-rgb), 0.1);
+}
+
+.shadow-brand-md {
+  box-shadow: 0 4px 6px rgba(var(--brand-primary-rgb), 0.1);
+}
+
+.shadow-brand-lg {
+  box-shadow: 0 10px 15px rgba(var(--brand-primary-rgb), 0.1);
+}
+
+.shadow-brand-xl {
+  box-shadow: 0 20px 25px rgba(var(--brand-primary-rgb), 0.15);
+}
+
+/* Efectos glow */
+.glow-brand-soft {
+  box-shadow: 0 0 20px rgba(var(--brand-primary-rgb), 0.3);
+}
+
+.glow-brand-medium {
+  box-shadow: 0 0 30px rgba(var(--brand-primary-rgb), 0.4);
+}
+
+.glow-brand-strong {
+  box-shadow: 0 0 40px rgba(var(--brand-primary-rgb), 0.5);
+}
+
+/* Efectos hover adaptativos */
+.hover-brand-primary:hover {
+  background-color: var(--brand-primary);
+  color: var(--text-on-brand);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--brand-primary-rgb), 0.3);
+}
+
+.hover-brand-accent:hover {
+  background-color: var(--brand-accent);
+  color: var(--text-on-brand);
+  box-shadow: 0 4px 15px rgba(var(--brand-accent-rgb), 0.4);
+}
+
+.hover-brand-glow:hover {
+  box-shadow: 0 0 30px rgba(var(--brand-primary-rgb), 0.6);
+  transform: scale(1.02);
+}
+
+/* ===================================
+   COMPONENTES ESPECÍFICOS
+   =================================== */
+
+/* Botones adaptativos */
+.btn-brand-primary {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: var(--text-on-brand);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-primary:hover {
+  background-color: var(--brand-secondary);
+  border-color: var(--brand-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(var(--brand-primary-rgb), 0.3);
+}
+
+.btn-brand-outline {
+  background-color: transparent;
+  border: 2px solid var(--brand-primary);
+  color: var(--brand-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-outline:hover {
+  background-color: var(--brand-primary);
+  color: var(--text-on-brand);
+  box-shadow: 0 4px 15px rgba(var(--brand-primary-rgb), 0.3);
+}
+
+.btn-brand-ghost {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-light));
+  border: none;
+  color: var(--brand-primary);
+  transition: all 0.3s ease;
+}
+
+.btn-brand-ghost:hover {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-medium));
+  color: var(--brand-dark);
+}
+
+/* Cards adaptativos */
+.card-brand {
+  background: var(--system-white);
+  border: 1px solid rgba(var(--brand-primary-rgb), var(--opacity-light));
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.card-brand:hover {
+  border-color: rgba(var(--brand-primary-rgb), var(--opacity-strong));
+  box-shadow: 0 8px 25px rgba(var(--brand-primary-rgb), 0.15);
+  transform: translateY(-4px);
+}
+
+.card-brand-featured {
+  background: linear-gradient(135deg, var(--brand-light), var(--system-white));
+  border: 2px solid var(--brand-accent);
+  box-shadow: 0 8px 25px rgba(var(--brand-primary-rgb), 0.2);
+}
+
+/* Badges adaptativos */
+.badge-brand {
+  background-color: var(--brand-primary);
+  color: var(--text-on-brand);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-brand-outline {
+  background-color: transparent;
+  border: 1px solid var(--brand-primary);
+  color: var(--brand-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-brand-soft {
+  background-color: rgba(var(--brand-primary-rgb), var(--opacity-light));
+  color: var(--brand-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ===================================
+   ANIMACIONES PERSONALIZADAS
+   =================================== */
+
+/* Animación de pulso con color de marca */
+@keyframes brandPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(var(--brand-primary-rgb), 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(var(--brand-primary-rgb), 0);
+  }
+}
+
+.animate-brand-pulse {
+  animation: brandPulse 2s infinite;
+}
+
+/* Animación de onda con color de marca */
+@keyframes brandWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-brand-wave {
+  background: linear-gradient(
+    270deg,
+    var(--brand-primary),
+    var(--brand-accent),
+    var(--brand-secondary),
+    var(--brand-primary)
+  );
+  background-size: 400% 400%;
+  animation: brandWave 3s ease infinite;
+}
+
+/* ===================================
+   UTILIDADES DE CONTRASTE
+   =================================== */
+
+/* Detectar contraste automáticamente */
+.auto-contrast {
+  color: var(--text-on-brand);
+}
+
+.auto-contrast-light {
+  color: var(--text-on-brand-light);
+}
+
+/* Forzar contraste específico */
+.force-light-text {
+  color: var(--system-white) !important;
+}
+
+.force-dark-text {
+  color: var(--system-gray-800) !important;
+}
+
+/* ===================================
+   MODOS ESPECIALES
+   =================================== */
+
+/* Modo alto contraste */
+.high-contrast {
+  --opacity-subtle: 0.15;
+  --opacity-light: 0.25;
+  --opacity-medium: 0.4;
+  --opacity-strong: 0.6;
+  --opacity-bold: 0.8;
+}
+
+/* Modo suave */
+.soft-mode {
+  --opacity-subtle: 0.03;
+  --opacity-light: 0.06;
+  --opacity-medium: 0.12;
+  --opacity-strong: 0.18;
+  --opacity-bold: 0.25;
+}
+
+/* Modo monocromático */
+.monochrome-mode {
+  --brand-primary: var(--system-gray-600);
+  --brand-secondary: var(--system-gray-700);
+  --brand-accent: var(--system-gray-500);
+  --brand-light: var(--system-gray-100);
+  --brand-dark: var(--system-gray-800);
+  --brand-primary-rgb: 107, 114, 128;
+}
+
+/* ===================================
+   RESPONSIVIDAD
+   =================================== */
+
+@media (max-width: 768px) {
+  .color-adaptive {
+    --opacity-subtle: 0.08;
+    --opacity-light: 0.15;
+    --opacity-medium: 0.25;
+  }
+  
+  .shadow-brand-lg {
+    box-shadow: 0 8px 12px rgba(var(--brand-primary-rgb), 0.1);
+  }
+  
+  .shadow-brand-xl {
+    box-shadow: 0 15px 20px rgba(var(--brand-primary-rgb), 0.12);
+  }
+}
+
+/* ===================================
+   MODO OSCURO
+   =================================== */
+
+@media (prefers-color-scheme: dark) {
+  .color-adaptive {
+    --system-gray-50: #111827;
+    --system-gray-100: #1f2937;
+    --system-gray-200: #374151;
+    --system-gray-300: #4b5563;
+    --system-gray-700: #d1d5db;
+    --system-gray-800: #e5e7eb;
+    --system-gray-900: #f9fafb;
+  }
+  
+  .card-brand {
+    background: var(--system-gray-100);
+    border-color: rgba(var(--brand-primary-rgb), var(--opacity-medium));
+  }
+}
+
+/* ===================================
+   MODO IMPRESIÓN
+   =================================== */
+
+@media print {
+  .color-adaptive,
+  .bg-brand-primary,
+  .bg-brand-secondary,
+  .bg-brand-accent {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+  
+  .border-brand-primary,
+  .border-brand-secondary,
+  .border-brand-accent {
+    border-color: black !important;
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "tiers": {
+    "platinum": {
+      "id": "platinum",
+      "name": "Patrocinador Platino",
+      "displayName": "Platinum",
+      "minAmount": 50000,
+      "maxAmount": null,
+      "color": "#9333ea",
+      "backgroundColor": "#faf5ff",
+      "borderColor": "#c084fc",
+      "icon": "👑",
+      "priority": 1,
+      "visibility": "high",
+      "benefits": [
+        "Logo prominente en página principal",
+        "Mención en todos los eventos",
+        "Reporte mensual personalizado",
+        "Acceso VIP a eventos exclusivos",
+        "Sesiones privadas con liderazgo",
+        "Co-branding en materiales principales"
+      ],
+      "recognition": {
+        "badge": "👑 Patrocinador Platino",
+        "publicRecognition": true,
+        "featuredPlacement": true,
+        "dedicatedPage": true
+      },
+      "reporting": {
+        "frequency": "monthly",
+        "detailLevel": "comprehensive",
+        "customMetrics": true,
+        "executiveSummary": true
+      },
+      "support": {
+        "dedicatedManager": true,
+        "prioritySupport": true,
+        "customRequests": true
+      }
+    },
+    "gold": {
+      "id": "gold",
+      "name": "Patrocinador Oro",
+      "displayName": "Gold",
+      "minAmount": 25000,
+      "maxAmount": 49999,
+      "color": "#f59e0b",
+      "backgroundColor": "#fffbeb",
+      "borderColor": "#fcd34d",
+      "icon": "🥇",
+      "priority": 2,
+      "visibility": "high",
+      "benefits": [
+        "Logo en materiales principales",
+        "Newsletter mensual",
+        "Acceso a eventos anuales",
+        "Reporte trimestral",
+        "Mención en redes sociales",
+        "Networking con otros patrocinadores"
+      ],
+      "recognition": {
+        "badge": "🥇 Patrocinador Oro",
+        "publicRecognition": true,
+        "featuredPlacement": true,
+        "dedicatedPage": false
+      },
+      "reporting": {
+        "frequency": "quarterly",
+        "detailLevel": "detailed",
+        "customMetrics": false,
+        "executiveSummary": true
+      },
+      "support": {
+        "dedicatedManager": false,
+        "prioritySupport": true,
+        "customRequests": false
+      }
+    },
+    "silver": {
+      "id": "silver",
+      "name": "Patrocinador Plata",
+      "displayName": "Silver",
+      "minAmount": 10000,
+      "maxAmount": 24999,
+      "color": "#64748b",
+      "backgroundColor": "#f8fafc",
+      "borderColor": "#cbd5e1",
+      "icon": "🥈",
+      "priority": 3,
+      "visibility": "medium",
+      "benefits": [
+        "Logo en página de patrocinadores",
+        "Mención en newsletter",
+        "Reporte semestral",
+        "Acceso a evento anual",
+        "Certificado de reconocimiento"
+      ],
+      "recognition": {
+        "badge": "🥈 Patrocinador Plata",
+        "publicRecognition": true,
+        "featuredPlacement": false,
+        "dedicatedPage": false
+      },
+      "reporting": {
+        "frequency": "biannual",
+        "detailLevel": "standard",
+        "customMetrics": false,
+        "executiveSummary": false
+      },
+      "support": {
+        "dedicatedManager": false,
+        "prioritySupport": false,
+        "customRequests": false
+      }
+    },
+    "bronze": {
+      "id": "bronze",
+      "name": "Patrocinador Bronce",
+      "displayName": "Bronze",
+      "minAmount": 5000,
+      "maxAmount": 9999,
+      "color": "#dc2626",
+      "backgroundColor": "#fef2f2",
+      "borderColor": "#fca5a5",
+      "icon": "🥉",
+      "priority": 4,
+      "visibility": "medium",
+      "benefits": [
+        "Mención en página web",
+        "Reporte anual",
+        "Certificado de agradecimiento",
+        "Invitación a evento anual"
+      ],
+      "recognition": {
+        "badge": "🥉 Patrocinador Bronce",
+        "publicRecognition": true,
+        "featuredPlacement": false,
+        "dedicatedPage": false
+      },
+      "reporting": {
+        "frequency": "annual",
+        "detailLevel": "basic",
+        "customMetrics": false,
+        "executiveSummary": false
+      },
+      "support": {
+        "dedicatedManager": false,
+        "prioritySupport": false,
+        "customRequests": false
+      }
+    },
+    "supporter": {
+      "id": "supporter",
+      "name": "Colaborador",
+      "displayName": "Supporter",
+      "minAmount": 1000,
+      "maxAmount": 4999,
+      "color": "#6b7280",
+      "backgroundColor": "#f9fafb",
+      "borderColor": "#d1d5db",
+      "icon": "🤝",
+      "priority": 5,
+      "visibility": "low",
+      "benefits": [
+        "Mención en lista de colaboradores",
+        "Reporte anual general",
+        "Invitación a evento comunitario"
+      ],
+      "recognition": {
+        "badge": "🤝 Colaborador",
+        "publicRecognition": true,
+        "featuredPlacement": false,
+        "dedicatedPage": false
+      },
+      "reporting": {
+        "frequency": "annual",
+        "detailLevel": "summary",
+        "customMetrics": false,
+        "executiveSummary": false
+      },
+      "support": {
+        "dedicatedManager": false,
+        "prioritySupport": false,
+        "customRequests": false
+      }
+    }
+  },
+  "tierProgression": {
+    "autoUpgrade": true,
+    "gracePeriod": 30,
+    "notificationDays": [30, 15, 7, 1],
+    "upgradeBenefits": {
+      "immediate": true,
+      "retroactive": false
+    }
+  },
+  "customTiers": {
+    "enabled": true,
+    "requireApproval": true,
+    "minimumAmount": 100000,
+    "maxCustomTiers": 3
+  },
+  "tierMetrics": {
+    "trackingEnabled": true,
+    "metricsToTrack": [
+      "engagement",
+      "reach",
+      "conversion",
+      "satisfaction",
+      "retention"
+    ],
+    "benchmarkComparison": true
+  },
+  "displaySettings": {
+    "showAmountRanges": false,
+    "showBenefitCount": true,
+    "animateTransitions": true,
+    "sortBy": "priority",
+    "groupSimilarTiers": false
+  },
+  "notifications": {
+    "tierUpgrade": {
+      "enabled": true,
+      "template": "tier_upgrade",
+      "delay": 0
+    },
+    "tierDowngrade": {
+      "enabled": true,
+      "template": "tier_downgrade",
+      "delay": 24
+    },
+    "renewalReminder": {
+      "enabled": true,
+      "template": "renewal_reminder",
+      "daysBefore": [30, 15, 7]
+    }
+  },
+  "lastUpdated": "2024-01-15T10:30:00Z",
+  "version": "1.2.0"
+}

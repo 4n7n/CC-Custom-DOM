@@ -1,0 +1,604 @@
+/* ===================================
+   SPONSOR RECOGNITION STYLES
+   Sistema de reconocimiento visual para patrocinadores
+   =================================== */
+
+/* Variables de reconocimiento por tier */
+:root {
+  /* Colores de tiers */
+  --platinum-primary: linear-gradient(135deg, #e5e7eb 0%, #f9fafb 50%, #e5e7eb 100%);
+  --platinum-accent: #6b7280;
+  --platinum-glow: rgba(107, 114, 128, 0.3);
+  
+  --gold-primary: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  --gold-accent: #92400e;
+  --gold-glow: rgba(251, 191, 36, 0.4);
+  
+  --silver-primary: linear-gradient(135deg, #d1d5db 0%, #9ca3af 50%, #6b7280 100%);
+  --silver-accent: #374151;
+  --silver-glow: rgba(156, 163, 175, 0.3);
+  
+  --bronze-primary: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #c2410c 100%);
+  --bronze-accent: #9a3412;
+  --bronze-glow: rgba(249, 115, 22, 0.3);
+  
+  /* Animaciones */
+  --recognition-duration: 0.8s;
+  --glow-intensity: 0 0 20px;
+  --shimmer-duration: 2.5s;
+}
+
+/* ===================================
+   CONTENEDOR PRINCIPAL DE RECONOCIMIENTO
+   =================================== */
+
+.sponsor-recognition {
+  position: relative;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transition: all var(--recognition-duration) ease;
+  overflow: hidden;
+}
+
+.sponsor-recognition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.4), 
+    transparent
+  );
+  transition: left var(--shimmer-duration) ease;
+}
+
+.sponsor-recognition:hover::before {
+  left: 100%;
+}
+
+/* ===================================
+   TIERS DE RECONOCIMIENTO
+   =================================== */
+
+/* Platinum Tier */
+.sponsor-recognition.tier-platinum {
+  background: var(--platinum-primary);
+  border: 3px solid var(--platinum-accent);
+  box-shadow: 
+    0 15px 35px rgba(107, 114, 128, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.sponsor-recognition.tier-platinum:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    var(--glow-intensity) var(--platinum-glow),
+    0 20px 40px rgba(107, 114, 128, 0.3);
+}
+
+.sponsor-recognition.tier-platinum .tier-badge {
+  background: var(--platinum-accent);
+  color: white;
+}
+
+/* Gold Tier */
+.sponsor-recognition.tier-gold {
+  background: var(--gold-primary);
+  border: 3px solid var(--gold-accent);
+  box-shadow: 
+    0 15px 35px rgba(251, 191, 36, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.sponsor-recognition.tier-gold:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    var(--glow-intensity) var(--gold-glow),
+    0 20px 40px rgba(251, 191, 36, 0.3);
+}
+
+.sponsor-recognition.tier-gold .tier-badge {
+  background: var(--gold-accent);
+  color: white;
+}
+
+/* Silver Tier */
+.sponsor-recognition.tier-silver {
+  background: var(--silver-primary);
+  border: 2px solid var(--silver-accent);
+  box-shadow: 
+    0 12px 30px rgba(156, 163, 175, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.sponsor-recognition.tier-silver:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    var(--glow-intensity) var(--silver-glow),
+    0 18px 35px rgba(156, 163, 175, 0.25);
+}
+
+.sponsor-recognition.tier-silver .tier-badge {
+  background: var(--silver-accent);
+  color: white;
+}
+
+/* Bronze Tier */
+.sponsor-recognition.tier-bronze {
+  background: var(--bronze-primary);
+  border: 2px solid var(--bronze-accent);
+  box-shadow: 
+    0 10px 25px rgba(249, 115, 22, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.sponsor-recognition.tier-bronze:hover {
+  transform: translateY(-3px) scale(1.005);
+  box-shadow: 
+    var(--glow-intensity) var(--bronze-glow),
+    0 15px 30px rgba(249, 115, 22, 0.25);
+}
+
+.sponsor-recognition.tier-bronze .tier-badge {
+  background: var(--bronze-accent);
+  color: white;
+}
+
+/* ===================================
+   ELEMENTOS DE RECONOCIMIENTO
+   =================================== */
+
+/* Header de reconocimiento */
+.recognition-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.sponsor-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1f2937;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  margin: 0;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tier-badge::before {
+  content: '★';
+  font-size: 1rem;
+}
+
+.tier-badge.platinum::before {
+  content: '♦';
+}
+
+.tier-badge.gold::before {
+  content: '★';
+}
+
+.tier-badge.silver::before {
+  content: '◈';
+}
+
+.tier-badge.bronze::before {
+  content: '●';
+}
+
+/* Métricas de impacto destacadas */
+.impact-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.impact-metric {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.impact-metric:hover {
+  transform: translateY(-3px);
+}
+
+.impact-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1f2937;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.impact-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===================================
+   CERTIFICADOS Y RECONOCIMIENTOS
+   =================================== */
+
+.recognition-certificate {
+  position: relative;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  text-align: center;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.recognition-certificate::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 16px;
+  background: linear-gradient(45deg, 
+    #fbbf24, #f59e0b, #d97706, #92400e, 
+    #fbbf24, #f59e0b, #d97706, #92400e
+  );
+  background-size: 400% 400%;
+  animation: certificateBorder var(--shimmer-duration) ease infinite;
+  z-index: -1;
+}
+
+@keyframes certificateBorder {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.certificate-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.certificate-description {
+  color: #6b7280;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.certificate-seal {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: radial-gradient(circle, #fbbf24, #f59e0b);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3);
+}
+
+/* ===================================
+   LOGROS Y MILESTONE
+   =================================== */
+
+.achievement-timeline {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.achievement-timeline::before {
+  content: '';
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, #fbbf24, #f59e0b);
+  border-radius: 2px;
+}
+
+.achievement-item {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 4rem;
+}
+
+.achievement-icon {
+  position: absolute;
+  left: 18px;
+  width: 24px;
+  height: 24px;
+  background: #fbbf24;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 0 0 4px white, 0 0 0 6px #fbbf24;
+}
+
+.achievement-content {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #fbbf24;
+}
+
+.achievement-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.achievement-description {
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.achievement-date {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* ===================================
+   TESTIMONIALES Y RECONOCIMIENTOS
+   =================================== */
+
+.testimonial-section {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid #e5e7eb;
+}
+
+.testimonial-quote {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #374151;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.testimonial-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #fbbf24;
+  position: absolute;
+  left: -1rem;
+  top: -1rem;
+  font-family: serif;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.author-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.author-info p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+/* ===================================
+   ANIMACIONES ESPECIALES
+   =================================== */
+
+/* Animación de pulso para elementos destacados */
+@keyframes recognitionPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 20px rgba(251, 191, 36, 0);
+  }
+}
+
+.recognition-highlight {
+  animation: recognitionPulse 3s infinite;
+}
+
+/* Animación de entrada para nuevos reconocimientos */
+@keyframes recognitionEntry {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.recognition-new {
+  animation: recognitionEntry var(--recognition-duration) ease-out;
+}
+
+/* Efecto de confeti para celebraciones */
+.celebration-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.celebration-effect::after {
+  content: '🎉 🎊 ✨ 🌟 🎉 🎊 ✨ 🌟';
+  position: absolute;
+  top: -50px;
+  left: 0;
+  right: 0;
+  font-size: 2rem;
+  animation: confetti 3s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes confetti {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===================================
+   RESPONSIVIDAD
+   =================================== */
+
+@media (max-width: 768px) {
+  .sponsor-recognition {
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .recognition-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .sponsor-title {
+    font-size: 1.5rem;
+  }
+
+  .impact-showcase {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .impact-metric {
+    padding: 1rem;
+  }
+
+  .impact-value {
+    font-size: 2rem;
+  }
+
+  .recognition-certificate {
+    padding: 1.5rem;
+  }
+
+  .achievement-item {
+    padding-left: 3rem;
+  }
+
+  .achievement-timeline::before {
+    left: 20px;
+  }
+
+  .achievement-icon {
+    left: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sponsor-recognition {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .impact-showcase {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+  }
+
+  .testimonial-quote::before {
+    font-size: 3rem;
+    left: -0.5rem;
+    top: -0.5rem;
+  }
+}
+
+/* ===================================
+   MODOS DE IMPRESIÓN
+   =================================== */
+
+@media print {
+  .sponsor-recognition {
+    box-shadow: none;
+    border: 2px solid #000;
+    page-break-inside: avoid;
+  }
+
+  .sponsor-recognition::before,
+  .recognition-certificate::before {
+    display: none;
+  }
+
+  .tier-badge {
+    color: #000 !important;
+    background: #fff !important;
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,386 @@
+{
+  "packages": {
+    "premium_annual": {
+      "id": "premium_annual",
+      "name": "Paquete Premium Anual",
+      "description": "Máxima visibilidad y beneficios exclusivos durante todo el año",
+      "duration": 12,
+      "price": 75000,
+      "currency": "USD",
+      "tier": "platinum",
+      "features": {
+        "branding": {
+          "logoPlacement": ["homepage", "events", "materials", "presentations"],
+          "logoSize": "large",
+          "customBranding": true,
+          "cobranding": true,
+          "brandColors": true
+        },
+        "recognition": {
+          "dedicatedPage": true,
+          "executiveIntroduction": true,
+          "caseStudy": true,
+          "testimonial": true,
+          "socialMediaFeatures": 12
+        },
+        "events": {
+          "exclusiveAccess": true,
+          "vipTreatment": true,
+          "speakingOpportunities": 3,
+          "networkingEvents": "unlimited",
+          "privateReceptions": true
+        },
+        "reporting": {
+          "frequency": "monthly",
+          "customDashboard": true,
+          "roiAnalysis": true,
+          "impactMetrics": true,
+          "executiveReports": true
+        },
+        "support": {
+          "dedicatedManager": true,
+          "prioritySupport": true,
+          "customRequests": 5,
+          "strategicConsultation": true
+        }
+      },
+      "deliverables": [
+        "Logo placement en sitio web principal",
+        "Mención en 12 newsletters mensuales",
+        "3 oportunidades de speaking en eventos",
+        "Reporte mensual personalizado",
+        "Acceso VIP a todos los eventos",
+        "Sesión estratégica trimestral",
+        "Case study personalizado",
+        "Página dedicada en sitio web"
+      ],
+      "timeline": {
+        "setup": "1-2 semanas",
+        "launch": "2-3 semanas",
+        "firstReport": "30 días",
+        "quarterlyReview": "90 días"
+      },
+      "availability": true,
+      "maxSponsors": 3,
+      "currentSponsors": 1
+    },
+    "corporate_standard": {
+      "id": "corporate_standard",
+      "name": "Paquete Corporativo Estándar",
+      "description": "Excelente visibilidad y beneficios para empresas medianas",
+      "duration": 12,
+      "price": 35000,
+      "currency": "USD",
+      "tier": "gold",
+      "features": {
+        "branding": {
+          "logoPlacement": ["homepage", "events", "newsletters"],
+          "logoSize": "medium",
+          "customBranding": false,
+          "cobranding": false,
+          "brandColors": false
+        },
+        "recognition": {
+          "dedicatedPage": false,
+          "executiveIntroduction": false,
+          "caseStudy": false,
+          "testimonial": true,
+          "socialMediaFeatures": 6
+        },
+        "events": {
+          "exclusiveAccess": false,
+          "vipTreatment": true,
+          "speakingOpportunities": 1,
+          "networkingEvents": "limited",
+          "privateReceptions": false
+        },
+        "reporting": {
+          "frequency": "quarterly",
+          "customDashboard": false,
+          "roiAnalysis": true,
+          "impactMetrics": true,
+          "executiveReports": false
+        },
+        "support": {
+          "dedicatedManager": false,
+          "prioritySupport": true,
+          "customRequests": 2,
+          "strategicConsultation": false
+        }
+      },
+      "deliverables": [
+        "Logo en página de patrocinadores",
+        "Mención en 4 newsletters trimestrales",
+        "1 oportunidad de speaking por año",
+        "Reporte trimestral de impacto",
+        "Acceso preferencial a eventos",
+        "Certificado de reconocimiento",
+        "Mención en redes sociales (6 veces/año)"
+      ],
+      "timeline": {
+        "setup": "1 semana",
+        "launch": "2 semanas",
+        "firstReport": "90 días",
+        "quarterlyReview": "90 días"
+      },
+      "availability": true,
+      "maxSponsors": 8,
+      "currentSponsors": 3
+    },
+    "community_partner": {
+      "id": "community_partner",
+      "name": "Socio Comunitario",
+      "description": "Paquete accesible para pequeñas empresas y organizaciones locales",
+      "duration": 12,
+      "price": 15000,
+      "currency": "USD",
+      "tier": "silver",
+      "features": {
+        "branding": {
+          "logoPlacement": ["sponsors_page"],
+          "logoSize": "small",
+          "customBranding": false,
+          "cobranding": false,
+          "brandColors": false
+        },
+        "recognition": {
+          "dedicatedPage": false,
+          "executiveIntroduction": false,
+          "caseStudy": false,
+          "testimonial": false,
+          "socialMediaFeatures": 2
+        },
+        "events": {
+          "exclusiveAccess": false,
+          "vipTreatment": false,
+          "speakingOpportunities": 0,
+          "networkingEvents": "annual",
+          "privateReceptions": false
+        },
+        "reporting": {
+          "frequency": "biannual",
+          "customDashboard": false,
+          "roiAnalysis": false,
+          "impactMetrics": true,
+          "executiveReports": false
+        },
+        "support": {
+          "dedicatedManager": false,
+          "prioritySupport": false,
+          "customRequests": 0,
+          "strategicConsultation": false
+        }
+      },
+      "deliverables": [
+        "Logo en página de patrocinadores",
+        "Mención en newsletter semestral",
+        "Invitación a evento anual",
+        "Reporte de impacto semestral",
+        "Certificado de agradecimiento"
+      ],
+      "timeline": {
+        "setup": "3-5 días",
+        "launch": "1 semana",
+        "firstReport": "180 días"
+      },
+      "availability": true,
+      "maxSponsors": 20,
+      "currentSponsors": 8
+    },
+    "startup_supporter": {
+      "id": "startup_supporter",
+      "name": "Apoyo Startup",
+      "description": "Paquete especial para startups y emprendedores",
+      "duration": 6,
+      "price": 8000,
+      "currency": "USD",
+      "tier": "bronze",
+      "features": {
+        "branding": {
+          "logoPlacement": ["sponsors_page"],
+          "logoSize": "small",
+          "customBranding": false,
+          "cobranding": false,
+          "brandColors": false
+        },
+        "recognition": {
+          "dedicatedPage": false,
+          "executiveIntroduction": false,
+          "caseStudy": false,
+          "testimonial": false,
+          "socialMediaFeatures": 1
+        },
+        "events": {
+          "exclusiveAccess": false,
+          "vipTreatment": false,
+          "speakingOpportunities": 0,
+          "networkingEvents": "startup_specific",
+          "privateReceptions": false
+        },
+        "reporting": {
+          "frequency": "final",
+          "customDashboard": false,
+          "roiAnalysis": false,
+          "impactMetrics": false,
+          "executiveReports": false
+        },
+        "support": {
+          "dedicatedManager": false,
+          "prioritySupport": false,
+          "customRequests": 0,
+          "strategicConsultation": false
+        }
+      },
+      "deliverables": [
+        "Logo en página de patrocinadores",
+        "Mención en comunicaciones",
+        "Acceso a eventos de networking para startups",
+        "Reporte final de impacto",
+        "Certificado de participación"
+      ],
+      "timeline": {
+        "setup": "1-3 días",
+        "launch": "1 semana",
+        "finalReport": "180 días"
+      },
+      "availability": true,
+      "maxSponsors": 50,
+      "currentSponsors": 12,
+      "specialConditions": {
+        "companyAge": "< 3 años",
+        "revenue": "< $1M",
+        "verification": "required"
+      }
+    },
+    "event_specific": {
+      "id": "event_specific",
+      "name": "Patrocinio de Evento Específico",
+      "description": "Patrocinio enfocado en eventos particulares",
+      "duration": 1,
+      "priceRange": {
+        "min": 5000,
+        "max": 25000
+      },
+      "currency": "USD",
+      "tier": "variable",
+      "eventTypes": [
+        {
+          "type": "conference",
+          "name": "Conferencia Anual",
+          "price": 25000,
+          "benefits": [
+            "Logo prominente en evento",
+            "Stand de exhibición",
+            "2 tickets VIP",
+            "Mención en opening/closing",
+            "Material promocional incluido"
+          ]
+        },
+        {
+          "type": "workshop",
+          "name": "Workshop Especializado",
+          "price": 10000,
+          "benefits": [
+            "Logo en materiales del workshop",
+            "Mención al inicio",
+            "2 tickets incluidos",
+            "Material promocional"
+          ]
+        },
+        {
+          "type": "networking",
+          "name": "Evento de Networking",
+          "price": 5000,
+          "benefits": [
+            "Logo en invitaciones",
+            "Mención durante evento",
+            "2 tickets incluidos"
+          ]
+        }
+      ],
+      "timeline": {
+        "booking": "30 días antes",
+        "materials": "14 días antes",
+        "setup": "1 día antes"
+      }
+    }
+  },
+  "customization": {
+    "available": true,
+    "minimumAmount": 50000,
+    "consultationRequired": true,
+    "approvalProcess": {
+      "stages": ["proposal", "review", "negotiation", "approval"],
+      "timeframe": "2-4 semanas",
+      "decisionMakers": ["Director", "Marketing", "Finance"]
+    }
+  },
+  "addOns": {
+    "social_media_boost": {
+      "name": "Impulso en Redes Sociales",
+      "description": "Posts adicionales en redes sociales",
+      "price": 2000,
+      "includes": ["4 posts adicionales", "Stories destacadas", "LinkedIn articles"]
+    },
+    "video_testimonial": {
+      "name": "Video Testimonial",
+      "description": "Video testimonial profesional",
+      "price": 3500,
+      "includes": ["Producción profesional", "Edición", "Distribución en canales"]
+    },
+    "webinar_hosting": {
+      "name": "Hosting de Webinar",
+      "description": "Webinar co-hosted con la organización",
+      "price": 5000,
+      "includes": ["Promoción", "Plataforma técnica", "Seguimiento post-evento"]
+    },
+    "research_collaboration": {
+      "name": "Colaboración en Investigación",
+      "description": "Participación en estudios e investigaciones",
+      "price": 7500,
+      "includes": ["Co-autoría", "Presentación de resultados", "Publicación conjunta"]
+    }
+  },
+  "paymentOptions": {
+    "annual": {
+      "discount": 0,
+      "paymentTerms": "Net 30"
+    },
+    "biannual": {
+      "discount": 0.02,
+      "paymentTerms": "Net 30"
+    },
+    "quarterly": {
+      "discount": 0.05,
+      "paymentTerms": "Net 15"
+    }
+  },
+  "renewalIncentives": {
+    "earlyRenewal": {
+      "timeframe": "90 días antes",
+      "discount": 0.05
+    },
+    "multiYear": {
+      "twoYear": 0.08,
+      "threeYear": 0.12
+    },
+    "referralBonus": {
+      "newSponsorDiscount": 0.1,
+      "referrerCredit": 2500
+    }
+  },
+  "terms": {
+    "cancellationPolicy": {
+      "noticePeriod": 30,
+      "refundPolicy": "pro-rated",
+      "earlyTerminationFee": 0.25
+    },
+    "renewalTerms": {
+      "autoRenewal": false,
+      "priceIncreaseNotice": 60,
+      "maxAnnualIncrease": 0.05
+    }
+  },
+  "lastUpdated": "2024-01-15T15:45:00Z",
+  "version": "1.1.0"
+}

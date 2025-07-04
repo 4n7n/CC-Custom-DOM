@@ -1,0 +1,390 @@
+{
+  "reportingTemplates": {
+    "monthly": {
+      "id": "monthly_report",
+      "name": "Reporte Mensual de Patrocinio",
+      "description": "Resumen completo del impacto y métricas del patrocinio durante el mes",
+      "frequency": "monthly",
+      "sections": [
+        {
+          "id": "executive_summary",
+          "title": "Resumen Ejecutivo",
+          "type": "summary",
+          "metrics": [
+            "total_reach",
+            "engagement_rate",
+            "donation_impact",
+            "community_growth"
+          ],
+          "visualizations": ["kpi_cards", "trend_chart"]
+        },
+        {
+          "id": "impact_metrics",
+          "title": "Métricas de Impacto",
+          "type": "metrics",
+          "metrics": [
+            "lives_impacted",
+            "programs_supported",
+            "communities_reached",
+            "volunteer_hours"
+          ],
+          "visualizations": ["bar_chart", "donut_chart", "progress_bars"]
+        },
+        {
+          "id": "engagement_analysis",
+          "title": "Análisis de Engagement",
+          "type": "engagement",
+          "metrics": [
+            "social_media_reach",
+            "website_visits",
+            "content_interactions",
+            "event_participation"
+          ],
+          "visualizations": ["line_chart", "heatmap", "funnel_chart"]
+        },
+        {
+          "id": "financial_overview",
+          "title": "Resumen Financiero",
+          "type": "financial",
+          "metrics": [
+            "funds_raised",
+            "allocation_breakdown",
+            "cost_per_impact",
+            "roi_calculation"
+          ],
+          "visualizations": ["pie_chart", "waterfall_chart", "gauge_chart"]
+        },
+        {
+          "id": "brand_visibility",
+          "title": "Visibilidad de Marca",
+          "type": "branding",
+          "metrics": [
+            "logo_impressions",
+            "brand_mentions",
+            "media_coverage",
+            "partnership_recognition"
+          ],
+          "visualizations": ["timeline", "word_cloud", "coverage_map"]
+        }
+      ],
+      "exportFormats": ["pdf", "excel", "powerpoint"],
+      "templates": {
+        "corporate": "corporate_monthly_template",
+        "nonprofit": "nonprofit_monthly_template",
+        "community": "community_monthly_template"
+      }
+    },
+    "quarterly": {
+      "id": "quarterly_report",
+      "name": "Reporte Trimestral de Impacto",
+      "description": "Análisis profundo del impacto trimestral y tendencias de crecimiento",
+      "frequency": "quarterly",
+      "sections": [
+        {
+          "id": "strategic_overview",
+          "title": "Resumen Estratégico",
+          "type": "strategic",
+          "metrics": [
+            "strategic_goals_progress",
+            "milestone_achievements",
+            "partnership_evolution",
+            "market_positioning"
+          ],
+          "visualizations": ["roadmap", "milestone_timeline", "spider_chart"]
+        },
+        {
+          "id": "deep_impact_analysis",
+          "title": "Análisis Profundo de Impacto",
+          "type": "impact_deep",
+          "metrics": [
+            "long_term_outcomes",
+            "beneficiary_stories",
+            "program_effectiveness",
+            "sustainability_metrics"
+          ],
+          "visualizations": ["impact_flow", "story_cards", "effectiveness_matrix"]
+        },
+        {
+          "id": "competitive_analysis",
+          "title": "Análisis Competitivo",
+          "type": "competitive",
+          "metrics": [
+            "market_share",
+            "industry_benchmarks",
+            "innovation_index",
+            "thought_leadership"
+          ],
+          "visualizations": ["benchmark_chart", "competitive_matrix", "trend_analysis"]
+        },
+        {
+          "id": "growth_projections",
+          "title": "Proyecciones de Crecimiento",
+          "type": "projections",
+          "metrics": [
+            "projected_impact",
+            "scaling_opportunities",
+            "resource_requirements",
+            "partnership_expansion"
+          ],
+          "visualizations": ["forecast_chart", "scenario_analysis", "growth_funnel"]
+        }
+      ],
+      "exportFormats": ["pdf", "excel", "powerpoint", "interactive_dashboard"],
+      "templates": {
+        "corporate": "corporate_quarterly_template",
+        "nonprofit": "nonprofit_quarterly_template",
+        "community": "community_quarterly_template"
+      }
+    },
+    "annual": {
+      "id": "annual_report",
+      "name": "Reporte Anual de Patrocinio",
+      "description": "Informe completo del año con análisis comprehensivo y planificación futura",
+      "frequency": "annual",
+      "sections": [
+        {
+          "id": "year_in_review",
+          "title": "El Año en Revisión",
+          "type": "review",
+          "metrics": [
+            "annual_achievements",
+            "major_milestones",
+            "partnership_highlights",
+            "award_recognition"
+          ],
+          "visualizations": ["annual_timeline", "achievement_showcase", "highlight_reel"]
+        },
+        {
+          "id": "comprehensive_impact",
+          "title": "Impacto Comprehensivo",
+          "type": "impact_comprehensive",
+          "metrics": [
+            "total_lives_changed",
+            "systemic_change_indicators",
+            "long_term_outcomes",
+            "legacy_building"
+          ],
+          "visualizations": ["impact_story_map", "change_indicators", "legacy_timeline"]
+        },
+        {
+          "id": "financial_stewardship",
+          "title": "Administración Financiera",
+          "type": "financial_stewardship",
+          "metrics": [
+            "total_investment",
+            "cost_efficiency",
+            "transparency_metrics",
+            "audit_results"
+          ],
+          "visualizations": ["investment_flow", "efficiency_metrics", "transparency_dashboard"]
+        },
+        {
+          "id": "future_vision",
+          "title": "Visión Futura",
+          "type": "vision",
+          "metrics": [
+            "strategic_roadmap",
+            "innovation_pipeline",
+            "partnership_evolution",
+            "impact_scaling"
+          ],
+          "visualizations": ["vision_roadmap", "innovation_timeline", "scaling_projections"]
+        }
+      ],
+      "exportFormats": ["pdf", "excel", "powerpoint", "interactive_dashboard", "web_report"],
+      "templates": {
+        "corporate": "corporate_annual_template",
+        "nonprofit": "nonprofit_annual_template",
+        "community": "community_annual_template"
+      }
+    },
+    "custom": {
+      "id": "custom_report",
+      "name": "Reporte Personalizado",
+      "description": "Plantilla flexible para reportes específicos y análisis bajo demanda",
+      "frequency": "on_demand",
+      "sections": [
+        {
+          "id": "custom_metrics",
+          "title": "Métricas Personalizadas",
+          "type": "custom",
+          "metrics": "user_defined",
+          "visualizations": "user_selected"
+        }
+      ],
+      "exportFormats": ["pdf", "excel", "powerpoint", "csv", "json"],
+      "templates": {
+        "flexible": "flexible_custom_template"
+      }
+    }
+  },
+  "visualizationTypes": {
+    "kpi_cards": {
+      "name": "Tarjetas KPI",
+      "description": "Métricas clave en formato de tarjetas visuales",
+      "chartType": "card",
+      "responsive": true
+    },
+    "trend_chart": {
+      "name": "Gráfico de Tendencias",
+      "description": "Líneas de tiempo mostrando evolución de métricas",
+      "chartType": "line",
+      "responsive": true
+    },
+    "bar_chart": {
+      "name": "Gráfico de Barras",
+      "description": "Comparación de valores mediante barras",
+      "chartType": "bar",
+      "responsive": true
+    },
+    "donut_chart": {
+      "name": "Gráfico de Dona",
+      "description": "Distribución porcentual en formato circular",
+      "chartType": "donut",
+      "responsive": true
+    },
+    "pie_chart": {
+      "name": "Gráfico Circular",
+      "description": "Distribución de valores en formato circular",
+      "chartType": "pie",
+      "responsive": true
+    },
+    "heatmap": {
+      "name": "Mapa de Calor",
+      "description": "Intensidad de datos mediante colores",
+      "chartType": "heatmap",
+      "responsive": true
+    },
+    "gauge_chart": {
+      "name": "Medidor",
+      "description": "Progreso hacia objetivos en formato de medidor",
+      "chartType": "gauge",
+      "responsive": true
+    },
+    "waterfall_chart": {
+      "name": "Gráfico Cascada",
+      "description": "Flujo de valores positivos y negativos",
+      "chartType": "waterfall",
+      "responsive": true
+    },
+    "spider_chart": {
+      "name": "Gráfico Radar",
+      "description": "Comparación multidimensional",
+      "chartType": "radar",
+      "responsive": true
+    },
+    "timeline": {
+      "name": "Línea de Tiempo",
+      "description": "Eventos cronológicos ordenados",
+      "chartType": "timeline",
+      "responsive": true
+    }
+  },
+  "exportOptions": {
+    "pdf": {
+      "name": "PDF",
+      "description": "Documento portátil para compartir",
+      "fileExtension": ".pdf",
+      "features": ["print_ready", "shareable", "archivable"]
+    },
+    "excel": {
+      "name": "Excel",
+      "description": "Hoja de cálculo con datos procesables",
+      "fileExtension": ".xlsx",
+      "features": ["data_analysis", "formulas", "pivot_tables"]
+    },
+    "powerpoint": {
+      "name": "PowerPoint",
+      "description": "Presentación ejecutiva",
+      "fileExtension": ".pptx",
+      "features": ["presentation_ready", "slides", "animations"]
+    },
+    "interactive_dashboard": {
+      "name": "Dashboard Interactivo",
+      "description": "Panel web interactivo",
+      "fileExtension": ".html",
+      "features": ["interactive", "real_time", "drill_down"]
+    },
+    "web_report": {
+      "name": "Reporte Web",
+      "description": "Informe web con navegación",
+      "fileExtension": ".html",
+      "features": ["navigation", "multimedia", "responsive"]
+    },
+    "csv": {
+      "name": "CSV",
+      "description": "Datos en formato de tabla",
+      "fileExtension": ".csv",
+      "features": ["raw_data", "importable", "lightweight"]
+    },
+    "json": {
+      "name": "JSON",
+      "description": "Datos estructurados para APIs",
+      "fileExtension": ".json",
+      "features": ["api_ready", "structured", "machine_readable"]
+    }
+  },
+  "templateStyles": {
+    "corporate": {
+      "name": "Corporativo",
+      "description": "Estilo profesional para empresas",
+      "colors": ["#1e3a8a", "#3b82f6", "#93c5fd", "#dbeafe"],
+      "fonts": ["Inter", "Roboto"],
+      "layout": "formal"
+    },
+    "nonprofit": {
+      "name": "Organización Sin Fines de Lucro",
+      "description": "Estilo cálido y orientado a la misión",
+      "colors": ["#065f46", "#10b981", "#6ee7b7", "#d1fae5"],
+      "fonts": ["Open Sans", "Lato"],
+      "layout": "story_driven"
+    },
+    "community": {
+      "name": "Comunidad",
+      "description": "Estilo accesible y comunitario",
+      "colors": ["#7c2d12", "#ea580c", "#fb923c", "#fed7aa"],
+      "fonts": ["Source Sans Pro", "Nunito"],
+      "layout": "inclusive"
+    }
+  },
+  "automationSettings": {
+    "scheduling": {
+      "monthly": {
+        "dayOfMonth": 1,
+        "time": "09:00",
+        "timezone": "UTC"
+      },
+      "quarterly": {
+        "dayOfQuarter": 1,
+        "time": "09:00",
+        "timezone": "UTC"
+      },
+      "annual": {
+        "dayOfYear": 1,
+        "time": "09:00",
+        "timezone": "UTC"
+      }
+    },
+    "delivery": {
+      "email": {
+        "enabled": true,
+        "recipients": [],
+        "subject_template": "Reporte de Patrocinio - {{report_name}} - {{date}}"
+      },
+      "dashboard": {
+        "enabled": true,
+        "auto_publish": true
+      },
+      "api": {
+        "enabled": false,
+        "webhook_url": ""
+      }
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-01",
+    "author": "Sponsor Dashboard System",
+    "description": "Plantillas de reportes para el sistema de dashboard de patrocinadores"
+  }
+}
