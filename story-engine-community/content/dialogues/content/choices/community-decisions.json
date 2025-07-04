@@ -1,0 +1,58 @@
+{
+  "decision_points": {
+    "infrastructure_development": {
+      "context": "Decisión sobre desarrollo de infraestructura comunitaria",
+      "question": "¿Cómo debería la comunidad invertir los recursos disponibles?",
+      "options": [
+        {
+          "id": "education_center",
+          "text": "Construir un centro educativo comunitario",
+          "consequences": {
+            "short_term": "Inversión inicial alta, beneficio educativo inmediato",
+            "long_term": "Generaciones más preparadas, fortalecimiento cultural"
+          },
+          "community_impact": "alto_positivo"
+        },
+        {
+          "id": "economic_project",
+          "text": "Desarrollar proyecto económico sostenible",
+          "consequences": {
+            "short_term": "Generación de empleos, crecimiento económico",
+            "long_term": "Independencia económica, riesgo de cambio cultural"
+          },
+          "community_impact": "medio_mixto"
+        },
+        {
+          "id": "cultural_preservation",
+          "text": "Crear centro de preservación cultural",
+          "consequences": {
+            "short_term": "Fortalecimiento identitario, menor impacto económico",
+            "long_term": "Preservación cultural garantizada, posible estancamiento"
+          },
+          "community_impact": "alto_cultural"
+        }
+      ]
+    },
+    "conflict_resolution_approach": {
+      "context": "Método para resolver conflictos internos",
+      "question": "¿Qué enfoque debe adoptar la comunidad para los conflictos?",
+      "options": [
+        {
+          "id": "traditional_council",
+          "text": "Consejo de ancianos tradicional",
+          "impact": "Respeta jerarquías, puede excluir voces jóvenes"
+        },
+        {
+          "id": "democratic_assembly",
+          "text": "Asamblea democrática inclusiva",
+          "impact": "Incluye todas las voces, procesos más lentos"
+        },
+        {
+          "id": "mediation_circles",
+          "text": "Círculos de mediación colaborativa",
+          "impact": "Enfoque restaurativo, requiere capacitación"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "chapterTitle": "Los Orígenes",
+  "chapterNumber": 1,
+  "description": "Descubre cómo se formó nuestra comunidad y los valores que la fundaron",
+  "scenes": [
+    {
+      "sceneId": "origins_intro",
+      "title": "Los Primeros Pasos",
+      "description": "La llegada de las primeras familias y la creación de los cimientos comunitarios",
+      "narrative": "Hace cincuenta años, cuando las primeras familias llegaron a este lugar...",
+      "interactiveElements": ["explorar mapa histórico", "escuchar testimonios fundadores"]
+    },
+    {
+      "sceneId": "establishing_values",
+      "title": "Estableciendo Valores",
+      "description": "Cómo se definieron los principios que guían a la comunidad",
+      "narrative": "En las primeras reuniones, los fundadores acordaron principios fundamentales...",
+      "interactiveElements": ["participar en reunión histórica", "votar por valores"]
+    }
+  ],
+  "learningObjectives": ["comprender orígenes", "identificar valores fundacionales", "apreciar legado histórico"]
+}

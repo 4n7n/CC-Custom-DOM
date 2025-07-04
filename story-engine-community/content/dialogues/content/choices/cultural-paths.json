@@ -1,0 +1,165 @@
+{
+  "cultural_choices": {
+    "tradition_modernization_balance": {
+      "scenario": "Integración de tecnología en ceremonias tradicionales",
+      "dilemma": "¿Cómo incorporar herramientas modernas sin perder autenticidad?",
+      "paths": [
+        {
+          "id": "tech_integration",
+          "approach": "Integración tecnológica respetuosa",
+          "description": "Usar tecnología para amplificar y preservar tradiciones",
+          "examples": [
+            "Grabación de ceremonias para archivo histórico",
+            "Aplicaciones para enseñar cantos tradicionales",
+            "Proyecciones que complementen narrativas orales"
+          ],
+          "outcomes": {
+            "cultural_preservation": "enhanced",
+            "accessibility": "increased",
+            "authenticity_concerns": "manageable",
+            "youth_engagement": "high"
+          },
+          "implementation_steps": [
+            "Consulta con ancianos sobre límites apropiados",
+            "Pruebas piloto con ceremonias menores",
+            "Capacitación de jóvenes como facilitadores tecnológicos",
+            "Evaluación continua del impacto cultural"
+          ]
+        },
+        {
+          "id": "traditional_purity",
+          "approach": "Mantenimiento de pureza tradicional",
+          "description": "Preservar ceremonias en su forma original",
+          "rationale": [
+            "Mantener la energía espiritual auténtica",
+            "Respetar la sabiduría ancestral",
+            "Evitar distracciones modernas",
+            "Preservar experiencias sensoriales originales"
+          ],
+          "outcomes": {
+            "cultural_preservation": "maximized",
+            "accessibility": "limited",
+            "relevance_risk": "potential",
+            "intergenerational_gap": "possible"
+          },
+          "support_measures": [
+            "Documentación separada para preservación",
+            "Espacios educativos paralelos",
+            "Preparación intensiva de participantes",
+            "Ceremonias explicativas para nuevos miembros"
+          ]
+        },
+        {
+          "id": "adaptive_fusion",
+          "approach": "Fusión adaptativa",
+          "description": "Crear nuevas tradiciones que honren el pasado",
+          "philosophy": "Las tradiciones vivientes evolucionan naturalmente",
+          "examples": [
+            "Ceremonias híbridas que combinan elementos antiguos y nuevos",
+            "Adaptación de rituales para incluir nuevas realidades",
+            "Creación de simbolismos contemporáneos con raíces tradicionales"
+          ],
+          "outcomes": {
+            "cultural_preservation": "evolved",
+            "accessibility": "balanced",
+            "innovation": "encouraged",
+            "community_ownership": "high"
+          },
+          "guidelines": [
+            "Respeto fundamental por principios ancestrales",
+            "Participación de todas las generaciones en la adaptación",
+            "Experimentación gradual y consensuada",
+            "Documentación de cambios y razones"
+          ]
+        }
+      ]
+    },
+    "language_preservation": {
+      "challenge": "Mantenimiento del idioma ancestral en era digital",
+      "current_status": {
+        "fluent_speakers": "Principalmente mayores de 50 años",
+        "intermediate_speakers": "Adultos de 30-50 años",
+        "basic_speakers": "Jóvenes y niños",
+        "risk_level": "Moderado - requiere acción inmediata"
+      },
+      "strategies": [
+        {
+          "strategy": "Programas de inmersión para niños",
+          "description": "Espacios donde los niños solo hablan el idioma ancestral",
+          "implementation": [
+            "Guarderías con abuelas como cuidadoras",
+            "Actividades lúdicas en idioma tradicional",
+            "Narración de cuentos exclusivamente en lengua ancestral",
+            "Canciones y juegos tradicionales"
+          ],
+          "challenges": ["Resistencia de padres modernos", "Falta de materiales educativos"],
+          "success_metrics": ["Número de niños participantes", "Nivel de fluidez alcanzado"]
+        },
+        {
+          "strategy": "Aplicaciones móviles de aprendizaje",
+          "description": "Tecnología al servicio de la preservación lingüística",
+          "features": [
+            "Lecciones interactivas con pronunciación",
+            "Diccionario multimedia con ejemplos de uso",
+            "Juegos de vocabulario y gramática",
+            "Grabaciones de hablantes nativos"
+          ],
+          "development_approach": "Colaboración entre jóvenes tecnólogos y ancianos sabios",
+          "distribution": "Gratuita para miembros de la comunidad"
+        },
+        {
+          "strategy": "Documentación digital de historias orales",
+          "description": "Preservación del corpus narrativo tradicional",
+          "process": [
+            "Identificación de narradores expertos",
+            "Grabación de alta calidad de historias completas",
+            "Transcripción con alfabeto apropiado",
+            "Traducción con notas culturales",
+            "Archivo digital accesible"
+          ],
+          "cultural_considerations": [
+            "Algunas historias son sagradas y requieren permisos especiales",
+            "Respeto por los derechos de propiedad intelectual de narradores",
+            "Protección contra uso comercial inapropiado"
+          ]
+        },
+        {
+          "strategy": "Certificaciones oficiales de competencia lingüística",
+          "description": "Sistema de reconocimiento formal del dominio del idioma",
+          "levels": [
+            "Básico - Comprensión de conversaciones cotidianas",
+            "Intermedio - Capacidad de participar en ceremonias",
+            "Avanzado - Habilidad para enseñar y transmitir",
+            "Maestro - Competencia para crear nuevo contenido cultural"
+          ],
+          "benefits": ["Reconocimiento social", "Oportunidades de liderazgo", "Preservación de estatus"]
+        }
+      ]
+    },
+    "youth_cultural_participation": {
+      "challenge": "Involucrar a jóvenes sin forzar participación",
+      "approaches": [
+        {
+          "approach": "Roles de liderazgo juvenil",
+          "description": "Crear posiciones significativas para jóvenes en actividades culturales",
+          "roles": [
+            "Coordinadores de eventos culturales",
+            "Mentores de niños en actividades tradicionales",
+            "Documentalistas de eventos y ceremonias",
+            "Innovadores de presentaciones culturales"
+          ]
+        },
+        {
+          "approach": "Adaptación de expresiones culturales",
+          "description": "Permitir que jóvenes expresen cultura de maneras contemporáneas",
+          "examples": [
+            "Hip-hop con letras en idioma tradicional",
+            "Arte digital inspirado en símbolos ancestrales",
+            "Moda contemporánea con elementos tradicionales",
+            "Videos que narran historias antiguas"
+          ]
+        }
+      ]
+    }
+  }
+}

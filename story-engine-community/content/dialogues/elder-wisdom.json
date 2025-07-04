@@ -1,0 +1,85 @@
+{
+  "wisdom_dialogues": {
+    "life_lessons": {
+      "context": "Enseñanzas de vida de los ancianos",
+      "elder_quotes": [
+        {
+          "speaker": "maria_elder",
+          "quote": "La sabiduría no viene con la edad, sino con la experiencia reflexionada.",
+          "context": "Consejo sobre aprendizaje",
+          "application": "Reflexión personal",
+          "interactive_response": ["¿Cómo puedo reflexionar mejor?", "Comparte una experiencia", "¿Qué significa para ti?"]
+        },
+        {
+          "speaker": "don_rafael",
+          "quote": "Una comunidad fuerte no evita los conflictos, los resuelve con amor.",
+          "context": "Manejo de diferencias",
+          "application": "Resolución de conflictos",
+          "interactive_response": ["Dame un ejemplo", "¿Cómo aplicar esto?", "¿Y si no funciona?"]
+        },
+        {
+          "speaker": "abuela_carmen",
+          "quote": "Las tradiciones son raíces, no cadenas. Nos sostienen para crecer.",
+          "context": "Balance tradición-modernidad",
+          "application": "Desarrollo cultural",
+          "interactive_response": ["¿Cuáles tradiciones mantener?", "¿Cómo innovar respetando?", "Cuéntame de nuestras raíces"]
+        }
+      ]
+    },
+    "historical_narratives": {
+      "founding_stories": [
+        {
+          "title": "El Primer Invierno",
+          "narrator": "Doña Elena",
+          "story": "Cuando llegamos, no teníamos casi nada, pero teníamos algo más valioso: la determinación de cuidarnos mutuamente. Ese primer invierno fue duro, muy duro. La nieve bloqueó los caminos por semanas, y la comida se agotaba. Pero cada familia compartió lo poco que tenía. Los niños nunca pasaron hambre porque los adultos se organizaron. María preparaba sopa para todos, Juan repartía leña, y Carmen cuidaba a los enfermos. Aprendimos que cuando nos unimos, somos invencibles.",
+          "lesson": "La solidaridad supera las adversidades materiales",
+          "interactive_elements": ["¿Qué habrías hecho?", "¿Cómo organizarías la ayuda?", "¿Qué aprendiste de esto?"]
+        },
+        {
+          "title": "La Gran Decisión",
+          "narrator": "Don Miguel",
+          "story": "Llegó el momento de decidir si aceptábamos la propuesta de la empresa minera. Prometían trabajo y dinero, pero sabíamos que cambiaría nuestra tierra para siempre. Nos reunimos por tres días y tres noches. Los jóvenes veían oportunidades, los ancianos veían peligros. Al final, votamos por preservar nuestra tierra y buscar desarrollo propio. Fue difícil, pero hoy sabemos que tomamos la decisión correcta.",
+          "lesson": "Las decisiones difíciles requieren tiempo y sabiduría colectiva",
+          "interactive_elements": ["¿Cómo habrías votado?", "¿Qué otros factores considerarías?", "¿Arrepientes de algo?"]
+        }
+      ],
+      "wisdom_ceremonies": [
+        {
+          "ceremony": "El Círculo de Consejos",
+          "description": "Ritual mensual donde los ancianos comparten enseñanzas con los jóvenes",
+          "structure": [
+            "Apertura con canto tradicional",
+            "Presentación de dilemas actuales",
+            "Narrativa de experiencias relacionadas",
+            "Diálogo intergeneracional",
+            "Síntesis de aprendizajes",
+            "Cierre con compromiso colectivo"
+          ],
+          "participant_roles": {
+            "anciano_guía": "Facilita el diálogo y comparte sabiduría principal",
+            "joven_consultante": "Presenta dilemas y hace preguntas",
+            "comunidad_testigo": "Escucha, aprende y valida los consejos"
+          }
+        }
+      ]
+    }
+  },
+  "mentorship_dialogues": {
+    "career_guidance": [
+      {
+        "situation": "Joven indeciso sobre su futuro profesional",
+        "elder_advisor": "Don Carlos",
+        "advice": "Hijo, el trabajo no es solo lo que haces, es cómo contribuyes a tu comunidad. Encuentra algo que te apasione y que sirva a otros.",
+        "follow_up_questions": ["¿Qué te apasiona realmente?", "¿Cómo puedes servir desde esa pasión?", "¿Qué necesita nuestra comunidad?"]
+      }
+    ],
+    "relationship_counseling": [
+      {
+        "situation": "Conflicto entre generaciones en una familia",
+        "elder_advisor": "Doña María",
+        "advice": "Los conflictos son semillas de comprensión si los regamos con paciencia y respeto. Escucha primero, juzga después.",
+        "mediation_steps": ["Crear espacio seguro", "Facilitar escucha mutua", "Buscar puntos comunes", "Acordar compromisos"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "storyTitle": "Historia de Nuestra Comunidad",
+  "description": "Una narrativa interactiva sobre el crecimiento y desarrollo de una comunidad resiliente",
+  "themes": ["unidad", "tradición", "progreso", "solidaridad"],
+  "duration": "45-60 minutos",
+  "targetAudience": "todas las edades",
+  "mainObjective": "Explorar los valores comunitarios y la importancia de la colaboración",
+  "storyElements": {
+    "setting": "Una comunidad diversa en crecimiento",
+    "conflict": "Desafíos del desarrollo manteniendo la identidad cultural",
+    "resolution": "Equilibrio entre tradición e innovación"
+  }
+}

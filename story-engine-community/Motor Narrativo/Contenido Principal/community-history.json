@@ -1,0 +1,22 @@
+{
+  "timeline": {
+    "founding": {
+      "period": "Hace 50 años",
+      "events": ["llegada de primeros pobladores", "establecimiento de tradiciones", "construcción de espacios comunitarios"]
+    },
+    "growth": {
+      "period": "Últimas 2 décadas",
+      "events": ["llegada de nuevas familias", "desarrollo económico", "cambios generacionales"]
+    },
+    "present": {
+      "period": "Actualidad",
+      "events": ["desafíos modernos", "oportunidades tecnológicas", "renovación cultural"]
+    }
+  },
+  "landmarks": {
+    "community_center": "Centro de reuniones y celebraciones",
+    "cultural_garden": "Jardín con plantas tradicionales y medicinales",
+    "youth_space": "Espacio dedicado a actividades juveniles",
+    "elder_circle": "Lugar de encuentro para los ancianos"
+  }
+}

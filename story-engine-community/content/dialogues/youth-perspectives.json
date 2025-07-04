@@ -1,0 +1,134 @@
+{
+  "youth_voices": {
+    "aspirations": {
+      "context": "Sueños y metas de los jóvenes",
+      "conversations": [
+        {
+          "speaker": "young_innovator",
+          "name": "Carlos",
+          "age": 22,
+          "text": "Quiero crear tecnología que preserve nuestras tradiciones para futuras generaciones. Imagino una app que enseñe nuestros cantos tradicionales con realidad aumentada.",
+          "theme": "innovación_cultural",
+          "impact": "bridge_generations",
+          "response_options": ["¿Cómo funcionaría exactamente?", "¿Los ancianos estarían de acuerdo?", "¿Qué necesitas para empezar?"]
+        },
+        {
+          "speaker": "young_artist",
+          "name": "Sophia",
+          "age": 19,
+          "text": "Mi arte cuenta las historias de nuestra gente de maneras que todos puedan entender. Pinto murales que muestran nuestra historia, pero con colores y formas que hablan a mi generación.",
+          "theme": "expresión_cultural",
+          "impact": "cultural_transmission",
+          "response_options": ["Muéstrame tu trabajo", "¿Qué reacciones recibes?", "¿Cómo eliges las historias?"]
+        },
+        {
+          "speaker": "young_entrepreneur",
+          "name": "Diego",
+          "age": 25,
+          "text": "Estoy desarrollando un negocio de productos orgánicos que emplee a familias locales. Queremos demostrar que se puede prosperar sin abandonar nuestros valores.",
+          "theme": "desarrollo_económico",
+          "impact": "economic_sustainability",
+          "response_options": ["¿Cuál es tu plan de negocio?", "¿Cómo involucras a las familias?", "¿Qué obstáculos enfrentas?"]
+        }
+      ]
+    },
+    "challenges_voiced": {
+      "concerns": [
+        {
+          "concern": "Equilibrar oportunidades externas con compromiso comunitario",
+          "details": "Muchos jóvenes sienten la presión de emigrar para encontrar mejores oportunidades, pero también quieren contribuir a su comunidad de origen.",
+          "voices": [
+            "No quiero abandonar mi hogar, pero las oportunidades aquí son limitadas",
+            "¿Cómo puedo estudiar afuera y luego regresar a ayudar?",
+            "Siento culpa por querer explorar el mundo"
+          ]
+        },
+        {
+          "concern": "Modernizar sin perder identidad cultural",
+          "details": "La tensión entre adoptar tecnologías modernas y mantener tradiciones ancestrales genera conflictos internos.",
+          "voices": [
+            "Los ancianos a veces no entienden por qué necesitamos cambiar",
+            "¿Cómo uso redes sociales respetando nuestra privacidad cultural?",
+            "Quiero innovar pero sin ofender a los mayores"
+          ]
+        },
+        {
+          "concern": "Crear espacios para la creatividad juvenil",
+          "details": "Necesidad de espacios físicos y culturales donde los jóvenes puedan expresarse libremente.",
+          "voices": [
+            "Necesitamos un lugar donde podamos ser nosotros mismos",
+            "Nuestras ideas a veces no tienen espacio en las reuniones tradicionales",
+            "Queremos contribuir pero de maneras que entendemos"
+          ]
+        }
+      ],
+      "proposed_solutions": [
+        {
+          "solution": "Programas de mentoría intergeneracional",
+          "description": "Espacios estructurados donde jóvenes y ancianos colaboran en proyectos específicos",
+          "implementation": [
+            "Parejas mentor-aprendiz para proyectos de 6 meses",
+            "Rotación de mentores para diversificar perspectivas",
+            "Proyectos que combinen sabiduría tradicional con innovación"
+          ]
+        },
+        {
+          "solution": "Espacios de innovación cultural",
+          "description": "Centros dedicados a la experimentación creativa respetando marcos culturales",
+          "implementation": [
+            "Laboratorio de tecnología cultural",
+            "Estudios de arte comunitario",
+            "Espacios de emprendimiento social"
+          ]
+        },
+        {
+          "solution": "Proyectos de impacto social juvenil",
+          "description": "Iniciativas lideradas por jóvenes con apoyo comunitario",
+          "implementation": [
+            "Fondo de inversión para ideas juveniles",
+            "Incubadora de proyectos sociales",
+            "Red de intercambio con otras comunidades"
+          ]
+        }
+      ]
+    },
+    "collaborative_initiatives": {
+      "intergenerational_projects": [
+        {
+          "project": "Archivo Digital Comunitario",
+          "description": "Jóvenes ayudan a ancianos a digitalizar historias, fotos y documentos importantes",
+          "participants": ["estudiantes de tecnología", "ancianos narradores", "familias contribuyentes"],
+          "benefits": ["preservación cultural", "intercambio generacional", "habilidades digitales"]
+        },
+        {
+          "project": "Huerto Educativo Medicinal",
+          "description": "Combinación de conocimiento tradicional de plantas con técnicas modernas de cultivo",
+          "participants": ["jóvenes agricultores", "curanderos tradicionales", "familias interesadas"],
+          "benefits": ["seguridad alimentaria", "medicina tradicional", "educación práctica"]
+        }
+      ]
+    }
+  },
+  "peer_discussions": {
+    "identity_formation": [
+      {
+        "topic": "¿Qué significa ser joven en nuestra comunidad?",
+        "perspectives": [
+          "Ser puente entre el pasado y el futuro",
+          "Tener la responsabilidad de innovar respetando",
+          "Ser guardián de tradiciones pero también agente de cambio"
+        ]
+      }
+    ],
+    "future_planning": [
+      {
+        "topic": "¿Cómo queremos que sea nuestra comunidad en 20 años?",
+        "visions": [
+          "Un lugar donde tradición y tecnología coexistan armoniosamente",
+          "Una comunidad modelo que otras quieran imitar",
+          "Un hogar próspero donde nuestros hijos quieran quedarse"
+        ]
+      }
+    ]
+  }
+}

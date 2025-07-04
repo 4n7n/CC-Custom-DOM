@@ -1,0 +1,158 @@
+{
+  "family_dynamics": {
+    "intergenerational_conversations": {
+      "grandparent_grandchild": {
+        "context": "Transmisión de valores familiares",
+        "dialogue_samples": [
+          {
+            "setting": "Jardín familiar durante la siembra",
+            "dialogue": [
+              { "speaker": "grandparent", "line": "¿Sabes por qué plantamos este árbol cuando naciste?" },
+              { "speaker": "grandchild", "line": "¿Para que creciera conmigo?" },
+              { "speaker": "grandparent", "line": "Para que aprendas que el crecimiento requiere paciencia y cuidado constante. Cada día debes nutrirlo, como nosotros te nutrimos a ti." }
+            ],
+            "lesson": "Paciencia y perseverancia",
+            "interactive_options": ["¿Qué más puedo aprender del árbol?", "¿Cómo cuido mejor las relaciones?", "Cuéntame más historias del jardín"]
+          },
+          {
+            "setting": "Cocina durante preparación de comida tradicional",
+            "dialogue": [
+              { "speaker": "grandparent", "line": "Esta receta la aprendí de mi abuela, quien la aprendió de la suya. Ahora tú la aprenderás." },
+              { "speaker": "grandchild", "line": "¿Por qué es importante cocinar así?" },
+              { "speaker": "grandparent", "line": "Porque cuando cocinas con amor y tradición, no solo alimentas el cuerpo, alimentas el alma y mantienes viva la memoria de tu familia." }
+            ],
+            "lesson": "Continuidad cultural a través de prácticas cotidianas",
+            "interactive_options": ["¿Puedo cambiar algo de la receta?", "¿Qué otros secretos de cocina tienes?", "¿Cómo era la cocina de tu abuela?"]
+          }
+        ]
+      },
+      "parent_child_guidance": {
+        "context": "Orientación en decisiones importantes",
+        "scenarios": [
+          {
+            "situation": "Elección de carrera considerando impacto comunitario",
+            "parent": "Hijo, la carrera que elijas no solo te define a ti, también impacta a toda la comunidad. ¿Cómo puedes usar tus talentos para servir?",
+            "child_responses": [
+              "Quiero estudiar medicina para cuidar a nuestra gente",
+              "Me interesa la tecnología, pero no sé cómo aplicarla aquí",
+              "¿Y si mis sueños me llevan lejos de casa?"
+            ],
+            "guidance_approach": "Explorar conexión entre pasión personal y servicio comunitario"
+          },
+          {
+            "situation": "Manejo de conflictos entre pares",
+            "parent": "Los conflictos son oportunidades para fortalecer relaciones si los abordas con sabiduría. ¿Qué has intentado?",
+            "child_responses": [
+              "Traté de hablar pero no me escucha",
+              "Creo que es mejor evitar el problema",
+              "No entiendo por qué está enojado conmigo"
+            ],
+            "guidance_approach": "Enseñar habilidades de comunicación empática y resolución constructiva"
+          }
+        ]
+      }
+    },
+    "family_traditions": {
+      "weekly_gatherings": {
+        "format": "Cenas familiares donde se comparten experiencias semanales",
+        "structure": [
+          "Momento de gratitud por la comida",
+          "Cada miembro comparte lo mejor de su semana",
+          "Discusión de desafíos familiares",
+          "Planificación de actividades conjuntas",
+          "Cierre con bendición familiar"
+        ],
+        "variations": [
+          "Familias grandes rotan quien cocina",
+          "Familias pequeñas invitan vecinos ocasionalmente",
+          "Familias con miembros lejanos incluyen videollamadas"
+        ]
+      },
+      "storytelling_nights": {
+        "format": "Noches dedicadas a contar historias familiares",
+        "types_of_stories": [
+          "Historias de origen familiar",
+          "Leyendas comunitarias",
+          "Experiencias de vida significativas",
+          "Cuentos con moralejas",
+          "Anécdotas divertidas familiares"
+        ],
+        "storytelling_roles": [
+          "Narrador principal (usualmente abuelo/a)",
+          "Participantes activos (hacen preguntas)",
+          "Documentador (anota o graba historias)",
+          "Ilustrador (dibuja escenas importantes)"
+        ]
+      },
+      "skill_transmission": {
+        "format": "Enseñanza de habilidades tradicionales entre generaciones",
+        "skills_taught": [
+          {
+            "skill": "Artesanías tradicionales",
+            "teachers": "Abuelas experimentadas",
+            "students": "Nietos de 8-15 años",
+            "methodology": "Práctica guiada con historias"
+          },
+          {
+            "skill": "Técnicas de construcción",
+            "teachers": "Padres y tíos",
+            "students": "Jóvenes de 12-20 años",
+            "methodology": "Aprendizaje por participación en proyectos reales"
+          },
+          {
+            "skill": "Conocimiento de plantas medicinales",
+            "teachers": "Curanderos tradicionales",
+            "students": "Interesados de todas las edades",
+            "methodology": "Caminatas educativas y preparación práctica"
+          }
+        ]
+      }
+    },
+    "conflict_resolution_within_families": {
+      "approaches": [
+        {
+          "method": "Círculo familiar de sanación",
+          "description": "Reunión estructurada para abordar conflictos familiares",
+          "steps": [
+            "Convocatoria por miembro neutral de la familia",
+            "Establecimiento de reglas de respeto",
+            "Expresión de sentimientos sin interrupciones",
+            "Búsqueda de comprensión mutua",
+            "Compromiso de acciones específicas",
+            "Seguimiento en reunión posterior"
+          ]
+        },
+        {
+          "method": "Mediación de ancianos",
+          "description": "Intervención de miembros respetados de la familia extendida",
+          "when_used": "Conflictos que afectan múltiples generaciones",
+          "mediator_qualities": ["sabiduría reconocida", "neutralidad", "respeto de todas las partes"]
+        }
+      ]
+    }
+  },
+  "special_occasions": {
+    "coming_of_age": {
+      "ceremony": "Transición a la adultez",
+      "age": "16-18 años",
+      "preparation": [
+        "Año de preparación con mentor",
+        "Aprendizaje de responsabilidades adultas",
+        "Proyecto de servicio comunitario",
+        "Reflexión sobre valores familiares"
+      ],
+      "ceremony_elements": [
+        "Reconocimiento público por la comunidad",
+        "Palabras de sabiduría de cada abuelo",
+        "Entrega de objeto simbólico familiar",
+        "Compromiso personal con valores comunitarios"
+      ]
+    },
+    "marriage_traditions": {
+      "preparation": "Consejos familiares para la nueva pareja",
+      "ceremony": "Bendición de ambas familias",
+      "integration": "Proceso de unión de dos linajes familiares",
+      "ongoing_support": "Red de apoyo familiar para la nueva unidad"
+    }
+  }
+}

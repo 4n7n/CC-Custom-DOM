@@ -1,0 +1,40 @@
+{
+  "language": "français",
+  "region": "fr-FR",
+  "story_elements": {
+    "titles": {
+      "main_story": "L'Histoire de Notre Communauté",
+      "chapter_01": "Les Origines",
+      "chapter_02": "Défis et Croissance",
+      "chapter_03": "Épanouissement",
+      "chapter_04": "La Force de l'Unité",
+      "chapter_05": "Construire l'Avenir"
+    },
+    "character_names": {
+      "maria_elder": "Maria, l'Ancienne Sage",
+      "carlos_youth": "Carlos, le Jeune Innovateur",
+      "ana_mother": "Ana, la Mère Travailleuse"
+    },
+    "common_phrases": {
+      "welcome": "Bienvenue dans notre communauté",
+      "choose_path": "Choisissez votre chemin",
+      "continue_story": "Continuer l'histoire",
+      "make_decision": "Prendre une décision",
+      "reflect_choice": "Réfléchir sur le choix"
+    },
+    "narrative_elements": {
+      "scene_transitions": [
+        "Pendant ce temps...",
+        "Le lendemain...",
+        "Ailleurs dans la communauté...",
+        "Plus tard..."
+      ],
+      "emotional_markers": {
+        "joy": "avec joie",
+        "concern": "avec inquiétude",
+        "hope": "avec espoir",
+        "determination": "avec détermination"
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "scene_descriptions": {
+    "community_center": "Un espacio amplio y acogedor con círculos de sillas dispuestas para el diálogo. Las paredes están decoradas con fotografías de la historia comunitaria y artesanías locales.",
+    "cultural_garden": "Un jardín sereno donde crecen plantas medicinales y tradicionales. El sonido del agua que fluye de una pequeña fuente se mezcla con el canto de los pájaros.",
+    "elder_circle": "Un espacio sagrado bajo un gran árbol, donde los ancianos se reúnen para compartir sabiduría. Bancos de madera forman un círculo perfecto.",
+    "youth_space": "Un área vibrante y colorida equipada con tecnología moderna y espacios creativos. Aquí los jóvenes se reúnen para innovar y colaborar."
+  },
+  "character_voices": {
+    "maria_elder": "Voz cálida y pausada, llena de sabiduría y paciencia. Habla con la autoridad de la experiencia vivida.",
+    "carlos_youth": "Voz energética y entusiasta, rápida pero respetuosa. Transmite pasión por el cambio y el progreso.",
+    "ana_mother": "Voz firme y cariñosa, equilibrada entre la ternura maternal y la determinación. Habla con practicidad y amor."
+  },
+  "ambient_sounds": {
+    "community_gathering": "Murmullo de conversaciones animadas, risas ocasionales, pasos sobre suelo de madera",
+    "nature_scenes": "Sonidos de viento entre las hojas, canto de pájaros, agua fluyendo",
+    "ceremonial_moments": "Tambores suaves, cantos tradicionales, silencio reverencial"
+  }
+}

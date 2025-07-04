@@ -1,0 +1,53 @@
+{
+  "chapterTitle": "Desafíos y Crecimiento",
+  "chapterNumber": 2,
+  "description": "Explora los retos que enfrentó la comunidad durante su crecimiento",
+  "scenes": [
+    {
+      "sceneId": "growing_pains",
+      "title": "Dolores de Crecimiento",
+      "description": "Los desafíos que surgieron con la llegada de nuevas familias",
+      "narrative": "Con el tiempo, más familias se unieron, trayendo diversidad y también desafíos...",
+      "interactiveElements": ["mediar conflictos", "proponer soluciones", "facilitar diálogo"],
+      "characters": ["maria_elder", "carlos_youth", "ana_mother", "new_families"],
+      "choices": [
+        {
+          "id": "mediation_approach",
+          "text": "Organizar sesiones de mediación comunitaria",
+          "consequence": "Fortalece habilidades de resolución de conflictos"
+        },
+        {
+          "id": "integration_program",
+          "text": "Crear programa de integración para nuevas familias",
+          "consequence": "Mejora la cohesión social pero requiere recursos"
+        }
+      ]
+    },
+    {
+      "sceneId": "adaptation_struggle",
+      "title": "La Lucha por Adaptarse",
+      "description": "Cómo la comunidad se adaptó a los cambios sin perder su identidad",
+      "narrative": "Mantener las tradiciones mientras se abraza el cambio requirió sabiduría y paciencia...",
+      "interactiveElements": ["equilibrar tradición e innovación", "tomar decisiones comunitarias"],
+      "characters": ["council_members", "tradition_keepers", "innovators"],
+      "choices": [
+        {
+          "id": "gradual_change",
+          "text": "Implementar cambios graduales con consenso",
+          "consequence": "Preserva armonía pero ralentiza el progreso"
+        },
+        {
+          "id": "bold_adaptation",
+          "text": "Adoptar cambios necesarios con liderazgo decidido",
+          "consequence": "Acelera progreso pero puede generar resistencia"
+        }
+      ]
+    }
+  ],
+  "learningObjectives": ["entender procesos de cambio", "desarrollar habilidades de mediación", "valorar adaptabilidad"],
+  "culturalElements": ["rituales de bienvenida", "ceremonias de integración", "consejos de adaptación"],
+  "progressMarkers": {
+    "completion_percentage": 40,
+    "skills_developed": ["mediación", "adaptabilidad", "liderazgo colaborativo"]
+  }
+}

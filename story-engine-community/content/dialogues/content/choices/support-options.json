@@ -1,0 +1,190 @@
+{
+  "support_systems": {
+    "family_crisis_support": {
+      "situation": "Una familia enfrenta dificultades económicas severas",
+      "background": "La familia Hernández perdió su fuente principal de ingresos cuando el negocio familiar cerró debido a la competencia externa",
+      "community_responses": [
+        {
+          "type": "immediate_aid",
+          "description": "Apoyo económico y material directo",
+          "actions": [
+            "Colecta comunitaria para gastos urgentes",
+            "Donación de alimentos y artículos básicos",
+            "Pago temporal de servicios esenciales",
+            "Cuidado colectivo de niños"
+          ],
+          "resources_required": "financial_community_fund",
+          "sustainability": "short_term",
+          "dignity_impact": "potential_concern",
+          "implementation": "Inmediata - dentro de 48 horas",
+          "follow_up": "Evaluación semanal de necesidades"
+        },
+        {
+          "type": "skill_development",
+          "description": "Programas de capacitación y desarrollo profesional",
+          "components": [
+            "Evaluación de habilidades existentes",
+            "Capacitación en nuevas competencias demandadas",
+            "Mentoría profesional personalizada",
+            "Práticas en negocios comunitarios",
+            "Certificación de competencias"
+          ],
+          "resources_required": "time_mentorship",
+          "sustainability": "long_term",
+          "dignity_impact": "empowering",
+          "timeline": "3-6 meses",
+          "success_metrics": "Empleabilidad y autoestima"
+        },
+        {
+          "type": "collaborative_project",
+          "description": "Creación de oportunidad laboral comunitaria",
+          "project_examples": [
+            "Cooperativa de productos orgánicos",
+            "Taller de artesanías para turismo",
+            "Servicio de mantenimiento comunitario",
+            "Centro de cuidado infantil"
+          ],
+          "resources_required": "collective_investment",
+          "sustainability": "medium_term",
+          "dignity_impact": "highly_positive",
+          "community_benefits": "Múltiples familias beneficiadas",
+          "risk_factors": "Requiere compromiso colectivo sostenido"
+        }
+      ],
+      "decision_factors": [
+        "Urgencia de la situación",
+        "Capacidades familiares existentes",
+        "Recursos comunitarios disponibles",
+        "Preferencias de la familia afectada",
+        "Impacto en otras familias",
+        "Sostenibilidad a largo plazo"
+      ]
+    },
+    "elderly_care_models": {
+      "context": "Cuidado integral de adultos mayores en la comunidad",
+      "approach_options": [
+        {
+          "model": "intergenerational_housing",
+          "description": "Viviendas compartidas entre generaciones",
+          "structure": [
+            "Casas adaptadas para múltiples generaciones",
+            "Espacios privados y comunes balanceados",
+            "Sistemas de apoyo integrados",
+            "Programas de intercambio de servicios"
+          ],
+          "benefits": [
+            "knowledge_transfer - Transmisión natural de sabiduría",
+            "mutual_support - Ayuda bidireccional entre generaciones",
+            "cost_effective - Compartición de gastos y recursos",
+            "emotional_wellbeing - Reducción de soledad y aislamiento"
+          ],
+          "challenges": [
+            "privacy_concerns - Necesidad de espacios personales",
+            "lifestyle_differences - Horarios y hábitos diferentes",
+            "conflict_potential - Posibles fricciones generacionales",
+            "adaptation_period - Tiempo necesario para ajustes"
+          ],
+          "success_requirements": [
+            "Selección cuidadosa de familias compatibles",
+            "Establecimiento de reglas claras de convivencia",
+            "Mediación disponible para resolver conflictos",
+            "Flexibilidad para hacer ajustes necesarios"
+          ]
+        },
+        {
+          "model": "community_care_network",
+          "description": "Red comunitaria de cuidado coordinado",
+          "components": [
+            "Equipos de cuidadores voluntarios",
+            "Sistema de monitoreo de salud",
+            "Programas de actividades sociales",
+            "Servicios de emergencia rápida",
+            "Coordinación con servicios médicos"
+          ],
+          "benefits": [
+            "specialized_care - Atención según necesidades específicas",
+            "social_integration - Mantenimiento de conexiones sociales",
+            "flexible_support - Adaptable a cambios en condiciones",
+            "community_involvement - Participación activa de toda la comunidad"
+          ],
+          "challenges": [
+            "coordination_complexity - Requiere organización sofisticada",
+            "resource_intensive - Demanda tiempo y compromiso significativo",
+            "training_needs - Capacitación continua de voluntarios",
+            "quality_consistency - Mantener estándares uniformes"
+          ],
+          "organizational_structure": [
+            "Coordinador principal de cuidados",
+            "Equipos especializados por tipo de necesidad",
+            "Sistema de turnos y cobertura",
+            "Evaluación regular de calidad de servicio"
+          ]
+        },
+        {
+          "model": "elder_wisdom_centers",
+          "description": "Centros donde ancianos contribuyen activamente",
+          "activities": [
+            "Enseñanza de habilidades tradicionales",
+            "Consultoría en decisiones comunitarias",
+            "Programas de mentoría para jóvenes",
+            "Documentación de historia oral",
+            "Artesanías y productos culturales"
+          ],
+          "benefits": [
+            "purpose_fulfillment - Sensación de propósito y valor",
+            "cultural_preservation - Transmisión activa de conocimientos",
+            "income_generation - Posibilidad de ingresos por contribuciones",
+            "social_status - Reconocimiento y respeto comunitario"
+          ],
+          "challenges": [
+            "physical_limitations - Adaptación a capacidades físicas",
+            "technology_barriers - Integración de herramientas modernas",
+            "scheduling_conflicts - Coordinación con otros compromisos",
+            "health_fluctuations - Adaptación a cambios en salud"
+          ],
+          "support_infrastructure": [
+            "Instalaciones accesibles físicamente",
+            "Tecnología adaptada a usuarios mayores",
+            "Personal de apoyo cuando sea necesario",
+            "Transporte comunitario disponible"
+          ]
+        }
+      ],
+      "selection_criteria": [
+        "Preferencias individuales de ancianos",
+        "Recursos familiares disponibles",
+        "Capacidad comunitaria",
+        "Condiciones de salud específicas",
+        "Tradiciones culturales relevantes"
+      ]
+    },
+    "youth_development_support": {
+      "educational_pathways": [
+        {
+          "path": "community_scholarship_program",
+          "description": "Becas para educación superior con compromiso de retorno",
+          "structure": [
+            "Evaluación de candidatos basada en mérito y necesidad",
+            "Apoyo financiero completo para estudios",
+            "Mentoría durante el período de estudios",
+            "Compromiso de servicio comunitario post-graduación"
+          ],
+          "benefits": "Desarrollo de líderes locales educados",
+          "obligations": "Mínimo 3 años de servicio comunitario"
+        }
+      ],
+      "mentorship_programs": [
+        {
+          "program": "cross_generational_mentoring",
+          "description": "Parejas mentor-aprendiz entre generaciones",
+          "focus_areas": [
+            "Desarrollo profesional",
+            "Habilidades de vida",
+            "Liderazgo comunitario",
+            "Preservación cultural"
+          ]
+        }
+      ]
+    }
+  }
+}

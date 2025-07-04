@@ -1,0 +1,99 @@
+{
+  "chapterTitle": "Construyendo el Futuro",
+  "chapterNumber": 5,
+  "description": "Participa en la planificación del futuro de la comunidad",
+  "scenes": [
+    {
+      "sceneId": "visioning_future",
+      "title": "Imaginando el Mañana",
+      "description": "Sesiones de planificación para el futuro de la comunidad",
+      "narrative": "Mirando hacia adelante, la comunidad se prepara para nuevos horizontes. El futuro se construye con las decisiones del presente...",
+      "interactiveElements": ["crear visión compartida", "establecer metas", "asignar responsabilidades"],
+      "visionElements": [
+        "Sostenibilidad ambiental a largo plazo",
+        "Desarrollo económico equitativo",
+        "Preservación cultural dinámica",
+        "Educación innovadora",
+        "Tecnología al servicio de la comunidad"
+      ],
+      "futureGoals": [
+        "Autosuficiencia energética",
+        "Universidad comunitaria",
+        "Centro de investigación cultural",
+        "Red de comunidades hermanas",
+        "Modelo replicable de desarrollo"
+      ],
+      "choices": [
+        {
+          "id": "ambitious_vision",
+          "text": "Adoptar visión ambiciosa y transformadora",
+          "consequence": "Potencial de gran impacto pero riesgo de sobreextensión"
+        },
+        {
+          "id": "practical_evolution",
+          "text": "Evolución práctica basada en fortalezas actuales",
+          "consequence": "Progreso sostenible pero menos revolucionario"
+        }
+      ]
+    },
+    {
+      "sceneId": "legacy_building",
+      "title": "Construyendo un Legado",
+      "description": "Las acciones presentes que definirán el futuro",
+      "narrative": "Cada decisión de hoy es una semilla para las generaciones venideras. El legado se construye día a día, elección tras elección...",
+      "interactiveElements": ["tomar decisiones trascendentales", "crear instituciones", "formar líderes"],
+      "legacyActions": [
+        "Establecimiento de constitución comunitaria",
+        "Creación de fondo generacional",
+        "Documentación de sabiduría ancestral",
+        "Formación de líderes jóvenes",
+        "Alianzas estratégicas duraderas"
+      ],
+      "institutionBuilding": [
+        "Consejo de Ancianos renovado",
+        "Asamblea Juvenil con poder real",
+        "Tribunal de Justicia Restaurativa",
+        "Academia de Artes Tradicionales",
+        "Centro de Innovación Sostenible"
+      ],
+      "choices": [
+        {
+          "id": "institutional_legacy",
+          "text": "Crear instituciones sólidas para el futuro",
+          "consequence": "Estabilidad a largo plazo pero posible rigidez"
+        },
+        {
+          "id": "adaptive_legacy",
+          "text": "Construir legado adaptable y flexible",
+          "consequence": "Capacidad de evolución pero menos predictibilidad"
+        }
+      ]
+    }
+  ],
+  "learningObjectives": ["desarrollar visión futura", "asumir responsabilidad generacional", "planificar sostenibilidad"],
+  "culturalElements": ["ceremonias de compromiso", "rituales de transmisión", "símbolos del futuro"],
+  "progressMarkers": {
+    "completion_percentage": 100,
+    "skills_developed": ["visión a largo plazo", "liderazgo transformacional", "construcción institucional"]
+  },
+  "multipleEndings": [
+    {
+      "endingId": "sustainable_prosperity",
+      "title": "Prosperidad Sostenible",
+      "description": "La comunidad alcanza equilibrio perfecto entre tradición e innovación",
+      "conditions": ["decisiones equilibradas", "alta participación", "conservación cultural"]
+    },
+    {
+      "endingId": "innovative_transformation",
+      "title": "Transformación Innovadora",
+      "description": "La comunidad se convierte en modelo de desarrollo tecnológico comunitario",
+      "conditions": ["decisiones innovadoras", "liderazgo joven", "adaptación tecnológica"]
+    },
+    {
+      "endingId": "cultural_renaissance",
+      "title": "Renacimiento Cultural",
+      "description": "La comunidad florece como centro de preservación y evolución cultural",
+      "conditions": ["decisiones culturales", "respeto intergeneracional", "tradiciones adaptadas"]
+    }
+  ]
+}

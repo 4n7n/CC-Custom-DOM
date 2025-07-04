@@ -1,0 +1,247 @@
+{
+  "engagement_opportunities": {
+    "volunteer_participation": {
+      "context": "Formas de contribuir al bienestar comunitario",
+      "categories": [
+        {
+          "category": "education_and_mentorship",
+          "options": [
+            {
+              "activity": "educational_mentorship",
+              "description": "Mentoría educativa para jóvenes en materias específicas",
+              "time_commitment": "2-4 horas semanales",
+              "skills_required": ["paciencia", "conocimiento_especializado", "comunicación_clara"],
+              "impact": "desarrollo_juventud",
+              "training_provided": "Técnicas de enseñanza y comunicación con jóvenes",
+              "support_structure": "Coordinador educativo y grupos de apoyo",
+              "flexibility": "Horarios adaptables a disponibilidad del voluntario"
+            },
+            {
+              "activity": "literacy_support",
+              "description": "Apoyo en alfabetización para adultos y ancianos",
+              "time_commitment": "3 horas semanales",
+              "skills_required": ["paciencia", "empatía", "habilidades_básicas_enseñanza"],
+              "impact": "inclusión_social",
+              "special_considerations": "Respeto por dignidad de aprendices adultos"
+            }
+          ]
+        },
+        {
+          "category": "cultural_preservation",
+          "options": [
+            {
+              "activity": "cultural_documentation",
+              "description": "Documentación de historias, tradiciones y conocimientos ancestrales",
+              "time_commitment": "flexible - proyectos por temporadas",
+              "skills_required": ["escucha_activa", "organización", "respeto_cultural"],
+              "impact": "preservación_cultural",
+              "tools_needed": "Grabadoras, cámaras, materiales de archivo",
+              "collaboration": "Trabajo estrecho con ancianos y guardianes culturales",
+              "output": "Archivo digital y físico para la comunidad"
+            },
+            {
+              "activity": "traditional_skills_teaching",
+              "description": "Enseñanza de artesanías y habilidades tradicionales",
+              "time_commitment": "4-6 horas semanales",
+              "skills_required": ["dominio_artesanal", "paciencia_enseñanza", "creatividad"],
+              "impact": "transmisión_cultural",
+              "materials": "Proporcionados por programa comunitario",
+              "student_groups": "Niños, jóvenes y adultos interesados"
+            }
+          ]
+        },
+        {
+          "category": "environmental_stewardship",
+          "options": [
+            {
+              "activity": "community_gardening",
+              "description": "Mantenimiento de espacios verdes y huertos comunitarios",
+              "time_commitment": "3 horas semanales",
+              "skills_required": ["trabajo_físico", "conocimiento_botánico_básico", "trabajo_equipo"],
+              "impact": "sostenibilidad_ambiental",
+              "seasonal_variation": "Actividades cambian según estación del año",
+              "learning_opportunities": "Técnicas de agricultura sostenible",
+              "community_benefits": "Alimentos frescos y espacios de encuentro"
+            },
+            {
+              "activity": "water_conservation",
+              "description": "Monitoreo y conservación de recursos hídricos",
+              "time_commitment": "2-3 horas semanales",
+              "skills_required": ["observación_detallada", "registros_sistemáticos", "consciencia_ambiental"],
+              "impact": "sostenibilidad_recursos",
+              "training": "Técnicas de medición y conservación"
+            }
+          ]
+        }
+      ]
+    },
+    "leadership_development": {
+      "pathways": [
+        {
+          "track": "traditional_leadership",
+          "description": "Formación en liderazgo basado en sabiduría ancestral",
+          "preparation": [
+            "Aprendizaje intensivo con ancianos respetados",
+            "Comprensión profunda de tradiciones y ceremonias",
+            "Práctica en resolución de conflictos tradicionales",
+            "Desarrollo de habilidades de oratoria ceremonial"
+          ],
+          "responsibilities": [
+            "Guía espiritual y cultural de la comunidad",
+            "Facilitación de ceremonias importantes",
+            "Resolución de conflictos usando métodos tradicionales",
+            "Preservación y transmisión de conocimientos ancestrales"
+          ],
+          "qualifications": [
+            "Respeto demostrado por tradiciones",
+            "Reconocimiento por parte de ancianos",
+            "Habilidades comprobadas de mediación",
+            "Compromiso de servicio a largo plazo"
+          ],
+          "support_system": "Consejo de ancianos como guías permanentes"
+        },
+        {
+          "track": "innovative_leadership",
+          "description": "Liderazgo enfocado en modernización responsable",
+          "preparation": [
+            "Desarrollo de habilidades técnicas y administrativas",
+            "Educación en gestión de proyectos",
+            "Entrenamiento en negociación y comunicación moderna",
+            "Comprensión de tendencias globales relevantes"
+          ],
+          "responsibilities": [
+            "Modernización respetuosa de sistemas comunitarios",
+            "Creación de oportunidades económicas sostenibles",
+            "Facilitación de adopción tecnológica apropiada",
+            "Representación comunitaria en contextos externos"
+          ],
+          "qualifications": [
+            "Demostrada capacidad innovadora",
+            "Respeto por valores comunitarios fundamentales",
+            "Habilidades de comunicación intercultural",
+            "Visión de desarrollo sostenible"
+          ],
+          "mentorship": "Líderes tradicionales + expertos externos"
+        },
+        {
+          "track": "collaborative_leadership",
+          "description": "Liderazgo especializado en facilitación y construcción de consensos",
+          "preparation": [
+            "Entrenamiento intensivo en técnicas de facilitación",
+            "Desarrollo de habilidades de mediación avanzada",
+            "Práctica en construcción de consensos",
+            "Estudio de dinámicas grupales y psicología social"
+          ],
+          "responsibilities": [
+            "Coordinación de proyectos complejos multi-stakeholder",
+            "Mediación en conflictos comunitarios difíciles",
+            "Facilitación de procesos de toma de decisiones",
+            "Construcción de puentes entre diferentes grupos"
+          ],
+          "qualifications": [
+            "Habilidades excepcionales de escucha",
+            "Neutralidad reconocida por toda la comunidad",
+            "Paciencia y persistencia demostradas",
+            "Capacidad de sintetizar perspectivas diversas"
+          ],
+          "development_opportunities": "Rotación entre diferentes proyectos y contextos"
+        }
+      ],
+      "selection_process": [
+        {
+          "stage": "self_nomination_or_community_nomination",
+          "description": "Individuos pueden postularse o ser nominados por miembros de la comunidad",
+          "criteria": "Interés genuino y apoyo comunitario inicial"
+        },
+        {
+          "stage": "assessment_period",
+          "description": "Período de evaluación de 6 meses",
+          "activities": [
+            "Participación en proyectos de prueba",
+            "Evaluación por líderes actuales",
+            "Feedback de comunidad",
+            "Autoevaluación y reflexión"
+          ]
+        },
+        {
+          "stage": "formal_training",
+          "description": "Programa estructurado de desarrollo",
+          "duration": "12-18 meses",
+          "components": [
+            "Cursos específicos según track elegido",
+            "Mentoría personalizada",
+            "Proyectos prácticos de liderazgo",
+            "Evaluaciones continuas"
+          ]
+        }
+      ]
+    },
+    "creative_contributions": {
+      "artistic_expression": [
+        {
+          "medium": "visual_arts",
+          "projects": [
+            "Murales comunitarios que narran historia local",
+            "Esculturas para espacios públicos",
+            "Ilustraciones para materiales educativos",
+            "Diseño de elementos para ceremonias"
+          ],
+          "support_provided": "Materiales, espacio de trabajo, mentoría artística"
+        },
+        {
+          "medium": "performing_arts",
+          "projects": [
+            "Obras teatrales sobre temas comunitarios",
+            "Música que fusiona tradicional con contemporáneo",
+            "Danza interpretativa de historias ancestrales",
+            "Presentaciones multimedia para eventos"
+          ],
+          "venues": "Centro cultural, espacios al aire libre, ceremonias"
+        }
+      ],
+      "innovation_projects": [
+        {
+          "area": "technology_for_community",
+          "examples": [
+            "Aplicaciones para facilitar comunicación comunitaria",
+            "Sistemas de gestión de recursos compartidos",
+            "Plataformas de intercambio de habilidades",
+            "Herramientas de documentación cultural"
+          ],
+          "support": "Acceso a tecnología, mentores técnicos, fondos para desarrollo"
+        }
+      ]
+    }
+  },
+  "recognition_systems": {
+    "appreciation_methods": [
+      {
+        "type": "public_recognition",
+        "occasions": [
+          "Ceremonias comunitarias trimestrales",
+          "Eventos anuales de agradecimiento",
+          "Menciones en comunicaciones comunitarias",
+          "Reconocimiento en espacios públicos"
+        ]
+      },
+      {
+        "type": "skill_development_opportunities",
+        "benefits": [
+          "Acceso prioritario a programas de capacitación",
+          "Oportunidades de intercambio con otras comunidades",
+          "Participación en conferencias y eventos externos",
+          "Mentoría especializada adicional"
+        ]
+      },
+      {
+        "type": "leadership_pathways",
+        "progression": [
+          "Consideración especial para roles de liderazgo",
+          "Invitación a comités de decisión",
+          "Oportunidades de representar la comunidad externamente",
+          "Participación en planificación estratégica"
+        ]
+      }
+    ]
+  }
+}
