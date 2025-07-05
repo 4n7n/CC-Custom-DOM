@@ -1,0 +1,321 @@
+/* Environmental Effects - RAMA 5 Graphics Immersive */
+:root {
+  --primary-light: #4a90e2;
+  --secondary-light: #f39c12;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --fog-color: rgba(255, 255, 255, 0.1);
+  --particle-color: #ffffff;
+}
+
+/* Environmental Container */
+.environment-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+}
+
+/* Atmospheric Layers */
+.atmosphere-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.fog-layer {
+  background: radial-gradient(circle at 50% 50%, var(--fog-color) 0%, transparent 70%);
+  animation: fogDrift 20s ease-in-out infinite;
+}
+
+.light-rays {
+  background: linear-gradient(45deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  animation: lightRayMove 15s linear infinite;
+}
+
+.heat-shimmer {
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 4px
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Weather Effects */
+.weather-system {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.rain-effect {
+  background-image: 
+    linear-gradient(transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%),
+    linear-gradient(transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  background-size: 2px 100px, 3px 150px;
+  background-position: 0 0, 50px 0;
+  animation: rain 1s linear infinite;
+}
+
+.snow-effect {
+  background-image: 
+    radial-gradient(circle at 20% 50%, white 2px, transparent 2px),
+    radial-gradient(circle at 80% 50%, white 1px, transparent 1px),
+    radial-gradient(circle at 40% 50%, white 1px, transparent 1px);
+  background-size: 100px 100px, 80px 80px, 120px 120px;
+  animation: snowfall 10s linear infinite;
+}
+
+.wind-effect {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: windGust 8s ease-in-out infinite;
+}
+
+/* Particle Systems */
+.particle-system {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dust-particles {
+  background-image: 
+    radial-gradient(circle at 10% 20%, var(--particle-color) 1px, transparent 1px),
+    radial-gradient(circle at 80% 80%, var(--particle-color) 1px, transparent 1px),
+    radial-gradient(circle at 40% 40%, var(--particle-color) 1px, transparent 1px);
+  background-size: 200px 200px, 300px 300px, 250px 250px;
+  animation: dustFloat 25s linear infinite;
+}
+
+.ember-particles {
+  background-image: 
+    radial-gradient(circle at 30% 60%, #ff6b35 2px, transparent 2px),
+    radial-gradient(circle at 70% 20%, #ff8c42 1px, transparent 1px);
+  background-size: 150px 150px, 200px 200px;
+  animation: emberRise 12s ease-out infinite;
+}
+
+.magical-sparkles {
+  background-image: 
+    radial-gradient(circle at 20% 30%, #4ecdc4 1px, transparent 1px),
+    radial-gradient(circle at 80% 70%, #45b7d1 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #f9ca24 1px, transparent 1px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: sparkle 8s ease-in-out infinite;
+}
+
+/* Lighting Effects */
+.dynamic-lighting {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: screen;
+}
+
+.ambient-light {
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 60%
+  );
+  animation: ambientPulse 10s ease-in-out infinite;
+}
+
+.directional-light {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%
+  );
+  animation: directionalSweep 20s linear infinite;
+}
+
+.spot-light {
+  background: radial-gradient(
+    ellipse at 70% 80%,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    transparent 60%
+  );
+  animation: spotlightMove 15s ease-in-out infinite;
+}
+
+/* Shadow Systems */
+.shadow-system {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 5;
+}
+
+.dynamic-shadows {
+  background: linear-gradient(
+    to top,
+    var(--shadow-color) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shadowShift 18s ease-in-out infinite;
+}
+
+.character-shadows {
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    transparent 60%
+  );
+  animation: characterShadowMove 5s ease-in-out infinite;
+}
+
+/* Reflection Effects */
+.water-reflection {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 150, 255, 0.2) 0%,
+    transparent 100%
+  );
+  animation: waterRipple 6s ease-in-out infinite;
+}
+
+.glass-reflection {
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: glassShine 8s ease-in-out infinite;
+}
+
+/* Animation Keyframes */
+@keyframes fogDrift {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(-20px) translateY(-10px); }
+}
+
+@keyframes lightRayMove {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100vw) rotate(45deg); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; transform: skewX(0deg); }
+  50% { opacity: 0.8; transform: skewX(2deg); }
+}
+
+@keyframes rain {
+  0% { background-position: 0 -100px, 50px -100px; }
+  100% { background-position: 0 100vh, 50px 100vh; }
+}
+
+@keyframes snowfall {
+  0% { background-position: 0 -100px, 20px -100px, 40px -100px; }
+  100% { background-position: 0 100vh, 20px 100vh, 40px 100vh; }
+}
+
+@keyframes windGust {
+  0%, 100% { transform: translateX(-100px) scaleX(0.8); opacity: 0; }
+  50% { transform: translateX(100px) scaleX(1.2); opacity: 0.6; }
+}
+
+@keyframes dustFloat {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(360deg); }
+}
+
+@keyframes emberRise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes directionalSweep {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spotlightMove {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(30px) translateY(-20px); }
+}
+
+@keyframes shadowShift {
+  0%, 100% { transform: skewX(0deg); opacity: 0.6; }
+  50% { transform: skewX(5deg); opacity: 0.9; }
+}
+
+@keyframes characterShadowMove {
+  0%, 100% { transform: translateX(0) scaleX(1); }
+  50% { transform: translateX(10px) scaleX(1.1); }
+}
+
+@keyframes waterRipple {
+  0%, 100% { transform: scaleY(1); opacity: 0.3; }
+  50% { transform: scaleY(1.05); opacity: 0.6; }
+}
+
+@keyframes glassShine {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Performance Optimizations */
+.environment-container * {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .environment-container {
+    height: 100vh;
+  }
+  
+  .particle-system {
+    display: none;
+  }
+  
+  .weather-system {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}
