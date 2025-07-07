@@ -1,0 +1,390 @@
+/* Estilos para progreso de recaudación */
+.fundraising-progress {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    padding: 2rem 0;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.fundraising-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 100,0 0,100" fill="rgba(102,126,234,0.05)"/></svg>');
+    opacity: 0.5;
+}
+
+.progress-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.progress-card h3 {
+    color: #2d3748;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1.5rem 0;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #48bb78 0%, #38a169 50%, #2f855a 100%);
+    border-radius: 10px;
+    position: relative;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+    animation: progressGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes progressGlow {
+    0% {
+        box-shadow: 0 2px 8px rgba(72, 187, 120, 0.3);
+    }
+    100% {
+        box-shadow: 0 2px 15px rgba(72, 187, 120, 0.6);
+    }
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.progress-stats span {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.progress-stats span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Milestone indicators */
+.milestone-markers {
+    position: relative;
+    margin: 1rem 0;
+    height: 30px;
+}
+
+.milestone-marker {
+    position: absolute;
+    top: -25px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #4a5568;
+}
+
+.milestone-marker.reached {
+    color: #38a169;
+    font-weight: 600;
+}
+
+.milestone-marker .marker-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    border: 2px solid #a0aec0;
+    margin-bottom: 0.25rem;
+}
+
+.milestone-marker.reached .marker-icon {
+    background: #38a169;
+    border-color: #38a169;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(56, 161, 105, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(56, 161, 105, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(56, 161, 105, 0);
+    }
+}
+
+.milestone-text {
+    font-size: 0.7rem;
+    white-space: nowrap;
+}
+
+/* Progress details */
+.progress-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.detail-item {
+    text-align: center;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 12px;
+    transition: background 0.3s ease;
+}
+
+.detail-item:hover {
+    background: #edf2f7;
+}
+
+.detail-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.detail-label {
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Campaign timeline */
+.campaign-timeline {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+    border-radius: 12px;
+    border-left: 4px solid #38b2ac;
+}
+
+.timeline-header {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: #4a5568;
+}
+
+.timeline-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #38b2ac;
+}
+
+.timeline-item.completed .timeline-icon {
+    background: #38a169;
+}
+
+.timeline-item.upcoming .timeline-icon {
+    background: #e2e8f0;
+}
+
+/* Progress celebration */
+.progress-celebration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.celebration-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: celebrate 2s ease-out forwards;
+}
+
+@keyframes celebrate {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(0.5);
+    }
+}
+
+/* Compact progress bar */
+.progress-compact {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.progress-compact .progress-bar {
+    height: 12px;
+    margin: 1rem 0;
+}
+
+.progress-compact .progress-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.progress-compact .progress-stats span {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+}
+
+/* Goal thermometer */
+.goal-thermometer {
+    width: 60px;
+    height: 300px;
+    margin: 0 auto 2rem;
+    position: relative;
+    background: #e2e8f0;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.thermometer-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(180deg, #48bb78 0%, #38a169 50%, #2f855a 100%);
+    border-radius: 30px;
+    transition: height 2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 -2px 8px rgba(72, 187, 120, 0.3);
+}
+
+.thermometer-bulb {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: #e53e3e;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(229, 62, 62, 0.3);
+}
+
+.thermometer-labels {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    bottom: 0;
+    width: 35px;
+}
+
+.thermometer-label {
+    position: absolute;
+    font-size: 0.75rem;
+    color: #4a5568;
+    white-space: nowrap;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .progress-card {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+    
+    .progress-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .progress-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .progress-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .goal-thermometer {
+        width: 40px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fundraising-progress {
+        padding: 1rem 0;
+    }
+    
+    .progress-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .progress-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .milestone-markers {
+        display: none; /* Ocultar en móviles para evitar aglomeración */
+    }
+}

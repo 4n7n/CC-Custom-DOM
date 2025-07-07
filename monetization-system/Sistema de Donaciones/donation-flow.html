@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoya Nuestro Proyecto - Donaciones</title>
+    <link rel="stylesheet" href="css/components/donation-widgets.css">
+    <link rel="stylesheet" href="css/components/payment-forms.css">
+    <link rel="stylesheet" href="css/components/success-animations.css">
+    <link rel="stylesheet" href="css/components/fundraising-progress.css">
+    <link rel="stylesheet" href="css/components/impact-visualization.css">
+</head>
+<body>
+    <!-- Header de donaciones -->
+    <header class="donation-header">
+        <div class="container">
+            <h1>🌱 Apoya Nuestro Proyecto</h1>
+            <p class="mission-statement">Tu donación ayuda a crear un futuro más sostenible y tecnológico</p>
+        </div>
+    </header>
+
+    <!-- Progreso de recaudación -->
+    <section class="fundraising-progress">
+        <div class="container">
+            <div class="progress-card">
+                <h3>Meta Actual: €50,000</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" data-progress="68"></div>
+                </div>
+                <div class="progress-stats">
+                    <span>€34,000 recaudados</span>
+                    <span>432 donantes</span>
+                    <span>€16,000 restantes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario de donación principal -->
+    <main class="donation-main">
+        <div class="container">
+            <div class="donation-grid">
+                <!-- Widget de donación rápida -->
+                <div class="donation-widget">
+                    <h2>Donación Rápida</h2>
+                    <div class="amount-selector">
+                        <button class="amount-btn" data-amount="5">€5</button>
+                        <button class="amount-btn" data-amount="15">€15</button>
+                        <button class="amount-btn" data-amount="25">€25</button>
+                        <button class="amount-btn" data-amount="50">€50</button>
+                        <button class="amount-btn" data-amount="100">€100</button>
+                        <input type="number" class="custom-amount" placeholder="Otro importe">
+                    </div>
+                    
+                    <div class="donation-type">
+                        <label class="radio-option">
+                            <input type="radio" name="donation-type" value="one-time" checked>
+                            <span>Donación única</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" name="donation-type" value="monthly">
+                            <span>Donación mensual</span>
+                        </label>
+                    </div>
+
+                    <div class="impact-preview">
+                        <h4>Tu impacto:</h4>
+                        <p class="impact-text">Con €25 puedes financiar 1 semana de desarrollo</p>
+                    </div>
+
+                    <button class="donate-btn primary">Donar Ahora</button>
+                </div>
+
+                <!-- Calculadora de impacto -->
+                <div class="impact-calculator">
+                    <h3>Calculadora de Impacto</h3>
+                    <div class="calculator-input">
+                        <input type="range" id="impact-slider" min="5" max="500" value="25">
+                        <span class="amount-display">€25</span>
+                    </div>
+                    <div class="impact-breakdown">
+                        <div class="impact-item">
+                            <span class="impact-icon">⚡</span>
+                            <span>1 semana de desarrollo</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-icon">🌱</span>
+                            <span>2 funciones nuevas</span>
+                        </div>
+                        <div class="impact-item">
+                            <span class="impact-icon">🚀</span>
+                            <span>Acelerar lanzamiento</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Formulario de pago -->
+    <section class="payment-form-section" id="payment-section" style="display: none;">
+        <div class="container">
+            <div class="payment-form">
+                <h3>Completa tu Donación</h3>
+                <form id="donation-form">
+                    <div class="form-group">
+                        <label>Información Personal</label>
+                        <input type="text" id="donor-name" placeholder="Nombre completo" required>
+                        <input type="email" id="donor-email" placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Método de Pago</label>
+                        <div class="payment-methods">
+                            <label class="payment-method">
+                                <input type="radio" name="payment-method" value="card" checked>
+                                <span>💳 Tarjeta</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment-method" value="paypal">
+                                <span>💰 PayPal</span>
+                            </label>
+                            <label class="payment-method">
+                                <input type="radio" name="payment-method" value="crypto">
+                                <span>₿ Crypto</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="payment-details" id="card-details">
+                        <input type="text" placeholder="Número de tarjeta">
+                        <div class="card-row">
+                            <input type="text" placeholder="MM/AA">
+                            <input type="text" placeholder="CVV">
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="anonymous-donation">
+                            <span>Donación anónima</span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" id="newsletter-subscribe">
+                            <span>Recibir actualizaciones del proyecto</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-donation">Completar Donación</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mensaje de éxito -->
+    <div class="success-overlay" id="success-overlay" style="display: none;">
+        <div class="success-animation">
+            <div class="success-icon">✅</div>
+            <h2>¡Gracias por tu donación!</h2>
+            <p>Tu apoyo hace posible este proyecto</p>
+            <div class="success-actions">
+                <button class="share-btn">Compartir</button>
+                <button class="close-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/modules/payments/donation-system.js"></script>
+    <script src="js/modules/payments/payment-processors.js"></script>
+    <script src="js/modules/payments/impact-calculator.js"></script>
+    <script src="js/components/donation-widget.js"></script>
+    <script src="js/components/payment-form.js"></script>
+    <script src="js/modules/payments/donation-ux.js"></script>
+</body>
+</html>

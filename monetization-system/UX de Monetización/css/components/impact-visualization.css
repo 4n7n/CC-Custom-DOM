@@ -1,0 +1,620 @@
+/* Estilos para visualización de impacto */
+.impact-visualization {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.impact-visualization::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(72, 187, 120, 0.05) 0%, rgba(56, 161, 105, 0.05) 100%);
+    pointer-events: none;
+}
+
+/* Header de visualización */
+.impact-viz-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.impact-viz-header h3 {
+    color: #2d3748;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.impact-viz-header p {
+    color: #4a5568;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Gráfico circular de impacto */
+.impact-circle-chart {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 2rem auto;
+}
+
+.impact-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    background: white;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.total-impact-amount {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2d3748;
+    animation: countUp 1s ease;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.impact-label {
+    color: #4a5568;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+/* Círculos de categorías */
+.impact-circles {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.impact-category-circle {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: circleFloat 4s ease-in-out infinite;
+}
+
+@keyframes circleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.impact-category-circle:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.impact-category-circle:nth-child(1) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.impact-category-circle:nth-child(2) {
+    background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    animation-delay: 0.5s;
+}
+
+.impact-category-circle:nth-child(3) {
+    background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+    bottom: 10px;
+    right: 30%;
+    animation-delay: 1s;
+}
+
+.impact-category-circle:nth-child(4) {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    bottom: 10px;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+
+.impact-category-circle:nth-child(5) {
+    background: linear-gradient(135deg, #38b2ac 0%, #319795 100%);
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    animation-delay: 2s;
+}
+
+.circle-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.circle-value {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.circle-label {
+    font-size: 0.7rem;
+    opacity: 0.9;
+    line-height: 1;
+}
+
+/* Barras de impacto horizontales */
+.impact-bars-container {
+    margin: 2rem 0;
+}
+
+.impact-bar-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.impact-bar-item:hover {
+    background: #edf2f7;
+    transform: translateX(5px);
+}
+
+.impact-bar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.impact-category-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.impact-category-icon {
+    font-size: 1.2rem;
+}
+
+.impact-value-display {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+.impact-progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.impact-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    border-radius: 6px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.impact-progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: progressShine 2s ease-in-out infinite;
+}
+
+@keyframes progressShine {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Matriz de impacto */
+.impact-matrix {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.impact-matrix-item {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.impact-matrix-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+}
+
+.impact-matrix-item:hover {
+    border-color: #667eea;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+
+.matrix-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.matrix-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-value {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.matrix-description {
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Timeline de impacto */
+.impact-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    flex: 1;
+    max-width: 45%;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-right: 2rem;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: 2rem;
+}
+
+.timeline-dot {
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 4px white, 0 0 0 8px #667eea;
+}
+
+.timeline-title {
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-amount {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #667eea;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-description {
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Comparativa de impacto */
+.impact-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.comparison-side {
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.comparison-before {
+    background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+    border-left: 4px solid #e53e3e;
+}
+
+.comparison-after {
+    background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+    border-left: 4px solid #48bb78;
+}
+
+.comparison-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.comparison-before .comparison-title {
+    color: #742a2a;
+}
+
+.comparison-after .comparison-title {
+    color: #22543d;
+}
+
+.comparison-stats {
+    display: grid;
+    gap: 1rem;
+}
+
+.comparison-stat {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 800;
+    display: block;
+}
+
+.comparison-before .stat-number {
+    color: #e53e3e;
+}
+
+.comparison-after .stat-number {
+    color: #48bb78;
+}
+
+.stat-label {
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Indicadores de progreso hacia metas */
+.impact-goals {
+    background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 4px solid #38b2ac;
+}
+
+.goals-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.goals-title {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.goals-subtitle {
+    color: #4a5568;
+    font-size: 1rem;
+}
+
+.goal-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.goal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.goal-name {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.goal-target {
+    color: #38b2ac;
+    font-weight: 700;
+}
+
+.goal-progress {
+    margin-bottom: 0.5rem;
+}
+
+.goal-progress-bar {
+    width: 100%;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38b2ac 0%, #319795 100%);
+    border-radius: 5px;
+    transition: width 1s ease;
+}
+
+.goal-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #4a5568;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .impact-circle-chart {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .impact-center {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .total-impact-amount {
+        font-size: 1.5rem;
+    }
+    
+    .impact-category-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 0.7rem;
+    }
+    
+    .impact-matrix {
+        grid-template-columns: 1fr;
+    }
+    
+    .impact-comparison {
+        grid-template-columns: 1fr;
+    }
+    
+    .timeline-item {
+        flex-direction: column !important;
+    }
+    
+    .timeline-content {
+        max-width: 90%;
+        margin: 1rem 0 !important;
+    }
+    
+    .timeline-line {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-visualization {
+        padding: 1rem;
+    }
+    
+    .impact-circle-chart {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .impact-category-circle {
+        width: 50px;
+        height: 50px;
+        font-size: 0.6rem;
+    }
+    
+    .matrix-value {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,824 @@
+/* Estilos para displays de niveles de patrocinio */
+.tier-displays {
+    padding: 2rem 0;
+    background: #f7fafc;
+}
+
+/* Contenedor principal de tiers */
+.tiers-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.tiers-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.tiers-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tiers-header p {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid de tiers */
+.tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Tarjeta de tier individual */
+.tier-card {
+    background: white;
+    border-radius: 16px;
+    padding: 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--tier-color);
+    transition: height 0.3s ease;
+}
+
+.tier-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: var(--tier-color);
+}
+
+.tier-card:hover::before {
+    height: 12px;
+}
+
+/* Colores por tier */
+.tier-card.bronze {
+    --tier-color: #cd7f32;
+}
+
+.tier-card.silver {
+    --tier-color: #c0c0c0;
+}
+
+.tier-card.gold {
+    --tier-color: #ffd700;
+}
+
+.tier-card.platinum {
+    --tier-color: #e5e4e2;
+}
+
+/* Header de la tarjeta */
+.tier-header {
+    padding: 2rem 2rem 1rem;
+    text-align: center;
+    position: relative;
+}
+
+.tier-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    animation: tierFloat 3s ease-in-out infinite;
+}
+
+@keyframes tierFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.tier-bronze .tier-icon { color: #cd7f32; }
+.tier-silver .tier-icon { color: #c0c0c0; }
+.tier-gold .tier-icon { color: #ffd700; }
+.tier-platinum .tier-icon { color: #6b46c1; }
+
+.tier-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.tier-price {
+    margin-bottom: 1.5rem;
+}
+
+.tier-amount {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--tier-color);
+}
+
+.tier-period {
+    font-size: 1rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.tier-description {
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+/* Beneficios del tier */
+.tier-benefits {
+    padding: 1.5rem 2rem;
+}
+
+.benefits-header {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.benefits-header::before {
+    content: '✨';
+    font-size: 1.2rem;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.benefit-item:hover {
+    background: #f7fafc;
+}
+
+.benefit-icon {
+    color: var(--tier-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 0.1rem;
+    min-width: 16px;
+}
+
+.benefit-text {
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.benefit-text strong {
+    color: #2d3748;
+}
+
+/* Disponibilidad del tier */
+.tier-availability {
+    padding: 0 2rem 1rem;
+}
+
+.availability-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.availability-indicator.available {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.availability-indicator.limited {
+    background: #fbb6ce;
+    color: #702459;
+}
+
+.availability-indicator.sold-out {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+.availability-count {
+    font-weight: 700;
+}
+
+/* Footer de la tarjeta */
+.tier-footer {
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid #e2e8f0;
+}
+
+.tier-cta-button {
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--tier-color) 0%, var(--tier-color) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tier-cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+}
+
+.tier-cta-button:hover::before {
+    left: 100%;
+}
+
+.tier-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.tier-cta-button:disabled {
+    background: #e2e8f0;
+    color: #a0aec0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Tier destacado */
+.tier-card.featured {
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+}
+
+.tier-card.featured::after {
+    content: 'MÁS POPULAR';
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Comparación de tiers */
+.tier-comparison {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
+}
+
+.comparison-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.comparison-header h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.comparison-table {
+    overflow-x: auto;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 250px repeat(4, 1fr);
+    gap: 1rem;
+    min-width: 800px;
+}
+
+.comparison-feature {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 500;
+    color: #4a5568;
+    background: #f7fafc;
+    display: flex;
+    align-items: center;
+}
+
+.comparison-value {
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #e2e8f0;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.comparison-value.included {
+    color: #48bb78;
+    font-weight: 700;
+}
+
+.comparison-value.not-included {
+    color: #e53e3e;
+    opacity: 0.6;
+}
+
+.comparison-value.premium {
+    color: #667eea;
+    font-weight: 700;
+}
+
+/* Tier stats */
+.tier-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #667eea;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Badges de tier */
+.tier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.tier-badge.bronze {
+    background: linear-gradient(135deg, #cd7f32 0%, #a0522d 100%);
+}
+
+.tier-badge.silver {
+    background: linear-gradient(135deg, #c0c0c0 0%, #808080 100%);
+}
+
+.tier-badge.gold {
+    background: linear-gradient(135deg, #ffd700 0%, #daa520 100%);
+    color: #2d3748;
+}
+
+.tier-badge.platinum {
+    background: linear-gradient(135deg, #e5e4e2 0%, #6b46c1 100%);
+}
+
+/* Indicadores de progreso para upgrade */
+.tier-upgrade-indicator {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+    border-radius: 8px;
+    border-left: 4px solid #38b2ac;
+}
+
+.upgrade-text {
+    font-size: 0.9rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.upgrade-progress {
+    width: 100%;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.upgrade-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #38b2ac 0%, #319795 100%);
+    transition: width 1s ease;
+}
+
+.upgrade-amount {
+    font-size: 0.8rem;
+    color: #4a5568;
+    margin-top: 0.25rem;
+    text-align: right;
+}
+
+/* Timeline de beneficios */
+.tier-timeline {
+    margin: 2rem 0;
+    position: relative;
+}
+
+.timeline-container {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+}
+
+.timeline-benefit {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-benefit::before {
+    content: '';
+    position: absolute;
+    left: -1.75rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--tier-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 2px var(--tier-color);
+}
+
+.benefit-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.benefit-description {
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.benefit-timing {
+    color: #718096;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* Sponsor showcase por tier */
+.tier-sponsors {
+    margin: 3rem 0;
+}
+
+.sponsors-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sponsors-header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.sponsor-logo {
+    max-width: 100%;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(50%);
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sponsor-logo:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Call to action section */
+.tiers-cta {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.tiers-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.05)"/></svg>');
+    animation: float 20s infinite linear;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+
+.cta-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cta-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.cta-button.primary {
+    background: white;
+    color: #667eea;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Animaciones de loading */
+.tier-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e2e8f0;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .tier-card.featured {
+        transform: none;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 200px repeat(4, 80px);
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tiers-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .tier-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .tier-benefits {
+        padding: 1rem 1.5rem;
+    }
+    
+    .tier-footer {
+        padding: 1.5rem;
+    }
+    
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+    
+    .comparison-grid {
+        grid-template-columns: 150px repeat(4, 60px);
+    }
+    
+    .tier-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-button {
+        width: 200px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tiers-container {
+        padding: 0 1rem;
+    }
+    
+    .tiers-header h2 {
+        font-size: 2rem;
+    }
+    
+    .tier-icon {
+        font-size: 2.5rem;
+    }
+    
+    .tier-amount {
+        font-size: 1.8rem;
+    }
+    
+    .benefit-text {
+        font-size: 0.85rem;
+    }
+    
+    .comparison-grid {
+        display: block;
+    }
+    
+    .comparison-feature,
+    .comparison-value {
+        padding: 0.75rem;
+    }
+    
+    .tier-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .tiers-cta {
+        padding: 2rem 1rem;
+    }
+    
+    .cta-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Estados especiales */
+.tier-card.coming-soon {
+    opacity: 0.7;
+    position: relative;
+}
+
+.tier-card.coming-soon::after {
+    content: 'PRÓXIMAMENTE';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    z-index: 3;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Efectos hover adicionales */
+.tier-card:hover .tier-icon {
+    animation-duration: 1.5s;
+}
+
+.tier-card:hover .benefit-item {
+    transform: translateX(5px);
+}
+
+.tier-card:hover .tier-cta-button {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+}
