@@ -1,0 +1,552 @@
+/**
+ * RAMA 7: Interaction Feedback - Retroalimentación visual de interacciones
+ * Animaciones y efectos para feedback inmediato de interacciones narrativas
+ */
+
+/* ========================================
+   EFECTOS DE CLICK Y TAP
+======================================== */
+
+.click-effect {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--primary-accent, #ff6b35);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: clickRipple 0.6s ease-out forwards;
+}
+
+@keyframes clickRipple {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+        border-width: 3px;
+    }
+    50% {
+        opacity: 0.8;
+        border-width: 2px;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2);
+        border-width: 1px;
+    }
+}
+
+/* Efecto de ondas concéntricas */
+.ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    animation: rippleExpand 0.8s ease-out forwards;
+}
+
+@keyframes rippleExpand {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+    }
+}
+
+/* ========================================
+   FEEDBACK DE ELEMENTOS CULTURALES
+======================================== */
+
+.cultural-element {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cultural-element::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.cultural-element:hover::before,
+.cultural-element.exploring::before {
+    left: 100%;
+}
+
+.cultural-element.exploring {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+    border: 2px solid var(--primary-accent, #ff6b35);
+    animation: culturalPulse 2s ease-in-out;
+}
+
+@keyframes culturalPulse {
+    0%, 100% { box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3); }
+    50% { box-shadow: 0 12px 35px rgba(255, 107, 53, 0.5); }
+}
+
+/* ========================================
+   FEEDBACK DE SELECCIÓN DE OPCIONES
+======================================== */
+
+.story-choice {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    transform-origin: center;
+}
+
+.story-choice.selected {
+    transform: scale(1.1);
+    background: linear-gradient(135deg, var(--primary-accent, #ff6b35), #ff8c42);
+    box-shadow: 
+        0 10px 30px rgba(255, 107, 53, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    animation: choiceSelected 0.6s ease-out;
+}
+
+@keyframes choiceSelected {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.15); }
+    100% { transform: scale(1.1); }
+}
+
+.story-choice.unselected {
+    opacity: 0.4;
+    transform: scale(0.95);
+    filter: grayscale(0.7);
+    animation: choiceUnselected 0.4s ease-out;
+}
+
+@keyframes choiceUnselected {
+    0% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.4; transform: scale(0.95); }
+}
+
+/* Efecto de confirmación */
+.story-choice.confirmed::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) scale(0);
+    font-size: 1.5em;
+    color: white;
+    animation: confirmationCheck 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes confirmationCheck {
+    0% { transform: translateY(-50%) scale(0) rotate(-180deg); }
+    50% { transform: translateY(-50%) scale(1.2) rotate(0deg); }
+    100% { transform: translateY(-50%) scale(1) rotate(0deg); }
+}
+
+/* ========================================
+   FEEDBACK DE PERSONAJES
+======================================== */
+
+.character {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.character.interacting {
+    animation: characterInteraction 1.5s ease-in-out;
+}
+
+@keyframes characterInteraction {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-5px) scale(1.02); }
+    75% { transform: translateY(-2px) scale(1.01); }
+}
+
+/* Efecto de "habla" del personaje */
+.character.speaking::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 12px solid var(--speech-bubble, #2c3e50);
+    animation: speechIndicator 2s ease-in-out infinite;
+}
+
+@keyframes speechIndicator {
+    0%, 100% { opacity: 0; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 1; transform: translateX(-50%) translateY(-3px); }
+}
+
+/* ========================================
+   FEEDBACK DE NAVEGACIÓN
+======================================== */
+
+.navigation-feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    animation: navigationShow 1s ease-out;
+}
+
+@keyframes navigationShow {
+    0% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(0.8); 
+    }
+    20% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1.1); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translate(-50%, -50%) scale(1); 
+    }
+}
+
+/* ========================================
+   FEEDBACK DE GESTOS
+======================================== */
+
+.gesture-success-feedback {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 10000;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.gesture-success-feedback.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.gesture-success-feedback .gesture-icon {
+    font-size: 1.5em;
+    animation: iconPulse 0.6s ease-out;
+}
+
+@keyframes iconPulse {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.confidence-bar {
+    width: 60px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: white;
+    border-radius: 2px;
+    animation: confidenceFill 0.8s ease-out;
+}
+
+@keyframes confidenceFill {
+    0% { width: 0; }
+    100% { width: inherit; }
+}
+
+/* ========================================
+   FEEDBACK DE ARRASTRE
+======================================== */
+
+.drag-feedback {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(52, 73, 94, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: dragFeedbackShow 0.8s ease-out;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+@keyframes dragFeedbackShow {
+    0% { 
+        opacity: 0; 
+        transform: translateX(-50%) translateY(20px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateX(-50%) translateY(0); 
+    }
+}
+
+.drag-arrow {
+    font-size: 1.8em;
+    animation: arrowBounce 1s ease-in-out infinite;
+}
+
+@keyframes arrowBounce {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+.drag-intensity {
+    height: 6px;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 3px;
+    animation: intensityGrow 0.5s ease-out;
+}
+
+@keyframes intensityGrow {
+    0% { width: 0; }
+    100% { width: inherit; }
+}
+
+/* ========================================
+   EFECTOS DE CARGA Y PROCESAMIENTO
+======================================== */
+
+.processing-feedback {
+    position: relative;
+    overflow: hidden;
+}
+
+.processing-feedback::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        transparent
+    );
+    animation: processingShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes processingShimmer {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Indicador de carga circular */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 2px solid white;
+    animation: loadingSpin 1s linear infinite;
+}
+
+@keyframes loadingSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ========================================
+   FEEDBACK DE ESTADO
+======================================== */
+
+.success-state {
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0% { background-color: var(--success-color, #2ecc71); transform: scale(1); }
+    50% { background-color: var(--success-light, #58d68d); transform: scale(1.05); }
+    100% { background-color: var(--success-color, #2ecc71); transform: scale(1); }
+}
+
+.error-state {
+    animation: errorShake 0.6s ease-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.warning-state {
+    animation: warningBlink 1s ease-in-out 2;
+}
+
+@keyframes warningBlink {
+    0%, 100% { background-color: var(--warning-color, #f39c12); }
+    50% { background-color: var(--warning-light, #f7dc6f); }
+}
+
+/* ========================================
+   FEEDBACK CONTEXTUAL
+======================================== */
+
+.context-highlight {
+    position: relative;
+    z-index: 1;
+}
+
+.context-highlight::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(
+        45deg,
+        transparent 25%,
+        rgba(255, 107, 53, 0.1) 25%,
+        rgba(255, 107, 53, 0.1) 50%,
+        transparent 50%,
+        transparent 75%,
+        rgba(255, 107, 53, 0.1) 75%
+    );
+    background-size: 20px 20px;
+    border-radius: 8px;
+    z-index: -1;
+    animation: contextualHighlight 2s linear infinite;
+}
+
+@keyframes contextualHighlight {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+/* ========================================
+   MICRO-INTERACCIONES
+======================================== */
+
+.micro-feedback {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.micro-feedback:active {
+    transform: scale(0.98);
+    filter: brightness(0.95);
+}
+
+/* Efecto de "presión" */
+.pressable {
+    transition: all 0.1s ease;
+}
+
+.pressable:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   EFECTOS DE PROGRESO
+======================================== */
+
+.progress-feedback {
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3498db, #2980b9);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    animation: progressGlow 2s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ========================================
+   UTILIDADES RESPONSIVAS
+======================================== */
+
+@media (max-width: 768px) {
+    .click-effect {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .gesture-success-feedback {
+        top: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 0.9em;
+    }
+    
+    .navigation-feedback {
+        padding: 15px;
+        font-size: 1em;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
