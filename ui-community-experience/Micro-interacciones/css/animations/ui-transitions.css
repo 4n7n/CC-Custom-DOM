@@ -1,0 +1,891 @@
+/* ==================================================
+   RAMA 9: UI Transitions CSS
+   Transiciones fluidas para cambios de interfaz
+   ================================================== */
+
+/* Variables para transiciones de UI */
+:root {
+  --transition-instant: 0s;
+  --transition-fast: 0.15s;
+  --transition-normal: 0.25s;
+  --transition-slow: 0.4s;
+  --transition-slower: 0.6s;
+  --transition-slowest: 1s;
+  
+  --easing-linear: linear;
+  --easing-ease: ease;
+  --easing-ease-in: ease-in;
+  --easing-ease-out: ease-out;
+  --easing-ease-in-out: ease-in-out;
+  --easing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+  --easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --easing-anticipate: cubic-bezier(0.36, 0, 0.66, -0.56);
+  --easing-overshoot: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================
+   TRANSICIONES DE PÁGINA
+   ============================================ */
+
+/* Contenedor principal de transiciones */
+.page-transition-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fade Transition */
+.page-fade-enter {
+  opacity: 0;
+  animation: pageFadeIn var(--transition-slow) var(--easing-decelerate);
+}
+
+.page-fade-exit {
+  opacity: 1;
+  animation: pageFadeOut var(--transition-slow) var(--easing-accelerate);
+}
+
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pageFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Slide Transitions */
+.page-slide-left-enter {
+  transform: translateX(100%);
+  animation: pageSlideLeftIn var(--transition-slow) var(--easing-decelerate);
+}
+
+.page-slide-left-exit {
+  transform: translateX(0);
+  animation: pageSlideLeftOut var(--transition-slow) var(--easing-accelerate);
+}
+
+.page-slide-right-enter {
+  transform: translateX(-100%);
+  animation: pageSlideRightIn var(--transition-slow) var(--easing-decelerate);
+}
+
+.page-slide-right-exit {
+  transform: translateX(0);
+  animation: pageSlideRightOut var(--transition-slow) var(--easing-accelerate);
+}
+
+@keyframes pageSlideLeftIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pageSlideLeftOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes pageSlideRightIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pageSlideRightOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(100%); }
+}
+
+/* Scale Transitions */
+.page-scale-enter {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: pageScaleIn var(--transition-slow) var(--easing-bounce);
+}
+
+.page-scale-exit {
+  opacity: 1;
+  transform: scale(1);
+  animation: pageScaleOut var(--transition-normal) var(--easing-accelerate);
+}
+
+@keyframes pageScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pageScaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+/* ============================================
+   TRANSICIONES DE LAYOUT
+   ============================================ */
+
+/* Sidebar Transitions */
+.sidebar-transition {
+  transition: transform var(--transition-normal) var(--easing-standard),
+              width var(--transition-normal) var(--easing-standard),
+              opacity var(--transition-fast) var(--easing-standard);
+}
+
+.sidebar-slide-in {
+  animation: sidebarSlideIn var(--transition-slow) var(--easing-decelerate);
+}
+
+.sidebar-slide-out {
+  animation: sidebarSlideOut var(--transition-slow) var(--easing-accelerate);
+}
+
+@keyframes sidebarSlideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes sidebarSlideOut {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/* Header Transitions */
+.header-transition {
+  transition: all var(--transition-normal) var(--easing-standard);
+}
+
+.header-compact {
+  animation: headerCompact var(--transition-slow) var(--easing-decelerate);
+}
+
+.header-expand {
+  animation: headerExpand var(--transition-slow) var(--easing-decelerate);
+}
+
+@keyframes headerCompact {
+  from {
+    height: 4rem;
+    padding: 1rem;
+  }
+  to {
+    height: 3rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@keyframes headerExpand {
+  from {
+    height: 3rem;
+    padding: 0.5rem 1rem;
+  }
+  to {
+    height: 4rem;
+    padding: 1rem;
+  }
+}
+
+/* Content Area Transitions */
+.content-transition {
+  transition: margin var(--transition-normal) var(--easing-standard),
+              padding var(--transition-normal) var(--easing-standard),
+              transform var(--transition-normal) var(--easing-standard);
+}
+
+.content-shift-left {
+  animation: contentShiftLeft var(--transition-slow) var(--easing-decelerate);
+}
+
+.content-shift-right {
+  animation: contentShiftRight var(--transition-slow) var(--easing-decelerate);
+}
+
+@keyframes contentShiftLeft {
+  from { margin-left: 0; }
+  to { margin-left: 16rem; }
+}
+
+@keyframes contentShiftRight {
+  from { margin-left: 16rem; }
+  to { margin-left: 0; }
+}
+
+/* ============================================
+   TRANSICIONES DE MODAL
+   ============================================ */
+
+/* Modal Base Transition */
+.modal-transition-enter {
+  opacity: 0;
+  transform: scale(0.9) translateY(-10px);
+  animation: modalEnter var(--transition-slow) var(--easing-decelerate);
+}
+
+.modal-transition-exit {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  animation: modalExit var(--transition-normal) var(--easing-accelerate);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalExit {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(10px);
+  }
+}
+
+/* Modal Backdrop Transition */
+.modal-backdrop-transition {
+  transition: opacity var(--transition-normal) var(--easing-standard);
+}
+
+.modal-backdrop-enter {
+  opacity: 0;
+  animation: backdropFadeIn var(--transition-normal) var(--easing-standard);
+}
+
+.modal-backdrop-exit {
+  opacity: 1;
+  animation: backdropFadeOut var(--transition-normal) var(--easing-standard);
+}
+
+@keyframes backdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes backdropFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Modal Slide Up */
+.modal-slide-up-enter {
+  transform: translateY(100%);
+  animation: modalSlideUpIn var(--transition-slow) var(--easing-decelerate);
+}
+
+.modal-slide-up-exit {
+  transform: translateY(0);
+  animation: modalSlideUpOut var(--transition-normal) var(--easing-accelerate);
+}
+
+@keyframes modalSlideUpIn {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes modalSlideUpOut {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+/* ============================================
+   TRANSICIONES DE DROPDOWN
+   ============================================ */
+
+/* Dropdown Base */
+.dropdown-transition {
+  transition: all var(--transition-normal) var(--easing-decelerate);
+  transform-origin: top;
+}
+
+.dropdown-enter {
+  opacity: 0;
+  transform: scaleY(0.8) translateY(-10px);
+  animation: dropdownEnter var(--transition-normal) var(--easing-decelerate);
+}
+
+.dropdown-exit {
+  opacity: 1;
+  transform: scaleY(1) translateY(0);
+  animation: dropdownExit var(--transition-fast) var(--easing-accelerate);
+}
+
+@keyframes dropdownEnter {
+  from {
+    opacity: 0;
+    transform: scaleY(0.8) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+@keyframes dropdownExit {
+  from {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scaleY(0.8) translateY(-10px);
+  }
+}
+
+/* Dropdown Slide Down */
+.dropdown-slide-enter {
+  max-height: 0;
+  overflow: hidden;
+  animation: dropdownSlideDown var(--transition-slow) var(--easing-decelerate);
+}
+
+.dropdown-slide-exit {
+  max-height: 200px;
+  overflow: hidden;
+  animation: dropdownSlideUp var(--transition-normal) var(--easing-accelerate);
+}
+
+@keyframes dropdownSlideDown {
+  from { max-height: 0; }
+  to { max-height: 200px; }
+}
+
+@keyframes dropdownSlideUp {
+  from { max-height: 200px; }
+  to { max-height: 0; }
+}
+
+/* ============================================
+   TRANSICIONES DE TAB
+   ============================================ */
+
+/* Tab Content Transition */
+.tab-content-transition {
+  position: relative;
+}
+
+.tab-pane-enter {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: tabPaneEnter var(--transition-normal) var(--easing-decelerate);
+}
+
+.tab-pane-exit {
+  opacity: 1;
+  transform: translateX(0);
+  animation: tabPaneExit var(--transition-fast) var(--easing-accelerate);
+}
+
+@keyframes tabPaneEnter {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes tabPaneExit {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* Tab Indicator Transition */
+.tab-indicator {
+  transition: all var(--transition-normal) var(--easing-standard);
+}
+
+.tab-indicator-slide {
+  animation: tabIndicatorSlide var(--transition-normal) var(--easing-standard);
+}
+
+@keyframes tabIndicatorSlide {
+  0% { transform: scaleX(0.8); }
+  50% { transform: scaleX(1.1); }
+  100% { transform: scaleX(1); }
+}
+
+/* ============================================
+   TRANSICIONES DE ACCORDION
+   ============================================ */
+
+/* Accordion Panel */
+.accordion-panel-transition {
+  overflow: hidden;
+  transition: max-height var(--transition-slow) var(--easing-decelerate);
+}
+
+.accordion-expand {
+  animation: accordionExpand var(--transition-slow) var(--easing-decelerate);
+}
+
+.accordion-collapse {
+  animation: accordionCollapse var(--transition-normal) var(--easing-accelerate);
+}
+
+@keyframes accordionExpand {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
+
+@keyframes accordionCollapse {
+  from {
+    max-height: 500px;
+    opacity: 1;
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+  }
+}
+
+/* Accordion Icon Rotation */
+.accordion-icon-transition {
+  transition: transform var(--transition-normal) var(--easing-standard);
+}
+
+.accordion-icon-rotate {
+  animation: accordionIconRotate var(--transition-normal) var(--easing-standard);
+}
+
+@keyframes accordionIconRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(180deg); }
+}
+
+/* ============================================
+   TRANSICIONES DE LISTA
+   ============================================ */
+
+/* List Item Entrance */
+.list-item-enter {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: listItemEnter var(--transition-normal) var(--easing-decelerate);
+}
+
+.list-item-exit {
+  opacity: 1;
+  transform: translateY(0);
+  animation: listItemExit var(--transition-fast) var(--easing-accelerate);
+}
+
+@keyframes listItemEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes listItemExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    max-height: 0;
+  }
+}
+
+/* Staggered List Animation */
+.list-stagger .list-item {
+  animation: listItemEnter var(--transition-slow) var(--easing-decelerate);
+}
+
+.list-stagger .list-item:nth-child(1) { animation-delay: 0.05s; }
+.list-stagger .list-item:nth-child(2) { animation-delay: 0.1s; }
+.list-stagger .list-item:nth-child(3) { animation-delay: 0.15s; }
+.list-stagger .list-item:nth-child(4) { animation-delay: 0.2s; }
+.list-stagger .list-item:nth-child(5) { animation-delay: 0.25s; }
+.list-stagger .list-item:nth-child(n+6) { animation-delay: 0.3s; }
+
+/* ============================================
+   TRANSICIONES DE CARD
+   ============================================ */
+
+/* Card Flip Transition */
+.card-flip {
+  perspective: 1000px;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform var(--transition-slower) var(--easing-standard);
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-flip-back {
+  transform: rotateY(180deg);
+}
+
+/* Card Scale Hover */
+.card-scale-transition {
+  transition: transform var(--transition-normal) var(--easing-decelerate);
+}
+
+.card-scale-transition:hover {
+  transform: scale(1.05);
+}
+
+/* Card Lift Transition */
+.card-lift-transition {
+  transition: all var(--transition-normal) var(--easing-decelerate);
+}
+
+.card-lift-transition:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   TRANSICIONES DE FORM
+   ============================================ */
+
+/* Input Focus Transition */
+.input-transition {
+  transition: all var(--transition-normal) var(--easing-standard);
+}
+
+.input-focus-scale:focus {
+  transform: scale(1.02);
+}
+
+.input-focus-lift:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Float Transition */
+.label-float {
+  position: relative;
+}
+
+.label-float label {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  transition: all var(--transition-normal) var(--easing-standard);
+  pointer-events: none;
+  color: var(--color-text-tertiary, #9ca3af);
+}
+
+.label-float input:focus ~ label,
+.label-float input:not(:placeholder-shown) ~ label {
+  top: 0;
+  left: 8px;
+  transform: translateY(-50%) scale(0.85);
+  color: var(--color-primary, #3b82f6);
+  background: var(--color-surface, #ffffff);
+  padding: 0 4px;
+}
+
+/* ============================================
+   TRANSICIONES DE NAVEGACIÓN
+   ============================================ */
+
+/* Navigation Link Hover */
+.nav-link-transition {
+  position: relative;
+  transition: color var(--transition-normal) var(--easing-standard);
+}
+
+.nav-link-transition::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: all var(--transition-normal) var(--easing-standard);
+  transform: translateX(-50%);
+}
+
+.nav-link-transition:hover::after,
+.nav-link-transition.active::after {
+  width: 100%;
+}
+
+/* Breadcrumb Transition */
+.breadcrumb-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: breadcrumbEnter var(--transition-normal) var(--easing-decelerate);
+}
+
+.breadcrumb-item:nth-child(1) { animation-delay: 0s; }
+.breadcrumb-item:nth-child(2) { animation-delay: 0.1s; }
+.breadcrumb-item:nth-child(3) { animation-delay: 0.2s; }
+.breadcrumb-item:nth-child(4) { animation-delay: 0.3s; }
+
+@keyframes breadcrumbEnter {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ============================================
+   TRANSICIONES DE TOOLTIP
+   ============================================ */
+
+/* Tooltip Base Transition */
+.tooltip-transition {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-fast) var(--easing-decelerate);
+  pointer-events: none;
+}
+
+.tooltip-transition.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Tooltip Directional Transitions */
+.tooltip-top {
+  transform: translateY(-10px);
+}
+
+.tooltip-bottom {
+  transform: translateY(10px);
+}
+
+.tooltip-left {
+  transform: translateX(-10px);
+}
+
+.tooltip-right {
+  transform: translateX(10px);
+}
+
+/* ============================================
+   TRANSICIONES DE PROGRESS
+   ============================================ */
+
+/* Progress Bar Fill */
+.progress-fill-transition {
+  transition: width var(--transition-slow) var(--easing-decelerate);
+}
+
+.progress-indeterminate {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-indeterminate::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: progressIndeterminate 2s infinite var(--easing-standard);
+}
+
+@keyframes progressIndeterminate {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* ============================================
+   TRANSICIONES ESPECIALES
+   ============================================ */
+
+/* Morphing Transition */
+.morph-transition {
+  transition: all var(--transition-slower) var(--easing-spring);
+}
+
+.morph-circle {
+  border-radius: 50%;
+}
+
+.morph-square {
+  border-radius: 0;
+}
+
+/* Reveal Transition */
+.reveal-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-transition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary, #3b82f6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-slow) var(--easing-decelerate);
+  z-index: 1;
+}
+
+.reveal-transition:hover::before {
+  transform: scaleX(1);
+}
+
+.reveal-transition * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================
+   RESPONSIVE TRANSITIONS
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --transition-fast: 0.1s;
+    --transition-normal: 0.2s;
+    --transition-slow: 0.3s;
+    --transition-slower: 0.4s;
+  }
+  
+  /* Simplificar transiciones en móviles */
+  .card-flip-inner {
+    transition-duration: var(--transition-normal);
+  }
+  
+  .page-slide-left-enter,
+  .page-slide-left-exit,
+  .page-slide-right-enter,
+  .page-slide-right-exit {
+    animation-duration: var(--transition-normal);
+  }
+}
+
+@media (hover: none) {
+  /* Desactivar hover transitions en dispositivos táctiles */
+  .card-scale-transition:hover,
+  .card-lift-transition:hover,
+  .nav-link-transition:hover::after {
+    transform: none;
+    box-shadow: none;
+    width: auto;
+  }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .card-flip:hover .card-flip-inner {
+    transform: none;
+  }
+  
+  .progress-indeterminate::after {
+    animation: none;
+  }
+}
+
+/* ============================================
+   UTILIDADES DE TRANSICIÓN
+   ============================================ */
+
+.transition-none {
+  transition: none !important;
+}
+
+.transition-fast {
+  transition-duration: var(--transition-fast) !important;
+}
+
+.transition-slow {
+  transition-duration: var(--transition-slow) !important;
+}
+
+.transition-bounce {
+  transition-timing-function: var(--easing-bounce) !important;
+}
+
+.transition-spring {
+  transition-timing-function: var(--easing-spring) !important;
+}
+
+.transition-all {
+  transition-property: all !important;
+}
+
+.transition-transform {
+  transition-property: transform !important;
+}
+
+.transition-opacity {
+  transition-property: opacity !important;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color !important;
+}

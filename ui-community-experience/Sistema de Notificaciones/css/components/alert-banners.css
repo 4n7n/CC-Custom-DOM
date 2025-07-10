@@ -1,0 +1,1005 @@
+/* ==================================================
+   RAMA 9: Alert Banners CSS
+   Estilos para banners de alerta y diálogos modales
+   ================================================== */
+
+/* Variables para banners y alertas */
+:root {
+  --alert-banner-height: 60px;
+  --alert-banner-padding: 1rem;
+  --alert-banner-border-radius: 0.5rem;
+  --alert-banner-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --alert-banner-z-index: 1050;
+  --alert-banner-animation-duration: 0.3s;
+  
+  /* Modal/Dialog variables */
+  --alert-modal-z-index: 10000;
+  --alert-modal-backdrop: rgba(0, 0, 0, 0.5);
+  --alert-modal-max-width: 500px;
+  --alert-modal-border-radius: 0.75rem;
+  --alert-modal-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+  --alert-modal-animation-duration: 0.3s;
+  
+  /* Colores de alerta */
+  --alert-success-bg: #f0fdf4;
+  --alert-success-border: #bbf7d0;
+  --alert-success-text: #166534;
+  --alert-success-icon: #22c55e;
+  
+  --alert-error-bg: #fef2f2;
+  --alert-error-border: #fecaca;
+  --alert-error-text: #dc2626;
+  --alert-error-icon: #ef4444;
+  
+  --alert-warning-bg: #fffbeb;
+  --alert-warning-border: #fed7aa;
+  --alert-warning-text: #d97706;
+  --alert-warning-icon: #f59e0b;
+  
+  --alert-info-bg: #eff6ff;
+  --alert-info-border: #bfdbfe;
+  --alert-info-text: #2563eb;
+  --alert-info-icon: #3b82f6;
+  
+  --alert-question-bg: #f3e8ff;
+  --alert-question-border: #c4b5fd;
+  --alert-question-text: #7c3aed;
+  --alert-question-icon: #8b5cf6;
+}
+
+/* ============================================
+   BACKDROP PARA MODALES
+   ============================================ */
+
+.alert-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--alert-modal-backdrop);
+  z-index: var(--alert-modal-z-index);
+  opacity: 0;
+  transition: opacity var(--alert-modal-animation-duration) ease;
+  backdrop-filter: blur(4px);
+  display: none;
+}
+
+.alert-backdrop.active {
+  opacity: 1;
+  display: block;
+}
+
+/* ============================================
+   CONTENEDOR DE ALERTA MODAL
+   ============================================ */
+
+.alert-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: calc(var(--alert-modal-z-index) + 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  pointer-events: none;
+}
+
+/* ============================================
+   ALERTA MODAL BASE
+   ============================================ */
+
+.alert {
+  background: var(--color-surface, #ffffff);
+  border-radius: var(--alert-modal-border-radius);
+  box-shadow: var(--alert-modal-shadow);
+  max-width: var(--alert-modal-max-width);
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  pointer-events: auto;
+  transform: scale(0.9) translateY(20px);
+  opacity: 0;
+  transition: all var(--alert-modal-animation-duration) cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-border, #e5e7eb);
+}
+
+.alert.active {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ============================================
+   ESTRUCTURA DE ALERTA MODAL
+   ============================================ */
+
+.alert-header {
+  padding: 1.5rem 1.5rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.alert-icon {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.alert-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  color: var(--color-text, #1f2937);
+}
+
+.alert-message {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #6b7280);
+  margin: 0;
+}
+
+.alert-body {
+  padding: 1rem 1.5rem;
+}
+
+.alert-details {
+  background: var(--color-surface-secondary, #f9fafb);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #6b7280);
+  border: 1px solid var(--color-border, #e5e7eb);
+  white-space: pre-line;
+}
+
+.alert-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-border, #d1d5db);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  margin-top: 1rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text, #1f2937);
+}
+
+.alert-input:focus {
+  outline: none;
+  border-color: var(--color-primary, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.alert-input::placeholder {
+  color: var(--color-text-tertiary, #9ca3af);
+}
+
+.alert-footer {
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  border-top: 1px solid var(--color-border, #f1f5f9);
+  background: var(--color-surface-secondary, #fafbfc);
+}
+
+/* ============================================
+   BOTONES DE ALERTA
+   ============================================ */
+
+.alert-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-width: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.alert-button:focus {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+.alert-button-primary {
+  background: var(--color-primary, #3b82f6);
+  color: white;
+}
+
+.alert-button-primary:hover {
+  background: var(--color-primary-dark, #2563eb);
+  transform: translateY(-1px);
+}
+
+.alert-button-secondary {
+  background: var(--color-surface, #ffffff);
+  color: var(--color-text, #374151);
+  border: 1px solid var(--color-border, #d1d5db);
+}
+
+.alert-button-secondary:hover {
+  background: var(--color-surface-hover, #f9fafb);
+  border-color: var(--color-border-hover, #9ca3af);
+}
+
+.alert-button-danger {
+  background: #dc2626;
+  color: white;
+}
+
+.alert-button-danger:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.alert-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* ============================================
+   TIPOS DE ALERTA MODAL
+   ============================================ */
+
+/* Success Alert */
+.alert-success .alert-icon {
+  background: var(--alert-success-bg);
+  color: var(--alert-success-text);
+}
+
+.alert-success .alert-title {
+  color: var(--alert-success-text);
+}
+
+/* Error Alert */
+.alert-error .alert-icon {
+  background: var(--alert-error-bg);
+  color: var(--alert-error-text);
+}
+
+.alert-error .alert-title {
+  color: var(--alert-error-text);
+}
+
+/* Warning Alert */
+.alert-warning .alert-icon {
+  background: var(--alert-warning-bg);
+  color: var(--alert-warning-text);
+}
+
+.alert-warning .alert-title {
+  color: var(--alert-warning-text);
+}
+
+/* Info Alert */
+.alert-info .alert-icon {
+  background: var(--alert-info-bg);
+  color: var(--alert-info-text);
+}
+
+.alert-info .alert-title {
+  color: var(--alert-info-text);
+}
+
+/* Question Alert */
+.alert-question .alert-icon {
+  background: var(--alert-question-bg);
+  color: var(--alert-question-text);
+}
+
+.alert-question .alert-title {
+  color: var(--alert-question-text);
+}
+
+/* ============================================
+   BANNERS DE ALERTA INLINE
+   ============================================ */
+
+.alert-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: var(--alert-banner-padding);
+  border-radius: var(--alert-banner-border-radius);
+  border: 1px solid;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--alert-banner-animation-duration) ease;
+}
+
+.alert-banner-icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.alert-banner-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.alert-banner-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.alert-banner-message {
+  margin: 0;
+}
+
+.alert-banner-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  color: currentColor;
+  opacity: 0.7;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.alert-banner-close:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.alert-banner-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.alert-banner-action {
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+/* ============================================
+   TIPOS DE BANNER
+   ============================================ */
+
+/* Success Banner */
+.alert-banner-success {
+  background: var(--alert-success-bg);
+  border-color: var(--alert-success-border);
+  color: var(--alert-success-text);
+}
+
+.alert-banner-success .alert-banner-action {
+  background: var(--alert-success-icon);
+  color: white;
+}
+
+.alert-banner-success .alert-banner-action:hover {
+  filter: brightness(0.9);
+}
+
+/* Error Banner */
+.alert-banner-error {
+  background: var(--alert-error-bg);
+  border-color: var(--alert-error-border);
+  color: var(--alert-error-text);
+}
+
+.alert-banner-error .alert-banner-action {
+  background: var(--alert-error-icon);
+  color: white;
+}
+
+.alert-banner-error .alert-banner-action:hover {
+  filter: brightness(0.9);
+}
+
+/* Warning Banner */
+.alert-banner-warning {
+  background: var(--alert-warning-bg);
+  border-color: var(--alert-warning-border);
+  color: var(--alert-warning-text);
+}
+
+.alert-banner-warning .alert-banner-action {
+  background: var(--alert-warning-icon);
+  color: white;
+}
+
+.alert-banner-warning .alert-banner-action:hover {
+  filter: brightness(0.9);
+}
+
+/* Info Banner */
+.alert-banner-info {
+  background: var(--alert-info-bg);
+  border-color: var(--alert-info-border);
+  color: var(--alert-info-text);
+}
+
+.alert-banner-info .alert-banner-action {
+  background: var(--alert-info-icon);
+  color: white;
+}
+
+.alert-banner-info .alert-banner-action:hover {
+  filter: brightness(0.9);
+}
+
+/* ============================================
+   BANNERS FIJOS (STICKY)
+   ============================================ */
+
+.alert-banner-fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: var(--alert-banner-z-index);
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  box-shadow: var(--alert-banner-shadow);
+}
+
+.alert-banner-fixed-top {
+  top: 0;
+  border-top: none;
+}
+
+.alert-banner-fixed-bottom {
+  bottom: 0;
+  border-bottom: none;
+}
+
+/* Compensación para contenido cuando hay banner fijo */
+.has-alert-banner-top {
+  padding-top: var(--alert-banner-height);
+}
+
+.has-alert-banner-bottom {
+  padding-bottom: var(--alert-banner-height);
+}
+
+/* ============================================
+   ANIMACIONES DE BANNER
+   ============================================ */
+
+.alert-banner-slide-down {
+  animation: alertBannerSlideDown var(--alert-banner-animation-duration) ease;
+}
+
+.alert-banner-slide-up {
+  animation: alertBannerSlideUp var(--alert-banner-animation-duration) ease;
+}
+
+.alert-banner-fade-in {
+  animation: alertBannerFadeIn var(--alert-banner-animation-duration) ease;
+}
+
+.alert-banner-slide-out-up {
+  animation: alertBannerSlideOutUp var(--alert-banner-animation-duration) ease forwards;
+}
+
+.alert-banner-slide-out-down {
+  animation: alertBannerSlideOutDown var(--alert-banner-animation-duration) ease forwards;
+}
+
+.alert-banner-fade-out {
+  animation: alertBannerFadeOut var(--alert-banner-animation-duration) ease forwards;
+}
+
+@keyframes alertBannerSlideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes alertBannerSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes alertBannerFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes alertBannerSlideOutUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes alertBannerSlideOutDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes alertBannerFadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ============================================
+   VARIANTES DE BANNER
+   ============================================ */
+
+/* Banner compacto */
+.alert-banner-compact {
+  padding: 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.alert-banner-compact .alert-banner-icon {
+  width: 1rem;
+  height: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Banner expandido */
+.alert-banner-expanded {
+  padding: 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.alert-banner-expanded .alert-banner-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Banner con borde lateral */
+.alert-banner-bordered {
+  border-left: 4px solid currentColor;
+  border-radius: 0 var(--alert-banner-border-radius) var(--alert-banner-border-radius) 0;
+}
+
+/* Banner con gradiente */
+.alert-banner-gradient {
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-banner-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 640px) {
+  .alert-container {
+    padding: 1rem;
+  }
+  
+  .alert {
+    margin: 0;
+    max-height: 95vh;
+  }
+  
+  .alert-header {
+    padding: 1rem 1rem 0;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  
+  .alert-body {
+    padding: 0.75rem 1rem;
+  }
+  
+  .alert-footer {
+    padding: 0.75rem 1rem 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .alert-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .alert-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .alert-banner-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .alert-banner-action {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .alert-banner-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .alert {
+    border-radius: 0.5rem;
+  }
+  
+  .alert-title {
+    font-size: 1.125rem;
+  }
+  
+  .alert-message {
+    font-size: 0.875rem;
+  }
+  
+  .alert-banner {
+    border-radius: 0.375rem;
+    padding: 0.875rem;
+  }
+  
+  .alert-banner-title {
+    font-size: 0.8125rem;
+  }
+  
+  .alert-banner-message {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   MODO OSCURO
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --alert-modal-backdrop: rgba(0, 0, 0, 0.8);
+    --alert-modal-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    
+    --alert-success-bg: #064e3b;
+    --alert-success-border: #065f46;
+    --alert-success-text: #6ee7b7;
+    
+    --alert-error-bg: #7f1d1d;
+    --alert-error-border: #991b1b;
+    --alert-error-text: #fca5a5;
+    
+    --alert-warning-bg: #78350f;
+    --alert-warning-border: #92400e;
+    --alert-warning-text: #fcd34d;
+    
+    --alert-info-bg: #1e3a8a;
+    --alert-info-border: #1e40af;
+    --alert-info-text: #93c5fd;
+    
+    --alert-question-bg: #581c87;
+    --alert-question-border: #6b21a8;
+    --alert-question-text: #c4b5fd;
+  }
+  
+  .alert {
+    background: var(--color-surface-dark, #1f2937);
+    border-color: var(--color-border-dark, #374151);
+  }
+  
+  .alert-details {
+    background: var(--color-surface-secondary-dark, #111827);
+    border-color: var(--color-border-light-dark, #2d3748);
+  }
+  
+  .alert-input {
+    background: var(--color-surface-dark, #1f2937);
+    border-color: var(--color-border-dark, #374151);
+    color: var(--color-text-dark, #f9fafb);
+  }
+  
+  .alert-footer {
+    background: var(--color-surface-secondary-dark, #111827);
+    border-color: var(--color-border-dark, #374151);
+  }
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .alert {
+    transition: none;
+  }
+  
+  .alert-backdrop {
+    transition: none;
+  }
+  
+  .alert-banner-slide-down,
+  .alert-banner-slide-up,
+  .alert-banner-fade-in,
+  .alert-banner-slide-out-up,
+  .alert-banner-slide-out-down,
+  .alert-banner-fade-out {
+    animation: none;
+  }
+  
+  .alert-button:hover {
+    transform: none;
+  }
+}
+
+/* Focus visible para navegación por teclado */
+.alert:focus-visible {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+.alert-banner:focus-visible {
+  outline: 2px solid var(--color-primary, #3b82f6);
+  outline-offset: 2px;
+}
+
+/* Alto contraste */
+@media (prefers-contrast: high) {
+  .alert {
+    border-width: 2px;
+  }
+  
+  .alert-banner {
+    border-width: 2px;
+  }
+  
+  .alert-button {
+    border-width: 2px;
+  }
+  
+  .alert-banner-action {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ============================================
+   ESTADOS ESPECIALES
+   ============================================ */
+
+/* Estado de loading */
+.alert-loading .alert-icon {
+  animation: alertIconSpin 1s linear infinite;
+}
+
+@keyframes alertIconSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Estado de progreso */
+.alert-progress {
+  position: relative;
+  overflow: hidden;
+}
+
+.alert-progress::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  animation: alertProgressShimmer 2s infinite;
+  width: 100%;
+}
+
+@keyframes alertProgressShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ============================================
+   EFECTOS ESPECIALES
+   ============================================ */
+
+/* Efecto de shake para errores críticos */
+.alert-shake {
+  animation: alertShake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes alertShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Efecto de pulse para alertas importantes */
+.alert-pulse {
+  animation: alertPulse 2s infinite;
+}
+
+@keyframes alertPulse {
+  0%, 100% {
+    box-shadow: var(--alert-modal-shadow);
+  }
+  50% {
+    box-shadow: var(--alert-modal-shadow), 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+/* Efecto de glow para alertas críticas */
+.alert-glow {
+  box-shadow: var(--alert-modal-shadow), 0 0 40px rgba(239, 68, 68, 0.3);
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+
+.alert-fullscreen {
+  max-width: none;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  max-height: none;
+}
+
+.alert-compact .alert-header {
+  padding: 1rem 1rem 0.5rem;
+}
+
+.alert-compact .alert-body {
+  padding: 0.5rem 1rem;
+}
+
+.alert-compact .alert-footer {
+  padding: 0.5rem 1rem 1rem;
+}
+
+.alert-no-header .alert-header {
+  display: none;
+}
+
+.alert-no-footer .alert-footer {
+  display: none;
+}
+
+.alert-no-backdrop + .alert-backdrop {
+  display: none !important;
+}
+
+/* Posicionamiento específico */
+.alert-top {
+  align-self: flex-start;
+  margin-top: 2rem;
+}
+
+.alert-bottom {
+  align-self: flex-end;
+  margin-bottom: 2rem;
+}
+
+.alert-left {
+  margin-right: auto;
+  margin-left: 2rem;
+}
+
+.alert-right {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+/* ============================================
+   MEJORAS DE RENDIMIENTO
+   ============================================ */
+
+.alert,
+.alert-banner {
+  will-change: transform, opacity;
+}
+
+.alert-backdrop {
+  will-change: opacity;
+}
+
+/* Optimización para dispositivos de bajo rendimiento */
+@media (max-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .alert {
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .alert-backdrop,
+  .alert-container,
+  .alert-banner-fixed {
+    display: none !important;
+  }
+  
+  .alert-banner {
+    border: 2px solid #000 !important;
+    background: white !important;
+    color: black !important;
+    page-break-inside: avoid;
+  }
+}

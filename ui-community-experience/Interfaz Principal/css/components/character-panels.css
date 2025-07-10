@@ -1,0 +1,380 @@
+/* ==================================================
+   RAMA 9: Character Panels Component
+   Paneles interactivos para personajes
+   ================================================== */
+
+.character-panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.character-panel {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+}
+
+.character-panel:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(79, 70, 229, 0.3);
+}
+
+.character-panel.active {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+}
+
+.panel-header {
+  position: relative;
+  height: 12rem;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  overflow: hidden;
+}
+
+.panel-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(79, 70, 229, 0.1), rgba(6, 182, 212, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.character-panel:hover .panel-header::before {
+  opacity: 1;
+}
+
+.character-avatar {
+  position: absolute;
+  bottom: -2rem;
+  left: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 600;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.character-panel:hover .character-avatar {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.character-status {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.375rem 0.75rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  color: #fff;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.character-status.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.character-status.inactive {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.character-status.unknown {
+  background: rgba(156, 163, 175, 0.2);
+  color: #9ca3af;
+  border: 1px solid rgba(156, 163, 175, 0.3);
+}
+
+.panel-content {
+  padding: 3rem 1.5rem 1.5rem;
+  position: relative;
+}
+
+.character-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.character-role {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.character-description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.character-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.trait-tag {
+  padding: 0.25rem 0.75rem;
+  background: rgba(79, 70, 229, 0.2);
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  color: #4f46e5;
+  font-weight: 500;
+}
+
+.trait-tag.personality {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.trait-tag.skill {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+}
+
+.character-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 0.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.125rem;
+  overflow: hidden;
+  margin-top: 0.25rem;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+  border-radius: 0.125rem;
+  transition: width 0.6s ease;
+}
+
+.panel-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.panel-action {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.panel-action.primary {
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+  color: #fff;
+}
+
+.panel-action.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+.panel-action.secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel-action.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.character-relationships {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.relationship-indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.relationship-indicator.positive {
+  background: #10b981;
+}
+
+.relationship-indicator.negative {
+  background: #ef4444;
+}
+
+.relationship-indicator.neutral {
+  background: #fbbf24;
+}
+
+.panel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.character-panel:hover .panel-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.overlay-content {
+  text-align: center;
+  color: #fff;
+}
+
+.overlay-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.overlay-subtitle {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Animaciones de entrada */
+.character-panel {
+  animation: fadeInScale 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.character-panel:nth-child(1) { animation-delay: 0.1s; }
+.character-panel:nth-child(2) { animation-delay: 0.2s; }
+.character-panel:nth-child(3) { animation-delay: 0.3s; }
+.character-panel:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .character-panels {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+  
+  .panel-header {
+    height: 8rem;
+  }
+  
+  .character-avatar {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    bottom: -1.5rem;
+    left: 1rem;
+  }
+  
+  .panel-content {
+    padding: 2.5rem 1rem 1rem;
+  }
+  
+  .character-name {
+    font-size: 1.125rem;
+  }
+  
+  .character-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .panel-actions {
+    flex-direction: column;
+  }
+}

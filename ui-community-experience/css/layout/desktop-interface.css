@@ -1,0 +1,951 @@
+/* ==================================================
+   RAMA 9: Desktop Interface Layout
+   Diseño optimizado para escritorio y pantallas grandes
+   ================================================== */
+
+/* ============================================
+   DESKTOP LAYOUT (>= 1024px)
+   ============================================ */
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --header-height: 4rem;
+    --sidebar-width: 16rem;
+    --sidebar-collapsed-width: 4rem;
+    --content-padding: 2rem;
+    --component-gap: 2rem;
+    --border-radius: 0.5rem;
+    --desktop-nav-height: 4rem;
+  }
+  
+  /* ============================================
+     ESTRUCTURA PRINCIPAL DESKTOP
+     ============================================ */
+  
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-header {
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
+    background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    border-right: 1px solid var(--color-border);
+    overflow-y: auto;
+    z-index: 90;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .main-content {
+    margin-top: var(--header-height);
+    margin-left: var(--sidebar-width);
+    padding: var(--content-padding);
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+  
+  .main-aside {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 18rem;
+    height: calc(100vh - var(--header-height));
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(20px);
+    border-left: 1px solid var(--color-border);
+    padding: 2rem;
+    overflow-y: auto;
+    z-index: 80;
+    transform: translateX(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .main-footer {
+    height: var(--footer-height);
+    margin-left: var(--sidebar-width);
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* ============================================
+     NAVEGACIÓN DESKTOP
+     ============================================ */
+  
+  .nav-container {
+    max-width: none;
+    padding: 0 2rem;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-logo {
+    font-size: 1.5rem;
+    margin-right: 3rem;
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+  }
+  
+  .nav-item {
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  .nav-item.active {
+    background: rgba(79, 70, 229, 0.2);
+    color: var(--color-primary);
+  }
+  
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+  
+  .nav-search {
+    display: flex;
+    margin-right: 2rem;
+  }
+  
+  .nav-search-input {
+    width: 16rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-search-input:focus {
+    width: 20rem;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  }
+  
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .nav-mobile-toggle {
+    display: none;
+  }
+  
+  /* ============================================
+     SIDEBAR DESKTOP
+     ============================================ */
+  
+  .sidebar-content {
+    padding: 2rem 1rem;
+  }
+  
+  .sidebar-section {
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar-section-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+    padding: 0 0.75rem;
+  }
+  
+  .sidebar-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .sidebar-menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+  }
+  
+  .sidebar-menu-link.active {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  }
+  
+  .sidebar-menu-link.active::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: var(--color-primary);
+    border-radius: 0 2px 2px 0;
+  }
+  
+  .sidebar-menu-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  
+  .sidebar-menu-text {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  /* Sidebar colapsado */
+  .main-sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+  }
+  
+  .main-sidebar.collapsed .sidebar-menu-text,
+  .main-sidebar.collapsed .sidebar-section-title,
+  .main-sidebar.collapsed .sidebar-menu-badge {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .main-sidebar.collapsed .sidebar-menu-link {
+    justify-content: center;
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .main-sidebar.collapsed ~ .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  
+  .main-sidebar.collapsed ~ .main-footer {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  
+  /* Hover expansion en sidebar colapsado */
+  .main-sidebar.collapsed:hover {
+    width: var(--sidebar-width);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+    z-index: 95;
+  }
+  
+  .main-sidebar.collapsed:hover .sidebar-menu-text,
+  .main-sidebar.collapsed:hover .sidebar-section-title,
+  .main-sidebar.collapsed:hover .sidebar-menu-badge {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.1s;
+  }
+  
+  .main-sidebar.collapsed:hover .sidebar-menu-link {
+    justify-content: flex-start;
+    padding: 0.75rem;
+  }
+  
+  /* ============================================
+     CONTENIDO DESKTOP
+     ============================================ */
+  
+  .content-wrapper {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .content-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .content-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .content-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+  }
+  
+  .content-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .content-main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--component-gap);
+  }
+  
+  /* ============================================
+     LAYOUTS ESPECÍFICOS DESKTOP
+     ============================================ */
+  
+  /* Layout de lectura */
+  .layout-reading .main-sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .layout-reading .main-content {
+    margin-left: 0;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem 3rem;
+  }
+  
+  .layout-reading .main-footer {
+    margin-left: 0;
+  }
+  
+  .layout-reading .content-wrapper {
+    max-width: none;
+  }
+  
+  /* Layout de comunidad */
+  .layout-community .main-aside {
+    transform: translateX(0);
+  }
+  
+  .layout-community .main-content {
+    margin-right: 18rem;
+  }
+  
+  /* Layout fullscreen */
+  .layout-fullscreen .main-header,
+  .layout-fullscreen .main-sidebar,
+  .layout-fullscreen .main-aside,
+  .layout-fullscreen .main-footer {
+    display: none;
+  }
+  
+  .layout-fullscreen .main-content {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    max-width: none;
+  }
+  
+  /* ============================================
+     COMPONENTES DESKTOP
+     ============================================ */
+  
+  /* Progress desktop */
+  .story-progress {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+  }
+  
+  .progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .progress-stats {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .progress-details {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+  }
+  
+  .progress-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Chapter markers desktop */
+  .chapter-markers {
+    padding: 2rem 0;
+  }
+  
+  .markers-container {
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+  
+  .chapter-marker {
+    min-width: 8rem;
+  }
+  
+  .marker-icon {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+  }
+  
+  /* Character panels desktop */
+  .character-panels {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .panel-header {
+    height: 12rem;
+  }
+  
+  .character-avatar {
+    width: 4rem;
+    height: 4rem;
+    bottom: -2rem;
+    left: 1.5rem;
+  }
+  
+  .panel-content {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  
+  .character-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .panel-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* Community showcase desktop */
+  .community-showcase {
+    padding: 3rem 0;
+  }
+  
+  .showcase-title {
+    font-size: 2.5rem;
+  }
+  
+  .showcase-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+  
+  .showcase-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .showcase-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* ============================================
+     SPONSOR INTEGRATION DESKTOP
+     ============================================ */
+  
+  .sponsor-banner {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin: 2rem 0;
+  }
+  
+  .sponsor-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .sponsor-logo {
+    width: 4rem;
+    height: 4rem;
+  }
+  
+  .sponsor-cta {
+    padding: 0.75rem 2rem;
+    transition: all 0.3s ease;
+  }
+  
+  .sponsor-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.4);
+  }
+  
+  .sponsor-sidebar {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18rem;
+    z-index: 50;
+  }
+  
+  .sponsor-carousel {
+    height: 8rem;
+  }
+  
+  .carousel-item {
+    width: 12rem;
+    transition: all 0.3s ease;
+  }
+  
+  .carousel-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+  }
+  
+  /* ============================================
+     ASIDE DESKTOP
+     ============================================ */
+  
+  .main-aside.visible {
+    transform: translateX(0);
+  }
+  
+  .aside-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .aside-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .aside-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .aside-main {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .aside-section {
+    margin-bottom: 2rem;
+  }
+  
+  .aside-section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  
+  /* ============================================
+     INTERACCIONES Y HOVER EFFECTS
+     ============================================ */
+  
+  /* Hover effects mejorados */
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar-menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .character-panel:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Smooth scrolling mejorado */
+  .main-sidebar,
+  .main-aside,
+  .main-content {
+    scroll-behavior: smooth;
+  }
+  
+  .main-sidebar::-webkit-scrollbar,
+  .main-aside::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .main-sidebar::-webkit-scrollbar-track,
+  .main-aside::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .main-sidebar::-webkit-scrollbar-thumb,
+  .main-aside::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
+  
+  .main-sidebar::-webkit-scrollbar-thumb:hover,
+  .main-aside::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  /* ============================================
+     ANIMACIONES DESKTOP
+     ============================================ */
+  
+  /* Transiciones suaves para cambios de layout */
+  .layout-transitioning {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .layout-transitioning .main-sidebar,
+  .layout-transitioning .main-content,
+  .layout-transitioning .main-aside,
+  .layout-transitioning .main-footer {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Animaciones de entrada para componentes */
+  .animate-slide-in-left {
+    animation: slideInLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-slide-in-right {
+    animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-slide-in-up {
+    animation: slideInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .animate-fade-in-scale {
+    animation: fadeInScale 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* ============================================
+     ESTADO DE FOCUS MEJORADO
+     ============================================ */
+  
+  .nav-item:focus-visible,
+  .sidebar-menu-link:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+  }
+  
+  .nav-search-input:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  }
+  
+  /* ============================================
+     TOOLTIPS DESKTOP
+     ============================================ */
+  
+  .tooltip {
+    position: relative;
+  }
+  
+  .tooltip::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 0.5rem;
+    z-index: 1000;
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .tooltip:hover::before,
+  .tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* ============================================
+     CONTEXTUAL MENUS
+     ============================================ */
+  
+  .context-menu {
+    position: fixed;
+    background: rgba(30, 41, 59, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    padding: 0.5rem 0;
+    min-width: 12rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.95);
+    transition: all 0.2s ease;
+  }
+  
+  .context-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+  
+  .context-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .context-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+  }
+  
+  .context-menu-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .context-menu-divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: 0.5rem 0;
+  }
+  
+  /* ============================================
+     DRAG AND DROP DESKTOP
+     ============================================ */
+  
+  .draggable {
+    cursor: move;
+    transition: all 0.3s ease;
+  }
+  
+  .draggable:hover {
+    transform: scale(1.02);
+  }
+  
+  .draggable.dragging {
+    opacity: 0.7;
+    transform: scale(1.05) rotate(2deg);
+    z-index: 1000;
+  }
+  
+  .drop-zone {
+    border: 2px dashed transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .drop-zone.drag-over {
+    border-color: var(--color-primary);
+    background: rgba(79, 70, 229, 0.1);
+  }
+  
+  /* ============================================
+     LOADING STATES DESKTOP
+     ============================================ */
+  
+  .skeleton {
+    background: linear-gradient(90deg, 
+      rgba(255, 255, 255, 0.1) 25%, 
+      rgba(255, 255, 255, 0.2) 50%, 
+      rgba(255, 255, 255, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: var(--border-radius);
+  }
+  
+  @keyframes skeleton-loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+  
+  .loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  
+  .loading-content {
+    text-align: center;
+    color: var(--color-text);
+  }
+  
+  .loading-spinner-large {
+    width: 3rem;
+    height: 3rem;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-top: 3px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+  }
+}
+
+/* ============================================
+   LARGE DESKTOP (>= 1600px)
+   ============================================ */
+
+@media screen and (min-width: 1600px) {
+  :root {
+    --sidebar-width: 18rem;
+    --content-padding: 3rem;
+    --component-gap: 2.5rem;
+    --max-content-width: 1400px;
+  }
+  
+  .main-aside {
+    width: 22rem;
+    padding: 2.5rem;
+  }
+  
+  .layout-community .main-content {
+    margin-right: 22rem;
+  }
+  
+  .nav-container {
+    padding: 0 3rem;
+  }
+  
+  .nav-search-input {
+    width: 20rem;
+  }
+  
+  .nav-search-input:focus {
+    width: 24rem;
+  }
+  
+  .content-title {
+    font-size: 2.5rem;
+  }
+  
+  .content-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .showcase-title {
+    font-size: 3rem;
+  }
+  
+  .showcase-grid {
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+  }
+}
