@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAMA 10 - Sin conexión</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .offline-container {
+            text-align: center;
+            max-width: 400px;
+            padding: 2rem;
+        }
+
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .offline-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .offline-message {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .retry-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .retry-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .offline-features {
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            opacity: 0.8;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 1rem;
+            }
+            
+            .offline-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="offline-icon pulse">
+            🌐
+        </div>
+        
+        <h1 class="offline-title">Sin conexión</h1>
+        
+        <p class="offline-message">
+            No hay conexión a internet disponible. Algunas funciones están disponibles offline.
+        </p>
+        
+        <button class="retry-button" onclick="checkConnection()">
+            Reintentar conexión
+        </button>
+        
+        <div class="offline-features">
+            <div class="feature-item">
+                <span class="feature-icon">📱</span>
+                <span>Interfaz disponible</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">💾</span>
+                <span>Datos guardados localmente</span>
+            </div>
+            <div class="feature-item">
+                <span class="feature-icon">🔄</span>
+                <span>Sincronización automática</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkConnection() {
+            if (navigator.onLine) {
+                window.location.reload();
+            } else {
+                showMessage('Aún sin conexión. Intenta más tarde.');
+            }
+        }
+
+        function showMessage(message) {
+            const messageEl = document.createElement('div');
+            messageEl.textContent = message;
+            messageEl.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 6px;
+                font-size: 14px;
+                z-index: 1000;
+            `;
+            
+            document.body.appendChild(messageEl);
+            
+            setTimeout(() => {
+                messageEl.remove();
+            }, 3000);
+        }
+
+        // Escuchar cambios en la conectividad
+        window.addEventListener('online', () => {
+            showMessage('¡Conexión restablecida! Recargando...');
+            setTimeout(() => window.location.reload(), 1000);
+        });
+
+        window.addEventListener('offline', () => {
+            showMessage('Conexión perdida');
+        });
+
+        // Registro del Service Worker si no está registrado
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .catch(error => console.log('SW registration failed'));
+        }
+    </script>
+</body>
+</html>

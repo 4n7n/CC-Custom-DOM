@@ -1,0 +1,451 @@
+/* Performance Optimized Mobile CSS - RAMA 10 */
+
+/* Variables de rendimiento */
+:root {
+  --perf-transition-fast: 0.15s;
+  --perf-transition-normal: 0.25s;
+  --perf-transition-slow: 0.35s;
+  --perf-gpu-acceleration: translateZ(0);
+}
+
+/* Optimizaciones base para dispositivos móviles */
+*,
+*::before,
+*::after {
+  /* Mejorar rendering en dispositivos móviles */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Optimizar compositing */
+  will-change: auto;
+  
+  /* Reducir repaints */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Optimizaciones de GPU para elementos animados */
+.gpu-accelerated,
+.animated,
+.card-hover,
+.button-interactive {
+  transform: var(--perf-gpu-acceleration);
+  will-change: transform, opacity;
+}
+
+/* Transiciones optimizadas */
+.fast-transition {
+  transition: transform var(--perf-transition-fast) ease-out,
+              opacity var(--perf-transition-fast) ease-out;
+}
+
+.smooth-transition {
+  transition: transform var(--perf-transition-normal) cubic-bezier(0.4, 0.0, 0.2, 1),
+              opacity var(--perf-transition-normal) cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Optimizaciones para scroll */
+.scroll-optimized {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* Contenedores optimizados */
+.container-optimized {
+  contain: layout style paint;
+  will-change: scroll-position;
+}
+
+/* Imágenes optimizadas */
+.image-optimized {
+  image-rendering: optimizeQuality;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+@media (max-width: 768px) {
+  .image-optimized {
+    image-rendering: optimizeSpeed;
+  }
+}
+
+/* Lazy loading optimizado */
+.lazy-image {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+  will-change: auto;
+}
+
+/* Skeleton loading optimizado */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+  will-change: background-position;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Optimizaciones para dispositivos de baja gama */
+@media (max-width: 768px) {
+  .low-end-device * {
+    /* Desactivar efectos costosos */
+    transform: none !important;
+    filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    will-change: auto !important;
+  }
+  
+  .low-end-device .gradient {
+    background: #2563eb !important;
+  }
+  
+  .low-end-device .animated {
+    animation: none !important;
+  }
+}
+
+/* Optimizaciones para conexión lenta */
+.save-data * {
+  /* Reducir efectos visuales */
+  animation-duration: 0.1s !important;
+  transition-duration: 0.1s !important;
+}
+
+.save-data .background-image {
+  display: none;
+}
+
+.save-data .non-critical-image {
+  display: none;
+}
+
+/* Modo de bajo consumo de batería */
+.power-saving * {
+  animation-play-state: paused !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+.power-saving .effect {
+  display: none !important;
+}
+
+.moderate-power-saving .non-essential-animation {
+  animation-play-state: paused !important;
+}
+
+/* Optimizaciones de layout */
+.layout-optimized {
+  contain: layout;
+}
+
+.paint-optimized {
+  contain: paint;
+}
+
+.style-optimized {
+  contain: style;
+}
+
+/* Grid optimizado para móvil */
+.mobile-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  contain: layout;
+}
+
+@media (min-width: 480px) {
+  .mobile-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Cards optimizadas */
+.card-optimized {
+  contain: layout style paint;
+  will-change: transform;
+  transition: transform var(--perf-transition-fast) ease-out;
+}
+
+.card-optimized:hover {
+  transform: translateY(-2px) var(--perf-gpu-acceleration);
+}
+
+.card-optimized:active {
+  transform: translateY(0) var(--perf-gpu-acceleration);
+}
+
+/* Botones optimizados */
+.button-optimized {
+  contain: layout style;
+  will-change: transform, background-color;
+  transition: all var(--perf-transition-fast) ease-out;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button-optimized:active {
+  transform: scale(0.98) var(--perf-gpu-acceleration);
+}
+
+/* Navegación optimizada */
+.nav-optimized {
+  contain: layout style;
+  will-change: transform;
+}
+
+.nav-item-optimized {
+  will-change: background-color, transform;
+  transition: all var(--perf-transition-fast) ease-out;
+}
+
+/* Lista virtual optimizada */
+.virtual-list {
+  contain: strict;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.virtual-list-item {
+  contain: layout style paint;
+}
+
+/* Optimizaciones de texto */
+.text-optimized {
+  text-rendering: optimizeSpeed;
+  font-feature-settings: 'kern' 0;
+}
+
+@media (min-width: 1024px) {
+  .text-optimized {
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'kern' 1;
+  }
+}
+
+/* Optimizaciones para animaciones */
+.animate-optimized {
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  will-change: transform, opacity;
+}
+
+.animate-optimized.paused {
+  animation-play-state: paused;
+}
+
+/* Reducir motion para usuarios que lo prefieren */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .parallax {
+    transform: none !important;
+  }
+}
+
+/* Optimizaciones para modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .auto-dark {
+    color-scheme: dark;
+  }
+  
+  .auto-dark .light-only {
+    display: none;
+  }
+}
+
+/* Optimizaciones para alta densidad de píxeles */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .high-dpi-optimized {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Layout shifts prevention */
+.layout-stable {
+  contain: layout;
+  min-height: 0;
+}
+
+.aspect-ratio-stable {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+
+/* Optimizaciones de memoria */
+.memory-optimized {
+  contain: strict;
+}
+
+.memory-optimized:not(.visible) {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Intersection Observer optimizado */
+.observe-visibility {
+  contain: layout style paint;
+}
+
+.observe-visibility.visible {
+  opacity: 1;
+  transform: translateY(0) var(--perf-gpu-acceleration);
+}
+
+.observe-visibility:not(.visible) {
+  opacity: 0;
+  transform: translateY(20px) var(--perf-gpu-acceleration);
+}
+
+/* Critical CSS inline styles */
+.critical-above-fold {
+  contain: layout style paint;
+  will-change: auto;
+}
+
+/* Non-critical below fold */
+.non-critical-below-fold {
+  contain: layout;
+  will-change: auto;
+}
+
+/* Optimizaciones específicas de iOS */
+@supports (-webkit-touch-callout: none) {
+  .ios-optimized {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .ios-scroll-optimized {
+    -webkit-overflow-scrolling: touch;
+    -webkit-scroll-snap-type: y mandatory;
+  }
+}
+
+/* Optimizaciones específicas de Android */
+@media (max-width: 768px) {
+  .android-optimized {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+/* Throttling para scroll events */
+.scroll-throttled {
+  scroll-behavior: smooth;
+  overscroll-behavior: contain;
+}
+
+/* FPS optimization classes */
+.fps-60 {
+  animation-timing-function: steps(60, end);
+}
+
+.fps-30 {
+  animation-timing-function: steps(30, end);
+}
+
+/* GPU layers optimization */
+.create-layer {
+  transform: var(--perf-gpu-acceleration);
+  will-change: transform;
+}
+
+.create-layer:hover {
+  will-change: transform, opacity;
+}
+
+.create-layer:not(:hover) {
+  will-change: auto;
+}
+
+/* Network-aware optimizations */
+.slow-connection .heavy-animation {
+  animation: none !important;
+}
+
+.slow-connection .expensive-effect {
+  display: none !important;
+}
+
+/* Touch optimization classes */
+.touch-optimized {
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.touch-pan-x {
+  touch-action: pan-x;
+}
+
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+.touch-none {
+  touch-action: none;
+}
+
+/* Performance monitoring helpers */
+.perf-monitor::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background: red;
+  z-index: 9999;
+  opacity: 0;
+}
+
+/* Cleanup utilities */
+.cleanup-transforms {
+  transform: none !important;
+  will-change: auto !important;
+}
+
+.cleanup-animations {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Media query optimizations */
+@media (max-width: 767px) {
+  .mobile-perf-mode {
+    contain: layout style;
+    will-change: auto;
+  }
+  
+  .mobile-perf-mode * {
+    will-change: auto !important;
+  }
+  
+  .mobile-perf-mode .expensive {
+    display: none !important;
+  }
+}
