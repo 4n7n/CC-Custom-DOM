@@ -1,0 +1,44 @@
+{
+  "dialogues": {
+    "welcome_newcomer": {
+      "context": "Diálogo de bienvenida para nuevos miembros",
+      "participants": ["community_elder", "newcomer"],
+      "conversation": [
+        {
+          "speaker": "community_elder",
+          "text": "Bienvenido a nuestra comunidad. Aquí todos tenemos voz y todos importamos.",
+          "emotion": "warm",
+          "actions": ["extend_hand", "smile"]
+        },
+        {
+          "speaker": "newcomer",
+          "text": "Gracias. Me emociona ser parte de algo tan especial.",
+          "emotion": "grateful",
+          "actions": ["accept_hand", "look_around"]
+        }
+      ],
+      "choices": [
+        "Preguntar sobre tradiciones",
+        "Ofrecer ayuda inmediata",
+        "Compartir experiencia personal"
+      ]
+    },
+    "conflict_resolution": {
+      "context": "Mediación de conflictos comunitarios",
+      "participants": ["mediator", "party_a", "party_b"],
+      "conversation": [
+        {
+          "speaker": "mediator",
+          "text": "Escuchemos a ambas partes con respeto y mente abierta.",
+          "emotion": "calm",
+          "actions": ["gesture_peace", "maintain_eye_contact"]
+        }
+      ],
+      "choices": [
+        "Proponer compromiso",
+        "Buscar intereses comunes",
+        "Establecer reglas de diálogo"
+      ]
+    }
+  }
+}

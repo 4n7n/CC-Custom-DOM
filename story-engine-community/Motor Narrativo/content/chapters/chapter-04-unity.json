@@ -1,0 +1,75 @@
+{
+  "chapterTitle": "La Fuerza de la Unidad",
+  "chapterNumber": 4,
+  "description": "Experimenta cómo la comunidad se fortalece a través de la colaboración",
+  "scenes": [
+    {
+      "sceneId": "collective_strength",
+      "title": "Fuerza Colectiva",
+      "description": "Momentos que demuestran el poder de trabajar unidos",
+      "narrative": "Cuando llegaron los grandes desafíos, la comunidad respondió como una sola familia. La unidad se convirtió en su mayor fortaleza...",
+      "interactiveElements": ["coordinar respuesta colectiva", "apoyar familias necesitadas", "organizar recursos"],
+      "challenges": [
+        "Crisis económica externa",
+        "Desastres naturales",
+        "Conflictos con comunidades vecinas",
+        "Pérdida de miembros importantes"
+      ],
+      "unityActions": [
+        "Movilización de recursos compartidos",
+        "Redes de apoyo mutuo",
+        "Toma de decisiones colaborativa",
+        "Celebración de la diversidad"
+      ],
+      "choices": [
+        {
+          "id": "immediate_response",
+          "text": "Respuesta inmediata con recursos disponibles",
+          "consequence": "Ayuda rápida pero puede agotar reservas"
+        },
+        {
+          "id": "strategic_mobilization",
+          "text": "Movilización estratégica y sostenible",
+          "consequence": "Respuesta más efectiva a largo plazo"
+        }
+      ]
+    },
+    {
+      "sceneId": "celebration_togetherness",
+      "title": "Celebrando Juntos",
+      "description": "Las festividades que refuerzan los lazos comunitarios",
+      "narrative": "Las celebraciones no son solo diversión, son el corazón de nuestra unidad. Cada festival fortalece los hilos que nos conectan...",
+      "interactiveElements": ["organizar festivales", "participar en tradiciones", "crear nuevas celebraciones"],
+      "celebrations": [
+        "Festival de la Cosecha",
+        "Día de la Fundación",
+        "Ceremonia de los Ancestros",
+        "Celebración de los Logros Juveniles"
+      ],
+      "traditions": [
+        "Danzas circulares comunitarias",
+        "Intercambio de regalos simbólicos",
+        "Narrativas de historias familiares",
+        "Bendiciones intergeneracionales"
+      ],
+      "choices": [
+        {
+          "id": "traditional_format",
+          "text": "Mantener formato tradicional de celebraciones",
+          "consequence": "Preserva autenticidad pero puede excluir nuevos miembros"
+        },
+        {
+          "id": "inclusive_innovation",
+          "text": "Innovar celebraciones para incluir a todos",
+          "consequence": "Aumenta participación pero puede diluir tradiciones"
+        }
+      ]
+    }
+  ],
+  "learningObjectives": ["experimentar poder colectivo", "fortalecer vínculos sociales", "valorar celebraciones compartidas"],
+  "culturalElements": ["rituales de unidad", "cantos comunitarios", "símbolos de pertenencia"],
+  "progressMarkers": {
+    "completion_percentage": 80,
+    "skills_developed": ["colaboración efectiva", "resiliencia colectiva", "celebración comunitaria"]
+  }
+}
