@@ -1,0 +1,841 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-07-07",
+    "currency": "USD",
+    "locale": "en-US",
+    "description": "Community Stories Platform - Pricing Tiers Configuration",
+    "contact": {
+      "email": "sponsors@communitystories.org",
+      "phone": "+1-555-STORIES",
+      "website": "https://communitystories.org/sponsors"
+    }
+  },
+  
+  "sponsorshipTiers": {
+    "platinum": {
+      "id": "platinum",
+      "name": "Platinum Partner",
+      "displayName": "Platinum Community Champion",
+      "tagline": "Leading Global Change",
+      "emoji": "👑",
+      "color": "#9B59B6",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "priority": 1,
+      "minAmount": 25000,
+      "maxAmount": null,
+      "currency": "USD",
+      "duration": "12 months",
+      "renewable": true,
+      "exclusive": true,
+      "maxSponsors": 3,
+      "features": {
+        "branding": {
+          "logoPlacement": {
+            "storyHeader": true,
+            "storyFooter": true,
+            "landingPage": true,
+            "socialShares": true,
+            "emailSignatures": true
+          },
+          "brandColors": {
+            "customTheme": true,
+            "accentColors": true,
+            "backgroundIntegration": true
+          },
+          "namingRights": {
+            "storyTitle": true,
+            "sectionNaming": true,
+            "campaignNaming": true
+          }
+        },
+        "content": {
+          "customContent": {
+            "dedicatedStorySection": true,
+            "brandedInteractives": true,
+            "customAnimations": true,
+            "videoIntegration": true
+          },
+          "contentCreation": {
+            "professionalPhotography": true,
+            "videoProduction": true,
+            "copywriting": true,
+            "translation": true
+          }
+        },
+        "analytics": {
+          "reporting": {
+            "realTimeMetrics": true,
+            "customDashboard": true,
+            "exportableReports": true,
+            "apiAccess": true
+          },
+          "insights": {
+            "audienceSegmentation": true,
+            "engagementAnalysis": true,
+            "conversionTracking": true,
+            "competitiveAnalysis": true
+          }
+        },
+        "engagement": {
+          "directAccess": {
+            "dedicatedAccountManager": true,
+            "monthlyStrategyMeetings": true,
+            "quarterlyReviews": true,
+            "prioritySupport": true
+          },
+          "events": {
+            "exclusiveEvents": true,
+            "speakingOpportunities": true,
+            "networkingAccess": true,
+            "awardRecognition": true
+          }
+        },
+        "marketing": {
+          "promotion": {
+            "socialMediaFeatures": true,
+            "pressReleaseInclusion": true,
+            "newsletterHighlights": true,
+            "blogFeatures": true
+          },
+          "amplification": {
+            "influencerOutreach": true,
+            "mediaKitInclusion": true,
+            "conferencePresentation": true,
+            "thoughtLeadership": true
+          }
+        }
+      },
+      "benefits": [
+        "Exclusive naming rights for entire story campaigns",
+        "Custom-branded story sections with immersive experiences",
+        "Real-time analytics dashboard with full API access",
+        "Dedicated account manager with monthly strategy sessions",
+        "Professional content creation (video, photography, copy)",
+        "Speaking opportunities at platform events",
+        "First access to new communities and story opportunities",
+        "Custom integrations with sponsor's existing platforms",
+        "Exclusive networking events with other Platinum sponsors",
+        "Annual impact report with detailed ROI analysis",
+        "Priority placement in all marketing materials",
+        "Custom animation sequences featuring sponsor integration"
+      ],
+      "commitments": {
+        "minimumDuration": "12 months",
+        "paymentTerms": "Quarterly",
+        "deliverables": {
+          "kickoffMeeting": "Within 5 business days",
+          "contentDelivery": "30-45 days",
+          "reportingCadence": "Monthly",
+          "campaignLaunch": "60-90 days"
+        }
+      },
+      "roi": {
+        "estimatedReach": "500K-2M users",
+        "engagementRate": "8-15%",
+        "brandLift": "25-40%",
+        "socialMentions": "1000-5000",
+        "mediaValue": "$150K-$500K"
+      }
+    },
+    
+    "gold": {
+      "id": "gold",
+      "name": "Gold Supporter",
+      "displayName": "Gold Community Advocate",
+      "tagline": "Empowering Communities",
+      "emoji": "⭐",
+      "color": "#F1C40F",
+      "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      "priority": 2,
+      "minAmount": 10000,
+      "maxAmount": 24999,
+      "currency": "USD",
+      "duration": "12 months",
+      "renewable": true,
+      "exclusive": false,
+      "maxSponsors": 8,
+      "features": {
+        "branding": {
+          "logoPlacement": {
+            "storyHeader": true,
+            "storyFooter": true,
+            "landingPage": true,
+            "socialShares": true,
+            "emailSignatures": false
+          },
+          "brandColors": {
+            "customTheme": false,
+            "accentColors": true,
+            "backgroundIntegration": false
+          },
+          "namingRights": {
+            "storyTitle": false,
+            "sectionNaming": true,
+            "campaignNaming": false
+          }
+        },
+        "content": {
+          "customContent": {
+            "dedicatedStorySection": true,
+            "brandedInteractives": false,
+            "customAnimations": false,
+            "videoIntegration": true
+          },
+          "contentCreation": {
+            "professionalPhotography": true,
+            "videoProduction": false,
+            "copywriting": true,
+            "translation": false
+          }
+        },
+        "analytics": {
+          "reporting": {
+            "realTimeMetrics": true,
+            "customDashboard": false,
+            "exportableReports": true,
+            "apiAccess": false
+          },
+          "insights": {
+            "audienceSegmentation": true,
+            "engagementAnalysis": true,
+            "conversionTracking": false,
+            "competitiveAnalysis": false
+          }
+        },
+        "engagement": {
+          "directAccess": {
+            "dedicatedAccountManager": false,
+            "monthlyStrategyMeetings": false,
+            "quarterlyReviews": true,
+            "prioritySupport": true
+          },
+          "events": {
+            "exclusiveEvents": false,
+            "speakingOpportunities": false,
+            "networkingAccess": true,
+            "awardRecognition": true
+          }
+        },
+        "marketing": {
+          "promotion": {
+            "socialMediaFeatures": true,
+            "pressReleaseInclusion": true,
+            "newsletterHighlights": true,
+            "blogFeatures": false
+          },
+          "amplification": {
+            "influencerOutreach": false,
+            "mediaKitInclusion": true,
+            "conferencePresentation": false,
+            "thoughtLeadership": false
+          }
+        }
+      },
+      "benefits": [
+        "Prominent logo placement in story headers and footers",
+        "Dedicated story section highlighting sponsor values",
+        "Real-time analytics with exportable monthly reports",
+        "Quarterly review meetings with partnership team",
+        "Professional photography for branded content",
+        "Social media features and newsletter highlights",
+        "Access to networking events and community gatherings",
+        "Priority customer support and technical assistance",
+        "Recognition in annual awards and celebrations",
+        "Inclusion in press releases and media communications",
+        "Custom copywriting for sponsor integration",
+        "Video testimonial integration opportunities"
+      ],
+      "commitments": {
+        "minimumDuration": "12 months",
+        "paymentTerms": "Quarterly",
+        "deliverables": {
+          "kickoffMeeting": "Within 7 business days",
+          "contentDelivery": "45-60 days",
+          "reportingCadence": "Monthly",
+          "campaignLaunch": "90-120 days"
+        }
+      },
+      "roi": {
+        "estimatedReach": "200K-800K users",
+        "engagementRate": "6-12%",
+        "brandLift": "15-30%",
+        "socialMentions": "500-2000",
+        "mediaValue": "$50K-$200K"
+      }
+    },
+    
+    "silver": {
+      "id": "silver",
+      "name": "Silver Partner",
+      "displayName": "Silver Community Friend",
+      "tagline": "Supporting Stories",
+      "emoji": "💎",
+      "color": "#95A5A6",
+      "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      "priority": 3,
+      "minAmount": 5000,
+      "maxAmount": 9999,
+      "currency": "USD",
+      "duration": "6 months",
+      "renewable": true,
+      "exclusive": false,
+      "maxSponsors": 15,
+      "features": {
+        "branding": {
+          "logoPlacement": {
+            "storyHeader": false,
+            "storyFooter": true,
+            "landingPage": true,
+            "socialShares": false,
+            "emailSignatures": false
+          },
+          "brandColors": {
+            "customTheme": false,
+            "accentColors": false,
+            "backgroundIntegration": false
+          },
+          "namingRights": {
+            "storyTitle": false,
+            "sectionNaming": false,
+            "campaignNaming": false
+          }
+        },
+        "content": {
+          "customContent": {
+            "dedicatedStorySection": false,
+            "brandedInteractives": false,
+            "customAnimations": false,
+            "videoIntegration": false
+          },
+          "contentCreation": {
+            "professionalPhotography": false,
+            "videoProduction": false,
+            "copywriting": false,
+            "translation": false
+          }
+        },
+        "analytics": {
+          "reporting": {
+            "realTimeMetrics": false,
+            "customDashboard": false,
+            "exportableReports": true,
+            "apiAccess": false
+          },
+          "insights": {
+            "audienceSegmentation": false,
+            "engagementAnalysis": true,
+            "conversionTracking": false,
+            "competitiveAnalysis": false
+          }
+        },
+        "engagement": {
+          "directAccess": {
+            "dedicatedAccountManager": false,
+            "monthlyStrategyMeetings": false,
+            "quarterlyReviews": false,
+            "prioritySupport": false
+          },
+          "events": {
+            "exclusiveEvents": false,
+            "speakingOpportunities": false,
+            "networkingAccess": true,
+            "awardRecognition": false
+          }
+        },
+        "marketing": {
+          "promotion": {
+            "socialMediaFeatures": true,
+            "pressReleaseInclusion": false,
+            "newsletterHighlights": false,
+            "blogFeatures": false
+          },
+          "amplification": {
+            "influencerOutreach": false,
+            "mediaKitInclusion": false,
+            "conferencePresentation": false,
+            "thoughtLeadership": false
+          }
+        }
+      },
+      "benefits": [
+        "Logo placement in story credits and partner pages",
+        "Recognition on platform landing page and sponsor gallery",
+        "Basic analytics reports with engagement metrics",
+        "Social media mentions and community recognition",
+        "Access to sponsor-only networking events",
+        "Quarterly impact reports showing community outcomes",
+        "Standard customer support and platform assistance",
+        "Certificate of community impact and social responsibility",
+        "Early access to new story launches and updates",
+        "Inclusion in sponsor appreciation communications"
+      ],
+      "commitments": {
+        "minimumDuration": "6 months",
+        "paymentTerms": "Bi-annual",
+        "deliverables": {
+          "kickoffMeeting": "Within 10 business days",
+          "contentDelivery": "60-90 days",
+          "reportingCadence": "Quarterly",
+          "campaignLaunch": "120-150 days"
+        }
+      },
+      "roi": {
+        "estimatedReach": "100K-400K users",
+        "engagementRate": "4-8%",
+        "brandLift": "10-20%",
+        "socialMentions": "200-800",
+        "mediaValue": "$20K-$80K"
+      }
+    },
+    
+    "bronze": {
+      "id": "bronze",
+      "name": "Bronze Contributor",
+      "displayName": "Bronze Community Supporter",
+      "tagline": "Every Story Matters",
+      "emoji": "🏆",
+      "color": "#CD7F32",
+      "gradient": "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
+      "priority": 4,
+      "minAmount": 2000,
+      "maxAmount": 4999,
+      "currency": "USD",
+      "duration": "6 months",
+      "renewable": true,
+      "exclusive": false,
+      "maxSponsors": 25,
+      "features": {
+        "branding": {
+          "logoPlacement": {
+            "storyHeader": false,
+            "storyFooter": false,
+            "landingPage": true,
+            "socialShares": false,
+            "emailSignatures": false
+          },
+          "brandColors": {
+            "customTheme": false,
+            "accentColors": false,
+            "backgroundIntegration": false
+          },
+          "namingRights": {
+            "storyTitle": false,
+            "sectionNaming": false,
+            "campaignNaming": false
+          }
+        },
+        "content": {
+          "customContent": {
+            "dedicatedStorySection": false,
+            "brandedInteractives": false,
+            "customAnimations": false,
+            "videoIntegration": false
+          },
+          "contentCreation": {
+            "professionalPhotography": false,
+            "videoProduction": false,
+            "copywriting": false,
+            "translation": false
+          }
+        },
+        "analytics": {
+          "reporting": {
+            "realTimeMetrics": false,
+            "customDashboard": false,
+            "exportableReports": false,
+            "apiAccess": false
+          },
+          "insights": {
+            "audienceSegmentation": false,
+            "engagementAnalysis": false,
+            "conversionTracking": false,
+            "competitiveAnalysis": false
+          }
+        },
+        "engagement": {
+          "directAccess": {
+            "dedicatedAccountManager": false,
+            "monthlyStrategyMeetings": false,
+            "quarterlyReviews": false,
+            "prioritySupport": false
+          },
+          "events": {
+            "exclusiveEvents": false,
+            "speakingOpportunities": false,
+            "networkingAccess": false,
+            "awardRecognition": false
+          }
+        },
+        "marketing": {
+          "promotion": {
+            "socialMediaFeatures": false,
+            "pressReleaseInclusion": false,
+            "newsletterHighlights": false,
+            "blogFeatures": false
+          },
+          "amplification": {
+            "influencerOutreach": false,
+            "mediaKitInclusion": false,
+            "conferencePresentation": false,
+            "thoughtLeadership": false
+          }
+        }
+      },
+      "benefits": [
+        "Logo listing on platform sponsor page",
+        "Recognition in community impact reports",
+        "Basic platform access and story viewing",
+        "Certificate of community support and contribution",
+        "Semi-annual impact summary via email",
+        "Standard customer support access",
+        "Invitation to public community events",
+        "Early notification of new story launches"
+      ],
+      "commitments": {
+        "minimumDuration": "6 months",
+        "paymentTerms": "Bi-annual",
+        "deliverables": {
+          "kickoffMeeting": "Within 15 business days",
+          "contentDelivery": "90-120 days",
+          "reportingCadence": "Semi-annual",
+          "campaignLaunch": "150-180 days"
+        }
+      },
+      "roi": {
+        "estimatedReach": "50K-200K users",
+        "engagementRate": "2-5%",
+        "brandLift": "5-15%",
+        "socialMentions": "50-200",
+        "mediaValue": "$5K-$30K"
+      }
+    }
+  },
+  
+  "communityTiers": {
+    "individual": {
+      "id": "individual",
+      "name": "Individual Supporter",
+      "displayName": "Community Friend",
+      "tagline": "One Person, One Impact",
+      "emoji": "❤️",
+      "color": "#E74C3C",
+      "minAmount": 10,
+      "maxAmount": 999,
+      "currency": "USD",
+      "recurring": true,
+      "intervals": ["monthly", "quarterly", "annually"],
+      "benefits": [
+        "Thank you mention in story credits",
+        "Exclusive updates on community progress",
+        "Digital certificate of support",
+        "Access to supporter-only content updates"
+      ],
+      "recognition": {
+        "threshold": 100,
+        "badge": "Community Champion",
+        "publicRecognition": true
+      }
+    },
+    
+    "family": {
+      "id": "family",
+      "name": "Family Supporter",
+      "displayName": "Community Family",
+      "tagline": "Families Supporting Families",
+      "emoji": "👨‍👩‍👧‍👦",
+      "color": "#3498DB",
+      "minAmount": 25,
+      "maxAmount": 999,
+      "currency": "USD",
+      "recurring": true,
+      "intervals": ["monthly", "quarterly", "annually"],
+      "benefits": [
+        "Family name in story acknowledgments",
+        "Quarterly family impact reports",
+        "Digital family certificate",
+        "Invitation to virtual community gatherings",
+        "Children's activity packs related to stories"
+      ],
+      "recognition": {
+        "threshold": 250,
+        "badge": "Family Champion",
+        "publicRecognition": true
+      }
+    },
+    
+    "community": {
+      "id": "community",
+      "name": "Community Group",
+      "displayName": "Community Collective",
+      "tagline": "Communities Supporting Communities",
+      "emoji": "🤝",
+      "color": "#27AE60",
+      "minAmount": 100,
+      "maxAmount": 1999,
+      "currency": "USD",
+      "recurring": true,
+      "intervals": ["monthly", "quarterly", "annually"],
+      "benefits": [
+        "Group recognition in story materials",
+        "Dedicated thank you section",
+        "Group impact measurement and reports",
+        "Access to educational resources",
+        "Virtual meet-and-greet with story communities",
+        "Custom group certificate"
+      ],
+      "recognition": {
+        "threshold": 500,
+        "badge": "Community Leader",
+        "publicRecognition": true
+      }
+    }
+  },
+  
+  "customPackages": {
+    "enterprise": {
+      "id": "enterprise",
+      "name": "Enterprise Partnership",
+      "displayName": "Strategic Community Partner",
+      "description": "Fully customized partnership packages for large corporations and foundations",
+      "minAmount": 50000,
+      "currency": "USD",
+      "duration": "12-36 months",
+      "features": {
+        "fullyCustomizable": true,
+        "multipleStories": true,
+        "globalReach": true,
+        "customPlatform": true,
+        "apiIntegration": true,
+        "whiteLabel": true
+      },
+      "contact": {
+        "salesTeam": true,
+        "customProposal": true,
+        "executiveMeeting": true
+      }
+    },
+    
+    "foundation": {
+      "id": "foundation",
+      "name": "Foundation Grant",
+      "displayName": "Foundation Impact Partner",
+      "description": "Specialized packages for foundations focused on social impact measurement",
+      "minAmount": 25000,
+      "currency": "USD",
+      "duration": "12-24 months",
+      "features": {
+        "impactMeasurement": true,
+        "grantReporting": true,
+        "outcomeTracking": true,
+        "academicPartnership": true,
+        "researchAccess": true
+      }
+    },
+    
+    "government": {
+      "id": "government",
+      "name": "Government Partnership",
+      "displayName": "Civic Community Partner",
+      "description": "Special programs for government agencies and public institutions",
+      "minAmount": 15000,
+      "currency": "USD",
+      "duration": "12 months",
+      "features": {
+        "publicAccountability": true,
+        "transparencyReporting": true,
+        "citizenEngagement": true,
+        "culturalPreservation": true,
+        "multilingual": true
+      }
+    }
+  },
+  
+  "promotions": {
+    "launchSpecial": {
+      "id": "launch_2025",
+      "name": "Platform Launch Special",
+      "description": "Limited time offer for early adopters",
+      "discountPercent": 25,
+      "validUntil": "2025-12-31",
+      "applicableTiers": ["bronze", "silver", "gold"],
+      "conditions": {
+        "newSponsorsOnly": true,
+        "minimumCommitment": "12 months",
+        "limitedAvailability": 50
+      }
+    },
+    
+    "nonprofitDiscount": {
+      "id": "nonprofit_2025",
+      "name": "Nonprofit Organization Discount",
+      "description": "Special pricing for registered nonprofits",
+      "discountPercent": 30,
+      "validUntil": "2025-12-31",
+      "applicableTiers": ["bronze", "silver"],
+      "conditions": {
+        "nonprofitVerification": true,
+        "501c3Required": true
+      }
+    },
+    
+    "multiStoryBundle": {
+      "id": "multi_story_2025",
+      "name": "Multi-Story Bundle",
+      "description": "Discount for sponsors supporting multiple community stories",
+      "discountPercent": 15,
+      "validUntil": "2025-12-31",
+      "applicableTiers": ["silver", "gold", "platinum"],
+      "conditions": {
+        "minimumStories": 3,
+        "simultaneousSponsorship": true
+      }
+    }
+  },
+  
+  "paymentOptions": {
+    "methods": {
+      "creditCard": {
+        "accepted": true,
+        "types": ["Visa", "MasterCard", "American Express", "Discover"],
+        "processingFee": 2.9,
+        "instantApproval": true
+      },
+      "bankTransfer": {
+        "accepted": true,
+        "domestic": true,
+        "international": true,
+        "processingFee": 0.5,
+        "processingTime": "3-5 business days"
+      },
+      "check": {
+        "accepted": true,
+        "processingTime": "7-10 business days",
+        "minimumAmount": 1000
+      },
+      "cryptocurrency": {
+        "accepted": true,
+        "types": ["Bitcoin", "Ethereum", "USDC"],
+        "processingFee": 1.0,
+        "instantSettlement": false
+      }
+    },
+    
+    "terms": {
+      "monthly": {
+        "available": ["individual", "family", "community"],
+        "processingDay": 1
+      },
+      "quarterly": {
+        "available": ["bronze", "silver", "individual", "family", "community"],
+        "discount": 5
+      },
+      "biannual": {
+        "available": ["bronze", "silver"],
+        "discount": 8
+      },
+      "annual": {
+        "available": ["gold", "platinum", "individual", "family", "community"],
+        "discount": 15
+      }
+    }
+  },
+  
+  "analytics": {
+    "trackingMetrics": {
+      "reach": {
+        "pageViews": true,
+        "uniqueVisitors": true,
+        "sessionDuration": true,
+        "bounceRate": true,
+        "geographicDistribution": true
+      },
+      "engagement": {
+        "scrollDepth": true,
+        "interactionRate": true,
+        "shareCount": true,
+        "commentCount": true,
+        "timeOnStory": true
+      },
+      "conversion": {
+        "donationConversions": true,
+        "emailSignups": true,
+        "socialFollows": true,
+        "resourceDownloads": true
+      },
+      "brandMetrics": {
+        "brandMentions": true,
+        "sentimentAnalysis": true,
+        "brandRecall": true,
+        "associationMetrics": true
+      }
+    },
+    
+    "reportingSchedule": {
+      "platinum": "Weekly",
+      "gold": "Bi-weekly",
+      "silver": "Monthly",
+      "bronze": "Quarterly"
+    }
+  },
+  
+  "contractTerms": {
+    "standardTerms": {
+      "cancellationPolicy": "30 days written notice",
+      "refundPolicy": "Pro-rated refunds for early termination",
+      "contentRights": "Sponsor retains rights to provided content",
+      "platformRights": "Platform retains editorial control",
+      "dataPrivacy": "GDPR and CCPA compliant",
+      "contentModeration": "Platform reserves right to moderate content"
+    },
+    
+    "intellectual property": {
+      "sponsorTrademarks": "Respected and protected",
+      "storyContent": "Community and platform owned",
+      "analyticsData": "Shared with appropriate permissions",
+      "customContent": "Joint ownership as specified"
+    }
+  },
+  
+  "onboardingProcess": {
+    "steps": {
+      "1": {
+        "title": "Initial Consultation",
+        "duration": "1-2 weeks",
+        "description": "Understanding sponsor goals and community alignment"
+      },
+      "2": {
+        "title": "Contract Finalization",
+        "duration": "1 week",
+        "description": "Legal review and agreement signing"
+      },
+      "3": {
+        "title": "Content Planning",
+        "duration": "2-3 weeks",
+        "description": "Developing content strategy and creative assets"
+      },
+      "4": {
+        "title": "Technical Integration",
+        "duration": "1-2 weeks",
+        "description": "Platform setup and brand integration"
+      },
+      "5": {
+        "title": "Launch Preparation",
+        "duration": "1 week",
+        "description": "Final testing and launch coordination"
+      },
+      "6": {
+        "title": "Go Live",
+        "duration": "1 day",
+        "description": "Campaign launch and initial monitoring"
+      }
+    },
+    
+    "timeline": {
+      "bronze": "6-8 weeks",
+      "silver": "8-10 weeks",
+      "gold": "10-12 weeks",
+      "platinum": "12-16 weeks"
+    }
+  }
+}
