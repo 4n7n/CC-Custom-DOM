@@ -1,0 +1,551 @@
+/* === NONPROFIT THEME === */
+
+:root {
+    /* Primary Colors - Warm and welcoming */
+    --primary-color: #059669;
+    --primary-light: #d1fae5;
+    --primary-dark: #047857;
+    --primary-gradient: linear-gradient(135deg, #059669, #047857);
+    
+    /* Secondary Colors - Earth tones */
+    --secondary-color: #78716c;
+    --secondary-light: #f5f5f4;
+    --secondary-dark: #57534e;
+    
+    /* Accent Colors - Hope and warmth */
+    --accent-color: #f59e0b;
+    --accent-light: #fef3c7;
+    --accent-dark: #d97706;
+    
+    /* Background Colors - Clean and approachable */
+    --body-bg: #fafaf9;
+    --card-bg: #ffffff;
+    --header-bg: linear-gradient(135deg, #059669, #10b981);
+    --sidebar-bg: #ffffff;
+    --overlay-bg: rgba(5, 150, 105, 0.9);
+    
+    /* Text Colors - Readable and warm */
+    --text-primary: #1c1917;
+    --text-secondary: #78716c;
+    --text-tertiary: #a8a29e;
+    --text-muted: #d6d3d1;
+    --text-inverse: #ffffff;
+    
+    /* Border Colors */
+    --border-light: #e7e5e4;
+    --border-medium: #d6d3d1;
+    --border-dark: #a8a29e;
+    
+    /* Success, Warning, Error - Nonprofit focused */
+    --success-color: #059669;
+    --success-bg: #d1fae5;
+    --success-border: #a7f3d0;
+    
+    --warning-color: #f59e0b;
+    --warning-bg: #fef3c7;
+    --warning-border: #fde68a;
+    
+    --error-color: #ef4444;
+    --error-bg: #fef2f2;
+    --error-border: #fecaca;
+    
+    /* Impact Colors - Mission driven */
+    --impact-education: #3b82f6;
+    --impact-health: #ec4899;
+    --impact-environment: #10b981;
+    --impact-community: #8b5cf6;
+    
+    /* Shadows - Soft and welcoming */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.25s ease;
+    --transition-slow: 0.4s ease;
+    
+    /* Typography - Friendly and accessible */
+    --font-family-sans: 'Open Sans', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-family-display: 'Poppins', 'Montserrat', sans-serif;
+    --font-family-mono: 'Source Code Pro', 'Monaco', monospace;
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+}
+
+/* Theme Application */
+.theme-nonprofit {
+    color-scheme: light;
+    background: var(--body-bg);
+    color: var(--text-primary);
+    font-family: var(--font-family-sans);
+}
+
+/* Header Styling - Warm and inviting */
+.theme-nonprofit .dashboard-header {
+    background: var(--header-bg);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-lg);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.theme-nonprofit .dashboard-title {
+    color: var(--text-inverse);
+    font-weight: var(--font-bold);
+    font-family: var(--font-family-display);
+}
+
+.theme-nonprofit .dashboard-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: var(--font-normal);
+}
+
+/* Navigation - Approachable design */
+.theme-nonprofit .nav-tabs {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+    border-radius: 12px;
+}
+
+.theme-nonprofit .nav-tab {
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+    transition: all var(--transition-normal);
+    border-radius: 8px;
+    margin: 4px;
+}
+
+.theme-nonprofit .nav-tab:hover {
+    background: var(--secondary-light);
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+.theme-nonprofit .nav-tab.active {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    font-weight: var(--font-semibold);
+    box-shadow: var(--shadow-md);
+}
+
+/* Cards - Warm and welcoming */
+.theme-nonprofit .sponsor-card,
+.theme-nonprofit .impact-metric-card,
+.theme-nonprofit .donation-widget,
+.theme-nonprofit .analytics-charts-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+    border-radius: 16px;
+}
+
+.theme-nonprofit .sponsor-card:hover,
+.theme-nonprofit .impact-metric-card:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-2px);
+}
+
+/* Card headers with mission focus */
+.theme-nonprofit .sponsor-card::before,
+.theme-nonprofit .impact-metric-card::before {
+    height: 6px;
+    border-radius: 16px 16px 0 0;
+}
+
+/* Buttons - Inviting and action-oriented */
+.theme-nonprofit .btn {
+    font-weight: var(--font-semibold);
+    transition: all var(--transition-normal);
+    border-radius: 8px;
+    font-family: var(--font-family-display);
+}
+
+.theme-nonprofit .btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-nonprofit .btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-nonprofit .btn-secondary {
+    background: var(--card-bg);
+    border-color: var(--border-medium);
+    color: var(--text-primary);
+}
+
+.theme-nonprofit .btn-secondary:hover {
+    background: var(--secondary-light);
+    border-color: var(--border-dark);
+    transform: translateY(-1px);
+}
+
+/* Forms - Accessible and friendly */
+.theme-nonprofit input,
+.theme-nonprofit select,
+.theme-nonprofit textarea {
+    background: var(--card-bg);
+    border: 2px solid var(--border-light);
+    color: var(--text-primary);
+    border-radius: 8px;
+    font-family: var(--font-family-sans);
+    transition: border-color var(--transition-normal);
+}
+
+.theme-nonprofit input:focus,
+.theme-nonprofit select:focus,
+.theme-nonprofit textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px var(--primary-light);
+    outline: none;
+}
+
+/* Progress Bars - Show impact visually */
+.theme-nonprofit .progress-bar {
+    background: var(--secondary-light);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.theme-nonprofit .progress-fill {
+    background: var(--primary-gradient);
+    position: relative;
+}
+
+.theme-nonprofit .progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: nonprofit-shimmer 2s infinite;
+}
+
+@keyframes nonprofit-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Metric Cards - Impact focused */
+.theme-nonprofit .metric-card-funding {
+    --metric-accent: var(--success-color);
+    --metric-icon-bg: var(--success-color);
+}
+
+.theme-nonprofit .metric-card-sponsors {
+    --metric-accent: var(--primary-color);
+    --metric-icon-bg: var(--primary-color);
+}
+
+.theme-nonprofit .metric-card-reach {
+    --metric-accent: var(--impact-community);
+    --metric-icon-bg: var(--impact-community);
+}
+
+.theme-nonprofit .metric-card-growth {
+    --metric-accent: var(--accent-color);
+    --metric-icon-bg: var(--accent-color);
+}
+
+.theme-nonprofit .metric-card-engagement {
+    --metric-accent: var(--impact-education);
+    --metric-icon-bg: var(--impact-education);
+}
+
+.theme-nonprofit .metric-card-roi {
+    --metric-accent: var(--impact-health);
+    --metric-icon-bg: var(--impact-health);
+}
+
+/* Time Selector - Mission timeline */
+.theme-nonprofit .time-selector {
+    background: var(--secondary-light);
+    border: 2px solid var(--border-light);
+    border-radius: 10px;
+}
+
+.theme-nonprofit .time-btn {
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+    border-radius: 6px;
+    transition: all var(--transition-normal);
+}
+
+.theme-nonprofit .time-btn:hover {
+    background: var(--border-light);
+    color: var(--text-primary);
+    transform: scale(1.02);
+}
+
+.theme-nonprofit .time-btn.active {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-sm);
+    transform: scale(1.02);
+}
+
+/* Sponsor Tier Colors - Mission aligned */
+.theme-nonprofit .sponsor-card[data-tier="platinum"] {
+    --tier-color: var(--impact-education);
+}
+
+.theme-nonprofit .sponsor-card[data-tier="gold"] {
+    --tier-color: var(--accent-color);
+}
+
+.theme-nonprofit .sponsor-card[data-tier="silver"] {
+    --tier-color: var(--secondary-color);
+}
+
+.theme-nonprofit .sponsor-card[data-tier="bronze"] {
+    --tier-color: var(--impact-health);
+}
+
+/* Chart Styling - Data with purpose */
+.theme-nonprofit .chart-canvas-container {
+    background: var(--card-bg);
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+}
+
+.theme-nonprofit .chart-legend {
+    border-top: 2px solid var(--border-light);
+}
+
+/* Donation Widgets - Call to action */
+.theme-nonprofit .donation-widget {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-nonprofit .donation-widget::before {
+    background: var(--primary-gradient);
+}
+
+.theme-nonprofit .widget-icon {
+    background: var(--primary-gradient);
+    box-shadow: var(--shadow-md);
+}
+
+/* Impact Visualization */
+.theme-nonprofit .impact-overview {
+    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+    border: 2px solid var(--border-light);
+    border-radius: 20px;
+}
+
+.theme-nonprofit .impact-overview-header {
+    color: var(--text-primary);
+}
+
+.theme-nonprofit .overview-title {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-bold);
+    color: var(--primary-dark);
+}
+
+/* Recognition System - Celebrate impact */
+.theme-nonprofit .recognition-level {
+    border-radius: 12px;
+    transition: all var(--transition-normal);
+}
+
+.theme-nonprofit .recognition-level:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-nonprofit .recognition-level.platinum {
+    background: linear-gradient(135deg, var(--impact-education), rgba(59, 130, 246, 0.1));
+    border: 2px solid var(--impact-education);
+}
+
+.theme-nonprofit .recognition-level.gold {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+    border: 2px solid var(--accent-color);
+}
+
+.theme-nonprofit .recognition-level.silver {
+    background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+    border: 2px solid var(--secondary-color);
+}
+
+.theme-nonprofit .recognition-level.bronze {
+    background: linear-gradient(135deg, var(--impact-health), rgba(236, 72, 153, 0.1));
+    border: 2px solid var(--impact-health);
+}
+
+/* Status Indicators - Clear communication */
+.theme-nonprofit .status-active {
+    color: var(--success-color);
+    background: var(--success-bg);
+    border: 2px solid var(--success-border);
+    border-radius: 20px;
+    font-weight: var(--font-semibold);
+}
+
+.theme-nonprofit .status-inactive {
+    color: var(--error-color);
+    background: var(--error-bg);
+    border: 2px solid var(--error-border);
+    border-radius: 20px;
+    font-weight: var(--font-semibold);
+}
+
+.theme-nonprofit .status-pending {
+    color: var(--warning-color);
+    background: var(--warning-bg);
+    border: 2px solid var(--warning-border);
+    border-radius: 20px;
+    font-weight: var(--font-semibold);
+}
+
+/* Engagement Indicators - Show connection */
+.theme-nonprofit .engagement-high {
+    --engagement-bg: var(--success-bg);
+    --engagement-border: var(--success-color);
+    --engagement-text: var(--success-color);
+}
+
+.theme-nonprofit .engagement-medium {
+    --engagement-bg: var(--warning-bg);
+    --engagement-border: var(--warning-color);
+    --engagement-text: var(--warning-color);
+}
+
+.theme-nonprofit .engagement-low {
+    --engagement-bg: var(--error-bg);
+    --engagement-border: var(--error-color);
+    --engagement-text: var(--error-color);
+}
+
+/* Scrollbars - Consistent with theme */
+.theme-nonprofit ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.theme-nonprofit ::-webkit-scrollbar-track {
+    background: var(--secondary-light);
+    border-radius: 5px;
+}
+
+.theme-nonprofit ::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 5px;
+    border: 2px solid var(--secondary-light);
+}
+
+.theme-nonprofit ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Loading States - Hopeful waiting */
+.theme-nonprofit .loading-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--secondary-light) 25%,
+        var(--border-light) 50%,
+        var(--secondary-light) 75%
+    );
+    background-size: 200% 100%;
+    animation: nonprofit-loading 1.8s infinite;
+    border-radius: 8px;
+}
+
+@keyframes nonprofit-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Focus Styles - Accessibility first */
+.theme-nonprofit *:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Tooltips - Helpful and warm */
+.theme-nonprofit .tooltip {
+    background: var(--text-primary);
+    color: var(--text-inverse);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: var(--font-medium);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Special Mission Elements */
+.theme-nonprofit .mission-highlight {
+    background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+    border-left: 4px solid var(--primary-color);
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.theme-nonprofit .impact-quote {
+    font-style: italic;
+    color: var(--primary-dark);
+    font-size: 18px;
+    text-align: center;
+    margin: 24px 0;
+    padding: 20px;
+    background: var(--primary-light);
+    border-radius: 12px;
+    border: 2px solid var(--primary-color);
+}
+
+/* Print Styles - Share the mission */
+@media print {
+    .theme-nonprofit {
+        --body-bg: #ffffff;
+        --card-bg: #ffffff;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --border-light: #cccccc;
+    }
+    
+    .theme-nonprofit .dashboard-header {
+        background: #ffffff !important;
+        color: var(--text-primary) !important;
+        box-shadow: none !important;
+        border-bottom: 3px solid var(--primary-color) !important;
+    }
+}
+
+/* High Contrast Mode - Maximum accessibility */
+@media (prefers-contrast: high) {
+    .theme-nonprofit {
+        --border-light: #000000;
+        --border-medium: #000000;
+        --text-secondary: #000000;
+        --primary-color: #006400;
+        --accent-color: #ff8c00;
+    }
+}
+
+/* Reduced Motion - Respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+    .theme-nonprofit * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

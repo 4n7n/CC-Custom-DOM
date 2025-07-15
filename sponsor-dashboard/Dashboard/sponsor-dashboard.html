@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Patrocinadores</title>
+    
+    <!-- CSS Components -->
+    <link rel="stylesheet" href="css/components/sponsor-cards.css">
+    <link rel="stylesheet" href="css/components/analytics-charts.css">
+    <link rel="stylesheet" href="css/components/impact-metrics.css">
+    <link rel="stylesheet" href="css/components/donation-widgets.css">
+    <link rel="stylesheet" href="css/components/sponsor-branding.css">
+    
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/themes/corporate-theme.css" id="theme-css">
+</head>
+<body class="theme-corporate">
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <h1 class="dashboard-title">Dashboard de Patrocinadores</h1>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="exportBtn">📊 Exportar</button>
+                    <button class="btn btn-primary" id="addSponsorBtn">➕ Nuevo Patrocinador</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="dashboard-nav">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="overview">Vista General</button>
+                <button class="nav-tab" data-tab="sponsors">Patrocinadores</button>
+                <button class="nav-tab" data-tab="analytics">Analíticas</button>
+                <button class="nav-tab" data-tab="impact">Impacto</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Tab -->
+            <section id="overview-tab" class="tab-content active">
+                <div class="metrics-overview">
+                    <div class="impact-metrics-container" id="impactMetrics"></div>
+                    <div class="analytics-charts-container" id="overviewCharts"></div>
+                </div>
+            </section>
+
+            <!-- Sponsors Tab -->
+            <section id="sponsors-tab" class="tab-content">
+                <div class="sponsors-controls">
+                    <div class="search-filter">
+                        <input type="text" placeholder="Buscar patrocinadores..." id="sponsorSearch">
+                        <select id="tierFilter">
+                            <option value="">Todos los tiers</option>
+                            <option value="platinum">Platinum</option>
+                            <option value="gold">Gold</option>
+                            <option value="silver">Silver</option>
+                            <option value="bronze">Bronze</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="sponsor-cards-container" id="sponsorCards"></div>
+            </section>
+
+            <!-- Analytics Tab -->
+            <section id="analytics-tab" class="tab-content">
+                <div class="analytics-dashboard">
+                    <div class="chart-section" id="analyticsCharts"></div>
+                    <div class="metrics-section" id="analyticsMetrics"></div>
+                </div>
+            </section>
+
+            <!-- Impact Tab -->
+            <section id="impact-tab" class="tab-content">
+                <div class="impact-dashboard">
+                    <div class="donation-widgets-container" id="donationWidgets"></div>
+                    <div class="impact-visualization" id="impactViz"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Theme Selector -->
+    <div class="theme-selector">
+        <button data-theme="corporate">Corporativo</button>
+        <button data-theme="nonprofit">Sin Fines de Lucro</button>
+        <button data-theme="community">Comunidad</button>
+    </div>
+
+    <!-- JavaScript Modules -->
+    <script src="js/modules/sponsors/dashboard-manager.js"></script>
+    <script src="js/modules/sponsors/sponsor-profiles.js"></script>
+    <script src="js/modules/sponsors/brand-integration.js"></script>
+    <script src="js/modules/sponsors/tier-management.js"></script>
+    <script src="js/modules/sponsors/sponsor-analytics.js"></script>
+
+    <!-- Analytics Scripts -->
+    <script src="js/modules/analytics/impact-metrics.js"></script>
+    <script src="js/modules/analytics/engagement-tracking.js"></script>
+    <script src="js/modules/analytics/donation-analytics.js"></script>
+    <script src="js/modules/analytics/reach-calculator.js"></script>
+    <script src="js/modules/analytics/community-growth.js"></script>
+    <script src="js/modules/analytics/roi-reporting.js"></script>
+
+    <!-- Chart Components -->
+    <script src="js/components/charts/impact-charts.js"></script>
+    <script src="js/components/charts/engagement-graphs.js"></script>
+    <script src="js/components/charts/donation-trends.js"></script>
+    <script src="js/components/charts/community-metrics.js"></script>
+
+    <!-- Initialize Dashboard -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dashboard = new DashboardManager();
+            dashboard.initialize();
+        });
+    </script>
+</body>
+</html>

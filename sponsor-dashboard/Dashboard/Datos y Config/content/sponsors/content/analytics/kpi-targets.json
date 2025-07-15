@@ -1,0 +1,657 @@
+{
+  "kpiTargets": {
+    "2025": {
+      "year": 2025,
+      "description": "Objetivos KPI para el año 2025",
+      "status": "active",
+      "quarters": {
+        "Q1": {
+          "period": "2025-Q1",
+          "startDate": "2025-01-01",
+          "endDate": "2025-03-31",
+          "status": "active",
+          "targets": {
+            "impact": {
+              "lives_impacted": {
+                "target": 1500,
+                "stretch_target": 1800,
+                "minimum_acceptable": 1200,
+                "weight": 30,
+                "priority": "critical"
+              },
+              "programs_supported": {
+                "target": 24,
+                "stretch_target": 28,
+                "minimum_acceptable": 20,
+                "weight": 20,
+                "priority": "high"
+              },
+              "communities_reached": {
+                "target": 45,
+                "stretch_target": 52,
+                "minimum_acceptable": 38,
+                "weight": 15,
+                "priority": "medium"
+              },
+              "volunteer_hours": {
+                "target": 6000,
+                "stretch_target": 7200,
+                "minimum_acceptable": 5100,
+                "weight": 10,
+                "priority": "medium"
+              },
+              "sustainability_score": {
+                "target": 85,
+                "stretch_target": 92,
+                "minimum_acceptable": 78,
+                "weight": 25,
+                "priority": "high"
+              }
+            },
+            "engagement": {
+              "social_media_reach": {
+                "target": 300000,
+                "stretch_target": 360000,
+                "minimum_acceptable": 240000,
+                "weight": 25,
+                "priority": "high"
+              },
+              "engagement_rate": {
+                "target": 4.0,
+                "stretch_target": 4.8,
+                "minimum_acceptable": 3.2,
+                "weight": 30,
+                "priority": "critical"
+              },
+              "website_visits": {
+                "target": 75000,
+                "stretch_target": 90000,
+                "minimum_acceptable": 60000,
+                "weight": 20,
+                "priority": "medium"
+              },
+              "content_interactions": {
+                "target": 45000,
+                "stretch_target": 54000,
+                "minimum_acceptable": 36000,
+                "weight": 15,
+                "priority": "medium"
+              },
+              "event_participation": {
+                "target": 2400,
+                "stretch_target": 2880,
+                "minimum_acceptable": 1920,
+                "weight": 10,
+                "priority": "low"
+              }
+            },
+            "financial": {
+              "funds_raised": {
+                "target": 150000,
+                "stretch_target": 180000,
+                "minimum_acceptable": 127500,
+                "weight": 35,
+                "priority": "critical"
+              },
+              "cost_per_impact": {
+                "target": 95,
+                "stretch_target": 85,
+                "minimum_acceptable": 110,
+                "weight": 25,
+                "priority": "high"
+              },
+              "roi_calculation": {
+                "target": 4.5,
+                "stretch_target": 5.2,
+                "minimum_acceptable": 3.8,
+                "weight": 25,
+                "priority": "high"
+              },
+              "allocation_efficiency": {
+                "target": 87,
+                "stretch_target": 92,
+                "minimum_acceptable": 82,
+                "weight": 15,
+                "priority": "medium"
+              }
+            },
+            "branding": {
+              "logo_impressions": {
+                "target": 1500000,
+                "stretch_target": 1950000,
+                "minimum_acceptable": 1200000,
+                "weight": 30,
+                "priority": "high"
+              },
+              "brand_mentions": {
+                "target": 600,
+                "stretch_target": 780,
+                "minimum_acceptable": 480,
+                "weight": 25,
+                "priority": "medium"
+              },
+              "media_coverage": {
+                "target": 75000,
+                "stretch_target": 97500,
+                "minimum_acceptable": 60000,
+                "weight": 25,
+                "priority": "medium"
+              },
+              "partnership_recognition": {
+                "target": 85,
+                "stretch_target": 92,
+                "minimum_acceptable": 76,
+                "weight": 20,
+                "priority": "low"
+              }
+            },
+            "growth": {
+              "community_growth": {
+                "target": 15,
+                "stretch_target": 18,
+                "minimum_acceptable": 12,
+                "weight": 40,
+                "priority": "high"
+              },
+              "program_scalability": {
+                "target": 75,
+                "stretch_target": 85,
+                "minimum_acceptable": 65,
+                "weight": 35,
+                "priority": "medium"
+              },
+              "innovation_index": {
+                "target": 70,
+                "stretch_target": 80,
+                "minimum_acceptable": 60,
+                "weight": 25,
+                "priority": "low"
+              }
+            }
+          }
+        },
+        "Q2": {
+          "period": "2025-Q2",
+          "startDate": "2025-04-01",
+          "endDate": "2025-06-30",
+          "status": "planned",
+          "targets": {
+            "impact": {
+              "lives_impacted": {
+                "target": 1650,
+                "stretch_target": 1980,
+                "minimum_acceptable": 1320,
+                "weight": 30,
+                "priority": "critical"
+              },
+              "programs_supported": {
+                "target": 26,
+                "stretch_target": 31,
+                "minimum_acceptable": 22,
+                "weight": 20,
+                "priority": "high"
+              },
+              "communities_reached": {
+                "target": 50,
+                "stretch_target": 58,
+                "minimum_acceptable": 42,
+                "weight": 15,
+                "priority": "medium"
+              },
+              "volunteer_hours": {
+                "target": 6600,
+                "stretch_target": 7920,
+                "minimum_acceptable": 5610,
+                "weight": 10,
+                "priority": "medium"
+              },
+              "sustainability_score": {
+                "target": 87,
+                "stretch_target": 95,
+                "minimum_acceptable": 80,
+                "weight": 25,
+                "priority": "high"
+              }
+            },
+            "engagement": {
+              "social_media_reach": {
+                "target": 330000,
+                "stretch_target": 396000,
+                "minimum_acceptable": 264000,
+                "weight": 25,
+                "priority": "high"
+              },
+              "engagement_rate": {
+                "target": 4.2,
+                "stretch_target": 5.0,
+                "minimum_acceptable": 3.4,
+                "weight": 30,
+                "priority": "critical"
+              },
+              "website_visits": {
+                "target": 82500,
+                "stretch_target": 99000,
+                "minimum_acceptable": 66000,
+                "weight": 20,
+                "priority": "medium"
+              },
+              "content_interactions": {
+                "target": 49500,
+                "stretch_target": 59400,
+                "minimum_acceptable": 39600,
+                "weight": 15,
+                "priority": "medium"
+              },
+              "event_participation": {
+                "target": 2640,
+                "stretch_target": 3168,
+                "minimum_acceptable": 2112,
+                "weight": 10,
+                "priority": "low"
+              }
+            },
+            "financial": {
+              "funds_raised": {
+                "target": 165000,
+                "stretch_target": 198000,
+                "minimum_acceptable": 140250,
+                "weight": 35,
+                "priority": "critical"
+              },
+              "cost_per_impact": {
+                "target": 92,
+                "stretch_target": 82,
+                "minimum_acceptable": 106,
+                "weight": 25,
+                "priority": "high"
+              },
+              "roi_calculation": {
+                "target": 4.7,
+                "stretch_target": 5.4,
+                "minimum_acceptable": 4.0,
+                "weight": 25,
+                "priority": "high"
+              },
+              "allocation_efficiency": {
+                "target": 88,
+                "stretch_target": 93,
+                "minimum_acceptable": 83,
+                "weight": 15,
+                "priority": "medium"
+              }
+            },
+            "branding": {
+              "logo_impressions": {
+                "target": 1650000,
+                "stretch_target": 2145000,
+                "minimum_acceptable": 1320000,
+                "weight": 30,
+                "priority": "high"
+              },
+              "brand_mentions": {
+                "target": 660,
+                "stretch_target": 858,
+                "minimum_acceptable": 528,
+                "weight": 25,
+                "priority": "medium"
+              },
+              "media_coverage": {
+                "target": 82500,
+                "stretch_target": 107250,
+                "minimum_acceptable": 66000,
+                "weight": 25,
+                "priority": "medium"
+              },
+              "partnership_recognition": {
+                "target": 87,
+                "stretch_target": 94,
+                "minimum_acceptable": 78,
+                "weight": 20,
+                "priority": "low"
+              }
+            },
+            "growth": {
+              "community_growth": {
+                "target": 16,
+                "stretch_target": 19,
+                "minimum_acceptable": 13,
+                "weight": 40,
+                "priority": "high"
+              },
+              "program_scalability": {
+                "target": 78,
+                "stretch_target": 88,
+                "minimum_acceptable": 68,
+                "weight": 35,
+                "priority": "medium"
+              },
+              "innovation_index": {
+                "target": 73,
+                "stretch_target": 83,
+                "minimum_acceptable": 63,
+                "weight": 25,
+                "priority": "low"
+              }
+            }
+          }
+        }
+      },
+      "annual_targets": {
+        "impact": {
+          "lives_impacted": {
+            "target": 6000,
+            "stretch_target": 7200,
+            "minimum_acceptable": 5100,
+            "growth_target": 20
+          },
+          "programs_supported": {
+            "target": 96,
+            "stretch_target": 115,
+            "minimum_acceptable": 82,
+            "growth_target": 15
+          },
+          "communities_reached": {
+            "target": 180,
+            "stretch_target": 216,
+            "minimum_acceptable": 153,
+            "growth_target": 25
+          },
+          "sustainability_score": {
+            "target": 90,
+            "stretch_target": 95,
+            "minimum_acceptable": 85,
+            "growth_target": 8
+          }
+        },
+        "engagement": {
+          "social_media_reach": {
+            "target": 1200000,
+            "stretch_target": 1440000,
+            "minimum_acceptable": 960000,
+            "growth_target": 30
+          },
+          "engagement_rate": {
+            "target": 4.5,
+            "stretch_target": 5.4,
+            "minimum_acceptable": 3.6,
+            "growth_target": 12
+          }
+        },
+        "financial": {
+          "funds_raised": {
+            "target": 600000,
+            "stretch_target": 720000,
+            "minimum_acceptable": 510000,
+            "growth_target": 18
+          },
+          "cost_per_impact": {
+            "target": 90,
+            "stretch_target": 80,
+            "minimum_acceptable": 105,
+            "growth_target": -10
+          },
+          "roi_calculation": {
+            "target": 5.0,
+            "stretch_target": 5.8,
+            "minimum_acceptable": 4.2,
+            "growth_target": 15
+          }
+        },
+        "branding": {
+          "logo_impressions": {
+            "target": 6000000,
+            "stretch_target": 7800000,
+            "minimum_acceptable": 4800000,
+            "growth_target": 35
+          }
+        },
+        "growth": {
+          "community_growth": {
+            "target": 60,
+            "stretch_target": 72,
+            "minimum_acceptable": 48,
+            "growth_target": 22
+          }
+        }
+      }
+    }
+  },
+  "sponsorTierTargets": {
+    "platinum": {
+      "tier": "Platinum",
+      "description": "Patrocinadores de nivel más alto con objetivos premium",
+      "minimumInvestment": 100000,
+      "multipliers": {
+        "impact": 1.5,
+        "engagement": 1.4,
+        "financial": 1.3,
+        "branding": 1.6,
+        "growth": 1.3
+      },
+      "exclusiveBenefits": [
+        "reporting_priority",
+        "quarterly_strategy_sessions",
+        "executive_access",
+        "custom_analytics"
+      ]
+    },
+    "gold": {
+      "tier": "Gold",
+      "description": "Patrocinadores principales con objetivos elevados",
+      "minimumInvestment": 50000,
+      "multipliers": {
+        "impact": 1.3,
+        "engagement": 1.2,
+        "financial": 1.2,
+        "branding": 1.3,
+        "growth": 1.2
+      },
+      "exclusiveBenefits": [
+        "monthly_reports",
+        "strategy_consultations",
+        "priority_support"
+      ]
+    },
+    "silver": {
+      "tier": "Silver",
+      "description": "Patrocinadores estándar con objetivos base",
+      "minimumInvestment": 25000,
+      "multipliers": {
+        "impact": 1.1,
+        "engagement": 1.1,
+        "financial": 1.0,
+        "branding": 1.1,
+        "growth": 1.0
+      },
+      "exclusiveBenefits": [
+        "quarterly_reports",
+        "standard_support"
+      ]
+    },
+    "bronze": {
+      "tier": "Bronze",
+      "description": "Patrocinadores de entrada con objetivos ajustados",
+      "minimumInvestment": 10000,
+      "multipliers": {
+        "impact": 1.0,
+        "engagement": 1.0,
+        "financial": 1.0,
+        "branding": 1.0,
+        "growth": 1.0
+      },
+      "exclusiveBenefits": [
+        "annual_reports",
+        "basic_support"
+      ]
+    }
+  },
+  "industryBenchmarks": {
+    "nonprofit_sector": {
+      "name": "Sector Sin Fines de Lucro",
+      "description": "Benchmarks promedio del sector nonprofit",
+      "benchmarks": {
+        "cost_per_impact": {
+          "excellent": 75,
+          "good": 95,
+          "average": 120,
+          "below_average": 150
+        },
+        "roi_calculation": {
+          "excellent": 5.5,
+          "good": 4.2,
+          "average": 3.0,
+          "below_average": 2.0
+        },
+        "engagement_rate": {
+          "excellent": 5.2,
+          "good": 3.8,
+          "average": 2.5,
+          "below_average": 1.5
+        },
+        "allocation_efficiency": {
+          "excellent": 92,
+          "good": 85,
+          "average": 75,
+          "below_average": 65
+        }
+      }
+    },
+    "corporate_social_responsibility": {
+      "name": "Responsabilidad Social Corporativa",
+      "description": "Benchmarks de programas CSR corporativos",
+      "benchmarks": {
+        "brand_mentions": {
+          "excellent": 800,
+          "good": 600,
+          "average": 400,
+          "below_average": 200
+        },
+        "media_coverage": {
+          "excellent": 100000,
+          "good": 75000,
+          "average": 50000,
+          "below_average": 25000
+        },
+        "employee_engagement": {
+          "excellent": 85,
+          "good": 75,
+          "average": 65,
+          "below_average": 55
+        }
+      }
+    },
+    "community_impact": {
+      "name": "Impacto Comunitario",
+      "description": "Benchmarks específicos de impacto en comunidades",
+      "benchmarks": {
+        "lives_impacted_per_euro": {
+          "excellent": 0.15,
+          "good": 0.12,
+          "average": 0.08,
+          "below_average": 0.05
+        },
+        "community_satisfaction": {
+          "excellent": 92,
+          "good": 85,
+          "average": 75,
+          "below_average": 65
+        },
+        "program_sustainability": {
+          "excellent": 90,
+          "good": 80,
+          "average": 70,
+          "below_average": 60
+        }
+      }
+    }
+  },
+  "alertingThresholds": {
+    "critical": {
+      "condition": "< 60% of target",
+      "notification": "immediate",
+      "escalation": "executive_team",
+      "action_required": "urgent_intervention"
+    },
+    "warning": {
+      "condition": "< 80% of target",
+      "notification": "daily",
+      "escalation": "program_manager",
+      "action_required": "action_plan"
+    },
+    "watch": {
+      "condition": "< 90% of target",
+      "notification": "weekly",
+      "escalation": "team_lead",
+      "action_required": "monitoring"
+    },
+    "achievement": {
+      "condition": "> 100% of target",
+      "notification": "weekly",
+      "escalation": "celebration",
+      "action_required": "success_analysis"
+    },
+    "exceptional": {
+      "condition": "> 120% of stretch_target",
+      "notification": "immediate",
+      "escalation": "leadership_recognition",
+      "action_required": "best_practice_capture"
+    }
+  },
+  "reviewCycles": {
+    "weekly": {
+      "frequency": "weekly",
+      "focus": "operational_metrics",
+      "participants": ["program_managers", "data_analysts"],
+      "deliverables": ["status_update", "trend_analysis"]
+    },
+    "monthly": {
+      "frequency": "monthly",
+      "focus": "strategic_progress",
+      "participants": ["directors", "sponsor_liaisons"],
+      "deliverables": ["progress_report", "sponsor_briefing"]
+    },
+    "quarterly": {
+      "frequency": "quarterly",
+      "focus": "strategic_review",
+      "participants": ["executives", "board_members", "key_sponsors"],
+      "deliverables": ["comprehensive_review", "strategy_adjustments"]
+    },
+    "annual": {
+      "frequency": "annual",
+      "focus": "strategic_planning",
+      "participants": ["all_stakeholders"],
+      "deliverables": ["annual_report", "next_year_strategy"]
+    }
+  },
+  "targetAdjustmentRules": {
+    "seasonal_adjustments": {
+      "description": "Ajustes por estacionalidad",
+      "factors": {
+        "Q1": 0.9,
+        "Q2": 1.1,
+        "Q3": 0.95,
+        "Q4": 1.15
+      }
+    },
+    "market_conditions": {
+      "description": "Ajustes por condiciones de mercado",
+      "economic_downturn": 0.85,
+      "economic_growth": 1.15,
+      "market_volatility": 0.95
+    },
+    "program_maturity": {
+      "description": "Ajustes por madurez del programa",
+      "startup_phase": 0.8,
+      "growth_phase": 1.2,
+      "mature_phase": 1.0,
+      "optimization_phase": 1.1
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-01",
+    "author": "Sponsor Dashboard System",
+    "description": "Definición de objetivos KPI y targets para el sistema de dashboard de patrocinadores",
+    "nextReview": "2025-03-31"
+  }
+}

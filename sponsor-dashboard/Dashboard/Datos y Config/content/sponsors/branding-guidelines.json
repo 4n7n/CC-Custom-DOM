@@ -1,0 +1,436 @@
+{
+  "brandingGuidelines": {
+    "general": {
+      "title": "Guías de Branding para Patrocinadores",
+      "version": "2.1.0",
+      "lastUpdated": "2024-01-15T14:30:00Z",
+      "purpose": "Establecer estándares consistentes para la integración de marca de patrocinadores en todos los materiales y plataformas",
+      "scope": "Aplica a todos los patrocinadores activos y sus materiales de marketing conjunto"
+    },
+    "logoUsage": {
+      "formats": {
+        "primary": {
+          "description": "Logo principal para uso en fondos claros",
+          "formats": ["PNG", "SVG", "EPS"],
+          "minSize": "120px width",
+          "maxSize": "500px width",
+          "clearSpace": "50% of logo width on all sides",
+          "backgroundColor": "White or light backgrounds only"
+        },
+        "reverse": {
+          "description": "Logo para uso en fondos oscuros",
+          "formats": ["PNG", "SVG", "EPS"],
+          "minSize": "120px width",
+          "maxSize": "500px width",
+          "clearSpace": "50% of logo width on all sides",
+          "backgroundColor": "Dark backgrounds (#000000 to #333333)"
+        },
+        "monogram": {
+          "description": "Versión compacta para espacios reducidos",
+          "formats": ["PNG", "SVG"],
+          "minSize": "40px width",
+          "maxSize": "120px width",
+          "usage": "Social media profiles, favicons, small applications"
+        }
+      },
+      "placement": {
+        "hierarchy": {
+          "primary": "Organization logo takes precedence",
+          "secondary": "Platinum sponsors get prominent placement",
+          "tertiary": "Gold sponsors get standard placement",
+          "quaternary": "Silver and Bronze sponsors get grouped placement"
+        },
+        "positions": {
+          "header": {
+            "allowed": ["platinum", "gold"],
+            "maxLogos": 3,
+            "size": "80-120px height"
+          },
+          "footer": {
+            "allowed": ["all_tiers"],
+            "maxLogos": 12,
+            "size": "60-80px height"
+          },
+          "sidebar": {
+            "allowed": ["platinum", "gold", "silver"],
+            "maxLogos": 6,
+            "size": "100px width"
+          },
+          "content": {
+            "allowed": ["platinum"],
+            "maxLogos": 1,
+            "size": "150px width",
+            "context": "Must be contextually relevant"
+          }
+        }
+      },
+      "restrictions": {
+        "prohibited": [
+          "Stretching or distorting logo proportions",
+          "Changing logo colors outside approved palette",
+          "Adding effects like shadows, glows, or gradients",
+          "Placing logo on busy or low-contrast backgrounds",
+          "Using logo smaller than minimum size requirements",
+          "Rotating logo more than 15 degrees",
+          "Combining logo with other graphic elements"
+        ],
+        "modifications": {
+          "colorChanges": "Only with written approval",
+          "textAdditions": "Prohibited",
+          "graphicOverlays": "Prohibited",
+          "croppping": "Only full logo allowed"
+        }
+      }
+    },
+    "colorPalettes": {
+      "tierColors": {
+        "platinum": {
+          "primary": "#9333ea",
+          "secondary": "#c084fc",
+          "accent": "#f3e8ff",
+          "text": "#581c87",
+          "usage": "Primary brand color for platinum tier sponsors"
+        },
+        "gold": {
+          "primary": "#f59e0b",
+          "secondary": "#fbbf24",
+          "accent": "#fef3c7",
+          "text": "#92400e",
+          "usage": "Primary brand color for gold tier sponsors"
+        },
+        "silver": {
+          "primary": "#64748b",
+          "secondary": "#94a3b8",
+          "accent": "#f1f5f9",
+          "text": "#334155",
+          "usage": "Primary brand color for silver tier sponsors"
+        },
+        "bronze": {
+          "primary": "#dc2626",
+          "secondary": "#f87171",
+          "accent": "#fef2f2",
+          "text": "#991b1b",
+          "usage": "Primary brand color for bronze tier sponsors"
+        }
+      },
+      "organizationColors": {
+        "primary": "#1e40af",
+        "secondary": "#3b82f6",
+        "accent": "#dbeafe",
+        "neutral": "#6b7280",
+        "background": "#f9fafb",
+        "text": "#111827"
+      },
+      "accessibility": {
+        "contrastRatio": "Minimum 4.5:1 for normal text, 3:1 for large text",
+        "colorBlindness": "All designs must be tested with color blindness simulators",
+        "alternatives": "Text alternatives required for color-coded information"
+      }
+    },
+    "typography": {
+      "primaryFont": {
+        "name": "Inter",
+        "fallbacks": ["Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+        "usage": "Headlines, body text, UI elements",
+        "weights": ["300", "400", "500", "600", "700"],
+        "licensing": "Open source, no restrictions"
+      },
+      "secondaryFont": {
+        "name": "Poppins",
+        "fallbacks": ["Montserrat", "Open Sans", "sans-serif"],
+        "usage": "Display text, special emphasis",
+        "weights": ["400", "500", "600", "700", "800"],
+        "licensing": "Open source, no restrictions"
+      },
+      "hierarchy": {
+        "h1": {
+          "fontSize": "2.5rem",
+          "fontWeight": "700",
+          "lineHeight": "1.2",
+          "marginBottom": "1.5rem"
+        },
+        "h2": {
+          "fontSize": "2rem",
+          "fontWeight": "600",
+          "lineHeight": "1.3",
+          "marginBottom": "1.25rem"
+        },
+        "h3": {
+          "fontSize": "1.5rem",
+          "fontWeight": "600",
+          "lineHeight": "1.4",
+          "marginBottom": "1rem"
+        },
+        "body": {
+          "fontSize": "1rem",
+          "fontWeight": "400",
+          "lineHeight": "1.6",
+          "marginBottom": "1rem"
+        },
+        "caption": {
+          "fontSize": "0.875rem",
+          "fontWeight": "400",
+          "lineHeight": "1.4",
+          "marginBottom": "0.5rem"
+        }
+      }
+    },
+    "layoutGuidelines": {
+      "grid": {
+        "columns": 12,
+        "gutters": "20px",
+        "margins": "20px",
+        "breakpoints": {
+          "mobile": "320px",
+          "tablet": "768px",
+          "desktop": "1024px",
+          "large": "1440px"
+        }
+      },
+      "spacing": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "xxl": "48px"
+      },
+      "sponsorPlacement": {
+        "grouping": "Sponsors should be grouped by tier",
+        "alignment": "Center-aligned within their tier group",
+        "spacing": "Consistent spacing between logos",
+        "sizing": "Proportional sizing based on tier level"
+      }
+    },
+    "digitalAssets": {
+      "imageRequirements": {
+        "resolution": "Minimum 300 DPI for print, 72 DPI for digital",
+        "formats": {
+          "web": ["JPEG", "PNG", "WebP", "SVG"],
+          "print": ["EPS", "PDF", "AI", "PNG"]
+        },
+        "sizes": {
+          "thumbnail": "150x150px",
+          "small": "300x300px",
+          "medium": "600x600px",
+          "large": "1200x1200px"
+        }
+      },
+      "fileNaming": {
+        "convention": "sponsor-name_tier_size_version.ext",
+        "examples": [
+          "techcorp_platinum_large_v1.png",
+          "greenenergy_gold_medium_v2.svg"
+        ],
+        "versioning": "Use v1, v2, v3 for version control"
+      }
+    },
+    "applicationGuidelines": {
+      "website": {
+        "headerLogo": {
+          "maxHeight": "60px",
+          "placement": "Right side of navigation",
+          "linking": "Link to sponsor's website in new tab"
+        },
+        "footerLogos": {
+          "maxHeight": "40px",
+          "grouping": "By tier with clear separation",
+          "animation": "Subtle hover effects allowed"
+        },
+        "dedicatedPages": {
+          "eligibility": "Platinum and Gold sponsors only",
+          "template": "Use approved sponsor page template",
+          "content": "Sponsor provides content, subject to approval"
+        }
+      },
+      "printMaterials": {
+        "businessCards": {
+          "sponsorMention": "Text acknowledgment only",
+          "logoUsage": "Not permitted"
+        },
+        "brochures": {
+          "logoPlacement": "Back cover or inside back page",
+          "sizing": "No larger than 1 inch height"
+        },
+        "reports": {
+          "coverLogos": "Platinum sponsors only",
+          "insidePages": "All tiers, sized by tier level"
+        }
+      },
+      "events": {
+        "signage": {
+          "banners": "Tier-based sizing and placement",
+          "backdrop": "Platinum sponsors only",
+          "tableTents": "All tiers, standardized design"
+        },
+        "presentations": {
+          "slideLogos": "Acknowledgment slide at end",
+          "videoIntros": "Platinum sponsors get video mention"
+        }
+      }
+    },
+    "recognitionLevels": {
+      "platinum": {
+        "benefits": [
+          "Premium logo placement on all materials",
+          "Dedicated sponsor page on website",
+          "Logo in email signatures",
+          "Social media co-branding opportunities",
+          "Press release co-branding",
+          "Event naming rights consideration"
+        ],
+        "restrictions": [
+          "Cannot conflict with organization's mission",
+          "Subject to annual review",
+          "Logo approval required for each use"
+        ]
+      },
+      "gold": {
+        "benefits": [
+          "Logo on website homepage",
+          "Inclusion in annual report",
+          "Logo on event materials",
+          "Newsletter logo placement",
+          "Social media mentions"
+        ],
+        "restrictions": [
+          "Logo size limited to tier specifications",
+          "Placement secondary to platinum sponsors"
+        ]
+      },
+      "silver": {
+        "benefits": [
+          "Logo on sponsors page",
+          "Inclusion in annual report",
+          "Event program listing",
+          "Newsletter text mention"
+        ],
+        "restrictions": [
+          "Logo placement in designated areas only",
+          "No homepage placement"
+        ]
+      },
+      "bronze": {
+        "benefits": [
+          "Logo on sponsors page",
+          "Annual report listing",
+          "Event program listing"
+        ],
+        "restrictions": [
+          "Text listing may be used instead of logo",
+          "Smallest tier sizing"
+        ]
+      }
+    },
+    "approvalProcess": {
+      "workflow": {
+        "step1": {
+          "action": "Sponsor submits branding materials",
+          "timeline": "Within 30 days of sponsorship agreement",
+          "requirements": ["High-resolution logo files", "Brand guidelines", "Usage preferences"]
+        },
+        "step2": {
+          "action": "Marketing team reviews materials",
+          "timeline": "5-7 business days",
+          "criteria": ["Technical specifications", "Brand alignment", "Quality standards"]
+        },
+        "step3": {
+          "action": "Approval or revision request",
+          "timeline": "2-3 business days",
+          "outcomes": ["Approved", "Approved with modifications", "Requires revision"]
+        },
+        "step4": {
+          "action": "Implementation across platforms",
+          "timeline": "7-10 business days",
+          "deliverables": ["Updated website", "Digital assets", "Print materials"]
+        }
+      },
+      "revisions": {
+        "allowedRevisions": 3,
+        "timelineExtension": "3 business days per revision",
+        "escalationProcess": "Director approval required after 3 revisions"
+      }
+    },
+    "qualityStandards": {
+      "technical": {
+        "logoResolution": "Minimum 300 DPI",
+        "fileFormats": "Vector formats preferred (SVG, EPS, AI)",
+        "colorMode": "CMYK for print, RGB for digital",
+        "transparency": "Required for overlay applications"
+      },
+      "visual": {
+        "clarity": "Logo must be clearly readable at minimum size",
+        "contrast": "Sufficient contrast with background",
+        "consistency": "Consistent with sponsor's brand guidelines",
+        "professionalism": "Maintains professional appearance"
+      }
+    },
+    "compliance": {
+      "monitoring": {
+        "frequency": "Monthly review of all sponsor placements",
+        "responsibility": "Marketing team conducts audits",
+        "reporting": "Quarterly compliance report to sponsors"
+      },
+      "violations": {
+        "level1": {
+          "description": "Minor guideline deviation",
+          "action": "Immediate correction",
+          "notification": "Email to sponsor"
+        },
+        "level2": {
+          "description": "Significant guideline violation",
+          "action": "Material removal and correction",
+          "notification": "Formal written notice"
+        },
+        "level3": {
+          "description": "Repeated or major violations",
+          "action": "Possible sponsorship review",
+          "notification": "Meeting with sponsor required"
+        }
+      }
+    },
+    "resources": {
+      "templates": {
+        "website": "sponsor-website-template.psd",
+        "print": "sponsor-print-template.indd",
+        "presentation": "sponsor-presentation-template.pptx",
+        "social": "sponsor-social-templates.zip"
+      },
+      "tools": {
+        "colorChecker": "https://webaim.org/resources/contrastchecker/",
+        "logoGenerator": "Internal logo placement tool",
+        "brandingKit": "Complete branding package download"
+      },
+      "contacts": {
+        "primary": {
+          "name": "Marketing Director",
+          "email": "marketing@organization.org",
+          "phone": "+1-555-0123"
+        },
+        "technical": {
+          "name": "Design Team",
+          "email": "design@organization.org",
+          "phone": "+1-555-0124"
+        }
+      }
+    }
+  },
+  "changelog": {
+    "v2.1.0": {
+      "date": "2024-01-15",
+      "changes": [
+        "Added accessibility guidelines",
+        "Updated color contrast requirements",
+        "Expanded digital asset specifications"
+      ]
+    },
+    "v2.0.0": {
+      "date": "2023-12-01",
+      "changes": [
+        "Complete guideline restructure",
+        "Added tier-based recognition levels",
+        "Implemented approval process workflow"
+      ]
+    }
+  }
+}

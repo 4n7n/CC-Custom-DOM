@@ -1,0 +1,295 @@
+{
+  "general": {
+    "title": "Dashboard de Patrocinadores",
+    "subtitle": "Gestiona y analiza el impacto de tus patrocinadores",
+    "defaultTheme": "corporate",
+    "language": "es",
+    "timezone": "America/Mexico_City",
+    "currency": "USD",
+    "dateFormat": "DD/MM/YYYY",
+    "timeFormat": "24h"
+  },
+  "dashboard": {
+    "refreshInterval": 30000,
+    "autoRefresh": true,
+    "animationDuration": 300,
+    "defaultTab": "overview",
+    "enableKeyboardShortcuts": true,
+    "compactMode": false,
+    "showWelcomeMessage": true
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "id": "overview",
+        "name": "Vista General",
+        "icon": "📊",
+        "enabled": true,
+        "order": 1
+      },
+      {
+        "id": "sponsors",
+        "name": "Patrocinadores",
+        "icon": "🏢",
+        "enabled": true,
+        "order": 2
+      },
+      {
+        "id": "analytics",
+        "name": "Analíticas",
+        "icon": "📈",
+        "enabled": true,
+        "order": 3
+      },
+      {
+        "id": "impact",
+        "name": "Impacto",
+        "icon": "🎯",
+        "enabled": true,
+        "order": 4
+      }
+    ],
+    "sidebarEnabled": false,
+    "breadcrumbsEnabled": true
+  },
+  "metrics": {
+    "displaySettings": {
+      "showTrends": true,
+      "showTargets": true,
+      "showBenchmarks": true,
+      "animateNumbers": true,
+      "useRealTimeUpdates": true,
+      "highlightChanges": true
+    },
+    "targets": {
+      "funding": {
+        "annual": 200000,
+        "quarterly": 50000,
+        "monthly": 16667
+      },
+      "sponsors": {
+        "total": 20,
+        "newPerMonth": 2,
+        "retentionRate": 0.85
+      },
+      "engagement": {
+        "average": 8.0,
+        "minimum": 6.0
+      },
+      "reach": {
+        "total": 100000,
+        "perSponsor": 5000
+      }
+    },
+    "alerts": {
+      "enabled": true,
+      "thresholds": {
+        "funding": {
+          "low": 0.7,
+          "critical": 0.5
+        },
+        "engagement": {
+          "low": 6.0,
+          "critical": 4.0
+        },
+        "sponsorCount": {
+          "low": 15,
+          "critical": 10
+        }
+      }
+    }
+  },
+  "charts": {
+    "defaultTimeRange": "30d",
+    "availableTimeRanges": ["7d", "30d", "90d", "1y"],
+    "chartTypes": {
+      "donations": "line",
+      "engagement": "bar",
+      "growth": "area",
+      "distribution": "pie"
+    },
+    "colors": {
+      "primary": "#1e40af",
+      "secondary": "#64748b",
+      "success": "#059669",
+      "warning": "#d97706",
+      "danger": "#dc2626",
+      "info": "#0ea5e9"
+    },
+    "animations": {
+      "enabled": true,
+      "duration": 750,
+      "easing": "easeOutQuart"
+    }
+  },
+  "sponsors": {
+    "pagination": {
+      "enabled": true,
+      "itemsPerPage": 12,
+      "showPageNumbers": true
+    },
+    "sorting": {
+      "defaultSort": "amount",
+      "defaultOrder": "desc",
+      "availableSorts": ["name", "amount", "tier", "engagement", "date"]
+    },
+    "filtering": {
+      "enabled": true,
+      "defaultFilters": {
+        "status": "active",
+        "tier": "",
+        "search": ""
+      },
+      "quickFilters": ["platinum", "gold", "silver", "bronze"]
+    },
+    "display": {
+      "cardView": true,
+      "listView": true,
+      "defaultView": "card",
+      "showLogos": true,
+      "showMetrics": true,
+      "showActions": true
+    }
+  },
+  "export": {
+    "formats": ["pdf", "excel", "csv", "json"],
+    "defaultFormat": "pdf",
+    "includeCharts": true,
+    "includeMetrics": true,
+    "includeSponsors": true,
+    "autoGenerateFilename": true,
+    "compression": true
+  },
+  "notifications": {
+    "enabled": true,
+    "types": {
+      "newSponsor": {
+        "enabled": true,
+        "sound": true,
+        "desktop": true
+      },
+      "goalReached": {
+        "enabled": true,
+        "sound": true,
+        "desktop": true
+      },
+      "lowEngagement": {
+        "enabled": true,
+        "sound": false,
+        "desktop": true
+      },
+      "systemUpdates": {
+        "enabled": true,
+        "sound": false,
+        "desktop": false
+      }
+    },
+    "position": "top-right",
+    "duration": 5000,
+    "maxVisible": 3
+  },
+  "security": {
+    "sessionTimeout": 3600,
+    "autoLock": false,
+    "requireReauth": false,
+    "logUserActions": true,
+    "encryptLocalData": true
+  },
+  "performance": {
+    "lazyLoading": true,
+    "imageOptimization": true,
+    "cacheStrategy": "aggressive",
+    "preloadCritical": true,
+    "virtualScrolling": false
+  },
+  "accessibility": {
+    "highContrast": false,
+    "reducedMotion": false,
+    "screenReader": true,
+    "keyboardNavigation": true,
+    "fontSize": "normal",
+    "colorBlindFriendly": true
+  },
+  "integrations": {
+    "analytics": {
+      "googleAnalytics": {
+        "enabled": false,
+        "trackingId": ""
+      },
+      "customAnalytics": {
+        "enabled": true,
+        "endpoint": "/api/analytics"
+      }
+    },
+    "crm": {
+      "enabled": false,
+      "provider": "",
+      "syncInterval": 3600
+    },
+    "email": {
+      "enabled": true,
+      "provider": "sendgrid",
+      "templates": {
+        "welcome": "sponsor_welcome",
+        "renewal": "sponsor_renewal",
+        "report": "monthly_report"
+      }
+    }
+  },
+  "api": {
+    "baseUrl": "/api/v1",
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000,
+    "endpoints": {
+      "sponsors": "/sponsors",
+      "metrics": "/metrics",
+      "analytics": "/analytics",
+      "reports": "/reports"
+    },
+    "rateLimit": {
+      "requests": 100,
+      "window": 60
+    }
+  },
+  "backup": {
+    "enabled": true,
+    "frequency": "daily",
+    "retention": 30,
+    "includeFiles": true,
+    "cloudBackup": false
+  },
+  "features": {
+    "beta": {
+      "enabled": false,
+      "features": []
+    },
+    "experimental": {
+      "enabled": false,
+      "features": []
+    },
+    "maintenance": {
+      "enabled": false,
+      "message": "",
+      "allowedUsers": []
+    }
+  },
+  "customization": {
+    "allowUserThemes": true,
+    "allowLayoutChanges": true,
+    "allowWidgetCustomization": true,
+    "maxCustomLayouts": 5,
+    "saveUserPreferences": true
+  },
+  "development": {
+    "debugMode": false,
+    "verboseLogging": false,
+    "showPerformanceMetrics": false,
+    "enableDevTools": false,
+    "mockDataEnabled": true
+  },
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-15T12:00:00Z",
+  "configVersion": "1.0",
+  "environment": "production"
+}

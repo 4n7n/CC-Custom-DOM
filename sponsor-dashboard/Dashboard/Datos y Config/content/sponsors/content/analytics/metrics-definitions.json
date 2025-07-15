@@ -1,0 +1,594 @@
+{
+  "metricsDefinitions": {
+    "impact": {
+      "category": "Impacto Social",
+      "description": "Métricas que miden el impacto directo e indirecto en las comunidades beneficiarias",
+      "color": "#10b981",
+      "icon": "heart",
+      "metrics": {
+        "lives_impacted": {
+          "id": "lives_impacted",
+          "name": "Vidas Impactadas",
+          "description": "Número total de personas que han recibido beneficios directos del programa",
+          "unit": "personas",
+          "type": "counter",
+          "calculation": "sum",
+          "frequency": "daily",
+          "target": {
+            "monthly": 500,
+            "quarterly": 1500,
+            "annual": 6000
+          },
+          "benchmarks": {
+            "excellent": ">= 120%",
+            "good": ">= 100%",
+            "needs_improvement": "< 80%"
+          },
+          "dataSource": "beneficiary_database",
+          "priority": "high"
+        },
+        "programs_supported": {
+          "id": "programs_supported",
+          "name": "Programas Apoyados",
+          "description": "Cantidad de programas o iniciativas activamente financiadas",
+          "unit": "programas",
+          "type": "counter",
+          "calculation": "count",
+          "frequency": "monthly",
+          "target": {
+            "monthly": 8,
+            "quarterly": 24,
+            "annual": 96
+          },
+          "benchmarks": {
+            "excellent": ">= 110%",
+            "good": ">= 90%",
+            "needs_improvement": "< 70%"
+          },
+          "dataSource": "program_registry",
+          "priority": "high"
+        },
+        "communities_reached": {
+          "id": "communities_reached",
+          "name": "Comunidades Alcanzadas",
+          "description": "Número de comunidades geográficas distintas beneficiadas",
+          "unit": "comunidades",
+          "type": "counter",
+          "calculation": "unique_count",
+          "frequency": "monthly",
+          "target": {
+            "monthly": 15,
+            "quarterly": 45,
+            "annual": 180
+          },
+          "benchmarks": {
+            "excellent": ">= 115%",
+            "good": ">= 95%",
+            "needs_improvement": "< 75%"
+          },
+          "dataSource": "geographic_database",
+          "priority": "medium"
+        },
+        "volunteer_hours": {
+          "id": "volunteer_hours",
+          "name": "Horas de Voluntariado",
+          "description": "Total de horas contribuidas por voluntarios en actividades del programa",
+          "unit": "horas",
+          "type": "counter",
+          "calculation": "sum",
+          "frequency": "weekly",
+          "target": {
+            "monthly": 2000,
+            "quarterly": 6000,
+            "annual": 24000
+          },
+          "benchmarks": {
+            "excellent": ">= 125%",
+            "good": ">= 100%",
+            "needs_improvement": "< 85%"
+          },
+          "dataSource": "volunteer_tracking",
+          "priority": "medium"
+        },
+        "sustainability_score": {
+          "id": "sustainability_score",
+          "name": "Puntuación de Sostenibilidad",
+          "description": "Índice que mide la sostenibilidad a largo plazo de los programas",
+          "unit": "puntos",
+          "type": "calculated",
+          "calculation": "weighted_average",
+          "frequency": "quarterly",
+          "target": {
+            "quarterly": 85,
+            "annual": 90
+          },
+          "benchmarks": {
+            "excellent": ">= 90",
+            "good": ">= 75",
+            "needs_improvement": "< 60"
+          },
+          "dataSource": "sustainability_assessment",
+          "priority": "high"
+        }
+      }
+    },
+    "engagement": {
+      "category": "Engagement y Participación",
+      "description": "Métricas que evalúan la participación y compromiso de la audiencia",
+      "color": "#3b82f6",
+      "icon": "users",
+      "metrics": {
+        "social_media_reach": {
+          "id": "social_media_reach",
+          "name": "Alcance en Redes Sociales",
+          "description": "Número total de personas alcanzadas a través de plataformas sociales",
+          "unit": "personas",
+          "type": "counter",
+          "calculation": "sum",
+          "frequency": "daily",
+          "target": {
+            "monthly": 100000,
+            "quarterly": 300000,
+            "annual": 1200000
+          },
+          "benchmarks": {
+            "excellent": ">= 130%",
+            "good": ">= 100%",
+            "needs_improvement": "< 80%"
+          },
+          "dataSource": "social_media_analytics",
+          "priority": "high"
+        },
+        "engagement_rate": {
+          "id": "engagement_rate",
+          "name": "Tasa de Engagement",
+          "description": "Porcentaje de interacciones respecto al alcance total",
+          "unit": "porcentaje",
+          "type": "percentage",
+          "calculation": "ratio",
+          "frequency": "daily",
+          "target": {
+            "monthly": 3.5,
+            "quarterly": 4.0,
+            "annual": 4.5
+          },
+          "benchmarks": {
+            "excellent": ">= 5.0",
+            "good": ">= 3.0",
+            "needs_improvement": "< 2.0"
+          },
+          "dataSource": "engagement_analytics",
+          "priority": "high"
+        },
+        "website_visits": {
+          "id": "website_visits",
+          "name": "Visitas al Sitio Web",
+          "description": "Número total de visitas únicas al sitio web del programa",
+          "unit": "visitas",
+          "type": "counter",
+          "calculation": "unique_count",
+          "frequency": "daily",
+          "target": {
+            "monthly": 25000,
+            "quarterly": 75000,
+            "annual": 300000
+          },
+          "benchmarks": {
+            "excellent": ">= 120%",
+            "good": ">= 95%",
+            "needs_improvement": "< 75%"
+          },
+          "dataSource": "web_analytics",
+          "priority": "medium"
+        },
+        "content_interactions": {
+          "id": "content_interactions",
+          "name": "Interacciones con Contenido",
+          "description": "Total de likes, comentarios, compartidos y reacciones",
+          "unit": "interacciones",
+          "type": "counter",
+          "calculation": "sum",
+          "frequency": "daily",
+          "target": {
+            "monthly": 15000,
+            "quarterly": 45000,
+            "annual": 180000
+          },
+          "benchmarks": {
+            "excellent": ">= 140%",
+            "good": ">= 100%",
+            "needs_improvement": "< 70%"
+          },
+          "dataSource": "content_analytics",
+          "priority": "medium"
+        },
+        "event_participation": {
+          "id": "event_participation",
+          "name": "Participación en Eventos",
+          "description": "Número de personas que participan en eventos organizados",
+          "unit": "participantes",
+          "type": "counter",
+          "calculation": "sum",
+          "frequency": "weekly",
+          "target": {
+            "monthly": 800,
+            "quarterly": 2400,
+            "annual": 9600
+          },
+          "benchmarks": {
+            "excellent": ">= 125%",
+            "good": ">= 90%",
+            "needs_improvement": "< 70%"
+          },
+          "dataSource": "event_management",
+          "priority": "medium"
+        }
+      }
+    },
+    "financial": {
+      "category": "Métricas Financieras",
+      "description": "Indicadores relacionados con la gestión financiera y eficiencia de recursos",
+      "color": "#f59e0b",
+      "icon": "dollar-sign",
+      "metrics": {
+        "funds_raised": {
+          "id": "funds_raised",
+          "name": "Fondos Recaudados",
+          "description": "Cantidad total de dinero recaudado para los programas",
+          "unit": "euros",
+          "type": "currency",
+          "calculation": "sum",
+          "frequency": "daily",
+          "target": {
+            "monthly": 50000,
+            "quarterly": 150000,
+            "annual": 600000
+          },
+          "benchmarks": {
+            "excellent": ">= 120%",
+            "good": ">= 100%",
+            "needs_improvement": "< 85%"
+          },
+          "dataSource": "financial_system",
+          "priority": "high"
+        },
+        "cost_per_impact": {
+          "id": "cost_per_impact",
+          "name": "Costo por Impacto",
+          "description": "Costo promedio por cada vida impactada positivamente",
+          "unit": "euros",
+          "type": "currency",
+          "calculation": "division",
+          "frequency": "monthly",
+          "target": {
+            "monthly": 100,
+            "quarterly": 95,
+            "annual": 90
+          },
+          "benchmarks": {
+            "excellent": "<= 80",
+            "good": "<= 100",
+            "needs_improvement": "> 120"
+          },
+          "dataSource": "calculated_metric",
+          "priority": "high"
+        },
+        "roi_calculation": {
+          "id": "roi_calculation",
+          "name": "Retorno de Inversión Social",
+          "description": "Valor social generado por cada euro invertido",
+          "unit": "ratio",
+          "type": "ratio",
+          "calculation": "division",
+          "frequency": "quarterly",
+          "target": {
+            "quarterly": 4.5,
+            "annual": 5.0
+          },
+          "benchmarks": {
+            "excellent": ">= 5.0",
+            "good": ">= 3.5",
+            "needs_improvement": "< 2.5"
+          },
+          "dataSource": "impact_valuation",
+          "priority": "high"
+        },
+        "allocation_efficiency": {
+          "id": "allocation_efficiency",
+          "name": "Eficiencia de Asignación",
+          "description": "Porcentaje de fondos destinados directamente a programas vs gastos administrativos",
+          "unit": "porcentaje",
+          "type": "percentage",
+          "calculation": "ratio",
+          "frequency": "monthly",
+          "target": {
+            "monthly": 85,
+            "quarterly": 87,
+            "annual": 90
+          },
+          "benchmarks": {
+            "excellent": ">= 90",
+            "good": ">= 80",
+            "needs_improvement": "< 70"
+          },
+          "dataSource": "budget_tracking",
+          "priority": "medium"
+        }
+      }
+    },
+    "branding": {
+      "category": "Visibilidad de Marca",
+      "description": "Métricas relacionadas con la exposición y reconocimiento de la marca patrocinadora",
+      "color": "#8b5cf6",
+      "icon": "award",
+      "metrics": {
+        "logo_impressions": {
+          "id": "logo_impressions",
+          "name": "Impresiones de Logo",
+          "description": "Número de veces que el logo del patrocinador es visto",
+          "unit": "impresiones",
+          "type": "counter",
+          "calculation": "sum",
+          "frequency": "daily",
+          "target": {
+            "monthly": 500000,
+            "quarterly": 1500000,
+            "annual": 6000000
+          },
+          "benchmarks": {
+            "excellent": ">= 130%",
+            "good": ">= 100%",
+            "needs_improvement": "< 80%"
+          },
+          "dataSource": "brand_tracking",
+          "priority": "high"
+        },
+        "brand_mentions": {
+          "id": "brand_mentions",
+          "name": "Menciones de Marca",
+          "description": "Número de veces que se menciona la marca en medios y redes sociales",
+          "unit": "menciones",
+          "type": "counter",
+          "calculation": "count",
+          "frequency": "daily",
+          "target": {
+            "monthly": 200,
+            "quarterly": 600,
+            "annual": 2400
+          },
+          "benchmarks": {
+            "excellent": ">= 150%",
+            "good": ">= 100%",
+            "needs_improvement": "< 70%"
+          },
+          "dataSource": "media_monitoring",
+          "priority": "medium"
+        },
+        "media_coverage": {
+          "id": "media_coverage",
+          "name": "Cobertura Mediática",
+          "description": "Valor estimado de la cobertura mediática obtenida",
+          "unit": "euros",
+          "type": "currency",
+          "calculation": "sum",
+          "frequency": "weekly",
+          "target": {
+            "monthly": 25000,
+            "quarterly": 75000,
+            "annual": 300000
+          },
+          "benchmarks": {
+            "excellent": ">= 140%",
+            "good": ">= 100%",
+            "needs_improvement": "< 75%"
+          },
+          "dataSource": "media_valuation",
+          "priority": "medium"
+        },
+        "partnership_recognition": {
+          "id": "partnership_recognition",
+          "name": "Reconocimiento de Alianza",
+          "description": "Puntuación de reconocimiento público de la alianza estratégica",
+          "unit": "puntos",
+          "type": "calculated",
+          "calculation": "weighted_average",
+          "frequency": "monthly",
+          "target": {
+            "monthly": 80,
+            "quarterly": 85,
+            "annual": 90
+          },
+          "benchmarks": {
+            "excellent": ">= 90",
+            "good": ">= 75",
+            "needs_improvement": "< 60"
+          },
+          "dataSource": "recognition_tracking",
+          "priority": "medium"
+        }
+      }
+    },
+    "growth": {
+      "category": "Crecimiento y Expansión",
+      "description": "Métricas que miden el crecimiento sostenido y expansión del impacto",
+      "color": "#06b6d4",
+      "icon": "trending-up",
+      "metrics": {
+        "community_growth": {
+          "id": "community_growth",
+          "name": "Crecimiento de Comunidad",
+          "description": "Tasa de crecimiento mensual de la comunidad beneficiaria",
+          "unit": "porcentaje",
+          "type": "percentage",
+          "calculation": "growth_rate",
+          "frequency": "monthly",
+          "target": {
+            "monthly": 5,
+            "quarterly": 15,
+            "annual": 60
+          },
+          "benchmarks": {
+            "excellent": ">= 7",
+            "good": ">= 5",
+            "needs_improvement": "< 3"
+          },
+          "dataSource": "community_analytics",
+          "priority": "high"
+        },
+        "program_scalability": {
+          "id": "program_scalability",
+          "name": "Escalabilidad de Programas",
+          "description": "Capacidad de replicar programas exitosos en nuevas ubicaciones",
+          "unit": "puntos",
+          "type": "calculated",
+          "calculation": "scalability_index",
+          "frequency": "quarterly",
+          "target": {
+            "quarterly": 75,
+            "annual": 85
+          },
+          "benchmarks": {
+            "excellent": ">= 85",
+            "good": ">= 70",
+            "needs_improvement": "< 55"
+          },
+          "dataSource": "scalability_assessment",
+          "priority": "medium"
+        },
+        "innovation_index": {
+          "id": "innovation_index",
+          "name": "Índice de Innovación",
+          "description": "Medida de la innovación y adaptación en los programas",
+          "unit": "puntos",
+          "type": "calculated",
+          "calculation": "innovation_score",
+          "frequency": "quarterly",
+          "target": {
+            "quarterly": 70,
+            "annual": 80
+          },
+          "benchmarks": {
+            "excellent": ">= 80",
+            "good": ">= 65",
+            "needs_improvement": "< 50"
+          },
+          "dataSource": "innovation_tracking",
+          "priority": "low"
+        }
+      }
+    }
+  },
+  "calculationMethods": {
+    "sum": {
+      "name": "Suma",
+      "description": "Suma de todos los valores en el período",
+      "formula": "Σ(values)"
+    },
+    "count": {
+      "name": "Conteo",
+      "description": "Número total de elementos",
+      "formula": "COUNT(items)"
+    },
+    "unique_count": {
+      "name": "Conteo Único",
+      "description": "Número de elementos únicos",
+      "formula": "COUNT(DISTINCT items)"
+    },
+    "average": {
+      "name": "Promedio",
+      "description": "Valor promedio del período",
+      "formula": "SUM(values) / COUNT(values)"
+    },
+    "ratio": {
+      "name": "Ratio",
+      "description": "Relación entre dos valores",
+      "formula": "value1 / value2"
+    },
+    "percentage": {
+      "name": "Porcentaje",
+      "description": "Expresión en porcentaje",
+      "formula": "(value / total) * 100"
+    },
+    "growth_rate": {
+      "name": "Tasa de Crecimiento",
+      "description": "Porcentaje de crecimiento entre períodos",
+      "formula": "((current - previous) / previous) * 100"
+    },
+    "weighted_average": {
+      "name": "Promedio Ponderado",
+      "description": "Promedio considerando pesos específicos",
+      "formula": "Σ(value * weight) / Σ(weight)"
+    },
+    "division": {
+      "name": "División",
+      "description": "División simple entre dos valores",
+      "formula": "numerator / denominator"
+    }
+  },
+  "dataSourceTypes": {
+    "beneficiary_database": {
+      "name": "Base de Datos de Beneficiarios",
+      "description": "Sistema principal de registro de beneficiarios",
+      "updateFrequency": "real_time",
+      "dataQuality": "high"
+    },
+    "social_media_analytics": {
+      "name": "Analytics de Redes Sociales",
+      "description": "Métricas agregadas de plataformas sociales",
+      "updateFrequency": "daily",
+      "dataQuality": "high"
+    },
+    "financial_system": {
+      "name": "Sistema Financiero",
+      "description": "Sistema de gestión financiera y contable",
+      "updateFrequency": "real_time",
+      "dataQuality": "high"
+    },
+    "web_analytics": {
+      "name": "Analytics Web",
+      "description": "Métricas de sitio web y plataformas digitales",
+      "updateFrequency": "hourly",
+      "dataQuality": "high"
+    },
+    "calculated_metric": {
+      "name": "Métrica Calculada",
+      "description": "Valor derivado de otros datos",
+      "updateFrequency": "on_demand",
+      "dataQuality": "medium"
+    },
+    "manual_input": {
+      "name": "Entrada Manual",
+      "description": "Datos ingresados manualmente",
+      "updateFrequency": "weekly",
+      "dataQuality": "medium"
+    }
+  },
+  "alertingRules": {
+    "underperformance": {
+      "condition": "< 80% of target",
+      "severity": "warning",
+      "action": "notify_team"
+    },
+    "critical_underperformance": {
+      "condition": "< 60% of target",
+      "severity": "critical",
+      "action": "escalate_management"
+    },
+    "overperformance": {
+      "condition": "> 120% of target",
+      "severity": "info",
+      "action": "celebrate_success"
+    },
+    "data_anomaly": {
+      "condition": "deviation > 3 standard deviations",
+      "severity": "warning",
+      "action": "validate_data"
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "lastUpdated": "2025-01-01",
+    "author": "Sponsor Dashboard System",
+    "description": "Definiciones completas de métricas para el sistema de dashboard de patrocinadores"
+  }
+}
