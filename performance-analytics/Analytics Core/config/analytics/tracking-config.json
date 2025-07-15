@@ -1,0 +1,412 @@
+{
+  "analytics": {
+    "version": "1.0.0",
+    "environment": "production",
+    "debug": false,
+    "enableConsoleLogging": false,
+    "enablePerformanceTracking": true,
+    "enableErrorTracking": true,
+    "enableUserBehaviorTracking": true,
+    "enableConversionTracking": true,
+    "enableImpactMeasurement": true
+  },
+  "tracking": {
+    "autoTrack": {
+      "pageViews": true,
+      "clicks": true,
+      "scrolling": true,
+      "formInteractions": true,
+      "mediaEngagement": true,
+      "errors": true,
+      "performance": true,
+      "socialInteractions": true,
+      "searchQueries": false,
+      "downloads": true
+    },
+    "customEvents": {
+      "enabled": true,
+      "allowedEvents": [
+        "feature_used",
+        "conversion_completed",
+        "goal_achieved",
+        "experiment_viewed",
+        "content_shared",
+        "video_played",
+        "form_abandoned",
+        "search_performed",
+        "download_started",
+        "subscription_upgraded"
+      ],
+      "maxEventsPerSession": 1000,
+      "eventValidation": true
+    },
+    "sessions": {
+      "timeout": 1800000,
+      "maxDuration": 14400000,
+      "trackReturning": true,
+      "trackCampaigns": true,
+      "trackReferrers": true,
+      "generateAnonymousIds": true
+    }
+  },
+  "dataCollection": {
+    "sampling": {
+      "enabled": false,
+      "rate": 1.0,
+      "stratified": false,
+      "excludeBotsRate": 0.1
+    },
+    "batching": {
+      "enabled": true,
+      "maxBatchSize": 50,
+      "maxBatchDelay": 5000,
+      "flushOnPageUnload": true,
+      "useBeaconAPI": true,
+      "fallbackToXHR": true
+    },
+    "storage": {
+      "localStorage": true,
+      "sessionStorage": true,
+      "cookies": false,
+      "indexedDB": false,
+      "maxLocalStorageSize": 5242880,
+      "dataRetentionDays": 30,
+      "encryptSensitiveData": false
+    }
+  },
+  "endpoints": {
+    "analytics": {
+      "url": "/api/analytics/events",
+      "method": "POST",
+      "timeout": 10000,
+      "retryAttempts": 3,
+      "retryDelay": 1000,
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Analytics-Version": "1.0"
+      }
+    },
+    "performance": {
+      "url": "/api/analytics/performance",
+      "method": "POST",
+      "timeout": 5000,
+      "retryAttempts": 2
+    },
+    "errors": {
+      "url": "/api/analytics/errors",
+      "method": "POST",
+      "timeout": 15000,
+      "retryAttempts": 5
+    },
+    "experiments": {
+      "url": "/api/analytics/experiments",
+      "method": "POST",
+      "timeout": 8000,
+      "retryAttempts": 3
+    }
+  },
+  "features": {
+    "heatmaps": {
+      "enabled": true,
+      "maxPoints": 1000,
+      "sampleRate": 0.1,
+      "excludeElements": ["input[type=password]", ".sensitive-data"],
+      "trackMovement": true,
+      "trackClicks": true,
+      "trackScrolling": true
+    },
+    "recordings": {
+      "enabled": false,
+      "maxDuration": 300000,
+      "sampleRate": 0.01,
+      "excludeElements": ["input", "textarea", ".private"],
+      "maskSensitiveData": true,
+      "compressData": true
+    },
+    "abtesting": {
+      "enabled": true,
+      "autoAssign": true,
+      "persistVariants": true,
+      "trackConversions": true,
+      "minSampleSize": 100,
+      "statisticalSignificance": 0.95
+    },
+    "funnels": {
+      "enabled": true,
+      "autoDetect": true,
+      "maxSteps": 10,
+      "timeWindow": 86400000,
+      "trackDropoffs": true,
+      "detectAnomalies": true
+    }
+  },
+  "filters": {
+    "ipFiltering": {
+      "enabled": false,
+      "blockedIPs": [],
+      "allowedIPs": [],
+      "blockInternalIPs": false
+    },
+    "userAgentFiltering": {
+      "enabled": true,
+      "blockBots": true,
+      "blockedAgents": [
+        "bot", "crawler", "spider", "scraper",
+        "Googlebot", "Bingbot", "Slurp", "DuckDuckBot",
+        "facebookexternalhit", "Twitterbot", "LinkedInBot"
+      ],
+      "customPatterns": []
+    },
+    "geolocation": {
+      "enabled": true,
+      "blockCountries": [],
+      "allowCountries": [],
+      "trackRegions": true,
+      "trackCities": false,
+      "respectDoNotTrack": true
+    }
+  },
+  "performance": {
+    "metrics": {
+      "navigationTiming": true,
+      "resourceTiming": true,
+      "paintTiming": true,
+      "layoutShift": true,
+      "firstInputDelay": true,
+      "largestContentfulPaint": true,
+      "cumulativeLayoutShift": true,
+      "firstContentfulPaint": true,
+      "timeToInteractive": true,
+      "totalBlockingTime": true
+    },
+    "thresholds": {
+      "slowPageLoad": 3000,
+      "slowResourceLoad": 1000,
+      "highMemoryUsage": 100000000,
+      "highCPUUsage": 80,
+      "poorLCP": 2500,
+      "poorFID": 100,
+      "poorCLS": 0.1
+    },
+    "alerts": {
+      "enabled": true,
+      "slowLoadAlert": true,
+      "errorRateAlert": true,
+      "memoryLeakAlert": true,
+      "crashAlert": true
+    }
+  },
+  "engagement": {
+    "metrics": {
+      "timeOnPage": true,
+      "scrollDepth": true,
+      "clickDepth": true,
+      "formInteractions": true,
+      "socialShares": true,
+      "commentActivity": true,
+      "readingTime": true,
+      "returnVisits": true
+    },
+    "goals": {
+      "newsletter_signup": {
+        "enabled": true,
+        "value": 5,
+        "funnel": ["landing", "form_view", "email_input", "submit"]
+      },
+      "purchase": {
+        "enabled": true,
+        "value": 100,
+        "funnel": ["product_view", "add_to_cart", "checkout", "payment", "confirmation"]
+      },
+      "social_engagement": {
+        "enabled": true,
+        "value": 2,
+        "events": ["like", "share", "comment", "follow"]
+      },
+      "content_completion": {
+        "enabled": true,
+        "value": 10,
+        "threshold": 80
+      }
+    },
+    "segmentation": {
+      "enabled": true,
+      "autoSegment": true,
+      "segments": {
+        "new_users": {
+          "condition": "session_count == 1",
+          "track": true
+        },
+        "returning_users": {
+          "condition": "session_count > 1",
+          "track": true
+        },
+        "power_users": {
+          "condition": "events_per_session > 50",
+          "track": true
+        },
+        "mobile_users": {
+          "condition": "device_type == 'mobile'",
+          "track": true
+        },
+        "desktop_users": {
+          "condition": "device_type == 'desktop'",
+          "track": true
+        }
+      }
+    }
+  },
+  "experiments": {
+    "framework": "custom",
+    "allocation": {
+      "method": "random",
+      "sticky": true,
+      "respectOptOut": true
+    },
+    "active": {
+      "homepage_cta": {
+        "enabled": true,
+        "traffic": 0.5,
+        "variants": {
+          "control": 0.5,
+          "variant_a": 0.25,
+          "variant_b": 0.25
+        },
+        "goals": ["signup", "engagement"],
+        "duration": 604800000
+      },
+      "pricing_page": {
+        "enabled": true,
+        "traffic": 0.3,
+        "variants": {
+          "control": 0.5,
+          "simplified": 0.5
+        },
+        "goals": ["purchase"],
+        "duration": 1209600000
+      }
+    }
+  },
+  "debugging": {
+    "enabled": false,
+    "verbose": false,
+    "logLevel": "warn",
+    "showBeacons": false,
+    "showEvents": false,
+    "showPerformance": false,
+    "mockData": false,
+    "testMode": false
+  },
+  "integrations": {
+    "googleAnalytics": {
+      "enabled": false,
+      "trackingId": "",
+      "sendPageViews": true,
+      "enhancedEcommerce": false
+    },
+    "mixpanel": {
+      "enabled": false,
+      "token": "",
+      "trackPageViews": true,
+      "trackEvents": true
+    },
+    "amplitude": {
+      "enabled": false,
+      "apiKey": "",
+      "trackSessions": true,
+      "trackRevenue": false
+    },
+    "hotjar": {
+      "enabled": false,
+      "siteId": "",
+      "trackBehavior": true,
+      "trackHeatmaps": false
+    },
+    "fullstory": {
+      "enabled": false,
+      "orgId": "",
+      "captureElements": true,
+      "maskInputs": true
+    }
+  },
+  "compliance": {
+    "gdpr": {
+      "enabled": true,
+      "requireConsent": true,
+      "consentCategories": ["necessary", "analytics", "marketing"],
+      "defaultConsent": {
+        "necessary": true,
+        "analytics": false,
+        "marketing": false
+      },
+      "dataRetention": 730,
+      "rightToBeForgotten": true
+    },
+    "ccpa": {
+      "enabled": true,
+      "optOutLink": true,
+      "dataCategories": ["identifiers", "demographics", "activity"],
+      "thirdPartySharing": false
+    },
+    "coppa": {
+      "enabled": false,
+      "ageVerification": false,
+      "parentalConsent": false
+    }
+  },
+  "dataProcessing": {
+    "workers": {
+      "enabled": true,
+      "maxWorkers": 2,
+      "batchProcessing": true,
+      "heavyComputations": true,
+      "backgroundAnalysis": true
+    },
+    "realtime": {
+      "enabled": true,
+      "websockets": false,
+      "polling": true,
+      "pollingInterval": 30000,
+      "dashboardUpdates": true
+    },
+    "aggregation": {
+      "enabled": true,
+      "intervals": ["1m", "5m", "1h", "1d"],
+      "metrics": ["pageviews", "sessions", "conversions", "revenue"],
+      "retention": {
+        "raw": 7,
+        "aggregated": 365
+      }
+    }
+  },
+  "alerts": {
+    "enabled": true,
+    "channels": ["email", "webhook"],
+    "rules": {
+      "traffic_drop": {
+        "enabled": true,
+        "threshold": 0.3,
+        "timeWindow": 3600,
+        "severity": "high"
+      },
+      "error_spike": {
+        "enabled": true,
+        "threshold": 0.05,
+        "timeWindow": 900,
+        "severity": "critical"
+      },
+      "conversion_drop": {
+        "enabled": true,
+        "threshold": 0.2,
+        "timeWindow": 7200,
+        "severity": "medium"
+      },
+      "performance_degradation": {
+        "enabled": true,
+        "threshold": 2.0,
+        "timeWindow": 1800,
+        "severity": "high"
+      }
+    }
+  }
+}
