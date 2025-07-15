@@ -1,0 +1,353 @@
+/* ==================================================
+   RAMA 9: Chapter Markers Component
+   Marcadores visuales para capítulos de la historia
+   ================================================== */
+
+.chapter-markers {
+  position: relative;
+  width: 100%;
+  padding: 2rem 0;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.chapter-markers::-webkit-scrollbar {
+  height: 4px;
+}
+
+.chapter-markers::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.chapter-markers::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+}
+
+.chapter-markers::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.markers-container {
+  display: flex;
+  gap: 1.5rem;
+  min-width: max-content;
+  padding: 0 1rem;
+  position: relative;
+}
+
+.chapter-marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 8rem;
+}
+
+.chapter-marker:hover {
+  transform: translateY(-4px);
+}
+
+.marker-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.marker-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.marker-icon::after {
+  content: attr(data-chapter);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  z-index: 2;
+}
+
+.chapter-marker.completed .marker-icon {
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+  border-color: #4f46e5;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.chapter-marker.current .marker-icon {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  border-color: #fbbf24;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  animation: pulse-chapter 2s infinite;
+}
+
+@keyframes pulse-chapter {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(251, 191, 36, 0.4);
+  }
+  50% { 
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+  }
+}
+
+.chapter-marker.locked .marker-icon {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.chapter-marker.locked .marker-icon::after {
+  content: '🔒';
+  font-size: 1rem;
+}
+
+.marker-info {
+  text-align: center;
+  max-width: 8rem;
+}
+
+.marker-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.chapter-marker.completed .marker-title {
+  color: #4f46e5;
+}
+
+.chapter-marker.current .marker-title {
+  color: #fbbf24;
+}
+
+.chapter-marker.locked .marker-title {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.marker-subtitle {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.2;
+}
+
+.marker-progress {
+  width: 100%;
+  height: 0.25rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.125rem;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.marker-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4f46e5, #06b6d4);
+  border-radius: 0.125rem;
+  transition: width 0.6s ease;
+}
+
+.chapter-marker.current .marker-progress-bar {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.marker-status {
+  position: absolute;
+  top: -0.25rem;
+  right: -0.25rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  font-size: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+.marker-status.completed {
+  background: #10b981;
+}
+
+.marker-status.current {
+  background: #fbbf24;
+}
+
+.marker-status.locked {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.marker-connection {
+  position: absolute;
+  top: 1.5rem;
+  left: 5rem;
+  right: -1.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  z-index: -1;
+}
+
+.chapter-marker.completed .marker-connection {
+  background: linear-gradient(90deg, #4f46e5, #06b6d4, rgba(255, 255, 255, 0.2));
+}
+
+.chapter-marker:last-child .marker-connection {
+  display: none;
+}
+
+.marker-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 100;
+  margin-bottom: 0.5rem;
+}
+
+.marker-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.chapter-marker:hover .marker-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.markers-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.markers-navigation:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.markers-navigation.prev {
+  left: 0;
+}
+
+.markers-navigation.next {
+  right: 0;
+}
+
+.markers-navigation-icon {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Animaciones de entrada */
+.chapter-marker {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.chapter-marker:nth-child(1) { animation-delay: 0.1s; }
+.chapter-marker:nth-child(2) { animation-delay: 0.2s; }
+.chapter-marker:nth-child(3) { animation-delay: 0.3s; }
+.chapter-marker:nth-child(4) { animation-delay: 0.4s; }
+.chapter-marker:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chapter-markers {
+    padding: 1rem 0;
+  }
+  
+  .markers-container {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .chapter-marker {
+    min-width: 6rem;
+  }
+  
+  .marker-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+  }
+  
+  .marker-info {
+    max-width: 6rem;
+  }
+  
+  .marker-title {
+    font-size: 0.75rem;
+  }
+  
+  .marker-subtitle {
+    font-size: 0.6875rem;
+  }
+}

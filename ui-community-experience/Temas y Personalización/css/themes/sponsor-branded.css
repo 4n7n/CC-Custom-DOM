@@ -1,0 +1,849 @@
+/* ==================================================
+   RAMA 9: Sponsor Branded Themes
+   Temas personalizados para patrocinadores
+   ================================================== */
+
+/* ============================================
+   FRAMEWORK DE BRANDING PARA SPONSORS
+   ============================================ */
+
+:root {
+  /* Variables dinámicas para branding */
+  --sponsor-primary: #4f46e5;
+  --sponsor-secondary: #06b6d4;
+  --sponsor-accent: #10b981;
+  --sponsor-background: #1e293b;
+  --sponsor-surface: rgba(255, 255, 255, 0.05);
+  --sponsor-text: #ffffff;
+  --sponsor-logo-url: none;
+  --sponsor-pattern-url: none;
+  --sponsor-font-primary: inherit;
+  --sponsor-border-radius: 0.5rem;
+}
+
+/* ============================================
+   SPONSOR: TECH INNOVATORS
+   ============================================ */
+
+.sponsor-theme-tech-innovators {
+  --sponsor-name: "Tech Innovators Corp";
+  --sponsor-primary: #0066cc;
+  --sponsor-secondary: #33aaff;
+  --sponsor-accent: #0052a3;
+  --sponsor-background: linear-gradient(135deg, #001a33 0%, #003366 100%);
+  --sponsor-surface: rgba(0, 102, 204, 0.1);
+  --sponsor-text: #ffffff;
+  --sponsor-font-primary: 'Inter', 'Segoe UI', sans-serif;
+  --sponsor-glow: 0 0 20px rgba(0, 102, 204, 0.5);
+}
+
+.sponsor-theme-tech-innovators .main-header {
+  background: var(--sponsor-background);
+  border-bottom: 2px solid var(--sponsor-primary);
+  box-shadow: var(--sponsor-glow);
+}
+
+.sponsor-theme-tech-innovators .nav-logo::after {
+  content: " | Tech Innovators";
+  font-size: 0.875rem;
+  color: var(--sponsor-secondary);
+  font-weight: normal;
+}
+
+.sponsor-theme-tech-innovators .progress-bar {
+  background: linear-gradient(90deg, var(--sponsor-primary), var(--sponsor-secondary));
+  box-shadow: var(--sponsor-glow);
+}
+
+.sponsor-theme-tech-innovators .character-panel:hover {
+  border-color: var(--sponsor-primary);
+  box-shadow: 0 8px 32px rgba(0, 102, 204, 0.3);
+}
+
+/* Branded notifications */
+.sponsor-theme-tech-innovators .sponsor-notification {
+  background: var(--sponsor-surface);
+  border: 1px solid var(--sponsor-primary);
+  border-radius: var(--sponsor-border-radius);
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.sponsor-theme-tech-innovators .sponsor-notification::before {
+  content: "Patrocinado por Tech Innovators";
+  position: absolute;
+  top: -0.5rem;
+  right: 1rem;
+  background: var(--sponsor-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   SPONSOR: COSMIC GAMES
+   ============================================ */
+
+.sponsor-theme-cosmic-games {
+  --sponsor-name: "Cosmic Games Studio";
+  --sponsor-primary: #8b5cf6;
+  --sponsor-secondary: #ec4899;
+  --sponsor-accent: #06b6d4;
+  --sponsor-background: radial-gradient(circle at center, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  --sponsor-surface: rgba(139, 92, 246, 0.1);
+  --sponsor-text: #faf5ff;
+  --sponsor-font-primary: 'Orbitron', 'Courier New', monospace;
+  --sponsor-glow: 0 0 30px rgba(139, 92, 246, 0.6);
+  --sponsor-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L60 40 L90 40 L70 60 L80 90 L50 70 L20 90 L30 60 L10 40 L40 40 Z' fill='%238b5cf6' opacity='0.1'/%3E%3C/svg%3E");
+}
+
+.sponsor-theme-cosmic-games {
+  font-family: var(--sponsor-font-primary);
+  background: var(--sponsor-background);
+}
+
+.sponsor-theme-cosmic-games::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: var(--sponsor-pattern);
+  background-size: 100px 100px;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+  animation: cosmic-float 20s linear infinite;
+}
+
+@keyframes cosmic-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100px); }
+}
+
+.sponsor-theme-cosmic-games .content-title {
+  background: linear-gradient(45deg, var(--sponsor-primary), var(--sponsor-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: var(--sponsor-glow);
+}
+
+.sponsor-theme-cosmic-games .nav-item.active {
+  background: linear-gradient(45deg, var(--sponsor-primary), var(--sponsor-secondary));
+  box-shadow: var(--sponsor-glow);
+  animation: cosmic-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes cosmic-pulse {
+  from { box-shadow: var(--sponsor-glow); }
+  to { box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }
+}
+
+/* ============================================
+   SPONSOR: GREEN EARTH SOLUTIONS
+   ============================================ */
+
+.sponsor-theme-green-earth {
+  --sponsor-name: "Green Earth Solutions";
+  --sponsor-primary: #059669;
+  --sponsor-secondary: #10b981;
+  --sponsor-accent: #34d399;
+  --sponsor-background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+  --sponsor-surface: rgba(5, 150, 105, 0.1);
+  --sponsor-text: #ecfdf5;
+  --sponsor-font-primary: 'Poppins', 'Arial', sans-serif;
+  --sponsor-organic-shadow: 0 8px 25px rgba(5, 150, 105, 0.3);
+}
+
+.sponsor-theme-green-earth .progress-bar {
+  background: linear-gradient(90deg, var(--sponsor-primary), var(--sponsor-secondary), var(--sponsor-accent));
+  position: relative;
+  overflow: hidden;
+}
+
+.sponsor-theme-green-earth .progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: green-shimmer 3s infinite;
+}
+
+@keyframes green-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.sponsor-theme-green-earth .character-panel {
+  background: var(--sponsor-surface);
+  border: 1px solid var(--sponsor-primary);
+  border-radius: 1rem;
+  box-shadow: var(--sponsor-organic-shadow);
+  position: relative;
+}
+
+.sponsor-theme-green-earth .character-panel::before {
+  content: "🌱";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.sponsor-theme-green-earth .sidebar-menu-link:hover {
+  background: var(--sponsor-surface);
+  border-left: 4px solid var(--sponsor-accent);
+  padding-left: calc(0.75rem - 4px);
+  box-shadow: inset 0 0 10px rgba(5, 150, 105, 0.2);
+}
+
+/* ============================================
+   SPONSOR: LUXURY LIFESTYLE
+   ============================================ */
+
+.sponsor-theme-luxury-lifestyle {
+  --sponsor-name: "Luxury Lifestyle Brands";
+  --sponsor-primary: #d4af37;
+  --sponsor-secondary: #ffd700;
+  --sponsor-accent: #b8860b;
+  --sponsor-background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  --sponsor-surface: rgba(212, 175, 55, 0.1);
+  --sponsor-text: #ffffff;
+  --sponsor-font-primary: 'Playfair Display', 'Georgia', serif;
+  --sponsor-luxury-shadow: 0 8px 32px rgba(212, 175, 55, 0.4);
+}
+
+.sponsor-theme-luxury-lifestyle {
+  font-family: var(--sponsor-font-primary);
+  background: var(--sponsor-background);
+}
+
+.sponsor-theme-luxury-lifestyle .content-title {
+  font-family: var(--sponsor-font-primary);
+  color: var(--sponsor-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+.sponsor-theme-luxury-lifestyle .content-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 4rem;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sponsor-primary), var(--sponsor-secondary));
+}
+
+.sponsor-theme-luxury-lifestyle .character-panel {
+  background: var(--sponsor-surface);
+  border: 2px solid var(--sponsor-primary);
+  box-shadow: var(--sponsor-luxury-shadow);
+  position: relative;
+}
+
+.sponsor-theme-luxury-lifestyle .character-panel::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 1px solid var(--sponsor-secondary);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.sponsor-theme-luxury-lifestyle .nav-logo::after {
+  content: " ✨";
+  color: var(--sponsor-primary);
+}
+
+/* ============================================
+   SPONSOR: RETRO GAMING ARCADE
+   ============================================ */
+
+.sponsor-theme-retro-gaming {
+  --sponsor-name: "Retro Gaming Arcade";
+  --sponsor-primary: #ff6b35;
+  --sponsor-secondary: #f7931e;
+  --sponsor-accent: #ffca28;
+  --sponsor-background: linear-gradient(135deg, #2c1810 0%, #1a0f08 100%);
+  --sponsor-surface: rgba(255, 107, 53, 0.1);
+  --sponsor-text: #fff3e0;
+  --sponsor-font-primary: 'Press Start 2P', 'Courier New', monospace;
+  --sponsor-pixel-shadow: 2px 2px 0px rgba(255, 107, 53, 0.8);
+}
+
+.sponsor-theme-retro-gaming {
+  font-family: var(--sponsor-font-primary);
+  background: var(--sponsor-background);
+  image-rendering: pixelated;
+}
+
+.sponsor-theme-retro-gaming .content-title {
+  color: var(--sponsor-primary);
+  text-shadow: var(--sponsor-pixel-shadow);
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.sponsor-theme-retro-gaming .character-panel {
+  background: var(--sponsor-surface);
+  border: 3px solid var(--sponsor-primary);
+  border-radius: 0;
+  box-shadow: 
+    4px 4px 0px var(--sponsor-accent),
+    8px 8px 0px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.sponsor-theme-retro-gaming .character-panel::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--sponsor-accent);
+  animation: pixel-blink 1s infinite;
+}
+
+@keyframes pixel-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.sponsor-theme-retro-gaming button,
+.sponsor-theme-retro-gaming .btn {
+  font-family: var(--sponsor-font-primary);
+  font-size: 0.75rem;
+  border: 2px solid var(--sponsor-primary);
+  border-radius: 0;
+  background: var(--sponsor-surface);
+  color: var(--sponsor-text);
+  text-shadow: var(--sponsor-pixel-shadow);
+  transition: none;
+}
+
+.sponsor-theme-retro-gaming button:hover,
+.sponsor-theme-retro-gaming .btn:hover {
+  background: var(--sponsor-primary);
+  color: var(--sponsor-background);
+  transform: none;
+  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   SISTEMA DE ACTIVACIÓN DE SPONSORS
+   ============================================ */
+
+.sponsor-activation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.sponsor-activation-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sponsor-activation-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  color: white;
+  transform: scale(0.9);
+  transition: transform 0.5s ease;
+}
+
+.sponsor-activation-overlay.active .sponsor-activation-content {
+  transform: scale(1);
+}
+
+.sponsor-activation-logo {
+  width: 5rem;
+  height: 5rem;
+  background: var(--sponsor-primary);
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.sponsor-activation-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(45deg, var(--sponsor-primary), var(--sponsor-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sponsor-activation-message {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.sponsor-activation-button {
+  background: linear-gradient(45deg, var(--sponsor-primary), var(--sponsor-secondary));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-right: 1rem;
+}
+
+.sponsor-activation-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.sponsor-activation-dismiss {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem 2rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sponsor-activation-dismiss:hover {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   SPONSOR WATERMARK SUTIL
+   ============================================ */
+
+.sponsor-watermark {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  z-index: 50;
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.sponsor-watermark:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.sponsor-watermark-logo {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: var(--sponsor-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.sponsor-watermark-text {
+  white-space: nowrap;
+}
+
+/* ============================================
+   CONTENIDO PATROCINADO DESTACADO
+   ============================================ */
+
+.sponsored-content {
+  position: relative;
+  background: var(--sponsor-surface);
+  border: 1px solid var(--sponsor-primary);
+  border-radius: var(--sponsor-border-radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.sponsored-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sponsor-primary), var(--sponsor-secondary));
+}
+
+.sponsored-content-label {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--sponsor-primary);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sponsored-content-body {
+  margin-top: 1rem;
+}
+
+.sponsored-content-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--sponsor-primary);
+  margin-bottom: 0.75rem;
+}
+
+.sponsored-content-description {
+  color: var(--sponsor-text);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.sponsored-content-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(45deg, var(--sponsor-primary), var(--sponsor-secondary));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sponsored-content-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   INTEGRACIÓN CONTEXTUAL DE SPONSORS
+   ============================================ */
+
+.contextual-sponsor-placement {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--sponsor-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+.contextual-sponsor-placement:hover {
+  border-color: var(--sponsor-primary);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contextual-sponsor-icon {
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(45deg, var(--sponsor-primary), var(--sponsor-secondary));
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.contextual-sponsor-content {
+  flex: 1;
+}
+
+.contextual-sponsor-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--sponsor-text);
+  margin-bottom: 0.25rem;
+}
+
+.contextual-sponsor-subtitle {
+  font-size: 0.75rem;
+  color: var(--sponsor-primary);
+  opacity: 0.8;
+}
+
+/* ============================================
+   EFECTOS DINÁMICOS POR SPONSOR
+   ============================================ */
+
+/* Tech Innovators - Efectos tecnológicos */
+.sponsor-theme-tech-innovators .loading-spinner {
+  border-color: var(--sponsor-primary);
+  animation: tech-spin 1s linear infinite;
+}
+
+@keyframes tech-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.sponsor-theme-tech-innovators .progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: tech-scan 2s infinite;
+}
+
+@keyframes tech-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Cosmic Games - Efectos espaciales */
+.sponsor-theme-cosmic-games .character-panel {
+  animation: cosmic-float 6s ease-in-out infinite alternate;
+}
+
+@keyframes cosmic-float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+.sponsor-theme-cosmic-games .sidebar-menu-link:hover {
+  background: var(--sponsor-surface);
+  box-shadow: 0 0 20px var(--sponsor-primary);
+  animation: cosmic-glow 1s ease-in-out;
+}
+
+@keyframes cosmic-glow {
+  0%, 100% { box-shadow: 0 0 20px var(--sponsor-primary); }
+  50% { box-shadow: 0 0 30px var(--sponsor-secondary); }
+}
+
+/* ============================================
+   CONTROLES DE SPONSOR
+   ============================================ */
+
+.sponsor-controls {
+  position: fixed;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  padding: 1rem;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.sponsor-controls.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sponsor-controls-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sponsor-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sponsor-toggle-switch {
+  position: relative;
+  width: 2.5rem;
+  height: 1.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.sponsor-toggle-switch.active {
+  background: var(--sponsor-primary);
+}
+
+.sponsor-toggle-switch::before {
+  content: '';
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.sponsor-toggle-switch.active::before {
+  transform: translateX(1.25rem);
+}
+
+.sponsor-intensity-slider {
+  width: 100%;
+  height: 0.25rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 0.125rem;
+  outline: none;
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+
+.sponsor-intensity-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  background: var(--sponsor-primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ============================================
+   RESPONSIVE PARA SPONSORS
+   ============================================ */
+
+@media (max-width: 768px) {
+  .sponsor-activation-content {
+    padding: 2rem;
+    margin: 1rem;
+  }
+  
+  .sponsor-activation-title {
+    font-size: 1.5rem;
+  }
+  
+  .sponsor-watermark {
+    bottom: 5rem;
+    left: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.6875rem;
+  }
+  
+  .sponsor-controls {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+    transform: none;
+    max-height: 40vh;
+    overflow-y: auto;
+  }
+  
+  .contextual-sponsor-placement {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .sponsored-content {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .sponsored-content-label {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+  }
+  
+  /* Ajustes para temas retro en móvil */
+  .sponsor-theme-retro-gaming .content-title {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+  
+  .sponsor-theme-retro-gaming button,
+  .sponsor-theme-retro-gaming .btn {
+    font-size: 0.625rem;
+    padding: 0.75rem 1rem;
+  }
+}
+
+/* ============================================
+   PRINT STYLES PARA SPONSORS
+   ============================================ */
+
+@media print {
+  .sponsor-watermark,
+  .sponsor-controls,
+  .sponsor-activation-overlay {
+    display: none !important;
+  }
+  
+  .sponsored-content {
+    border: 2px solid #000;
+    background: #f5f5f5;
+    color: #000;
+  }
+  
+  .sponsored-content-label {
+    background: #000;
+    color: #fff;
+  }
+  
+  .sponsored-content::before {
+    background: #000;
+  }
+}
