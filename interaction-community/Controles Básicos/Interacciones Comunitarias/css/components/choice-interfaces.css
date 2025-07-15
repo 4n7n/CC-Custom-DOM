@@ -1,0 +1,866 @@
+/**
+ * RAMA 7: Choice Interfaces - Estilos para interfaces de elección narrativa
+ * Diseños sofisticados para sistemas de decisiones culturales
+ */
+
+/* ========================================
+   CONFIGURACIÓN BASE DE ELECCIONES
+======================================== */
+
+.choice-interface {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.choice-interface.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.choice-container {
+    padding: 30px;
+}
+
+/* ========================================
+   ENCABEZADO DE ELECCIÓN
+======================================== */
+
+.choice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.1);
+}
+
+.choice-type {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, var(--primary-accent, #ff6b35), #ff8c42);
+    color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+.type-icon {
+    font-size: 1.2em;
+}
+
+.cultural-sensitivity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.85em;
+}
+
+.cultural-sensitivity.high,
+.cultural-sensitivity.very-high {
+    color: #e74c3c;
+}
+
+.cultural-sensitivity.medium {
+    color: #f39c12;
+}
+
+.cultural-sensitivity.standard {
+    color: #27ae60;
+}
+
+.sensitivity-label {
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.sensitivity-level {
+    padding: 4px 12px;
+    border-radius: 12px;
+    background: currentColor;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7em;
+}
+
+.time-constraint {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(52, 73, 94, 0.1);
+    border-radius: 15px;
+    font-size: 0.85em;
+    color: #34495e;
+}
+
+.timer-icon {
+    font-size: 1.1em;
+}
+
+/* ========================================
+   CONTENIDO DE ELECCIÓN
+======================================== */
+
+.choice-content {
+    margin-bottom: 30px;
+}
+
+.choice-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.choice-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #5d6d7e;
+    margin-bottom: 20px;
+}
+
+.cultural-context {
+    background: linear-gradient(135deg, #f8f9fa, #e8f4fd);
+    border: 2px solid rgba(52, 152, 219, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.context-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #2980b9;
+}
+
+.context-icon {
+    font-size: 1.3em;
+}
+
+.context-text {
+    font-style: italic;
+    line-height: 1.5;
+    color: #34495e;
+}
+
+/* ========================================
+   OPCIONES DE ELECCIÓN
+======================================== */
+
+.choice-options {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.choice-option {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.choice-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.05), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.choice-option:hover {
+    border-color: var(--primary-accent, #ff6b35);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 107, 53, 0.15);
+}
+
+.choice-option:hover::before {
+    opacity: 1;
+}
+
+.choice-option.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f8f9fa;
+}
+
+.choice-option.locked:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+}
+
+.option-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.option-text {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #2c3e50;
+    line-height: 1.4;
+    flex: 1;
+    margin-right: 20px;
+}
+
+.option-indicators {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.cultural-impact {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 600;
+}
+
+.cultural-impact.very-positive {
+    background: #d5f4e6;
+    color: #27ae60;
+}
+
+.cultural-impact.positive {
+    background: #fcf3cf;
+    color: #f39c12;
+}
+
+.cultural-impact.neutral {
+    background: #ebedef;
+    color: #85929e;
+}
+
+.cultural-impact.negative {
+    background: #fadbd8;
+    color: #e74c3c;
+}
+
+.cultural-impact.very-negative {
+    background: #f1948a;
+    color: #922b21;
+}
+
+.difficulty {
+    padding: 4px 10px;
+    border-radius: 10px;
+    font-size: 0.75em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.difficulty.easy {
+    background: #d5f4e6;
+    color: #27ae60;
+}
+
+.difficulty.medium {
+    background: #fcf3cf;
+    color: #f39c12;
+}
+
+.difficulty.hard {
+    background: #fadbd8;
+    color: #e74c3c;
+}
+
+/* ========================================
+   DETALLES DE OPCIÓN
+======================================== */
+
+.option-details {
+    margin-bottom: 20px;
+}
+
+.consequence-preview {
+    background: rgba(52, 73, 94, 0.05);
+    padding: 12px 16px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-accent, #ff6b35);
+    margin-bottom: 12px;
+}
+
+.consequence-label {
+    font-weight: 600;
+    color: #34495e;
+    margin-right: 8px;
+}
+
+.consequence-text {
+    color: #5d6d7e;
+    font-style: italic;
+}
+
+.cultural-consequences {
+    margin-bottom: 12px;
+}
+
+.consequences-label {
+    font-weight: 600;
+    color: #2980b9;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.consequences-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.consequence-tag {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.75em;
+    font-weight: 500;
+}
+
+.prerequisites {
+    margin-bottom: 12px;
+}
+
+.prereq-label {
+    font-weight: 600;
+    color: #8e44ad;
+    margin-right: 10px;
+    font-size: 0.9em;
+}
+
+.prereq-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.prereq-tag {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75em;
+    font-weight: 500;
+    border: 2px solid;
+}
+
+.prereq-tag.met {
+    background: #d5f4e6;
+    color: #27ae60;
+    border-color: #27ae60;
+}
+
+.prereq-tag.unmet {
+    background: #fadbd8;
+    color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+/* ========================================
+   SELECCIÓN DE OPCIÓN
+======================================== */
+
+.option-selection {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.select-option {
+    background: linear-gradient(135deg, var(--primary-accent, #ff6b35), #ff8c42);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+}
+
+.select-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+.select-option:active {
+    transform: translateY(0);
+}
+
+.unlock-requirements {
+    background: #f8f9fa;
+    color: #85929e;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-style: italic;
+}
+
+/* ========================================
+   GUÍA DE ELECCIÓN
+======================================== */
+
+.choice-guidance {
+    background: linear-gradient(135deg, #fef9e7, #fcf3cf);
+    border: 2px solid rgba(243, 156, 18, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.guidance-section {
+    margin-bottom: 15px;
+}
+
+.guidance-section:last-child {
+    margin-bottom: 0;
+}
+
+.guidance-section h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #d68910;
+    margin-bottom: 8px;
+    font-size: 1em;
+}
+
+.guidance-section p {
+    color: #85651d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.guidance-section.sensitive {
+    background: rgba(231, 76, 60, 0.05);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.guidance-section.sensitive h4 {
+    color: #c0392b;
+}
+
+.guidance-section.sensitive p {
+    color: #e74c3c;
+}
+
+.guidance-section.respect {
+    background: rgba(46, 204, 113, 0.05);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.guidance-section.respect h4 {
+    color: #27ae60;
+}
+
+.guidance-section.respect p {
+    color: #2ecc71;
+}
+
+/* ========================================
+   ACCIONES DE ELECCIÓN
+======================================== */
+
+.choice-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.choice-actions button {
+    background: white;
+    border: 2px solid #bdc3c7;
+    color: #5d6d7e;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.choice-actions button:hover {
+    border-color: var(--primary-accent, #ff6b35);
+    color: var(--primary-accent, #ff6b35);
+    transform: translateY(-1px);
+}
+
+.reflect-btn:hover {
+    background: #f8f9fa;
+}
+
+.context-btn:hover {
+    background: #e8f4fd;
+}
+
+.consequences-btn:hover {
+    background: #fef9e7;
+}
+
+/* ========================================
+   PROGRESO DEL USUARIO
+======================================== */
+
+.choice-progress {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.progress-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.progress-indicators {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.indicator-icon {
+    font-size: 1.5em;
+}
+
+.indicator-label {
+    font-size: 0.85em;
+    font-weight: 500;
+    color: #5d6d7e;
+}
+
+.indicator-bar {
+    width: 100%;
+    height: 8px;
+    background: #ecf0f1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.indicator-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-accent, #ff6b35), #ff8c42);
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/* ========================================
+   RESULTADO DE ELECCIÓN
+======================================== */
+
+.choice-result-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.result-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    text-align: center;
+}
+
+.result-header {
+    margin-bottom: 25px;
+}
+
+.result-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.result-header h3 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.selected-option {
+    background: linear-gradient(135deg, #e8f5e8, #d5f4e6);
+    border: 2px solid #27ae60;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.selected-option .option-text {
+    font-weight: 600;
+    color: #27ae60;
+    margin-bottom: 10px;
+}
+
+.immediate-consequence {
+    color: #2ecc71;
+    font-style: italic;
+}
+
+.cultural-impact-summary {
+    margin-bottom: 25px;
+}
+
+.cultural-impact-summary h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.impact-details {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    color: #5d6d7e;
+}
+
+.progress-changes {
+    margin-bottom: 25px;
+}
+
+.progress-changes h4 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.progress-deltas {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.progress-delta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.delta-value {
+    font-weight: 600;
+    color: #27ae60;
+}
+
+.delta-label {
+    font-size: 0.85em;
+    color: #5d6d7e;
+}
+
+.future-implications {
+    margin-bottom: 30px;
+}
+
+.future-implications h4 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.future-implications p {
+    color: #5d6d7e;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.continue-story {
+    background: linear-gradient(135deg, var(--primary-accent, #ff6b35), #ff8c42);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.continue-story:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media (max-width: 768px) {
+    .choice-interface {
+        margin: 20px;
+        border-radius: 15px;
+    }
+    
+    .choice-container {
+        padding: 20px;
+    }
+    
+    .choice-header {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .choice-title {
+        font-size: 1.5em;
+    }
+    
+    .choice-actions {
+        flex-direction: column;
+    }
+    
+    .choice-actions button {
+        width: 100%;
+    }
+    
+    .progress-indicators {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .indicator {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .indicator-bar {
+        width: 60%;
+    }
+    
+    .result-content {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .progress-deltas {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+    .choice-interface {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: #ecf0f1;
+    }
+    
+    .choice-option {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+    
+    .choice-option:hover {
+        background: #3d566e;
+    }
+    
+    .cultural-context {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        border-color: rgba(52, 152, 219, 0.3);
+    }
+    
+    .choice-guidance {
+        background: linear-gradient(135deg, #34495e, #2c3e50);
+        border-color: rgba(243, 156, 18, 0.3);
+    }
+    
+    .choice-progress {
+        background: rgba(52, 73, 94, 0.8);
+    }
+    
+    .result-content {
+        background: #34495e;
+        color: #ecf0f1;
+    }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .choice-interface,
+    .choice-option,
+    .select-option,
+    .choice-actions button {
+        transition: none;
+    }
+    
+    .choice-option:hover,
+    .select-option:hover {
+        transform: none;
+    }
+}
+
+/* ========================================
+   UTILIDADES
+======================================== */
+
+.choice-loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.choice-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.choice-highlighted {
+    border-color: var(--primary-accent, #ff6b35) !important;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3) !important;
+}

@@ -1,0 +1,834 @@
+/**
+ * RAMA 7: Hover Effects - Efectos de hover para elementos narrativos
+ * Efectos sofisticados de hover que mejoran la experiencia inmersiva
+ */
+
+/* ========================================
+   EFECTOS BASE DE HOVER
+======================================== */
+
+.hoverable {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.hoverable::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hoverable:hover::before {
+    transform: translateX(100%) rotate(45deg);
+}
+
+/* ========================================
+   EFECTOS PARA ELEMENTOS CULTURALES
+======================================== */
+
+.cultural-element {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-origin: center;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cultural-element::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cultural-element:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 
+        0 20px 40px rgba(255, 107, 53, 0.3),
+        0 0 0 1px rgba(255, 107, 53, 0.1);
+    filter: brightness(1.1);
+}
+
+.cultural-element:hover::after {
+    width: 200%;
+    height: 200%;
+    opacity: 1;
+}
+
+/* Efecto de información cultural emergente */
+.cultural-element .cultural-preview {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 15px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.cultural-element:hover .cultural-preview {
+    transform: translateY(0);
+}
+
+/* ========================================
+   EFECTOS PARA OPCIONES DE HISTORIA
+======================================== */
+
+.story-choice {
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+    position: relative;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.story-choice::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.story-choice:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: var(--primary-accent, #ff6b35);
+    box-shadow: 
+        0 10px 25px rgba(255, 107, 53, 0.2),
+        0 0 0 1px rgba(255, 107, 53, 0.1);
+    background: linear-gradient(135deg, #3d566e, #34495e);
+}
+
+.story-choice:hover::before {
+    left: 100%;
+}
+
+/* Efecto de preview de consecuencias */
+.story-choice .choice-preview {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px;
+    font-size: 0.85em;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    border-radius: 0 0 12px 12px;
+    border-top: 1px solid rgba(255, 107, 53, 0.3);
+    z-index: 3;
+}
+
+.story-choice:hover .choice-preview {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   EFECTOS PARA PERSONAJES
+======================================== */
+
+.character {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.character::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        rgba(255, 107, 53, 0.3) 90deg,
+        transparent 180deg,
+        rgba(255, 107, 53, 0.3) 270deg,
+        transparent 360deg
+    );
+    animation: characterAura 3s linear infinite paused;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.character:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2) contrast(1.1);
+}
+
+.character:hover::before {
+    animation-play-state: running;
+}
+
+@keyframes characterAura {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Indicador de diálogo disponible */
+.character .dialogue-indicator {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-accent, #ff6b35);
+    border-radius: 50%;
+    border: 2px solid white;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.character:hover .dialogue-indicator {
+    opacity: 1;
+    transform: scale(1);
+    animation: dialoguePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes dialoguePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* ========================================
+   EFECTOS PARA ELEMENTOS INTERACTIVOS
+======================================== */
+
+.interactive-object {
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.interactive-object:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
+}
+
+/* Efecto de brillo sutil */
+.interactive-object::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.interactive-object:hover::after {
+    opacity: 1;
+    animation: glimmer 2s ease-in-out infinite;
+}
+
+@keyframes glimmer {
+    0% { transform: translateX(-100%) skewX(-25deg); }
+    100% { transform: translateX(200%) skewX(-25deg); }
+}
+
+/* ========================================
+   EFECTOS PARA NAVEGACIÓN
+======================================== */
+
+.nav-element {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.nav-element::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-accent, #ff6b35), #ff8c42);
+    transition: width 0.3s ease;
+}
+
+.nav-element:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(5px);
+}
+
+.nav-element:hover::before {
+    width: 100%;
+}
+
+/* ========================================
+   EFECTOS PARA ELEMENTOS DE TIMELINE
+======================================== */
+
+.timeline-event {
+    transition: all 0.4s ease;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.timeline-event::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--primary-accent, #ff6b35), #ff8c42);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.timeline-event:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.timeline-event:hover::before {
+    transform: scaleY(1);
+}
+
+/* Indicador de fecha */
+.timeline-event .date-indicator {
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-accent, #ff6b35);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.timeline-event:hover .date-indicator {
+    opacity: 1;
+    transform: translateY(-50%) translateX(-10px);
+}
+
+/* ========================================
+   EFECTOS PARA MAPAS Y UBICACIONES
+======================================== */
+
+.location-marker {
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.location-marker::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 107, 53, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+}
+
+.location-marker:hover {
+    transform: scale(1.2);
+    z-index: 10;
+}
+
+.location-marker:hover::before {
+    width: 200%;
+    height: 200%;
+    animation: locationPulse 2s ease-in-out infinite;
+}
+
+@keyframes locationPulse {
+    0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.2;
+    }
+}
+
+/* Tooltip de ubicación */
+.location-marker .location-tooltip {
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.location-marker .location-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.location-marker:hover .location-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+/* ========================================
+   EFECTOS PARA BOTONES Y CONTROLES
+======================================== */
+
+.narrative-button {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.narrative-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-accent, #ff6b35), #ff8c42);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+
+.narrative-button span {
+    position: relative;
+    z-index: 1;
+}
+
+.narrative-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+}
+
+.narrative-button:hover::before {
+    opacity: 1;
+}
+
+/* Efecto de ondas en botones */
+.narrative-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.narrative-button:hover::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+/* ========================================
+   EFECTOS PARA TEXTOS NARRATIVOS
+======================================== */
+
+.narrative-text {
+    transition: all 0.3s ease;
+    position: relative;
+    line-height: 1.6;
+}
+
+.narrative-text:hover {
+    color: var(--text-highlight, #ff6b35);
+}
+
+/* Efecto de subrayado animado */
+.narrative-text.highlightable::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-accent, #ff6b35), transparent);
+    transition: width 0.3s ease;
+}
+
+.narrative-text.highlightable:hover::after {
+    width: 100%;
+}
+
+/* ========================================
+   EFECTOS PARA CARDS Y PANELES
+======================================== */
+
+.narrative-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.narrative-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(255, 107, 53, 0.05) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.narrative-card:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 107, 53, 0.1);
+}
+
+.narrative-card:hover::before {
+    opacity: 1;
+}
+
+/* ========================================
+   EFECTOS PARA ELEMENTOS DE PROGRESO
+======================================== */
+
+.progress-indicator {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.progress-indicator:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.progress-indicator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.progress-indicator:hover::before {
+    left: 100%;
+}
+
+/* ========================================
+   EFECTOS PARA MEDIA Y GALERÍAS
+======================================== */
+
+.media-item {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.media-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.media-item:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.media-item:hover::before {
+    opacity: 1;
+}
+
+/* Overlay de información */
+.media-item .media-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    z-index: 2;
+}
+
+.media-item:hover .media-overlay {
+    transform: translateY(0);
+}
+
+/* ========================================
+   EFECTOS ESPECIALES
+======================================== */
+
+/* Efecto de partículas */
+.particle-effect {
+    position: relative;
+    overflow: visible;
+}
+
+.particle-effect::before,
+.particle-effect::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-accent, #ff6b35);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+.particle-effect::before {
+    top: 20%;
+    right: 10%;
+}
+
+.particle-effect::after {
+    bottom: 20%;
+    left: 10%;
+}
+
+.particle-effect:hover::before {
+    opacity: 1;
+    transform: translateY(-20px) translateX(10px);
+    animation: particle1 2s ease-in-out infinite;
+}
+
+.particle-effect:hover::after {
+    opacity: 1;
+    transform: translateY(20px) translateX(-10px);
+    animation: particle2 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes particle1 {
+    0%, 100% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+    50% { transform: translateY(-40px) translateX(20px); opacity: 0.5; }
+}
+
+@keyframes particle2 {
+    0%, 100% { transform: translateY(20px) translateX(-10px); opacity: 1; }
+    50% { transform: translateY(40px) translateX(-20px); opacity: 0.5; }
+}
+
+/* Efecto de magnetismo */
+.magnetic-hover {
+    transition: transform 0.1s ease;
+}
+
+.magnetic-hover:hover {
+    transform: scale(1.05);
+}
+
+/* ========================================
+   EFECTOS PARA DARK MODE
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+    .narrative-card {
+        background: linear-gradient(145deg, #2c3e50, #34495e);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .narrative-button {
+        background: linear-gradient(135deg, #3d566e, #2c3e50);
+    }
+    
+    .story-choice {
+        background: linear-gradient(135deg, #2c3e50, #1a252f);
+    }
+}
+
+/* ========================================
+   EFECTOS RESPONSIVOS
+======================================== */
+
+@media (max-width: 768px) {
+    .cultural-element:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+    
+    .narrative-card:hover {
+        transform: translateY(-4px);
+    }
+    
+    .character:hover {
+        transform: scale(1.05);
+    }
+    
+    .media-item:hover {
+        transform: scale(1.03);
+    }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .hoverable,
+    .cultural-element,
+    .story-choice,
+    .character,
+    .narrative-button,
+    .narrative-card,
+    .media-item {
+        transition: opacity 0.2s ease;
+    }
+    
+    .hoverable:hover,
+    .cultural-element:hover,
+    .story-choice:hover,
+    .character:hover,
+    .narrative-button:hover,
+    .narrative-card:hover,
+    .media-item:hover {
+        transform: none;
+        opacity: 0.8;
+    }
+    
+    @keyframes characterAura {
+        0%, 100% { transform: none; }
+    }
+    @keyframes dialoguePulse {
+        0%, 100% { transform: none; }
+    }
+    @keyframes glimmer {
+        0%, 100% { transform: none; }
+    }
+    @keyframes locationPulse {
+        0%, 100% { transform: none; }
+    }
+    @keyframes particle1 {
+        0%, 100% { transform: none; }
+    }
+    @keyframes particle2 {
+        0%, 100% { transform: none; }
+    }
+}
+
+/* ========================================
+   UTILIDADES DE HOVER
+======================================== */
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+.hover-brightness:hover {
+    filter: brightness(1.2);
+}
