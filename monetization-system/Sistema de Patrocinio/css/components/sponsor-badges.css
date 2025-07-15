@@ -1,0 +1,774 @@
+/* ===================================================================
+   SPONSOR BADGES CSS - Community Stories Platform
+   Archivo: css/components/sponsor-badges.css
+   Propósito: Sistema de badges y reconocimiento para patrocinadores
+   Integración: Sistema de monetización natural y no invasivo
+   =================================================================== */
+
+/* ===================================================================
+   VARIABLES CSS - SPONSOR SYSTEM
+   =================================================================== */
+
+:root {
+  /* Colores base del sistema de patrocinio */
+  --sponsor-primary: #2C3E50;
+  --sponsor-secondary: #3498DB;
+  --sponsor-accent: #E74C3C;
+  --sponsor-success: #27AE60;
+  --sponsor-warning: #F39C12;
+  --sponsor-platinum: #9B59B6;
+  --sponsor-gold: #F1C40F;
+  --sponsor-silver: #95A5A6;
+  --sponsor-bronze: #CD7F32;
+  
+  /* Gradientes para tiers */
+  --gradient-platinum: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-gold: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-silver: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --gradient-bronze: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  
+  /* Spacing y sizing */
+  --badge-size-sm: 32px;
+  --badge-size-md: 48px;
+  --badge-size-lg: 64px;
+  --badge-size-xl: 96px;
+  --badge-padding: 8px;
+  --badge-margin: 4px;
+  --badge-border-radius: 8px;
+  --badge-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  --badge-hover-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  
+  /* Animaciones */
+  --animation-duration: 0.3s;
+  --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+  --pulse-animation: pulse 2s infinite;
+  
+  /* Fuentes */
+  --font-sponsor: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+/* ===================================================================
+   CONTENEDORES BASE
+   =================================================================== */
+
+.sponsor-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--badge-padding);
+  font-family: var(--font-sponsor);
+}
+
+.sponsor-section {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: var(--badge-border-radius);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.sponsor-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--badge-margin);
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===================================================================
+   BADGES BASE - ESTRUCTURA FUNDAMENTAL
+   =================================================================== */
+
+.sponsor-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--badge-size-md);
+  height: var(--badge-size-md);
+  padding: var(--badge-padding);
+  margin: var(--badge-margin);
+  border-radius: var(--badge-border-radius);
+  background: var(--sponsor-primary);
+  color: white;
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  font-size: 0.875rem;
+  line-height: 1.2;
+  text-align: center;
+  box-shadow: var(--badge-shadow);
+  transition: all var(--animation-duration) var(--animation-timing);
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.sponsor-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.sponsor-badge:hover::before {
+  transform: translateX(100%);
+}
+
+.sponsor-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--badge-hover-shadow);
+}
+
+.sponsor-badge:active {
+  transform: translateY(0);
+  box-shadow: var(--badge-shadow);
+}
+
+/* ===================================================================
+   TIER SYSTEM - NIVELES DE PATROCINIO
+   =================================================================== */
+
+/* Platinum Tier - Máximo nivel */
+.sponsor-badge--platinum {
+  background: var(--gradient-platinum);
+  color: white;
+  font-weight: var(--font-weight-bold);
+  min-width: var(--badge-size-xl);
+  height: var(--badge-size-xl);
+  font-size: 1.125rem;
+  animation: var(--pulse-animation);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.sponsor-badge--platinum::after {
+  content: '👑';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 1.2rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+/* Gold Tier - Nivel alto */
+.sponsor-badge--gold {
+  background: var(--gradient-gold);
+  color: white;
+  font-weight: var(--font-weight-bold);
+  min-width: var(--badge-size-lg);
+  height: var(--badge-size-lg);
+  font-size: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.sponsor-badge--gold::after {
+  content: '⭐';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  font-size: 1rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+/* Silver Tier - Nivel medio */
+.sponsor-badge--silver {
+  background: var(--gradient-silver);
+  color: white;
+  font-weight: var(--font-weight-medium);
+  min-width: var(--badge-size-md);
+  height: var(--badge-size-md);
+  font-size: 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sponsor-badge--silver::after {
+  content: '💎';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 0.8rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+}
+
+/* Bronze Tier - Nivel básico */
+.sponsor-badge--bronze {
+  background: var(--gradient-bronze);
+  color: white;
+  font-weight: var(--font-weight-normal);
+  min-width: var(--badge-size-sm);
+  height: var(--badge-size-sm);
+  font-size: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sponsor-badge--bronze::after {
+  content: '🏆';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  font-size: 0.7rem;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+}
+
+/* ===================================================================
+   ESTILOS ESPECIALES - CONTEXTO Y FORMATO
+   =================================================================== */
+
+/* Badge con logo */
+.sponsor-badge--logo {
+  padding: 4px;
+  background: white;
+  color: var(--sponsor-primary);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sponsor-badge--logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Badge minimalista */
+.sponsor-badge--minimal {
+  background: transparent;
+  color: var(--sponsor-primary);
+  border: 1px solid currentColor;
+  font-weight: var(--font-weight-medium);
+}
+
+.sponsor-badge--minimal:hover {
+  background: var(--sponsor-primary);
+  color: white;
+}
+
+/* Badge con texto completo */
+.sponsor-badge--text {
+  min-width: auto;
+  width: auto;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Badge circular */
+.sponsor-badge--circle {
+  border-radius: 50%;
+  width: var(--badge-size-md);
+  height: var(--badge-size-md);
+  min-width: var(--badge-size-md);
+  padding: 0;
+}
+
+/* Badge con animación especial */
+.sponsor-badge--featured {
+  position: relative;
+  background: var(--gradient-platinum);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 5px rgba(151, 89, 182, 0.5); }
+  to { box-shadow: 0 0 20px rgba(151, 89, 182, 0.8), 0 0 30px rgba(151, 89, 182, 0.6); }
+}
+
+/* ===================================================================
+   CONTENIDO INTERNO - TEXTO Y ELEMENTOS
+   =================================================================== */
+
+.sponsor-badge__logo {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.sponsor-badge__text {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.2;
+  text-align: center;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.sponsor-badge__tier {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--sponsor-accent);
+  color: white;
+  font-size: 0.625rem;
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.sponsor-badge__tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration) var(--animation-timing);
+  z-index: 10;
+  margin-bottom: 8px;
+}
+
+.sponsor-badge__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.sponsor-badge:hover .sponsor-badge__tooltip {
+  opacity: 1;
+}
+
+/* ===================================================================
+   SECCIONES ESPECIALIZADAS
+   =================================================================== */
+
+/* Header de patrocinadores */
+.sponsor-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.sponsor-header__title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--sponsor-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.sponsor-header__subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  font-weight: var(--font-weight-normal);
+}
+
+/* Sección de patrocinadores principales */
+.sponsor-featured {
+  background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(52, 152, 219, 0.05) 100%);
+  border: 1px solid rgba(52, 152, 219, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sponsor-featured__title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--sponsor-primary);
+  margin: 0 0 1rem 0;
+}
+
+.sponsor-featured .sponsor-list {
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Patrocinadores por categoría */
+.sponsor-category {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-left: 4px solid var(--sponsor-secondary);
+  background: rgba(52, 152, 219, 0.02);
+}
+
+.sponsor-category__title {
+  font-size: 1.125rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--sponsor-primary);
+  margin: 0 0 1rem 0;
+}
+
+.sponsor-category__description {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+/* Footer de reconocimiento */
+.sponsor-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.sponsor-footer__message {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0 0 1rem 0;
+  line-height: 1.4;
+}
+
+.sponsor-footer__cta {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--sponsor-secondary);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--animation-duration) var(--animation-timing);
+}
+
+.sponsor-footer__cta:hover {
+  background: #2980b9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* ===================================================================
+   ESTADOS ESPECIALES
+   =================================================================== */
+
+/* Estado de carga */
+.sponsor-badge--loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 2s infinite;
+  color: transparent;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Estado de error */
+.sponsor-badge--error {
+  background: #e74c3c;
+  color: white;
+  border: 1px solid #c0392b;
+}
+
+.sponsor-badge--error::after {
+  content: '⚠️';
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  font-size: 0.8rem;
+}
+
+/* Estado deshabilitado */
+.sponsor-badge--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Estado activo/seleccionado */
+.sponsor-badge--active {
+  background: var(--sponsor-success);
+  color: white;
+  border: 2px solid #229954;
+}
+
+.sponsor-badge--active::after {
+  content: '✓';
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  background: #229954;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.625rem;
+  color: white;
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .sponsor-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .sponsor-badge {
+    min-width: calc(var(--badge-size-md) * 0.9);
+    height: calc(var(--badge-size-md) * 0.9);
+    font-size: 0.8rem;
+  }
+  
+  .sponsor-badge--platinum {
+    min-width: calc(var(--badge-size-lg) * 0.9);
+    height: calc(var(--badge-size-lg) * 0.9);
+    font-size: 1rem;
+  }
+  
+  .sponsor-badge--gold {
+    min-width: calc(var(--badge-size-md) * 1.1);
+    height: calc(var(--badge-size-md) * 1.1);
+    font-size: 0.9rem;
+  }
+  
+  .sponsor-header__title {
+    font-size: 1.25rem;
+  }
+  
+  .sponsor-featured {
+    padding: 1.5rem;
+  }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .sponsor-container {
+    padding: 0.5rem;
+  }
+  
+  .sponsor-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+  
+  .sponsor-badge {
+    min-width: calc(var(--badge-size-sm) * 1.2);
+    height: calc(var(--badge-size-sm) * 1.2);
+    font-size: 0.7rem;
+    padding: 4px;
+  }
+  
+  .sponsor-badge--platinum {
+    min-width: calc(var(--badge-size-md) * 1.1);
+    height: calc(var(--badge-size-md) * 1.1);
+    font-size: 0.9rem;
+  }
+  
+  .sponsor-badge--gold {
+    min-width: var(--badge-size-md);
+    height: var(--badge-size-md);
+    font-size: 0.8rem;
+  }
+  
+  .sponsor-badge--text {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.7rem;
+  }
+  
+  .sponsor-header__title {
+    font-size: 1.125rem;
+  }
+  
+  .sponsor-featured {
+    padding: 1rem;
+  }
+  
+  .sponsor-category {
+    padding: 0.75rem;
+  }
+  
+  .sponsor-footer {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* ===================================================================
+   ANIMACIONES ESPECIALES
+   =================================================================== */
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Animación de entrada escalonada */
+.sponsor-badge {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.sponsor-badge:nth-child(1) { animation-delay: 0.1s; }
+.sponsor-badge:nth-child(2) { animation-delay: 0.2s; }
+.sponsor-badge:nth-child(3) { animation-delay: 0.3s; }
+.sponsor-badge:nth-child(4) { animation-delay: 0.4s; }
+.sponsor-badge:nth-child(5) { animation-delay: 0.5s; }
+.sponsor-badge:nth-child(n+6) { animation-delay: 0.6s; }
+
+/* ===================================================================
+   UTILIDADES Y HELPERS
+   =================================================================== */
+
+/* Ocultar elementos */
+.sponsor-badge--hidden {
+  display: none;
+}
+
+/* Centrar contenido */
+.sponsor-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--badge-margin);
+}
+
+/* Alinear a la izquierda */
+.sponsor-left {
+  justify-content: flex-start;
+}
+
+/* Alinear a la derecha */
+.sponsor-right {
+  justify-content: flex-end;
+}
+
+/* Espaciado adicional */
+.sponsor-spaced {
+  margin: 1rem 0;
+}
+
+/* Sin margen */
+.sponsor-no-margin {
+  margin: 0;
+}
+
+/* Sin padding */
+.sponsor-no-padding {
+  padding: 0;
+}
+
+/* ===================================================================
+   MODO OSCURO
+   =================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  .sponsor-badge {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .sponsor-badge--logo {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--sponsor-primary);
+  }
+  
+  .sponsor-badge--minimal {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .sponsor-badge--minimal:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sponsor-header__title,
+  .sponsor-category__title,
+  .sponsor-featured__title {
+    color: white;
+  }
+  
+  .sponsor-header__subtitle,
+  .sponsor-category__description,
+  .sponsor-footer__message {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .sponsor-section {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sponsor-featured {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sponsor-category {
+    background: rgba(255, 255, 255, 0.02);
+    border-left-color: var(--sponsor-secondary);
+  }
+  
+  .sponsor-footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ===================================================================
+   IMPRESIÓN
+   =================================================================== */
+
+@media print {
+  .sponsor-badge {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+  
+  .sponsor-badge::before,
+  .sponsor-badge::after {
+    display: none !important;
+  }
+  
+  .sponsor-badge--platinum::after,
+  .sponsor-badge--gold::after,
+  .sponsor-badge--silver::after,
+  .sponsor-badge--bronze::after {
+    display: inline !important;
+    position: static !important;
+    filter: none !important;
+  }
+}
