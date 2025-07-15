@@ -1,0 +1,553 @@
+/**
+ * RAMA 7: Motor Impairment - Estilos para discapacidades motoras
+ * Adaptaciones para usuarios con limitaciones motoras
+ */
+
+/* ========================================
+   CONFIGURACIÓN BASE PARA DISCAPACIDADES MOTORAS
+======================================== */
+
+/* Variables para accesibilidad motora */
+:root {
+    --motor-target-size: 44px;
+    --motor-spacing: 16px;
+    --motor-hover-delay: 300ms;
+    --motor-activation-area: 48px;
+    --motor-focus-size: 4px;
+    --motor-transition-slow: 200ms ease-out;
+}
+
+/* Detección de preferencias del usuario */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --motor-transition-slow: 0ms;
+        --motor-hover-delay: 100ms;
+    }
+}
+
+/* ========================================
+   TAMAÑOS MÍNIMOS DE OBJETIVO
+======================================== */
+
+/* Botones y elementos interactivos */
+.participation-prompt button,
+.participation-option,
+.modal-content button,
+.add-tag,
+.close-prompt,
+.toggle-tracking {
+    min-width: var(--motor-target-size);
+    min-height: var(--motor-target-size);
+    padding: 12px 16px;
+    margin: 4px;
+    position: relative;
+}
+
+/* Área de activación expandida */
+.participation-prompt button::before,
+.participation-option::before,
+.modal-content button::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    z-index: -1;
+}
+
+/* Elementos de formulario */
+.contribution-text,
+.cultural-region,
+.cultural-tags-input input {
+    min-height: var(--motor-target-size);
+    padding: 12px 16px;
+    font-size: 16px; /* Previene zoom en iOS */
+    line-height: 1.5;
+}
+
+/* Checkboxes y radio buttons expandidos */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 8px;
+    cursor: pointer;
+}
+
+/* Labels expandidos para checkboxes */
+.option-group {
+    padding: 16px;
+    margin: 8px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background var(--motor-transition-slow);
+}
+
+/* ========================================
+   ESPACIADO MEJORADO
+======================================== */
+
+/* Espaciado entre opciones de participación */
+.participation-options {
+    gap: var(--motor-spacing);
+}
+
+.participation-option {
+    margin-bottom: var(--motor-spacing);
+    padding: 20px;
+}
+
+/* Espaciado en el modal */
+.participation-steps {
+    padding: 24px;
+}
+
+.step {
+    padding: 20px 0;
+}
+
+/* Espaciado en formularios */
+.cultural-context-form {
+    gap: 24px;
+}
+
+.context-field {
+    margin-bottom: 20px;
+}
+
+/* Espaciado en métricas */
+.metric-item {
+    padding: 16px 0;
+    margin: 8px 0;
+}
+
+/* ========================================
+   HOVER Y ESTADOS EXTENDIDOS
+======================================== */
+
+/* Delay en hover para evitar activaciones accidentales */
+.participation-option,
+.modal-content button,
+.achievement-card {
+    transition: all var(--motor-transition-slow);
+    transition-delay: var(--motor-hover-delay);
+}
+
+.participation-option:hover,
+.modal-content button:hover,
+.achievement-card:hover {
+    transition-delay: 0ms;
+}
+
+/* Estados de hover más visibles */
+.participation-option:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-width: 3px;
+}
+
+.modal-content button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+/* ========================================
+   ESTADOS DE FOCO MEJORADOS
+======================================== */
+
+/* Foco visible y prominente */
+*:focus {
+    outline: var(--motor-focus-size) solid #ff6b35;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.3);
+    transition: outline var(--motor-transition-slow);
+}
+
+/* Foco específico para elementos de participación */
+.participation-prompt:focus,
+.participation-option:focus {
+    outline-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.4);
+    transform: scale(1.02);
+}
+
+/* Foco en elementos de formulario */
+.contribution-text:focus,
+.cultural-region:focus,
+.cultural-tags-input input:focus {
+    outline-color: #27ae60;
+    border-color: #27ae60;
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+/* Foco en botones */
+button:focus,
+.btn-primary:focus,
+.btn-secondary:focus {
+    outline-color: #e74c3c;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   CURSOR Y PUNTERO MEJORADOS
+======================================== */
+
+/* Cursor de mano más visible */
+.participation-option,
+.modal-content button,
+.close-prompt,
+.toggle-tracking,
+.achievement-card.unlocked {
+    cursor: pointer;
+}
+
+/* Cursor de ayuda para elementos informativos */
+.cultural-weight,
+.achievement-progress,
+.metric-bar {
+    cursor: help;
+}
+
+/* Cursor no permitido para elementos deshabilitados */
+.achievement-card.locked,
+button:disabled,
+input:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ========================================
+   SIMPLIFICACIÓN DE INTERACCIONES COMPLEJAS
+======================================== */
+
+/* Slider simplificado */
+.slider {
+    height: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+}
+
+.slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    cursor: grab;
+}
+
+.slider::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(1.2);
+}
+
+/* Áreas de arrastre extendidas */
+.cultural-tag {
+    padding: 10px 16px;
+    margin: 4px;
+    cursor: default;
+}
+
+.remove-tag {
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/* ========================================
+   FEEDBACK VISUAL MEJORADO
+======================================== */
+
+/* Estados activos más visibles */
+.participation-option.selected {
+    border-width: 4px;
+    border-color: #f1c40f;
+    box-shadow: 0 0 25px rgba(241, 196, 15, 0.4);
+    transform: scale(1.02);
+}
+
+/* Estados de carga visibles */
+.participation-option.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.participation-option.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: motor-loading 1s linear infinite;
+}
+
+@keyframes motor-loading {
+    to { transform: rotate(360deg); }
+}
+
+/* Validación visual clara */
+.contribution-text.valid {
+    border-color: #27ae60;
+    border-width: 3px;
+    box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+}
+
+.contribution-text.invalid {
+    border-color: #e74c3c;
+    border-width: 3px;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+/* ========================================
+   MENSAJES DE ERROR PROMINENTES
+======================================== */
+
+.validation-error {
+    padding: 16px 20px;
+    margin: 12px 0;
+    border-left: 5px solid #e74c3c;
+    background: #fadbd8;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.validation-error::before {
+    content: '⚠️';
+    font-size: 1.5em;
+    margin-right: 12px;
+}
+
+/* ========================================
+   ADAPTACIONES PARA TEMBLORES
+======================================== */
+
+/* Área de tolerancia para clics */
+.participation-option,
+.modal-content button {
+    position: relative;
+    overflow: visible;
+}
+
+.participation-option::after,
+.modal-content button::after {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: -12px;
+    right: -12px;
+    bottom: -12px;
+    z-index: -1;
+}
+
+/* Prevenir doble clic accidental */
+.participation-option,
+.modal-content button {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ========================================
+   MODOS DE ALTO CONTRASTE
+======================================== */
+
+@media (prefers-contrast: high) {
+    .participation-prompt {
+        border: 3px solid #000;
+        background: #fff;
+        color: #000;
+    }
+    
+    .participation-option {
+        border: 2px solid #000;
+        background: #fff;
+        color: #000;
+    }
+    
+    .participation-option:hover,
+    .participation-option:focus {
+        background: #000;
+        color: #fff;
+    }
+    
+    .modal-content {
+        border: 3px solid #000;
+        background: #fff;
+    }
+    
+    button {
+        border: 2px solid #000;
+        background: #fff;
+        color: #000;
+    }
+    
+    button:hover,
+    button:focus {
+        background: #000;
+        color: #fff;
+    }
+}
+
+/* ========================================
+   AYUDAS VISUALES PARA DISCAPACIDADES MOTORAS
+======================================== */
+
+/* Indicadores de área clicable */
+.motor-assistance-mode .participation-option::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px dashed rgba(255, 107, 53, 0.5);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+/* Indicadores de tiempo de hover */
+.motor-assistance-mode .participation-option {
+    position: relative;
+}
+
+.motor-assistance-mode .participation-option:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #27ae60 0%, transparent 100%);
+    animation: motor-hover-timer var(--motor-hover-delay) linear;
+}
+
+@keyframes motor-hover-timer {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+/* ========================================
+   ADAPTACIONES DE TIEMPO
+======================================== */
+
+/* Timeouts extendidos */
+.participation-prompt.show {
+    animation-duration: 1s;
+    animation-delay: 500ms;
+}
+
+.modal-content {
+    transition-duration: 500ms;
+}
+
+/* Confirmación de doble clic opcional */
+.double-click-confirm {
+    position: relative;
+}
+
+.double-click-confirm::after {
+    content: 'Hacer clic nuevamente para confirmar';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    font-size: 12px;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms;
+}
+
+.double-click-confirm.clicked::after {
+    opacity: 1;
+}
+
+/* ========================================
+   RESPONSIVE PARA DISPOSITIVOS TÁCTILES
+======================================== */
+
+@media (pointer: coarse) {
+    :root {
+        --motor-target-size: 48px;
+        --motor-spacing: 20px;
+        --motor-activation-area: 56px;
+    }
+    
+    .participation-option {
+        padding: 24px;
+        margin: 12px 0;
+    }
+    
+    .modal-content button {
+        padding: 16px 24px;
+        margin: 8px;
+    }
+    
+    .cultural-tags-input input {
+        padding: 16px;
+        font-size: 18px;
+    }
+}
+
+/* ========================================
+   MODO DE ACCESIBILIDAD EXTREMA
+======================================== */
+
+.extreme-motor-assistance {
+    --motor-target-size: 60px;
+    --motor-spacing: 24px;
+    --motor-hover-delay: 500ms;
+    --motor-focus-size: 6px;
+}
+
+.extreme-motor-assistance .participation-option {
+    padding: 32px;
+    margin: 16px 0;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.extreme-motor-assistance button {
+    padding: 20px 32px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.extreme-motor-assistance .contribution-text {
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   UTILIDADES DE DEPURACIÓN
+======================================== */
+
+.motor-debug * {
+    outline: 1px dashed rgba(255, 0, 0, 0.3) !important;
+}
+
+.motor-debug .participation-option {
+    background: rgba(255, 107, 53, 0.1) !important;
+}
+
+.motor-debug button {
+    background: rgba(39, 174, 96, 0.1) !important;
+}
+
+.motor-debug input,
+.motor-debug textarea {
+    background: rgba(52, 152, 219, 0.1) !important;
+}

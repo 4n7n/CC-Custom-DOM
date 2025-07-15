@@ -1,0 +1,627 @@
+/**
+ * RAMA 7: Focus Indicators - Indicadores de foco para accesibilidad
+ * Sistema completo de indicadores visuales para navegación por teclado
+ */
+
+/* ========================================
+   CONFIGURACIÓN BASE DE FOCUS
+======================================== */
+
+/* Reset del outline por defecto */
+*:focus {
+    outline: none;
+}
+
+/* Clase base para elementos enfocables */
+.focusable {
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.focusable:focus-visible {
+    outline: 2px solid var(--focus-color, #ff6b35);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* ========================================
+   INDICADORES PRINCIPALES DE FOCUS
+======================================== */
+
+/* Focus estándar mejorado */
+.enhanced-focus:focus-visible {
+    outline: 3px solid var(--focus-color, #ff6b35);
+    outline-offset: 3px;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        0 0 0 4px rgba(255, 107, 53, 0.3),
+        0 4px 12px rgba(255, 107, 53, 0.2);
+    border-radius: 6px;
+    z-index: 100;
+}
+
+/* Focus con animación */
+.animated-focus {
+    position: relative;
+}
+
+.animated-focus::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 2px solid var(--focus-color, #ff6b35);
+    border-radius: 6px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.animated-focus:focus-visible::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Focus pulsante */
+.pulse-focus:focus-visible {
+    animation: focusPulse 2s ease-in-out infinite;
+}
+
+@keyframes focusPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 2px var(--focus-color, #ff6b35);
+    }
+    50% {
+        box-shadow: 0 0 0 4px rgba(255, 107, 53, 0.6);
+    }
+}
+
+/* ========================================
+   FOCUS PARA ELEMENTOS CULTURALES
+======================================== */
+
+.cultural-element:focus-visible {
+    outline: 3px solid var(--cultural-focus, #ff6b35);
+    outline-offset: 4px;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 107, 53, 0.4),
+        inset 0 0 0 2px rgba(255, 107, 53, 0.2);
+    transform: translateY(-2px) scale(1.02);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+/* Indicador de exploración cultural */
+.cultural-element.keyboard-focus::after {
+    content: '🔍 Explorar';
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    opacity: 0;
+    animation: focusTooltipShow 0.3s ease-out 0.5s forwards;
+    z-index: 100;
+}
+
+@keyframes focusTooltipShow {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ========================================
+   FOCUS PARA OPCIONES DE HISTORIA
+======================================== */
+
+.story-choice:focus-visible {
+    outline: 3px solid var(--choice-focus, #ff6b35);
+    outline-offset: 3px;
+    background: linear-gradient(135deg, #3d566e, #34495e);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        0 8px 20px rgba(255, 107, 53, 0.3);
+    border-radius: 12px;
+}
+
+/* Indicador de número de opción */
+.story-choice.keyboard-focus::before {
+    content: attr(data-choice-number);
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 24px;
+    height: 24px;
+    background: var(--focus-color, #ff6b35);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    border: 2px solid white;
+    animation: choiceNumberPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes choiceNumberPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* ========================================
+   FOCUS PARA PERSONAJES
+======================================== */
+
+.character:focus-visible {
+    outline: 3px solid var(--character-focus, #ff6b35);
+    outline-offset: 5px;
+    border-radius: 50%;
+    transform: scale(1.05);
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.9),
+        0 0 30px rgba(255, 107, 53, 0.5);
+    z-index: 10;
+}
+
+/* Aura de personaje enfocado */
+.character.keyboard-focus::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    border: 2px solid var(--focus-color, #ff6b35);
+    border-radius: 50%;
+    animation: characterAura 3s linear infinite;
+    z-index: -1;
+}
+
+@keyframes characterAura {
+    0% {
+        transform: rotate(0deg) scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+        opacity: 0.8;
+    }
+}
+
+/* Indicador de diálogo disponible */
+.character.keyboard-focus .dialogue-indicator {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: var(--focus-color, #ff6b35);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7em;
+    border: 2px solid white;
+    animation: dialogueIndicatorBounce 1s ease-in-out infinite;
+}
+
+.character.keyboard-focus .dialogue-indicator::after {
+    content: '💬';
+    margin-left: 4px;
+}
+
+@keyframes dialogueIndicatorBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+/* ========================================
+   FOCUS PARA BOTONES Y CONTROLES
+======================================== */
+
+.narrative-button:focus-visible {
+    outline: 3px solid var(--button-focus, #ff6b35);
+    outline-offset: 3px;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 6px 16px rgba(255, 107, 53, 0.4);
+    transform: translateY(-1px);
+    background: linear-gradient(135deg, #ff8c42, #ff6b35);
+}
+
+/* Indicador de acción de botón */
+.narrative-button.keyboard-focus::after {
+    content: attr(data-action-hint);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75em;
+    margin-top: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    animation: actionHintShow 0.3s ease-out 0.3s forwards;
+}
+
+@keyframes actionHintShow {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ========================================
+   FOCUS PARA NAVEGACIÓN
+======================================== */
+
+.nav-element:focus-visible {
+    outline: 2px solid var(--nav-focus, #ff6b35);
+    outline-offset: 2px;
+    background: rgba(255, 107, 53, 0.1);
+    transform: translateX(3px);
+    border-radius: 6px;
+}
+
+/* Indicador de navegación activa */
+.nav-element.keyboard-focus::before {
+    content: '→';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--focus-color, #ff6b35);
+    font-weight: bold;
+    animation: navArrowBounce 1s ease-in-out infinite;
+}
+
+@keyframes navArrowBounce {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(3px); }
+}
+
+/* ========================================
+   FOCUS PARA ELEMENTOS DE TIMELINE
+======================================== */
+
+.timeline-event:focus-visible {
+    outline: 3px solid var(--timeline-focus, #ff6b35);
+    outline-offset: 4px;
+    transform: translateX(5px);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.8),
+        0 4px 16px rgba(255, 107, 53, 0.3);
+    border-radius: 8px;
+    background: rgba(255, 107, 53, 0.05);
+}
+
+/* Indicador de fecha enfocada */
+.timeline-event.keyboard-focus .date-highlight {
+    position: absolute;
+    left: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--focus-color, #ff6b35);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8em;
+    font-weight: bold;
+    animation: dateHighlightShow 0.3s ease-out;
+}
+
+@keyframes dateHighlightShow {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+/* ========================================
+   FOCUS PARA CAMPOS DE ENTRADA
+======================================== */
+
+.narrative-input:focus-visible {
+    outline: 3px solid var(--input-focus, #ff6b35);
+    outline-offset: 1px;
+    border-color: var(--focus-color, #ff6b35);
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 0 8px rgba(255, 107, 53, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+/* Indicador de campo activo */
+.narrative-input.keyboard-focus + .field-indicator {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    transform: translateY(-50%);
+    background: var(--focus-color, #ff6b35);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7em;
+    animation: fieldIndicatorShow 0.3s ease-out;
+}
+
+@keyframes fieldIndicatorShow {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+/* ========================================
+   FOCUS PARA ELEMENTOS MULTIMEDIA
+======================================== */
+
+.media-element:focus-visible {
+    outline: 3px solid var(--media-focus, #ff6b35);
+    outline-offset: 4px;
+    border-radius: 8px;
+    transform: scale(1.02);
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.9),
+        0 8px 24px rgba(255, 107, 53, 0.4);
+}
+
+/* Overlay de controles enfocados */
+.media-element.keyboard-focus .media-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    gap: 10px;
+    animation: mediaControlsShow 0.3s ease-out;
+}
+
+@keyframes mediaControlsShow {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ========================================
+   INDICADORES DE SKIP LINKS
+======================================== */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--focus-color, #ff6b35);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px;
+    outline: 3px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   INDICADORES DE REGIONES
+======================================== */
+
+.focus-region {
+    position: relative;
+}
+
+.focus-region.keyboard-focus::before {
+    content: attr(data-region-name);
+    position: absolute;
+    top: -30px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8em;
+    font-weight: bold;
+    animation: regionIndicatorShow 0.3s ease-out;
+    z-index: 100;
+}
+
+@keyframes regionIndicatorShow {
+    0% {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   INDICADORES DE ESTADO DE FOCUS
+======================================== */
+
+/* Focus en elementos deshabilitados */
+.disabled:focus-visible {
+    outline: 2px dashed #999;
+    outline-offset: 2px;
+    opacity: 0.6;
+}
+
+/* Focus en elementos requeridos */
+.required:focus-visible {
+    outline: 3px solid #e74c3c;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9);
+}
+
+/* Focus en elementos con errores */
+.error:focus-visible {
+    outline: 3px solid #e74c3c;
+    outline-offset: 2px;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 0 8px rgba(231, 76, 60, 0.5);
+    animation: errorFocusPulse 1s ease-in-out infinite;
+}
+
+@keyframes errorFocusPulse {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 0 8px rgba(231, 76, 60, 0.5); }
+    50% { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.9), 0 0 12px rgba(231, 76, 60, 0.8); }
+}
+
+/* ========================================
+   INDICADORES GLOBALES
+======================================== */
+
+/* Indicador global de elemento enfocado */
+body.keyboard-navigation .keyboard-focus-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    z-index: 10000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+body.keyboard-navigation.has-focus .keyboard-focus-indicator {
+    opacity: 1;
+}
+
+/* ========================================
+   UTILIDADES DE FOCUS
+======================================== */
+
+/* Solo mostrar en navegación por teclado */
+.keyboard-only {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+body.keyboard-navigation .keyboard-only {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Focus visible mejorado */
+.focus-visible-enhanced:focus-visible {
+    outline: 3px solid var(--focus-color, #ff6b35);
+    outline-offset: 3px;
+    box-shadow: 
+        0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 0 16px rgba(255, 107, 53, 0.4);
+    z-index: 100;
+}
+
+/* ========================================
+   RESPONSIVE FOCUS INDICATORS
+======================================== */
+
+@media (max-width: 768px) {
+    .enhanced-focus:focus-visible,
+    .cultural-element:focus-visible,
+    .story-choice:focus-visible,
+    .character:focus-visible {
+        outline-width: 2px;
+        outline-offset: 2px;
+    }
+    
+    .cultural-element.keyboard-focus::after,
+    .story-choice.keyboard-focus::before,
+    .character.keyboard-focus .dialogue-indicator {
+        font-size: 0.75em;
+        padding: 4px 8px;
+    }
+}
+
+/* ========================================
+   DARK MODE ADAPTATIONS
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+    .enhanced-focus:focus-visible,
+    .animated-focus:focus-visible,
+    .cultural-element:focus-visible,
+    .story-choice:focus-visible,
+    .character:focus-visible {
+        box-shadow: 
+            0 0 0 1px rgba(0, 0, 0, 0.9),
+            0 0 0 3px rgba(255, 107, 53, 0.6),
+            0 4px 12px rgba(255, 107, 53, 0.3);
+    }
+}
+
+/* ========================================
+   ACCESIBILIDAD
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .animated-focus::before,
+    .pulse-focus:focus-visible,
+    .cultural-element.keyboard-focus::after,
+    .story-choice.keyboard-focus::before,
+    .character.keyboard-focus::before,
+    .character.keyboard-focus .dialogue-indicator {
+        animation: none;
+        transition: opacity 0.2s ease;
+    }
+    
+    .enhanced-focus:focus-visible,
+    .cultural-element:focus-visible,
+    .story-choice:focus-visible,
+    .character:focus-visible {
+        transform: none;
+        transition: outline 0.2s ease, box-shadow 0.2s ease;
+    }
+}
