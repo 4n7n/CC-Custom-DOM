@@ -1,0 +1,25 @@
+{
+  "traditions": {
+    "festivals": {
+      "harvest_celebration": {
+        "name": "Fiesta de la Cosecha",
+        "description": "Celebración anual de agradecimiento por los frutos obtenidos",
+        "activities": ["bailes tradicionales", "comida comunitaria", "intercambio de historias"]
+      },
+      "youth_ceremony": {
+        "name": "Ceremonia de Iniciación",
+        "description": "Ritual de paso para los jóvenes de la comunidad",
+        "activities": ["pruebas de conocimiento", "compromiso comunitario", "bendición de ancianos"]
+      }
+    },
+    "customs": {
+      "weekly_circle": "Reunión semanal para tomar decisiones comunitarias",
+      "story_telling": "Transmisión oral de historias y enseñanzas",
+      "mutual_aid": "Sistema de apoyo mutuo entre familias"
+    }
+  },
+  "values": {
+    "core_principles": ["respeto", "solidaridad", "sostenibilidad", "inclusión"],
+    "behavioral_norms": ["escucha activa", "participación equitativa", "responsabilidad colectiva"]
+  }
+}

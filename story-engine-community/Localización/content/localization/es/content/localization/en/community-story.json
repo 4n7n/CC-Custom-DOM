@@ -1,0 +1,40 @@
+{
+  "language": "english",
+  "region": "en-US",
+  "story_elements": {
+    "titles": {
+      "main_story": "Our Community's Story",
+      "chapter_01": "The Origins",
+      "chapter_02": "Challenges and Growth",
+      "chapter_03": "Flourishing",
+      "chapter_04": "The Strength of Unity",
+      "chapter_05": "Building the Future"
+    },
+    "character_names": {
+      "maria_elder": "Maria, the Wise Elder",
+      "carlos_youth": "Carlos, the Young Innovator",
+      "ana_mother": "Ana, the Working Mother"
+    },
+    "common_phrases": {
+      "welcome": "Welcome to our community",
+      "choose_path": "Choose your path",
+      "continue_story": "Continue the story",
+      "make_decision": "Make decision",
+      "reflect_choice": "Reflect on choice"
+    },
+    "narrative_elements": {
+      "scene_transitions": [
+        "Meanwhile...",
+        "The next day...",
+        "Elsewhere in the community...",
+        "Later on..."
+      ],
+      "emotional_markers": {
+        "joy": "with joy",
+        "concern": "with concern",
+        "hope": "with hope",
+        "determination": "with determination"
+      }
+    }
+  }
+}

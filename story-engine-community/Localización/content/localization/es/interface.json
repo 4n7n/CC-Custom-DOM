@@ -1,0 +1,32 @@
+{
+  "ui_elements": {
+    "navigation": {
+      "next": "Suivant",
+      "previous": "Précédent",
+      "menu": "Menu",
+      "home": "Accueil",
+      "progress": "Progrès",
+      "settings": "Paramètres"
+    },
+    "actions": {
+      "start_story": "Commencer l'Histoire",
+      "save_progress": "Sauvegarder le Progrès",
+      "load_game": "Charger la Partie",
+      "restart": "Redémarrer",
+      "pause": "Pause",
+      "resume": "Reprendre"
+    },
+    "feedback": {
+      "choice_confirmed": "Choix confirmé",
+      "progress_saved": "Progrès sauvegardé",
+      "chapter_completed": "Chapitre terminé",
+      "story_finished": "Histoire terminée"
+    },
+    "accessibility": {
+      "audio_description": "Description audio",
+      "high_contrast": "Contraste élevé",
+      "large_text": "Texte large",
+      "slow_pace": "Rythme lent"
+    }
+  }
+}

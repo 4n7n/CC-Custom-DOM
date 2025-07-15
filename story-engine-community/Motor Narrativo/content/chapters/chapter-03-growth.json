@@ -1,0 +1,63 @@
+{
+  "chapterTitle": "Florecimiento",
+  "chapterNumber": 3,
+  "description": "Vive el periodo de mayor desarrollo y consolidación de la comunidad",
+  "scenes": [
+    {
+      "sceneId": "prosperity_period",
+      "title": "Época de Prosperidad",
+      "description": "El momento dorado de crecimiento económico y social",
+      "narrative": "Los esfuerzos colectivos comenzaron a dar frutos visibles. La comunidad florecía como un jardín bien cuidado...",
+      "interactiveElements": ["participar en proyectos comunitarios", "celebrar logros", "planificar futuro"],
+      "characters": ["successful_entrepreneurs", "skilled_artisans", "community_leaders"],
+      "achievements": [
+        "Construcción del centro cultural",
+        "Establecimiento de cooperativas económicas",
+        "Programas educativos exitosos"
+      ],
+      "choices": [
+        {
+          "id": "expand_projects",
+          "text": "Expandir proyectos exitosos a otras áreas",
+          "consequence": "Maximiza beneficios pero aumenta complejidad"
+        },
+        {
+          "id": "consolidate_gains",
+          "text": "Consolidar logros actuales antes de expandir",
+          "consequence": "Asegura estabilidad pero limita crecimiento"
+        }
+      ]
+    },
+    {
+      "sceneId": "new_opportunities",
+      "title": "Nuevas Oportunidades",
+      "description": "La apertura de nuevos caminos para el desarrollo personal y comunitario",
+      "narrative": "Con la estabilidad llegaron oportunidades antes impensables. Los jóvenes podían soñar más alto...",
+      "interactiveElements": ["elegir especializaciones", "crear iniciativas", "mentorear jóvenes"],
+      "opportunities": [
+        "Programas de educación superior",
+        "Intercambios culturales",
+        "Proyectos de innovación tecnológica",
+        "Iniciativas de sostenibilidad ambiental"
+      ],
+      "choices": [
+        {
+          "id": "education_focus",
+          "text": "Priorizar desarrollo educativo avanzado",
+          "consequence": "Forma líderes preparados pero requiere inversión a largo plazo"
+        },
+        {
+          "id": "innovation_hub",
+          "text": "Crear centro de innovación comunitaria",
+          "consequence": "Atrae talento joven pero puede cambiar dinámicas culturales"
+        }
+      ]
+    }
+  ],
+  "learningObjectives": ["reconocer frutos del trabajo colectivo", "identificar oportunidades", "planificar desarrollo sostenible"],
+  "culturalElements": ["festivales de prosperidad", "ceremonias de reconocimiento", "tradiciones de abundancia"],
+  "progressMarkers": {
+    "completion_percentage": 60,
+    "skills_developed": ["visión estratégica", "gestión de recursos", "liderazgo inspiracional"]
+  }
+}
