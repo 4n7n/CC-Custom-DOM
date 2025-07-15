@@ -1,0 +1,406 @@
+/* === CORPORATE THEME === */
+
+:root {
+    /* Primary Colors */
+    --primary-color: #1e40af;
+    --primary-light: #dbeafe;
+    --primary-dark: #1e3a8a;
+    --primary-gradient: linear-gradient(135deg, #1e40af, #1e3a8a);
+    
+    /* Secondary Colors */
+    --secondary-color: #64748b;
+    --secondary-light: #f1f5f9;
+    --secondary-dark: #475569;
+    
+    /* Accent Colors */
+    --accent-color: #0ea5e9;
+    --accent-light: #e0f2fe;
+    --accent-dark: #0284c7;
+    
+    /* Background Colors */
+    --body-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --header-bg: linear-gradient(135deg, #1e40af, #1e3a8a);
+    --sidebar-bg: #ffffff;
+    --overlay-bg: rgba(30, 64, 175, 0.9);
+    
+    /* Text Colors */
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+    --text-muted: #cbd5e1;
+    --text-inverse: #ffffff;
+    
+    /* Border Colors */
+    --border-light: #e2e8f0;
+    --border-medium: #cbd5e1;
+    --border-dark: #94a3b8;
+    
+    /* Success, Warning, Error */
+    --success-color: #059669;
+    --success-bg: #f0fdf4;
+    --success-border: #bbf7d0;
+    
+    --warning-color: #d97706;
+    --warning-bg: #fefce8;
+    --warning-border: #fde047;
+    
+    --error-color: #dc2626;
+    --error-bg: #fef2f2;
+    --error-border: #fecaca;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.2s ease;
+    --transition-slow: 0.3s ease;
+    
+    /* Typography */
+    --font-family-sans: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+    
+    /* Font Weights */
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+}
+
+/* Theme Application */
+.theme-corporate {
+    color-scheme: light;
+    background: var(--body-bg);
+    color: var(--text-primary);
+    font-family: var(--font-family-sans);
+}
+
+/* Header Styling */
+.theme-corporate .dashboard-header {
+    background: var(--header-bg);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-corporate .dashboard-title {
+    color: var(--text-inverse);
+    font-weight: var(--font-bold);
+}
+
+/* Navigation */
+.theme-corporate .nav-tabs {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-corporate .nav-tab {
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+    transition: all var(--transition-normal);
+}
+
+.theme-corporate .nav-tab:hover {
+    background: var(--secondary-light);
+    color: var(--text-primary);
+}
+
+.theme-corporate .nav-tab.active {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    font-weight: var(--font-semibold);
+}
+
+/* Cards */
+.theme-corporate .sponsor-card,
+.theme-corporate .impact-metric-card,
+.theme-corporate .donation-widget,
+.theme-corporate .analytics-charts-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-corporate .sponsor-card:hover,
+.theme-corporate .impact-metric-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+/* Buttons */
+.theme-corporate .btn {
+    font-weight: var(--font-medium);
+    transition: all var(--transition-normal);
+    border-radius: 6px;
+}
+
+.theme-corporate .btn-primary {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-inverse);
+}
+
+.theme-corporate .btn-primary:hover {
+    background: var(--primary-dark);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-corporate .btn-secondary {
+    background: var(--card-bg);
+    border-color: var(--border-medium);
+    color: var(--text-primary);
+}
+
+.theme-corporate .btn-secondary:hover {
+    background: var(--secondary-light);
+    border-color: var(--border-dark);
+}
+
+/* Forms */
+.theme-corporate input,
+.theme-corporate select,
+.theme-corporate textarea {
+    background: var(--card-bg);
+    border: 1px solid var(--border-medium);
+    color: var(--text-primary);
+    border-radius: 6px;
+    font-family: var(--font-family-sans);
+}
+
+.theme-corporate input:focus,
+.theme-corporate select:focus,
+.theme-corporate textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+    outline: none;
+}
+
+/* Progress Bars */
+.theme-corporate .progress-bar {
+    background: var(--secondary-light);
+}
+
+.theme-corporate .progress-fill {
+    background: var(--primary-gradient);
+}
+
+/* Metric Cards Specific */
+.theme-corporate .metric-card-funding {
+    --metric-accent: var(--success-color);
+    --metric-icon-bg: var(--success-color);
+}
+
+.theme-corporate .metric-card-sponsors {
+    --metric-accent: var(--primary-color);
+    --metric-icon-bg: var(--primary-color);
+}
+
+.theme-corporate .metric-card-reach {
+    --metric-accent: var(--accent-color);
+    --metric-icon-bg: var(--accent-color);
+}
+
+.theme-corporate .metric-card-growth {
+    --metric-accent: var(--warning-color);
+    --metric-icon-bg: var(--warning-color);
+}
+
+/* Time Selector */
+.theme-corporate .time-selector {
+    background: var(--secondary-light);
+    border: 1px solid var(--border-light);
+}
+
+.theme-corporate .time-btn {
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+}
+
+.theme-corporate .time-btn:hover {
+    background: var(--border-light);
+    color: var(--text-primary);
+}
+
+.theme-corporate .time-btn.active {
+    background: var(--primary-color);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Sponsor Tier Colors */
+.theme-corporate .sponsor-card[data-tier="platinum"] {
+    --tier-color: #7c3aed;
+}
+
+.theme-corporate .sponsor-card[data-tier="gold"] {
+    --tier-color: #d97706;
+}
+
+.theme-corporate .sponsor-card[data-tier="silver"] {
+    --tier-color: #64748b;
+}
+
+.theme-corporate .sponsor-card[data-tier="bronze"] {
+    --tier-color: #dc2626;
+}
+
+/* Chart Styling */
+.theme-corporate .chart-canvas-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+}
+
+.theme-corporate .chart-legend {
+    border-top-color: var(--border-light);
+}
+
+/* Tooltips */
+.theme-corporate .chart-tooltip {
+    background: var(--text-primary);
+    color: var(--text-inverse);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Tables */
+.theme-corporate .table {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+}
+
+.theme-corporate .table th {
+    background: var(--secondary-light);
+    color: var(--text-primary);
+    font-weight: var(--font-semibold);
+    border-bottom: 2px solid var(--border-medium);
+}
+
+.theme-corporate .table td {
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-primary);
+}
+
+.theme-corporate .table tr:hover {
+    background: var(--secondary-light);
+}
+
+/* Status Indicators */
+.theme-corporate .status-active {
+    color: var(--success-color);
+    background: var(--success-bg);
+    border-color: var(--success-border);
+}
+
+.theme-corporate .status-inactive {
+    color: var(--error-color);
+    background: var(--error-bg);
+    border-color: var(--error-border);
+}
+
+.theme-corporate .status-pending {
+    color: var(--warning-color);
+    background: var(--warning-bg);
+    border-color: var(--warning-border);
+}
+
+/* Engagement Indicators */
+.theme-corporate .engagement-high {
+    --engagement-bg: var(--success-bg);
+    --engagement-border: var(--success-color);
+    --engagement-text: var(--success-color);
+}
+
+.theme-corporate .engagement-medium {
+    --engagement-bg: var(--warning-bg);
+    --engagement-border: var(--warning-color);
+    --engagement-text: var(--warning-color);
+}
+
+.theme-corporate .engagement-low {
+    --engagement-bg: var(--error-bg);
+    --engagement-border: var(--error-color);
+    --engagement-text: var(--error-color);
+}
+
+/* Scrollbars */
+.theme-corporate ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.theme-corporate ::-webkit-scrollbar-track {
+    background: var(--secondary-light);
+    border-radius: 4px;
+}
+
+.theme-corporate ::-webkit-scrollbar-thumb {
+    background: var(--border-dark);
+    border-radius: 4px;
+}
+
+.theme-corporate ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Loading States */
+.theme-corporate .loading-skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--secondary-light) 25%,
+        var(--border-light) 50%,
+        var(--secondary-light) 75%
+    );
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Focus Styles */
+.theme-corporate *:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+    .theme-corporate {
+        --body-bg: #ffffff;
+        --card-bg: #ffffff;
+        --text-primary: #000000;
+        --text-secondary: #333333;
+        --border-light: #cccccc;
+    }
+    
+    .theme-corporate .dashboard-header {
+        background: #ffffff !important;
+        color: var(--text-primary) !important;
+        box-shadow: none !important;
+        border-bottom: 2px solid var(--border-light) !important;
+    }
+    
+    .theme-corporate .btn {
+        border: 1px solid var(--border-dark) !important;
+        background: #ffffff !important;
+        color: var(--text-primary) !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .theme-corporate {
+        --border-light: #000000;
+        --border-medium: #000000;
+        --text-secondary: #000000;
+        --primary-color: #0000ff;
+    }
+}

@@ -1,0 +1,344 @@
+/* === SPONSOR CARDS COMPONENT === */
+
+.sponsor-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.sponsor-card {
+    background: var(--card-bg, #ffffff);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--card-border, #e5e7eb);
+}
+
+.sponsor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.sponsor-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--tier-color, #667eea);
+}
+
+/* Card Header */
+.sponsor-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sponsor-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: var(--tier-color, #667eea);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 16px;
+    overflow: hidden;
+}
+
+.sponsor-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sponsor-info {
+    flex: 1;
+}
+
+.sponsor-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary, #1f2937);
+    margin-bottom: 4px;
+}
+
+.sponsor-tier-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: var(--tier-color, #667eea);
+    color: white;
+}
+
+/* Tier Specific Colors */
+.sponsor-card[data-tier="platinum"] {
+    --tier-color: #9333ea;
+}
+
+.sponsor-card[data-tier="gold"] {
+    --tier-color: #f59e0b;
+}
+
+.sponsor-card[data-tier="silver"] {
+    --tier-color: #6b7280;
+}
+
+.sponsor-card[data-tier="bronze"] {
+    --tier-color: #d97706;
+}
+
+/* Card Status */
+.sponsor-status {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--status-color, #10b981);
+}
+
+.sponsor-status.inactive {
+    --status-color: #ef4444;
+}
+
+.sponsor-status.pending {
+    --status-color: #f59e0b;
+}
+
+/* Metrics Grid */
+.sponsor-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.metric-item {
+    text-align: center;
+    padding: 16px 12px;
+    background: var(--metric-bg, #f9fafb);
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+}
+
+.metric-item:hover {
+    background: var(--metric-hover-bg, #f3f4f6);
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary, #1f2937);
+    margin-bottom: 4px;
+}
+
+.metric-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-secondary, #6b7280);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Card Actions */
+.sponsor-card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--card-border, #e5e7eb);
+}
+
+.action-btn {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--button-border, #d1d5db);
+    background: var(--button-bg, #ffffff);
+    color: var(--button-text, #374151);
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-btn:hover {
+    background: var(--button-hover-bg, #f9fafb);
+    border-color: var(--button-hover-border, #9ca3af);
+}
+
+.action-btn.primary {
+    background: var(--tier-color, #667eea);
+    color: white;
+    border-color: var(--tier-color, #667eea);
+}
+
+.action-btn.primary:hover {
+    opacity: 0.9;
+}
+
+/* Engagement Indicator */
+.engagement-indicator {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--engagement-bg, #f0f9ff);
+    border: 2px solid var(--engagement-border, #0ea5e9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--engagement-text, #0ea5e9);
+}
+
+.engagement-high {
+    --engagement-bg: #f0fdf4;
+    --engagement-border: #22c55e;
+    --engagement-text: #22c55e;
+}
+
+.engagement-medium {
+    --engagement-bg: #fefce8;
+    --engagement-border: #eab308;
+    --engagement-text: #eab308;
+}
+
+.engagement-low {
+    --engagement-bg: #fef2f2;
+    --engagement-border: #ef4444;
+    --engagement-text: #ef4444;
+}
+
+/* Progress Bars in Cards */
+.sponsor-progress {
+    margin: 16px 0;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--text-secondary, #6b7280);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--progress-bg, #e5e7eb);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--tier-color, #667eea);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Card Animations */
+@keyframes cardAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sponsor-card.animate-in {
+    animation: cardAppear 0.4s ease forwards;
+}
+
+/* Empty State */
+.sponsors-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary, #6b7280);
+}
+
+.sponsors-empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.sponsors-empty-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary, #1f2937);
+}
+
+.sponsors-empty-subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sponsor-cards-container {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .sponsor-card {
+        padding: 20px;
+    }
+    
+    .sponsor-metrics {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .sponsor-card-actions {
+        flex-direction: column;
+    }
+    
+    .action-btn {
+        margin-bottom: 8px;
+    }
+    
+    .action-btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .sponsor-card-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .sponsor-logo {
+        margin-right: 0;
+        margin-bottom: 12px;
+    }
+    
+    .engagement-indicator {
+        position: static;
+        margin: 12px auto 0;
+    }
+}

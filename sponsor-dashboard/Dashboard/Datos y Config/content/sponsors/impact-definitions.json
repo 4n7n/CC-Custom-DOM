@@ -1,0 +1,584 @@
+{
+  "impactMetrics": {
+    "totalFunding": {
+      "id": "totalFunding",
+      "name": "Total de Fondos Recaudados",
+      "description": "Suma total de todas las contribuciones monetarias de patrocinadores activos durante el período especificado",
+      "category": "financial",
+      "unit": "currency",
+      "currency": "USD",
+      "format": "currency",
+      "icon": "💰",
+      "color": "#10b981",
+      "calculation": {
+        "method": "sum",
+        "source": "sponsor_contributions",
+        "filters": ["status:active"],
+        "fields": ["amount"]
+      },
+      "targets": {
+        "annual": 200000,
+        "quarterly": 50000,
+        "monthly": 16667
+      },
+      "benchmarks": {
+        "industry_average": 150000,
+        "top_quartile": 300000,
+        "peer_organizations": 180000
+      },
+      "tracking": {
+        "frequency": "real_time",
+        "history_retention": "5_years",
+        "alert_thresholds": {
+          "low": 0.7,
+          "critical": 0.5
+        }
+      }
+    },
+    "activeSponsors": {
+      "id": "activeSponsors",
+      "name": "Patrocinadores Activos",
+      "description": "Número total de patrocinadores con estado activo que han contribuido en el período actual",
+      "category": "engagement",
+      "unit": "count",
+      "format": "number",
+      "icon": "🏢",
+      "color": "#3b82f6",
+      "calculation": {
+        "method": "count",
+        "source": "sponsors",
+        "filters": ["status:active"],
+        "distinct": true
+      },
+      "targets": {
+        "annual": 25,
+        "quarterly": 20,
+        "monthly": 18
+      },
+      "benchmarks": {
+        "industry_average": 15,
+        "top_quartile": 30,
+        "similar_organizations": 18
+      },
+      "tracking": {
+        "frequency": "daily",
+        "history_retention": "3_years",
+        "alert_thresholds": {
+          "low": 15,
+          "critical": 10
+        }
+      }
+    },
+    "totalReach": {
+      "id": "totalReach",
+      "name": "Alcance Total",
+      "description": "Número total de personas impactadas directa o indirectamente por los programas financiados por patrocinadores",
+      "category": "impact",
+      "unit": "people",
+      "format": "number",
+      "icon": "👥",
+      "color": "#8b5cf6",
+      "calculation": {
+        "method": "sum",
+        "source": "programs",
+        "filters": ["status:active", "funded_by:sponsors"],
+        "fields": ["beneficiaries_count", "indirect_beneficiaries"]
+      },
+      "targets": {
+        "annual": 100000,
+        "quarterly": 25000,
+        "monthly": 8333
+      },
+      "benchmarks": {
+        "industry_average": 75000,
+        "top_quartile": 150000,
+        "sector_leaders": 200000
+      },
+      "tracking": {
+        "frequency": "weekly",
+        "history_retention": "5_years",
+        "alert_thresholds": {
+          "low": 0.6,
+          "critical": 0.4
+        }
+      }
+    },
+    "averageEngagement": {
+      "id": "averageEngagement",
+      "name": "Engagement Promedio",
+      "description": "Nivel promedio de engagement y participación de todos los patrocinadores activos, basado en interacciones, eventos y comunicaciones",
+      "category": "engagement",
+      "unit": "score",
+      "format": "decimal",
+      "scale": "0-10",
+      "icon": "📊",
+      "color": "#f59e0b",
+      "calculation": {
+        "method": "average",
+        "source": "sponsor_engagement",
+        "filters": ["status:active"],
+        "fields": ["engagement_score"],
+        "weighted": true,
+        "weights": ["contribution_amount"]
+      },
+      "targets": {
+        "minimum": 6.0,
+        "good": 7.5,
+        "excellent": 9.0
+      },
+      "benchmarks": {
+        "industry_average": 6.8,
+        "top_performers": 8.5,
+        "best_in_class": 9.2
+      },
+      "tracking": {
+        "frequency": "daily",
+        "history_retention": "2_years",
+        "alert_thresholds": {
+          "low": 6.0,
+          "critical": 4.0
+        }
+      }
+    },
+    "retentionRate": {
+      "id": "retentionRate",
+      "name": "Tasa de Retención",
+      "description": "Porcentaje de patrocinadores que renuevan su colaboración al final de su período de compromiso",
+      "category": "sustainability",
+      "unit": "percentage",
+      "format": "percentage",
+      "icon": "🔄",
+      "color": "#06b6d4",
+      "calculation": {
+        "method": "percentage",
+        "numerator": {
+          "source": "sponsor_renewals",
+          "filters": ["renewal_period:current_year"],
+          "method": "count"
+        },
+        "denominator": {
+          "source": "sponsors",
+          "filters": ["eligible_for_renewal:current_year"],
+          "method": "count"
+        }
+      },
+      "targets": {
+        "minimum": 0.75,
+        "good": 0.85,
+        "excellent": 0.95
+      },
+      "benchmarks": {
+        "industry_average": 0.78,
+        "nonprofit_sector": 0.82,
+        "top_quartile": 0.92
+      },
+      "tracking": {
+        "frequency": "monthly",
+        "history_retention": "5_years",
+        "alert_thresholds": {
+          "low": 0.75,
+          "critical": 0.65
+        }
+      }
+    },
+    "conversionRate": {
+      "id": "conversionRate",
+      "name": "Tasa de Conversión",
+      "description": "Porcentaje de prospectos contactados que se convierten en patrocinadores activos",
+      "category": "acquisition",
+      "unit": "percentage",
+      "format": "percentage",
+      "icon": "🎯",
+      "color": "#ef4444",
+      "calculation": {
+        "method": "percentage",
+        "numerator": {
+          "source": "conversions",
+          "filters": ["period:current_quarter"],
+          "method": "count"
+        },
+        "denominator": {
+          "source": "prospects",
+          "filters": ["contacted:current_quarter"],
+          "method": "count"
+        }
+      },
+      "targets": {
+        "minimum": 0.10,
+        "good": 0.15,
+        "excellent": 0.25
+      },
+      "benchmarks": {
+        "industry_average": 0.12,
+        "fundraising_sector": 0.18,
+        "best_practices": 0.30
+      },
+      "tracking": {
+        "frequency": "weekly",
+        "history_retention": "2_years",
+        "alert_thresholds": {
+          "low": 0.10,
+          "critical": 0.05
+        }
+      }
+    },
+    "impactPerDollar": {
+      "id": "impactPerDollar",
+      "name": "Impacto por Dólar",
+      "description": "Número de personas beneficiadas por cada dólar recibido de patrocinadores, midiendo la eficiencia del impacto",
+      "category": "efficiency",
+      "unit": "ratio",
+      "format": "ratio",
+      "icon": "💡",
+      "color": "#84cc16",
+      "calculation": {
+        "method": "ratio",
+        "numerator": {
+          "source": "impact_metrics",
+          "field": "total_beneficiaries"
+        },
+        "denominator": {
+          "source": "sponsor_funding",
+          "field": "total_amount"
+        }
+      },
+      "targets": {
+        "minimum": 1.5,
+        "good": 2.5,
+        "excellent": 4.0
+      },
+      "benchmarks": {
+        "sector_average": 2.1,
+        "efficient_organizations": 3.5,
+        "world_class": 5.0
+      },
+      "tracking": {
+        "frequency": "monthly",
+        "history_retention": "3_years",
+        "alert_thresholds": {
+          "low": 1.5,
+          "critical": 1.0
+        }
+      }
+    }
+  },
+  "impactCategories": {
+    "financial": {
+      "name": "Impacto Financiero",
+      "description": "Métricas relacionadas con la recaudación de fondos y sostenibilidad financiera",
+      "color": "#10b981",
+      "icon": "💰",
+      "metrics": ["totalFunding", "averageDonation", "fundingGrowth"]
+    },
+    "engagement": {
+      "name": "Compromiso y Participación",
+      "description": "Métricas que miden el nivel de engagement y participación de los patrocinadores",
+      "color": "#3b82f6",
+      "icon": "🤝",
+      "metrics": ["activeSponsors", "averageEngagement", "eventAttendance"]
+    },
+    "impact": {
+      "name": "Impacto Social",
+      "description": "Métricas que cuantifican el impacto social y beneficiarios alcanzados",
+      "color": "#8b5cf6",
+      "icon": "🌟",
+      "metrics": ["totalReach", "beneficiariesServed", "programsSupported"]
+    },
+    "sustainability": {
+      "name": "Sostenibilidad",
+      "description": "Métricas relacionadas con la sostenibilidad a largo plazo de las relaciones",
+      "color": "#06b6d4",
+      "icon": "🌱",
+      "metrics": ["retentionRate", "renewalRate", "lifetimeValue"]
+    },
+    "efficiency": {
+      "name": "Eficiencia",
+      "description": "Métricas que miden la eficiencia en el uso de recursos y generación de impacto",
+      "color": "#84cc16",
+      "icon": "⚡",
+      "metrics": ["impactPerDollar", "costEfficiency", "resourceUtilization"]
+    },
+    "acquisition": {
+      "name": "Adquisición",
+      "description": "Métricas relacionadas con la adquisición de nuevos patrocinadores",
+      "color": "#ef4444",
+      "icon": "📈",
+      "metrics": ["conversionRate", "newSponsors", "pipelineValue"]
+    }
+  },
+  "calculationMethods": {
+    "sum": {
+      "name": "Suma",
+      "description": "Suma todos los valores del campo especificado"
+    },
+    "average": {
+      "name": "Promedio",
+      "description": "Calcula el valor promedio de los datos"
+    },
+    "count": {
+      "name": "Conteo",
+      "description": "Cuenta el número de registros que cumplen los criterios"
+    },
+    "percentage": {
+      "name": "Porcentaje",
+      "description": "Calcula el porcentaje basado en numerador y denominador"
+    },
+    "ratio": {
+      "name": "Ratio",
+      "description": "Calcula la proporción entre dos valores"
+    },
+    "median": {
+      "name": "Mediana",
+      "description": "Encuentra el valor medio en un conjunto ordenado de datos"
+    },
+    "growth": {
+      "name": "Crecimiento",
+      "description": "Calcula el porcentaje de crecimiento entre períodos"
+    }
+  },
+  "reportingFrequencies": {
+    "real_time": {
+      "name": "Tiempo Real",
+      "description": "Actualización continua conforme llegan los datos",
+      "interval": "continuous"
+    },
+    "hourly": {
+      "name": "Cada Hora",
+      "description": "Actualización cada hora",
+      "interval": "1h"
+    },
+    "daily": {
+      "name": "Diario",
+      "description": "Actualización una vez al día",
+      "interval": "24h"
+    },
+    "weekly": {
+      "name": "Semanal",
+      "description": "Actualización semanal",
+      "interval": "7d"
+    },
+    "monthly": {
+      "name": "Mensual",
+      "description": "Actualización mensual",
+      "interval": "30d"
+    },
+    "quarterly": {
+      "name": "Trimestral",
+      "description": "Actualización trimestral",
+      "interval": "90d"
+    },
+    "annually": {
+      "name": "Anual",
+      "description": "Actualización anual",
+      "interval": "365d"
+    }
+  },
+  "dataSources": {
+    "sponsors": {
+      "name": "Base de Datos de Patrocinadores",
+      "description": "Información principal de patrocinadores y sus contribuciones",
+      "type": "database",
+      "connection": "primary_db",
+      "tables": ["sponsors", "contributions", "contracts"]
+    },
+    "programs": {
+      "name": "Programas y Proyectos",
+      "description": "Datos sobre programas financiados y sus beneficiarios",
+      "type": "database",
+      "connection": "programs_db",
+      "tables": ["programs", "beneficiaries", "outcomes"]
+    },
+    "engagement": {
+      "name": "Sistema de Engagement",
+      "description": "Datos de interacciones y engagement de patrocinadores",
+      "type": "analytics",
+      "connection": "analytics_api",
+      "endpoints": ["/engagement", "/interactions", "/events"]
+    },
+    "financial": {
+      "name": "Sistema Financiero",
+      "description": "Datos financieros y contables",
+      "type": "erp",
+      "connection": "financial_system",
+      "modules": ["accounting", "budget", "forecasting"]
+    }
+  },
+  "alertDefinitions": {
+    "funding_shortfall": {
+      "name": "Déficit de Financiamiento",
+      "description": "Se activa cuando los fondos están por debajo del objetivo",
+      "severity": "high",
+      "conditions": {
+        "metric": "totalFunding",
+        "operator": "less_than",
+        "threshold": 0.7,
+        "period": "current_quarter"
+      },
+      "actions": ["email_notification", "dashboard_alert", "weekly_report"]
+    },
+    "low_engagement": {
+      "name": "Engagement Bajo",
+      "description": "Patrocinador con engagement por debajo del mínimo",
+      "severity": "medium",
+      "conditions": {
+        "metric": "averageEngagement",
+        "operator": "less_than",
+        "threshold": 6.0,
+        "period": "last_30_days"
+      },
+      "actions": ["account_manager_notification", "engagement_campaign"]
+    },
+    "retention_risk": {
+      "name": "Riesgo de No Renovación",
+      "description": "Tasa de retención por debajo del mínimo aceptable",
+      "severity": "critical",
+      "conditions": {
+        "metric": "retentionRate",
+        "operator": "less_than",
+        "threshold": 0.75,
+        "period": "current_year"
+      },
+      "actions": ["executive_alert", "retention_strategy", "immediate_action_plan"]
+    }
+  },
+  "visualizationTypes": {
+    "line_chart": {
+      "name": "Gráfico de Líneas",
+      "description": "Ideal para mostrar tendencias a lo largo del tiempo",
+      "best_for": ["temporal_data", "trends", "comparisons"],
+      "metrics": ["totalFunding", "averageEngagement"]
+    },
+    "bar_chart": {
+      "name": "Gráfico de Barras",
+      "description": "Perfecto para comparar valores categóricos",
+      "best_for": ["categorical_comparisons", "rankings"],
+      "metrics": ["activeSponsors", "tierDistribution"]
+    },
+    "pie_chart": {
+      "name": "Gráfico Circular",
+      "description": "Muestra proporciones de un total",
+      "best_for": ["proportions", "distributions"],
+      "metrics": ["tierDistribution", "fundingBySource"]
+    },
+    "gauge": {
+      "name": "Medidor",
+      "description": "Visualiza progreso hacia un objetivo",
+      "best_for": ["kpi_tracking", "goal_progress"],
+      "metrics": ["goalProgress", "retentionRate"]
+    },
+    "heatmap": {
+      "name": "Mapa de Calor",
+      "description": "Muestra intensidad de datos en una matriz",
+      "best_for": ["engagement_patterns", "time_analysis"],
+      "metrics": ["engagementByTime", "activityHeatmap"]
+    }
+  },
+  "impactStories": {
+    "education": {
+      "title": "Transformando Vidas a Través de la Educación",
+      "description": "Gracias al apoyo de nuestros patrocinadores, hemos logrado impactar la vida de miles de estudiantes",
+      "metrics": ["students_educated", "schools_supported", "graduation_rate"],
+      "testimonials": true,
+      "visual_assets": ["photos", "videos", "infographics"]
+    },
+    "health": {
+      "title": "Mejorando el Acceso a Servicios de Salud",
+      "description": "Los programas de salud financiados han llevado servicios médicos a comunidades remotas",
+      "metrics": ["patients_treated", "clinics_established", "health_outcomes"],
+      "testimonials": true,
+      "visual_assets": ["before_after", "testimonial_videos"]
+    },
+    "environment": {
+      "title": "Protegiendo Nuestro Medio Ambiente",
+      "description": "Iniciativas ambientales que están generando un impacto real en la sostenibilidad",
+      "metrics": ["trees_planted", "carbon_reduced", "communities_engaged"],
+      "testimonials": false,
+      "visual_assets": ["satellite_images", "progress_photos"]
+    }
+  },
+  "customFields": {
+    "geographic_impact": {
+      "name": "Impacto Geográfico",
+      "description": "Distribución geográfica del impacto generado",
+      "type": "location",
+      "format": "coordinates",
+      "visualization": "map"
+    },
+    "demographic_reach": {
+      "name": "Alcance Demográfico",
+      "description": "Distribución demográfica de los beneficiarios",
+      "type": "demographic",
+      "format": "categories",
+      "visualization": "stacked_bar"
+    },
+    "program_effectiveness": {
+      "name": "Efectividad de Programas",
+      "description": "Medición de la efectividad de cada programa específico",
+      "type": "score",
+      "format": "percentage",
+      "visualization": "gauge"
+    }
+  },
+  "reportingTemplates": {
+    "executive_summary": {
+      "name": "Resumen Ejecutivo",
+      "description": "Vista de alto nivel para ejecutivos y directorio",
+      "frequency": "monthly",
+      "metrics": ["totalFunding", "activeSponsors", "totalReach", "retentionRate"],
+      "format": "pdf",
+      "sections": ["overview", "key_metrics", "highlights", "challenges"]
+    },
+    "sponsor_impact_report": {
+      "name": "Reporte de Impacto para Patrocinadores",
+      "description": "Reporte personalizado mostrando el impacto específico de cada patrocinador",
+      "frequency": "quarterly",
+      "metrics": ["sponsor_specific_impact", "programs_supported", "beneficiaries_reached"],
+      "format": "interactive_pdf",
+      "sections": ["thank_you", "impact_summary", "stories", "financials", "next_steps"]
+    },
+    "annual_report": {
+      "name": "Reporte Anual",
+      "description": "Reporte comprensivo de todo el año",
+      "frequency": "annually",
+      "metrics": ["all_metrics"],
+      "format": "multimedia",
+      "sections": ["year_overview", "achievements", "financials", "impact_stories", "recognition", "future_plans"]
+    }
+  },
+  "integrationSettings": {
+    "api_endpoints": {
+      "metrics": "/api/v1/impact/metrics",
+      "real_time": "/api/v1/impact/realtime",
+      "historical": "/api/v1/impact/historical",
+      "export": "/api/v1/impact/export"
+    },
+    "webhook_events": [
+      "metric_threshold_reached",
+      "alert_triggered",
+      "report_generated",
+      "data_updated"
+    ],
+    "data_refresh": {
+      "automatic": true,
+      "interval": "15m",
+      "fallback": "cache"
+    }
+  },
+  "privacy_compliance": {
+    "gdpr": {
+      "enabled": true,
+      "data_retention": "7_years",
+      "anonymization": "automatic",
+      "consent_tracking": true
+    },
+    "data_classification": {
+      "public": ["aggregate_metrics", "general_impact"],
+      "internal": ["sponsor_specific_data", "financial_details"],
+      "confidential": ["donor_information", "strategic_plans"]
+    }
+  },
+  "version": "2.0.0",
+  "last_updated": "2024-01-15T10:00:00Z",
+  "maintained_by": "Analytics Team",
+  "review_cycle": "quarterly"
+}
