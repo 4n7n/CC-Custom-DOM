@@ -1,0 +1,845 @@
+/**
+ * Subtitle Styling CSS - Estilos para subtítulos
+ * Estilos accesibles y personalizables para subtítulos de audio
+ */
+
+:root {
+  --subtitle-bg-default: rgba(0, 0, 0, 0.8);
+  --subtitle-text-default: #FFFFFF;
+  --subtitle-border-default: rgba(255, 255, 255, 0.2);
+  --subtitle-shadow-default: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --subtitle-font-default: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  --subtitle-radius: 8px;
+  --subtitle-animation: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Contenedor Principal de Subtítulos */
+.subtitles-container {
+  position: fixed;
+  z-index: 9997;
+  max-width: 80%;
+  min-width: 300px;
+  background: var(--subtitle-bg-default);
+  border: 1px solid var(--subtitle-border-default);
+  border-radius: var(--subtitle-radius);
+  box-shadow: var(--subtitle-shadow-default);
+  backdrop-filter: blur(10px);
+  font-family: var(--subtitle-font-default);
+  color: var(--subtitle-text-default);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s var(--subtitle-animation);
+  pointer-events: none;
+}
+
+.subtitles-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Posicionamiento de Subtítulos */
+.subtitles-container.position-top {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+}
+
+.subtitles-container.position-top.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.subtitles-container.position-bottom {
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.subtitles-container.position-bottom.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+.subtitles-container.position-bottom-left {
+  bottom: 20px;
+  left: 20px;
+  transform: translateY(20px);
+}
+
+.subtitles-container.position-bottom-left.visible {
+  transform: translateY(0);
+}
+
+.subtitles-container.position-bottom-right {
+  bottom: 20px;
+  right: 20px;
+  transform: translateY(20px);
+}
+
+.subtitles-container.position-bottom-right.visible {
+  transform: translateY(0);
+}
+
+.subtitles-container.position-center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.subtitles-container.position-center.visible {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Área de Texto de Subtítulos */
+.subtitles-text-area {
+  padding: 16px 20px;
+  max-height: 200px;
+  overflow-y: auto;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+
+.subtitles-text-area::-webkit-scrollbar {
+  width: 6px;
+}
+
+.subtitles-text-area::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.subtitles-text-area::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.subtitles-text-area::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Líneas de Subtítulos */
+.subtitle-line {
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.subtitle-line:last-child {
+  margin-bottom: 0;
+}
+
+.subtitle-line.final {
+  opacity: 1;
+  border-left: 3px solid #4CAF50;
+  padding-left: 12px;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.subtitle-line.interim {
+  opacity: 0.7;
+  border-left: 3px solid #FFC107;
+  padding-left: 12px;
+  background: rgba(255, 193, 7, 0.1);
+  font-style: italic;
+}
+
+.subtitle-line.speaker {
+  border-left: 3px solid #2196F3;
+  padding-left: 12px;
+  background: rgba(33, 150, 243, 0.1);
+}
+
+.subtitle-line.cultural {
+  border-left: 3px solid #795548;
+  padding-left: 12px;
+  background: rgba(121, 85, 72, 0.1);
+}
+
+.subtitle-line.error {
+  border-left: 3px solid #F44336;
+  padding-left: 12px;
+  background: rgba(244, 67, 54, 0.1);
+  color: #FFCDD2;
+}
+
+/* Texto de Subtítulos */
+.subtitle-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  word-spacing: 2px;
+  letter-spacing: 0.3px;
+}
+
+.subtitle-text.large {
+  font-size: 20px;
+}
+
+.subtitle-text.small {
+  font-size: 14px;
+}
+
+.subtitle-text.bold {
+  font-weight: 600;
+}
+
+/* Timestamps */
+.subtitle-timestamp {
+  font-size: 11px;
+  opacity: 0.6;
+  font-weight: 500;
+  margin-right: 8px;
+  color: #B0BEC5;
+  font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+}
+
+.subtitle-timestamp.hidden {
+  display: none;
+}
+
+/* Indicador de Hablante */
+.subtitle-speaker {
+  font-size: 12px;
+  font-weight: 600;
+  color: #81C784;
+  margin-right: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.subtitle-speaker::after {
+  content: ":";
+  margin-left: 2px;
+}
+
+/* Controles de Subtítulos */
+.subtitles-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--subtitle-border-default);
+  border-radius: 0 0 var(--subtitle-radius) var(--subtitle-radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.subtitles-container:hover .subtitles-controls {
+  opacity: 1;
+}
+
+.subtitle-control-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.subtitle-control-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.subtitle-control-button:active {
+  transform: translateY(0);
+}
+
+.subtitle-control-button.active {
+  background: #2196F3;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
+}
+
+/* Selector de Idioma */
+.subtitle-language-select {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.subtitle-language-select:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.subtitle-language-select option {
+  background: #333;
+  color: white;
+}
+
+/* Estados de Conexión */
+.subtitle-connection-status {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4CAF50;
+  transition: all 0.3s ease;
+}
+
+.subtitle-connection-status.disconnected {
+  background: #F44336;
+  animation: connectionBlink 1s ease-in-out infinite;
+}
+
+.subtitle-connection-status.connecting {
+  background: #FF9800;
+  animation: connectionPulse 1.5s ease-in-out infinite;
+}
+
+/* Indicador de Actividad de Reconocimiento */
+.subtitle-recognition-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  opacity: 0.7;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-left: auto;
+}
+
+.subtitle-recognition-dots {
+  display: flex;
+  gap: 2px;
+}
+
+.subtitle-recognition-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: recognitionPulse 1.2s ease-in-out infinite;
+}
+
+.subtitle-recognition-dot:nth-child(1) { animation-delay: 0s; }
+.subtitle-recognition-dot:nth-child(2) { animation-delay: 0.2s; }
+.subtitle-recognition-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Configuración de Subtítulos */
+.subtitle-settings-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid var(--subtitle-border-default);
+  border-radius: var(--subtitle-radius);
+  padding: 16px;
+  min-width: 250px;
+  z-index: 10001;
+  transform: translateY(-10px);
+  opacity: 0;
+  transition: all 0.3s var(--subtitle-animation);
+  pointer-events: none;
+}
+
+.subtitle-settings-panel.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.subtitle-settings-panel h3 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2196F3;
+}
+
+.setting-item {
+  margin-bottom: 12px;
+}
+
+.setting-item label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.setting-item input[type="range"] {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.setting-item input[type="range"]::-webkit-slider-thumb {
+  width: 16px;
+  height: 16px;
+  background: #2196F3;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.setting-item input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #2196F3;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+.setting-item select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 6px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.setting-item input[type="checkbox"] {
+  margin-right: 6px;
+}
+
+.setting-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.setting-actions button {
+  flex: 1;
+  background: #2196F3;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s ease;
+}
+
+.setting-actions button:hover {
+  background: #1976D2;
+}
+
+.setting-actions button:last-child {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.setting-actions button:last-child:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Temas de Subtítulos */
+.subtitles-container.theme-classic {
+  --subtitle-bg-default: rgba(0, 0, 0, 0.9);
+  --subtitle-text-default: #FFFFFF;
+  font-family: 'Times New Roman', serif;
+}
+
+.subtitles-container.theme-modern {
+  --subtitle-bg-default: rgba(37, 37, 37, 0.95);
+  --subtitle-text-default: #E0E0E0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border-radius: 12px;
+}
+
+.subtitles-container.theme-minimal {
+  --subtitle-bg-default: rgba(0, 0, 0, 0.6);
+  --subtitle-text-default: #FFFFFF;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  border-radius: 0;
+}
+
+.subtitles-container.theme-colorful {
+  --subtitle-bg-default: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(156, 39, 176, 0.9));
+  --subtitle-text-default: #FFFFFF;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.subtitles-container.theme-glass {
+  --subtitle-bg-default: rgba(255, 255, 255, 0.1);
+  --subtitle-text-default: #FFFFFF;
+  --subtitle-border-default: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tamaños de Fuente */
+.subtitles-container.size-small .subtitle-text {
+  font-size: 14px;
+}
+
+.subtitles-container.size-medium .subtitle-text {
+  font-size: 16px;
+}
+
+.subtitles-container.size-large .subtitle-text {
+  font-size: 20px;
+}
+
+.subtitles-container.size-extra-large .subtitle-text {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* Contrastes */
+.subtitles-container.contrast-high {
+  --subtitle-bg-default: #000000;
+  --subtitle-text-default: #FFFFFF;
+  --subtitle-border-default: #FFFFFF;
+  border-width: 2px;
+}
+
+.subtitles-container.contrast-high .subtitle-line.final {
+  background: #004D40;
+  border-left-color: #00E676;
+}
+
+.subtitles-container.contrast-high .subtitle-line.interim {
+  background: #E65100;
+  border-left-color: #FFD600;
+}
+
+/* Modos de Color para Daltonismo */
+.subtitles-container.colorblind-protanopia .subtitle-line.final {
+  border-left-color: #0277BD;
+  background: rgba(2, 119, 189, 0.1);
+}
+
+.subtitles-container.colorblind-deuteranopia .subtitle-line.final {
+  border-left-color: #1565C0;
+  background: rgba(21, 101, 192, 0.1);
+}
+
+.subtitles-container.colorblind-tritanopia .subtitle-line.final {
+  border-left-color: #C62828;
+  background: rgba(198, 40, 40, 0.1);
+}
+
+/* Efectos de Animación */
+.subtitle-line.fade-in {
+  animation: subtitleFadeIn 0.5s ease-out;
+}
+
+.subtitle-line.slide-in {
+  animation: subtitleSlideIn 0.4s ease-out;
+}
+
+.subtitle-line.scale-in {
+  animation: subtitleScaleIn 0.3s ease-out;
+}
+
+.subtitle-line.fade-out {
+  animation: subtitleFadeOut 0.3s ease-in forwards;
+}
+
+/* Indicadores de Confianza */
+.subtitle-confidence {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+.subtitle-confidence.high {
+  background: #4CAF50;
+}
+
+.subtitle-confidence.medium {
+  background: #FF9800;
+}
+
+.subtitle-confidence.low {
+  background: #F44336;
+}
+
+/* Subtítulos en Vivo */
+.subtitles-container.live-mode {
+  border: 2px solid #F44336;
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.3);
+}
+
+.subtitles-container.live-mode::before {
+  content: "EN VIVO";
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  background: #F44336;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Estados de Error */
+.subtitles-container.error-state {
+  border-color: #F44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.subtitle-error-message {
+  text-align: center;
+  padding: 12px;
+  color: #FFCDD2;
+  font-size: 14px;
+  background: rgba(244, 67, 54, 0.2);
+  border-radius: 4px;
+  margin: 8px 0;
+}
+
+/* Subtítulos de Karaoke */
+.subtitle-karaoke {
+  position: relative;
+  overflow: hidden;
+}
+
+.subtitle-karaoke::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--progress, 0%);
+  overflow: hidden;
+  color: #FFD700;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  transition: width 0.1s linear;
+}
+
+/* Subtítulos Multi-idioma */
+.subtitle-line.translation {
+  border-left-color: #9C27B0;
+  background: rgba(156, 39, 176, 0.1);
+  font-style: italic;
+  padding-left: 20px;
+}
+
+.subtitle-line.translation::before {
+  content: "TR: ";
+  font-weight: 600;
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .subtitles-container {
+    max-width: 95%;
+    min-width: 280px;
+    font-size: 14px;
+  }
+  
+  .subtitles-text-area {
+    padding: 12px 16px;
+    max-height: 150px;
+  }
+  
+  .subtitle-text {
+    font-size: 15px;
+  }
+  
+  .subtitle-text.large {
+    font-size: 18px;
+  }
+  
+  .subtitles-controls {
+    padding: 6px 10px;
+  }
+  
+  .subtitle-control-button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+  
+  .subtitle-settings-panel {
+    min-width: 200px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subtitles-container {
+    max-width: 98%;
+    min-width: 260px;
+  }
+  
+  .subtitles-container.position-bottom,
+  .subtitles-container.position-top {
+    left: 1%;
+    right: 1%;
+    transform: none;
+  }
+  
+  .subtitles-container.position-bottom.visible,
+  .subtitles-container.position-top.visible {
+    transform: none;
+  }
+  
+  .subtitle-text {
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  
+  .subtitle-timestamp {
+    display: none;
+  }
+  
+  .subtitle-settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 300px;
+  }
+}
+
+/* Animaciones */
+@keyframes subtitleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtitleSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes subtitleScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes subtitleFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes connectionBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes connectionPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes recognitionPulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .subtitle-line,
+  .subtitles-container,
+  .subtitle-control-button,
+  .subtitle-connection-status,
+  .subtitle-recognition-dot {
+    animation: none;
+    transition: none;
+  }
+  
+  .subtitle-line.fade-in,
+  .subtitle-line.slide-in,
+  .subtitle-line.scale-in {
+    animation: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .subtitles-container {
+    --subtitle-bg-default: #000000;
+    --subtitle-text-default: #FFFFFF;
+    --subtitle-border-default: #FFFFFF;
+    border-width: 2px;
+  }
+  
+  .subtitle-line.final {
+    background: #000000;
+    border-left-color: #FFFFFF;
+  }
+  
+  .subtitle-control-button {
+    background: #FFFFFF;
+    color: #000000;
+  }
+}
+
+/* Modo Oscuro */
+@media (prefers-color-scheme: dark) {
+  .subtitles-container {
+    --subtitle-bg-default: rgba(18, 18, 18, 0.95);
+    --subtitle-text-default: #E0E0E0;
+    --subtitle-border-default: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Modo Claro */
+@media (prefers-color-scheme: light) {
+  .subtitles-container {
+    --subtitle-bg-default: rgba(255, 255, 255, 0.95);
+    --subtitle-text-default: #212121;
+    --subtitle-border-default: rgba(0, 0, 0, 0.15);
+    --subtitle-shadow-default: 0 2px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .subtitle-control-button {
+    background: rgba(0, 0, 0, 0.1);
+    color: #212121;
+  }
+  
+  .subtitle-control-button:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
