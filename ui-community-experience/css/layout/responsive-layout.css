@@ -1,0 +1,1002 @@
+/* ==================================================
+   RAMA 9: Responsive Layout System
+   Sistema responsive adaptativo para todos los dispositivos
+   ================================================== */
+
+/* Variables CSS personalizables */
+:root {
+  --bp-mobile: 768px;
+  --bp-tablet: 1024px;
+  --bp-desktop: 1200px;
+  --bp-wide: 1600px;
+  
+  /* Layout variables por defecto */
+  --header-height: 4rem;
+  --sidebar-width: 16rem;
+  --sidebar-collapsed-width: 3rem;
+  --aside-width: 18rem;
+  --content-padding: 2rem;
+  --component-gap: 1.5rem;
+  --max-content-width: 1200px;
+  
+  /* Transiciones */
+  --transition-layout: 0.3s ease;
+  --transition-fast: 0.15s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-index layers */
+  --z-header: 1000;
+  --z-sidebar: 900;
+  --z-aside: 800;
+  --z-overlay: 1100;
+  --z-modal: 1200;
+}
+
+/* ============================================
+   LAYOUT BASE - MOBILE FIRST
+   ============================================ */
+
+/* Layout principal */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(10px);
+  z-index: var(--z-header);
+  transition: transform var(--transition-layout), height var(--transition-layout);
+}
+
+.main-sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: var(--sidebar-width);
+  height: calc(100vh - var(--header-height));
+  background: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  z-index: var(--z-sidebar);
+  transform: translateX(-100%);
+  transition: transform var(--transition-layout), width var(--transition-layout);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  margin-top: var(--header-height);
+  padding: var(--content-padding);
+  min-height: calc(100vh - var(--header-height));
+  transition: margin var(--transition-layout);
+}
+
+.main-aside {
+  position: fixed;
+  top: var(--header-height);
+  right: 0;
+  width: var(--aside-width);
+  height: calc(100vh - var(--header-height));
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  z-index: var(--z-aside);
+  transform: translateX(100%);
+  transition: transform var(--transition-layout);
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.main-footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 1rem var(--content-padding);
+  margin-top: auto;
+}
+
+/* ============================================
+   MOBILE LAYOUT (hasta 768px)
+   ============================================ */
+
+@media screen and (max-width: 767px) {
+  :root {
+    --header-height: 3rem;
+    --content-padding: 1rem;
+    --component-gap: 0.75rem;
+  }
+  
+  .main-header {
+    height: var(--header-height);
+  }
+  
+  .main-header .header-title {
+    font-size: 1.125rem;
+  }
+  
+  .main-header .header-controls {
+    gap: 0.5rem;
+  }
+  
+  .main-sidebar {
+    width: 85vw;
+    max-width: 20rem;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .main-content {
+    padding: var(--content-padding);
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .main-aside {
+    width: 90vw;
+    max-width: 24rem;
+    padding: 1rem;
+  }
+  
+  /* Sidebar móvil expandido */
+  .sidebar-expanded .main-sidebar {
+    transform: translateX(0);
+  }
+  
+  .sidebar-expanded::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: calc(var(--z-sidebar) - 1);
+  }
+  
+  /* Ocultar elementos no esenciales */
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  /* Botones más grandes para touch */
+  .btn,
+  button,
+  .sidebar-menu-link {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Tipografía optimizada para móvil */
+  .content-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  .content-subtitle {
+    font-size: 0.875rem;
+  }
+  
+  /* Espaciado reducido */
+  .content-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .responsive-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .responsive-buttons button,
+  .responsive-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   TABLET LAYOUT (768px - 1024px)
+   ============================================ */
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --header-height: 3.5rem;
+    --sidebar-width: 14rem;
+    --sidebar-collapsed-width: 3.5rem;
+    --aside-width: 16rem;
+    --content-padding: 1.5rem;
+    --component-gap: 1.25rem;
+  }
+  
+  .main-header {
+    height: var(--header-height);
+  }
+  
+  .main-sidebar {
+    width: var(--sidebar-collapsed-width);
+    transform: translateX(0);
+    top: var(--header-height);
+  }
+  
+  .main-sidebar .sidebar-menu-text,
+  .main-sidebar .sidebar-section-title,
+  .main-sidebar .sidebar-menu-badge {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-layout), visibility var(--transition-layout);
+  }
+  
+  .main-sidebar .sidebar-menu-link {
+    justify-content: center;
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+    margin-top: var(--header-height);
+    padding: var(--content-padding);
+  }
+  
+  .main-footer {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  
+  .main-aside {
+    width: var(--aside-width);
+    padding: 1rem;
+  }
+  
+  /* Layout de comunidad en tablet */
+  .layout-community .main-aside {
+    transform: translateX(100%);
+  }
+  
+  .layout-community .main-content {
+    margin-right: 0;
+  }
+  
+  /* Navegación hover expandible en tablet */
+  .main-sidebar:hover {
+    width: var(--sidebar-width);
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.3);
+    z-index: calc(var(--z-sidebar) + 1);
+  }
+  
+  .main-sidebar:hover .sidebar-menu-text,
+  .main-sidebar:hover .sidebar-section-title,
+  .main-sidebar:hover .sidebar-menu-badge {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.1s;
+  }
+  
+  .main-sidebar:hover .sidebar-menu-link {
+    justify-content: flex-start;
+    padding: 0.75rem;
+  }
+  
+  /* Ajustes específicos para tablet */
+  .content-title {
+    font-size: 1.75rem;
+  }
+  
+  .content-subtitle {
+    font-size: 1rem;
+  }
+  
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+/* ============================================
+   DESKTOP LAYOUT (1024px - 1200px)
+   ============================================ */
+
+@media screen and (min-width: 1024px) and (max-width: 1199px) {
+  :root {
+    --header-height: 4rem;
+    --sidebar-width: 16rem;
+    --aside-width: 18rem;
+    --content-padding: 2rem;
+    --component-gap: 1.5rem;
+    --max-content-width: 1000px;
+  }
+  
+  .main-sidebar {
+    width: var(--sidebar-width);
+    transform: translateX(0);
+  }
+  
+  .main-sidebar .sidebar-menu-text,
+  .main-sidebar .sidebar-section-title,
+  .main-sidebar .sidebar-menu-badge {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .main-sidebar .sidebar-menu-link {
+    justify-content: flex-start;
+    padding: 0.75rem;
+  }
+  
+  .main-content {
+    margin-left: var(--sidebar-width);
+  }
+  
+  .main-footer {
+    margin-left: var(--sidebar-width);
+  }
+  
+  /* Layout de comunidad */
+  .layout-community .main-aside {
+    transform: translateX(0);
+  }
+  
+  .layout-community .main-content {
+    margin-right: var(--aside-width);
+  }
+  
+  /* Contenido centrado en layout de lectura */
+  .layout-reading .main-content {
+    max-width: var(--max-content-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(var(--sidebar-width) + var(--content-padding));
+    padding-right: var(--content-padding);
+  }
+}
+
+/* ============================================
+   WIDE DESKTOP LAYOUT (1200px - 1600px)
+   ============================================ */
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  :root {
+    --content-padding: 2.5rem;
+    --component-gap: 2rem;
+    --max-content-width: 1200px;
+    --aside-width: 20rem;
+  }
+  
+  .main-aside {
+    width: var(--aside-width);
+    padding: 2rem;
+  }
+  
+  .layout-community .main-content {
+    margin-right: var(--aside-width);
+  }
+  
+  /* Contenedor de contenido más amplio */
+  .content-wrapper {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+  }
+  
+  .layout-reading .main-content {
+    max-width: 60rem;
+    padding-left: calc(var(--sidebar-width) + 3rem);
+    padding-right: 3rem;
+  }
+}
+
+/* ============================================
+   ULTRA WIDE LAYOUT (1600px+)
+   ============================================ */
+
+@media screen and (min-width: 1600px) {
+  :root {
+    --sidebar-width: 18rem;
+    --aside-width: 22rem;
+    --content-padding: 3rem;
+    --component-gap: 2.5rem;
+    --max-content-width: 1400px;
+  }
+  
+  .main-aside {
+    width: var(--aside-width);
+    padding: 2.5rem;
+  }
+  
+  .layout-community .main-content {
+    margin-right: var(--aside-width);
+  }
+  
+  /* Espaciado adicional para pantallas muy anchas */
+  .content-header {
+    margin-bottom: 3rem;
+  }
+  
+  .content-title {
+    font-size: 2.5rem;
+  }
+  
+  .content-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .layout-reading .main-content {
+    max-width: 70rem;
+    padding-left: calc(var(--sidebar-width) + 4rem);
+    padding-right: 4rem;
+  }
+}
+
+/* ============================================
+   ESTADOS DE LAYOUT
+   ============================================ */
+
+/* Sidebar colapsado */
+.sidebar-collapsed .main-sidebar {
+  width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-collapsed .main-sidebar .sidebar-menu-text,
+.sidebar-collapsed .main-sidebar .sidebar-section-title,
+.sidebar-collapsed .main-sidebar .sidebar-menu-badge {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar-collapsed .main-sidebar .sidebar-menu-link {
+  justify-content: center;
+  padding: 0.75rem 0.5rem;
+}
+
+.sidebar-collapsed .main-content,
+.sidebar-collapsed .main-footer {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+/* Fullscreen mode */
+.fullscreen-mode .main-header,
+.fullscreen-mode .main-sidebar,
+.fullscreen-mode .main-aside,
+.fullscreen-mode .main-footer {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fullscreen-mode .main-content {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Header adaptativo en scroll */
+.main-header.scrolled {
+  height: calc(var(--header-height) * 0.75);
+  backdrop-filter: blur(20px);
+  background: rgba(var(--color-surface-rgb), 0.95);
+}
+
+/* Layout en transición */
+.layout-transitioning * {
+  pointer-events: none;
+}
+
+/* ============================================
+   ORIENTACIÓN Y ALTURA DE PANTALLA
+   ============================================ */
+
+/* Pantallas muy altas */
+@media screen and (min-height: 900px) {
+  .main-sidebar {
+    padding-bottom: 2rem;
+  }
+  
+  .sidebar-content {
+    padding: 2rem 1rem;
+  }
+  
+  .main-aside {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Pantallas muy anchas (aspect ratio) */
+@media screen and (min-aspect-ratio: 16/9) {
+  .layout-reading .main-content {
+    max-width: 65rem;
+    padding-left: calc(var(--sidebar-width) + 5rem);
+    padding-right: 5rem;
+  }
+}
+
+/* Landscape móvil */
+@media screen and (max-width: 1023px) and (orientation: landscape) and (max-height: 600px) {
+  :root {
+    --header-height: 2.5rem;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .main-sidebar {
+    width: 70vw;
+    max-width: 16rem;
+  }
+}
+
+/* ============================================
+   COMPONENTES RESPONSIVE
+   ============================================ */
+
+/* Grids responsivos */
+.responsive-grid {
+  display: grid;
+  gap: var(--component-gap);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .responsive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  }
+}
+
+/* Cards responsivos */
+.responsive-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.responsive-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-card {
+    padding: 1rem;
+    border-radius: 0.375rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .responsive-card {
+    padding: 2rem;
+  }
+}
+
+/* Navegación responsiva */
+.responsive-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+}
+
+/* Botones responsivos */
+.responsive-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .responsive-buttons button,
+  .responsive-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* Tablas responsivas */
+.responsive-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.responsive-table table {
+  width: 100%;
+  min-width: 600px;
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-table {
+    font-size: 0.875rem;
+  }
+  
+  .responsive-table table {
+    min-width: 500px;
+  }
+}
+
+/* ============================================
+   UTILIDADES RESPONSIVE
+   ============================================ */
+
+/* Mostrar/ocultar por breakpoint */
+.show-mobile,
+.show-tablet,
+.show-wide { 
+  display: none; 
+}
+
+.show-desktop { 
+  display: block; 
+}
+
+@media screen and (max-width: 767px) {
+  .hide-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+  .show-desktop { display: none !important; }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .hide-tablet { display: none !important; }
+  .show-tablet { display: block !important; }
+  .show-desktop { display: none !important; }
+}
+
+@media screen and (min-width: 1024px) {
+  .hide-desktop { display: none !important; }
+  .show-desktop { display: block !important; }
+}
+
+@media screen and (min-width: 1600px) {
+  .hide-wide { display: none !important; }
+  .show-wide { display: block !important; }
+}
+
+/* Versiones flex de mostrar/ocultar */
+.flex-mobile,
+.flex-tablet,
+.flex-wide { 
+  display: none; 
+}
+
+.flex-desktop { 
+  display: flex; 
+}
+
+@media screen and (max-width: 767px) {
+  .flex-mobile { display: flex !important; }
+  .flex-desktop { display: none !important; }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .flex-tablet { display: flex !important; }
+  .flex-desktop { display: none !important; }
+}
+
+@media screen and (min-width: 1600px) {
+  .flex-wide { display: flex !important; }
+}
+
+/* Espaciado responsivo */
+.responsive-spacing {
+  padding: var(--content-padding);
+  margin-bottom: var(--component-gap);
+}
+
+@media screen and (max-width: 767px) {
+  .responsive-spacing {
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.responsive-spacing-sm {
+  padding: calc(var(--content-padding) * 0.5);
+  margin-bottom: calc(var(--component-gap) * 0.5);
+}
+
+.responsive-spacing-lg {
+  padding: calc(var(--content-padding) * 1.5);
+  margin-bottom: calc(var(--component-gap) * 1.5);
+}
+
+/* Texto responsivo */
+.responsive-text-xs { font-size: 0.75rem; }
+.responsive-text-sm { font-size: 0.875rem; }
+.responsive-text-base { font-size: 1rem; }
+.responsive-text-lg { font-size: 1.125rem; }
+.responsive-text-xl { font-size: 1.25rem; }
+.responsive-text-2xl { font-size: 1.5rem; }
+.responsive-text-3xl { font-size: 1.875rem; }
+
+@media screen and (max-width: 767px) {
+  .responsive-text-xs { font-size: 0.625rem; }
+  .responsive-text-sm { font-size: 0.75rem; }
+  .responsive-text-base { font-size: 0.875rem; }
+  .responsive-text-lg { font-size: 1rem; }
+  .responsive-text-xl { font-size: 1.125rem; }
+  .responsive-text-2xl { font-size: 1.25rem; }
+  .responsive-text-3xl { font-size: 1.5rem; }
+}
+
+@media screen and (min-width: 1200px) {
+  .responsive-text-xs { font-size: 0.875rem; }
+  .responsive-text-sm { font-size: 1rem; }
+  .responsive-text-base { font-size: 1.125rem; }
+  .responsive-text-lg { font-size: 1.25rem; }
+  .responsive-text-xl { font-size: 1.5rem; }
+  .responsive-text-2xl { font-size: 1.75rem; }
+  .responsive-text-3xl { font-size: 2.25rem; }
+}
+
+/* ============================================
+   CONTAINER QUERIES (Experimental)
+   ============================================ */
+
+@supports (container-type: inline-size) {
+  .responsive-container {
+    container-type: inline-size;
+  }
+  
+  @container (max-width: 400px) {
+    .container-responsive {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .container-responsive .container-item {
+      width: 100%;
+    }
+  }
+  
+  @container (min-width: 600px) {
+    .container-responsive {
+      flex-direction: row;
+      gap: 2rem;
+    }
+    
+    .container-responsive .container-item {
+      flex: 1;
+    }
+  }
+}
+
+/* ============================================
+   ANIMACIONES RESPONSIVE
+   ============================================ */
+
+/* Respetar preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Animaciones específicas por dispositivo */
+@media screen and (max-width: 767px) {
+  .animate-slideIn,
+  .animate-slideOut,
+  .animate-fadeIn,
+  .animate-fadeOut {
+    animation-duration: 0.2s;
+  }
+  
+  .main-sidebar,
+  .main-aside {
+    transition-duration: 0.25s;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .animate-slideIn,
+  .animate-slideOut,
+  .animate-fadeIn,
+  .animate-fadeOut {
+    animation-duration: 0.4s;
+  }
+  
+  .main-sidebar,
+  .main-aside {
+    transition-duration: 0.4s;
+  }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+  .main-header,
+  .main-sidebar,
+  .main-aside,
+  .main-footer {
+    display: none !important;
+  }
+  
+  .main-content {
+    margin: 0 !important;
+    padding: 1rem !important;
+    background: white !important;
+    color: black !important;
+    min-height: auto !important;
+  }
+  
+  .responsive-card {
+    border: 1px solid #ccc !important;
+    background: white !important;
+    color: black !important;
+    page-break-inside: avoid;
+  }
+  
+  .responsive-grid {
+    display: block !important;
+  }
+  
+  .responsive-grid > * {
+    margin-bottom: 1rem;
+    page-break-inside: avoid;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* ============================================
+   ACCESIBILIDAD RESPONSIVE
+   ============================================ */
+
+/* Aumentar áreas de toque en móvil */
+@media screen and (max-width: 767px) {
+  .sidebar-menu-link,
+  button,
+  .btn,
+  a[role="button"],
+  .interactive-element {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  /* Espaciado entre elementos interactivos */
+  .sidebar-menu-link + .sidebar-menu-link {
+    margin-top: 0.25rem;
+  }
+}
+
+/* Focus mejorado en tablets y desktop */
+@media screen and (min-width: 768px) {
+  :focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 0.25rem;
+  }
+  
+  .main-sidebar:focus-within {
+    box-shadow: 0 0 0 3px var(--color-primary);
+  }
+}
+
+/* Contraste mejorado para pantallas de alta densidad */
+@media screen and (min-resolution: 2dppx) {
+  .responsive-card {
+    border-width: 0.5px;
+  }
+  
+  .main-header,
+  .main-sidebar,
+  .main-aside {
+    border-width: 0.5px;
+  }
+}
+
+/* ============================================
+   DARK MODE RESPONSIVE
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .responsive-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .main-header,
+  .main-sidebar,
+  .main-aside {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* ============================================
+   MEJORAS DE RENDIMIENTO
+   ============================================ */
+
+/* Optimización para dispositivos de bajo rendimiento */
+@media screen and (max-width: 767px) {
+  .main-sidebar,
+  .main-aside {
+    will-change: transform;
+  }
+  
+  .layout-transitioning .main-sidebar,
+  .layout-transitioning .main-aside {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Optimización de scroll en móvil */
+@media screen and (max-width: 767px) {
+  .main-sidebar,
+  .main-aside {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+/* ============================================
+   FALLBACKS Y COMPATIBILIDAD
+   ============================================ */
+
+/* Fallback para navegadores sin CSS Grid */
+@supports not (display: grid) {
+  .responsive-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--component-gap);
+  }
+  
+  .responsive-grid > * {
+    flex: 1 1 300px;
+    min-width: 300px;
+  }
+}
+
+/* Fallback para navegadores sin custom properties */
+@supports not (--css: variables) {
+  .main-header { height: 4rem; }
+  .main-sidebar { width: 16rem; }
+  .main-content { padding: 2rem; }
+}
+
+/* Fallback para navegadores sin backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+  .main-header {
+    background: var(--color-surface);
+    opacity: 0.95;
+  }
+}

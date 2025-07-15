@@ -1,0 +1,781 @@
+/* ==================================================
+   RAMA 9: Community Themes
+   Sistema de temas personalizables para la comunidad
+   ================================================== */
+
+/* ============================================
+   TEMA BASE Y VARIABLES
+   ============================================ */
+
+:root {
+  /* Colores base del sistema */
+  --primary-h: 234;
+  --primary-s: 79%;
+  --primary-l: 60%;
+  
+  --secondary-h: 188;
+  --secondary-s: 94%;
+  --secondary-l: 42%;
+  
+  --accent-h: 142;
+  --accent-s: 76%;
+  --accent-l: 36%;
+  
+  /* Tema por defecto - Oscuro Épico */
+  --theme-background-primary: hsl(222, 84%, 5%);
+  --theme-background-secondary: hsl(215, 28%, 17%);
+  --theme-background-tertiary: hsl(215, 20%, 25%);
+  
+  --theme-surface-primary: hsla(215, 28%, 17%, 0.8);
+  --theme-surface-secondary: hsla(215, 20%, 25%, 0.6);
+  --theme-surface-accent: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.1);
+  
+  --theme-text-primary: hsl(0, 0%, 100%);
+  --theme-text-secondary: hsla(0, 0%, 100%, 0.7);
+  --theme-text-tertiary: hsla(0, 0%, 100%, 0.5);
+  --theme-text-accent: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+  
+  --theme-border-primary: hsla(0, 0%, 100%, 0.1);
+  --theme-border-secondary: hsla(0, 0%, 100%, 0.05);
+  --theme-border-accent: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.3);
+  
+  --theme-shadow-sm: 0 2px 4px hsla(0, 0%, 0%, 0.1);
+  --theme-shadow-md: 0 4px 12px hsla(0, 0%, 0%, 0.15);
+  --theme-shadow-lg: 0 8px 32px hsla(0, 0%, 0%, 0.2);
+  --theme-shadow-accent: 0 4px 20px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.3);
+}
+
+/* ============================================
+   TEMA OSCURO ÉPICO (por defecto)
+   ============================================ */
+
+.theme-dark-epic {
+  --theme-name: "Oscuro Épico";
+  
+  /* Fondos con gradientes dramáticos */
+  --theme-background-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --theme-background-secondary: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+  --theme-background-hero: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  
+  /* Superficies con efectos glassmorphism */
+  --theme-surface-primary: rgba(30, 41, 59, 0.8);
+  --theme-surface-secondary: rgba(51, 65, 85, 0.6);
+  --theme-surface-glass: rgba(255, 255, 255, 0.05);
+  
+  /* Colores de acento épicos */
+  --theme-primary: linear-gradient(45deg, #4f46e5, #06b6d4);
+  --theme-secondary: linear-gradient(45deg, #06b6d4, #10b981);
+  --theme-accent: linear-gradient(45deg, #f59e0b, #ef4444);
+  
+  /* Efectos de partículas y brillo */
+  --theme-particle-color: rgba(79, 70, 229, 0.6);
+  --theme-glow-primary: 0 0 20px rgba(79, 70, 229, 0.5);
+  --theme-glow-secondary: 0 0 20px rgba(6, 182, 212, 0.5);
+}
+
+/* ============================================
+   TEMA CLARO ELEGANTE
+   ============================================ */
+
+.theme-light-elegant {
+  --theme-name: "Claro Elegante";
+  
+  /* Fondos claros y refinados */
+  --theme-background-primary: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  --theme-background-secondary: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --theme-background-hero: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  
+  /* Superficies sutiles */
+  --theme-surface-primary: rgba(255, 255, 255, 0.8);
+  --theme-surface-secondary: rgba(248, 250, 252, 0.9);
+  --theme-surface-glass: rgba(255, 255, 255, 0.7);
+  
+  /* Textos oscuros */
+  --theme-text-primary: hsl(215, 28%, 17%);
+  --theme-text-secondary: hsl(215, 20%, 25%);
+  --theme-text-tertiary: hsl(215, 16%, 47%);
+  
+  /* Bordes suaves */
+  --theme-border-primary: hsla(215, 28%, 17%, 0.1);
+  --theme-border-secondary: hsla(215, 20%, 25%, 0.05);
+  
+  /* Sombras elegantes */
+  --theme-shadow-sm: 0 1px 3px hsla(215, 28%, 17%, 0.1);
+  --theme-shadow-md: 0 4px 12px hsla(215, 28%, 17%, 0.1);
+  --theme-shadow-lg: 0 8px 32px hsla(215, 28%, 17%, 0.12);
+}
+
+/* ============================================
+   TEMA CYBERPUNK NEÓN
+   ============================================ */
+
+.theme-cyberpunk-neon {
+  --theme-name: "Cyberpunk Neón";
+  
+  /* Fondos cyberpunk */
+  --theme-background-primary: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 100%);
+  --theme-background-secondary: linear-gradient(135deg, #1a0a1a 0%, #2a0a2a 100%);
+  --theme-background-hero: linear-gradient(135deg, #000000 0%, #1a0a2e 100%);
+  
+  /* Superficies con neón */
+  --theme-surface-primary: rgba(26, 10, 26, 0.8);
+  --theme-surface-secondary: rgba(42, 10, 42, 0.6);
+  --theme-surface-glass: rgba(255, 0, 255, 0.05);
+  
+  /* Colores neón vibrantes */
+  --theme-primary: linear-gradient(45deg, #ff0080, #ff8000);
+  --theme-secondary: linear-gradient(45deg, #00ff80, #0080ff);
+  --theme-accent: linear-gradient(45deg, #ff0040, #8000ff);
+  
+  /* Texto neón */
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #ff0080;
+  --theme-text-tertiary: #00ff80;
+  --theme-text-accent: #ff8000;
+  
+  /* Efectos de brillo neón */
+  --theme-glow-primary: 0 0 30px #ff0080;
+  --theme-glow-secondary: 0 0 30px #00ff80;
+  --theme-glow-accent: 0 0 30px #ff8000;
+  
+  /* Bordes luminosos */
+  --theme-border-primary: rgba(255, 0, 128, 0.3);
+  --theme-border-secondary: rgba(0, 255, 128, 0.3);
+  --theme-border-accent: rgba(255, 128, 0, 0.3);
+}
+
+/* ============================================
+   TEMA NATURE ORGÁNICO
+   ============================================ */
+
+.theme-nature-organic {
+  --theme-name: "Nature Orgánico";
+  
+  /* Fondos naturales */
+  --theme-background-primary: linear-gradient(135deg, #1a2e1a 0%, #2d5a2d 100%);
+  --theme-background-secondary: linear-gradient(135deg, #2d5a2d 0%, #4a7c4a 100%);
+  --theme-background-hero: linear-gradient(135deg, #0f1f0f 0%, #1a2e1a 100%);
+  
+  /* Superficies orgánicas */
+  --theme-surface-primary: rgba(45, 90, 45, 0.8);
+  --theme-surface-secondary: rgba(74, 124, 74, 0.6);
+  --theme-surface-glass: rgba(16, 185, 129, 0.05);
+  
+  /* Colores tierra y naturaleza */
+  --theme-primary: linear-gradient(45deg, #10b981, #059669);
+  --theme-secondary: linear-gradient(45deg, #84cc16, #65a30d);
+  --theme-accent: linear-gradient(45deg, #f59e0b, #d97706);
+  
+  /* Texto natural */
+  --theme-text-primary: #ecfdf5;
+  --theme-text-secondary: #a7f3d0;
+  --theme-text-tertiary: #6ee7b7;
+  --theme-text-accent: #10b981;
+  
+  /* Bordes orgánicos */
+  --theme-border-primary: rgba(16, 185, 129, 0.2);
+  --theme-border-secondary: rgba(132, 204, 22, 0.15);
+  
+  /* Efectos naturales */
+  --theme-glow-primary: 0 0 25px rgba(16, 185, 129, 0.4);
+  --theme-shadow-organic: 0 8px 32px rgba(16, 185, 129, 0.1);
+}
+
+/* ============================================
+   TEMA OCEÁNICO PROFUNDO
+   ============================================ */
+
+.theme-ocean-deep {
+  --theme-name: "Oceánico Profundo";
+  
+  /* Fondos oceánicos */
+  --theme-background-primary: linear-gradient(135deg, #0c1445 0%, #1e3a8a 100%);
+  --theme-background-secondary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  --theme-background-hero: linear-gradient(135deg, #020617 0%, #0c1445 100%);
+  
+  /* Superficies acuáticas */
+  --theme-surface-primary: rgba(30, 58, 138, 0.8);
+  --theme-surface-secondary: rgba(59, 130, 246, 0.6);
+  --theme-surface-glass: rgba(6, 182, 212, 0.05);
+  
+  /* Colores oceánicos */
+  --theme-primary: linear-gradient(45deg, #0ea5e9, #06b6d4);
+  --theme-secondary: linear-gradient(45deg, #06b6d4, #0891b2);
+  --theme-accent: linear-gradient(45deg, #3b82f6, #1d4ed8);
+  
+  /* Texto acuático */
+  --theme-text-primary: #f0f9ff;
+  --theme-text-secondary: #bae6fd;
+  --theme-text-tertiary: #7dd3fc;
+  --theme-text-accent: #0ea5e9;
+  
+  /* Efectos de agua */
+  --theme-glow-primary: 0 0 30px rgba(14, 165, 233, 0.5);
+  --theme-glow-secondary: 0 0 25px rgba(6, 182, 212, 0.4);
+  --theme-wave-animation: wave 3s ease-in-out infinite;
+}
+
+/* ============================================
+   TEMA SUNSET CÁLIDO
+   ============================================ */
+
+.theme-sunset-warm {
+  --theme-name: "Sunset Cálido";
+  
+  /* Fondos de atardecer */
+  --theme-background-primary: linear-gradient(135deg, #451a03 0%, #7c2d12 100%);
+  --theme-background-secondary: linear-gradient(135deg, #7c2d12 0%, #dc2626 100%);
+  --theme-background-hero: linear-gradient(135deg, #292524 0%, #451a03 100%);
+  
+  /* Superficies cálidas */
+  --theme-surface-primary: rgba(124, 45, 18, 0.8);
+  --theme-surface-secondary: rgba(220, 38, 38, 0.6);
+  --theme-surface-glass: rgba(249, 115, 22, 0.05);
+  
+  /* Colores de atardecer */
+  --theme-primary: linear-gradient(45deg, #f97316, #ea580c);
+  --theme-secondary: linear-gradient(45deg, #ef4444, #dc2626);
+  --theme-accent: linear-gradient(45deg, #eab308, #ca8a04);
+  
+  /* Texto cálido */
+  --theme-text-primary: #fff7ed;
+  --theme-text-secondary: #fed7aa;
+  --theme-text-tertiary: #fdba74;
+  --theme-text-accent: #f97316;
+  
+  /* Efectos cálidos */
+  --theme-glow-primary: 0 0 25px rgba(249, 115, 22, 0.6);
+  --theme-glow-warm: 0 0 40px rgba(239, 68, 68, 0.4);
+}
+
+/* ============================================
+   TEMA GALÁCTICO PÚRPURA
+   ============================================ */
+
+.theme-galactic-purple {
+  --theme-name: "Galáctico Púrpura";
+  
+  /* Fondos galácticos */
+  --theme-background-primary: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  --theme-background-secondary: linear-gradient(135deg, #312e81 0%, #4c1d95 100%);
+  --theme-background-hero: linear-gradient(135deg, #0f0f23 0%, #1e1b4b 100%);
+  
+  /* Superficies cósmicas */
+  --theme-surface-primary: rgba(49, 46, 129, 0.8);
+  --theme-surface-secondary: rgba(76, 29, 149, 0.6);
+  --theme-surface-glass: rgba(139, 92, 246, 0.05);
+  
+  /* Colores galácticos */
+  --theme-primary: linear-gradient(45deg, #8b5cf6, #a855f7);
+  --theme-secondary: linear-gradient(45deg, #a855f7, #9333ea);
+  --theme-accent: linear-gradient(45deg, #ec4899, #be185d);
+  
+  /* Texto cósmico */
+  --theme-text-primary: #faf5ff;
+  --theme-text-secondary: #e9d5ff;
+  --theme-text-tertiary: #c4b5fd;
+  --theme-text-accent: #8b5cf6;
+  
+  /* Efectos galácticos */
+  --theme-glow-primary: 0 0 30px rgba(139, 92, 246, 0.6);
+  --theme-glow-cosmic: 0 0 50px rgba(168, 85, 247, 0.4);
+  --theme-stars-animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+/* ============================================
+   APLICACIÓN DE TEMAS
+   ============================================ */
+
+/* Aplicar variables de tema al cuerpo */
+body {
+  background: var(--theme-background-primary, var(--color-background));
+  color: var(--theme-text-primary, var(--color-text));
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elementos principales */
+.main-header {
+  background: var(--theme-background-hero, var(--theme-surface-primary));
+  border-bottom: 1px solid var(--theme-border-primary);
+  box-shadow: var(--theme-shadow-md);
+}
+
+.main-sidebar {
+  background: var(--theme-background-secondary, var(--theme-surface-secondary));
+  border-right: 1px solid var(--theme-border-primary);
+}
+
+.main-content {
+  background: var(--theme-background-primary);
+}
+
+.main-aside {
+  background: var(--theme-surface-glass);
+  backdrop-filter: blur(20px);
+  border-left: 1px solid var(--theme-border-primary);
+}
+
+/* Superficies y tarjetas */
+.community-showcase,
+.story-progress,
+.character-panel,
+.sponsor-banner {
+  background: var(--theme-surface-primary);
+  border: 1px solid var(--theme-border-primary);
+  box-shadow: var(--theme-shadow-md);
+}
+
+/* ============================================
+   EFECTOS ESPECIALES POR TEMA
+   ============================================ */
+
+/* Efectos del tema cyberpunk */
+.theme-cyberpunk-neon .nav-item.active,
+.theme-cyberpunk-neon .sidebar-menu-link.active {
+  box-shadow: var(--theme-glow-primary);
+  animation: neon-pulse 2s ease-in-out infinite alternate;
+}
+
+.theme-cyberpunk-neon .character-panel:hover {
+  box-shadow: var(--theme-glow-secondary);
+  transform: translateY(-8px) scale(1.02);
+}
+
+@keyframes neon-pulse {
+  from { box-shadow: var(--theme-glow-primary); }
+  to { box-shadow: var(--theme-glow-primary), inset 0 0 20px rgba(255, 0, 128, 0.1); }
+}
+
+/* Efectos del tema oceánico */
+.theme-ocean-deep .progress-bar {
+  background: var(--theme-primary);
+  animation: var(--theme-wave-animation);
+}
+
+.theme-ocean-deep .chapter-marker.current .marker-icon {
+  animation: ocean-ripple 2s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(1.02); }
+}
+
+@keyframes ocean-ripple {
+  0% { box-shadow: 0 0 0 0 var(--theme-glow-primary); }
+  70% { box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+}
+
+/* Efectos del tema galáctico */
+.theme-galactic-purple::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #8b5cf6, transparent),
+    radial-gradient(2px 2px at 40px 70px, #a855f7, transparent),
+    radial-gradient(1px 1px at 90px 40px, #ec4899, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: var(--theme-stars-animation);
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.3; }
+  to { opacity: 0.6; }
+}
+
+/* Efectos del tema nature */
+.theme-nature-organic .sidebar-menu-link:hover {
+  background: var(--theme-surface-glass);
+  box-shadow: var(--theme-glow-primary);
+  border-radius: 0.75rem;
+}
+
+.theme-nature-organic .progress-bar {
+  background: var(--theme-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-nature-organic .progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: nature-shimmer 3s infinite;
+}
+
+@keyframes nature-shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ============================================
+   TRANSICIONES DE TEMA
+   ============================================ */
+
+.theme-transitioning {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-transitioning * {
+  transition: 
+    background 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   SELECTOR DE TEMAS
+   ============================================ */
+
+.theme-selector {
+  position: fixed;
+  top: 5rem;
+  right: 2rem;
+  background: var(--theme-surface-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--theme-border-primary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  min-width: 16rem;
+  box-shadow: var(--theme-shadow-lg);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.theme-selector.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.theme-selector-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--theme-text-primary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.theme-options {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.theme-option:hover {
+  background: var(--theme-surface-secondary);
+  border-color: var(--theme-border-accent);
+}
+
+.theme-option.active {
+  background: var(--theme-surface-accent);
+  border-color: var(--theme-text-accent);
+  box-shadow: var(--theme-shadow-accent);
+}
+
+.theme-preview {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2px solid var(--theme-border-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-preview-dark-epic {
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+}
+
+.theme-preview-light-elegant {
+  background: linear-gradient(45deg, #f8fafc, #e2e8f0);
+}
+
+.theme-preview-cyberpunk-neon {
+  background: linear-gradient(45deg, #ff0080, #00ff80);
+}
+
+.theme-preview-nature-organic {
+  background: linear-gradient(45deg, #10b981, #84cc16);
+}
+
+.theme-preview-ocean-deep {
+  background: linear-gradient(45deg, #0ea5e9, #06b6d4);
+}
+
+.theme-preview-sunset-warm {
+  background: linear-gradient(45deg, #f97316, #ef4444);
+}
+
+.theme-preview-galactic-purple {
+  background: linear-gradient(45deg, #8b5cf6, #ec4899);
+}
+
+.theme-option-info {
+  flex: 1;
+}
+
+.theme-option-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--theme-text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.theme-option-description {
+  font-size: 0.75rem;
+  color: var(--theme-text-secondary);
+  line-height: 1.3;
+}
+
+/* ============================================
+   INDICADOR DE TEMA ACTIVO
+   ============================================ */
+
+.theme-indicator {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--theme-surface-glass);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--theme-border-primary);
+  border-radius: 2rem;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--theme-text-secondary);
+  z-index: 50;
+  transition: all 0.3s ease;
+}
+
+.theme-indicator:hover {
+  background: var(--theme-surface-primary);
+  border-color: var(--theme-border-accent);
+  color: var(--theme-text-primary);
+}
+
+.theme-indicator-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--theme-primary);
+}
+
+/* ============================================
+   PERSONALIZACIÓN AVANZADA
+   ============================================ */
+
+.theme-customizer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--theme-surface-primary);
+  border: 1px solid var(--theme-border-primary);
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: var(--theme-shadow-lg);
+  z-index: 1100;
+}
+
+.theme-customizer-section {
+  margin-bottom: 2rem;
+}
+
+.theme-customizer-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--theme-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.theme-color-picker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.color-input {
+  width: 3rem;
+  height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.color-value {
+  flex: 1;
+  padding: 0.5rem;
+  background: var(--theme-surface-secondary);
+  border: 1px solid var(--theme-border-primary);
+  border-radius: 0.25rem;
+  color: var(--theme-text-primary);
+  font-family: monospace;
+  font-size: 0.875rem;
+}
+
+.theme-slider {
+  width: 100%;
+  height: 0.5rem;
+  background: var(--theme-surface-secondary);
+  border-radius: 0.25rem;
+  outline: none;
+  margin-bottom: 1rem;
+}
+
+.theme-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: var(--theme-primary);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ============================================
+   MODO ALTA CONTRASTE
+   ============================================ */
+
+.theme-high-contrast {
+  --theme-background-primary: #000000;
+  --theme-background-secondary: #1a1a1a;
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #ffffff;
+  --theme-border-primary: #ffffff;
+  --theme-primary: #ffff00;
+  --theme-secondary: #00ffff;
+  --theme-accent: #ff00ff;
+}
+
+.theme-high-contrast * {
+  border-color: var(--theme-border-primary) !important;
+}
+
+.theme-high-contrast button,
+.theme-high-contrast .btn {
+  background: var(--theme-primary) !important;
+  color: #000000 !important;
+  border: 2px solid var(--theme-border-primary) !important;
+}
+
+/* ============================================
+   MODO DALTÓNICO
+   ============================================ */
+
+.theme-colorblind-friendly {
+  --theme-primary: #0173b2;
+  --theme-secondary: #de8f05;
+  --theme-accent: #cc78bc;
+  --theme-success: #029e73;
+  --theme-warning: #d55e00;
+  --theme-danger: #949494;
+}
+
+/* ============================================
+   RESPONSIVE THEMES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .theme-selector {
+    top: auto;
+    bottom: 5rem;
+    right: 1rem;
+    left: 1rem;
+    width: auto;
+    min-width: auto;
+  }
+  
+  .theme-indicator {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .theme-customizer {
+    padding: 1.5rem;
+    margin: 1rem;
+    width: calc(100% - 2rem);
+  }
+}
+
+/* ============================================
+   ANIMACIONES DE ENTRADA POR TEMA
+   ============================================ */
+
+.theme-dark-epic .animate-theme-enter {
+  animation: epic-entrance 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-cyberpunk-neon .animate-theme-enter {
+  animation: cyber-glitch 0.6s ease-out;
+}
+
+.theme-galactic-purple .animate-theme-enter {
+  animation: cosmic-drift 1s ease-out;
+}
+
+@keyframes epic-entrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes cyber-glitch {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
+}
+
+@keyframes cosmic-drift {
+  from {
+    opacity: 0;
+    transform: translateY(20px) rotate(-2deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}

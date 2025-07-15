@@ -1,0 +1,941 @@
+/* ==================================================
+   RAMA 9: Accessibility Themes
+   Temas y configuraciones para accesibilidad
+   ================================================== */
+
+/* ============================================
+   TEMA ALTO CONTRASTE
+   ============================================ */
+
+.theme-high-contrast {
+  --accessibility-name: "Alto Contraste";
+  
+  /* Colores de alto contraste */
+  --theme-background-primary: #000000;
+  --theme-background-secondary: #000000;
+  --theme-background-tertiary: #1a1a1a;
+  
+  --theme-surface-primary: #000000;
+  --theme-surface-secondary: #1a1a1a;
+  --theme-surface-accent: #333333;
+  
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #ffffff;
+  --theme-text-tertiary: #cccccc;
+  --theme-text-accent: #ffff00;
+  
+  --theme-border-primary: #ffffff;
+  --theme-border-secondary: #cccccc;
+  --theme-border-accent: #ffff00;
+  
+  /* Colores de acento accesibles */
+  --theme-primary-accessible: #ffff00;
+  --theme-secondary-accessible: #00ffff;
+  --theme-success-accessible: #00ff00;
+  --theme-warning-accessible: #ffaa00;
+  --theme-danger-accessible: #ff6666;
+  --theme-info-accessible: #66ccff;
+}
+
+.theme-high-contrast * {
+  /* Forzar colores de alto contraste */
+  border-color: var(--theme-border-primary) !important;
+  outline-color: var(--theme-text-accent) !important;
+}
+
+.theme-high-contrast .main-header,
+.theme-high-contrast .main-sidebar,
+.theme-high-contrast .main-content,
+.theme-high-contrast .main-aside,
+.theme-high-contrast .main-footer {
+  background: var(--theme-background-primary) !important;
+  color: var(--theme-text-primary) !important;
+  border-color: var(--theme-border-primary) !important;
+}
+
+.theme-high-contrast button,
+.theme-high-contrast .btn,
+.theme-high-contrast input,
+.theme-high-contrast select,
+.theme-high-contrast textarea {
+  background: var(--theme-background-secondary) !important;
+  color: var(--theme-text-primary) !important;
+  border: 2px solid var(--theme-border-primary) !important;
+}
+
+.theme-high-contrast button:hover,
+.theme-high-contrast .btn:hover {
+  background: var(--theme-primary-accessible) !important;
+  color: var(--theme-background-primary) !important;
+}
+
+.theme-high-contrast .nav-item.active,
+.theme-high-contrast .sidebar-menu-link.active {
+  background: var(--theme-primary-accessible) !important;
+  color: var(--theme-background-primary) !important;
+}
+
+.theme-high-contrast a {
+  color: var(--theme-secondary-accessible) !important;
+  text-decoration: underline !important;
+}
+
+.theme-high-contrast a:hover {
+  color: var(--theme-primary-accessible) !important;
+}
+
+/* ============================================
+   TEMA DALTÓNICO FRIENDLY
+   ============================================ */
+
+.theme-colorblind-friendly {
+  --accessibility-name: "Amigable para Daltónicos";
+  
+  /* Paleta segura para daltónicos (basada en investigación científica) */
+  --theme-primary-safe: #0173b2; /* Azul */
+  --theme-secondary-safe: #de8f05; /* Naranja */
+  --theme-accent-safe: #cc78bc; /* Rosa/Magenta */
+  --theme-success-safe: #029e73; /* Verde azulado */
+  --theme-warning-safe: #d55e00; /* Rojo-naranja */
+  --theme-info-safe: #56b4e9; /* Azul claro */
+  --theme-neutral-safe: #999999; /* Gris */
+  
+  /* Aplicar colores seguros */
+  --theme-primary: var(--theme-primary-safe);
+  --theme-secondary: var(--theme-secondary-safe);
+  --theme-accent: var(--theme-accent-safe);
+}
+
+.theme-colorblind-friendly .progress-bar {
+  background: linear-gradient(90deg, var(--theme-primary-safe), var(--theme-success-safe));
+}
+
+.theme-colorblind-friendly .chapter-marker.completed .marker-icon {
+  background: var(--theme-success-safe);
+  border-color: var(--theme-success-safe);
+}
+
+.theme-colorblind-friendly .chapter-marker.current .marker-icon {
+  background: var(--theme-warning-safe);
+  border-color: var(--theme-warning-safe);
+}
+
+.theme-colorblind-friendly .character-panel .trait-tag {
+  background: rgba(1, 115, 178, 0.2);
+  border-color: var(--theme-primary-safe);
+  color: var(--theme-primary-safe);
+}
+
+.theme-colorblind-friendly .character-panel .trait-tag.personality {
+  background: rgba(2, 158, 115, 0.2);
+  border-color: var(--theme-success-safe);
+  color: var(--theme-success-safe);
+}
+
+.theme-colorblind-friendly .character-panel .trait-tag.skill {
+  background: rgba(222, 143, 5, 0.2);
+  border-color: var(--theme-secondary-safe);
+  color: var(--theme-secondary-safe);
+}
+
+/* Patrones adicionales para diferenciar elementos */
+.theme-colorblind-friendly .status-indicator {
+  position: relative;
+}
+
+.theme-colorblind-friendly .status-indicator.success::before {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+}
+
+.theme-colorblind-friendly .status-indicator.warning::before {
+  content: "!";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+}
+
+.theme-colorblind-friendly .status-indicator.error::before {
+  content: "✕";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+}
+
+/* ============================================
+   TEMA BAJA VISIÓN
+   ============================================ */
+
+.theme-low-vision {
+  --accessibility-name: "Baja Visión";
+  
+  /* Tamaños de fuente aumentados */
+  --font-size-base: 1.25rem;
+  --font-size-small: 1.125rem;
+  --font-size-large: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-xxl: 2.5rem;
+  
+  /* Espaciado aumentado */
+  --spacing-unit: 12px;
+  --line-height-base: 1.8;
+  --letter-spacing-base: 0.02em;
+  
+  /* Tamaños de elementos aumentados */
+  --button-height: 3rem;
+  --input-height: 3rem;
+  --icon-size: 2rem;
+  --nav-height: 5rem;
+}
+
+.theme-low-vision {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+}
+
+.theme-low-vision .main-header {
+  height: var(--nav-height);
+}
+
+.theme-low-vision .nav-container {
+  height: var(--nav-height);
+  padding: 0 2rem;
+}
+
+.theme-low-vision .nav-logo {
+  font-size: 2rem;
+}
+
+.theme-low-vision .nav-item {
+  padding: 1rem 1.5rem;
+  font-size: var(--font-size-large);
+  min-height: var(--button-height);
+}
+
+.theme-low-vision .sidebar-menu-link {
+  padding: 1rem;
+  font-size: var(--font-size-large);
+  min-height: var(--button-height);
+}
+
+.theme-low-vision .sidebar-menu-icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: 1.5rem;
+}
+
+.theme-low-vision .content-title {
+  font-size: var(--font-size-xxl);
+  line-height: 1.3;
+}
+
+.theme-low-vision .content-subtitle {
+  font-size: var(--font-size-xl);
+}
+
+.theme-low-vision button,
+.theme-low-vision .btn {
+  min-height: var(--button-height);
+  padding: 1rem 2rem;
+  font-size: var(--font-size-large);
+  font-weight: 600;
+}
+
+.theme-low-vision input,
+.theme-low-vision select,
+.theme-low-vision textarea {
+  min-height: var(--input-height);
+  padding: 1rem;
+  font-size: var(--font-size-large);
+}
+
+.theme-low-vision .character-panel {
+  padding: 2rem;
+}
+
+.theme-low-vision .character-name {
+  font-size: var(--font-size-xl);
+}
+
+.theme-low-vision .character-description {
+  font-size: var(--font-size-large);
+  line-height: var(--line-height-base);
+}
+
+/* ============================================
+   TEMA REDUCCIÓN DE MOVIMIENTO
+   ============================================ */
+
+.theme-reduced-motion {
+  --accessibility-name: "Movimiento Reducido";
+}
+
+.theme-reduced-motion *,
+.theme-reduced-motion *::before,
+.theme-reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+.theme-reduced-motion .loading-spinner {
+  animation: none !important;
+  border: 3px solid var(--theme-primary);
+  border-radius: 50%;
+}
+
+.theme-reduced-motion .progress-bar::before {
+  animation: none !important;
+}
+
+.theme-reduced-motion .marker-icon {
+  animation: none !important;
+}
+
+/* Mantener focus visible sin animaciones */
+.theme-reduced-motion :focus-visible {
+  outline: 3px solid var(--theme-primary) !important;
+  outline-offset: 2px !important;
+  transition: none !important;
+}
+
+/* ============================================
+   NAVEGACIÓN POR TECLADO MEJORADA
+   ============================================ */
+
+.accessibility-enhanced {
+  /* Focus mejorado */
+  --focus-width: 3px;
+  --focus-color: #4f46e5;
+  --focus-offset: 2px;
+}
+
+.accessibility-enhanced :focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+  border-radius: 0.25rem;
+  z-index: 1000;
+  position: relative;
+}
+
+.accessibility-enhanced .nav-item:focus-visible,
+.accessibility-enhanced .sidebar-menu-link:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+  background: rgba(79, 70, 229, 0.1);
+}
+
+.accessibility-enhanced button:focus-visible,
+.accessibility-enhanced .btn:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+  box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.2);
+}
+
+.accessibility-enhanced input:focus-visible,
+.accessibility-enhanced select:focus-visible,
+.accessibility-enhanced textarea:focus-visible {
+  outline: var(--focus-width) solid var(--focus-color);
+  outline-offset: var(--focus-offset);
+  border-color: var(--focus-color);
+}
+
+/* Skip links */
+.skip-links {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 10000;
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-links:focus {
+  top: 0;
+}
+
+/* ============================================
+   INDICADORES DE REGIÓN ARIA
+   ============================================ */
+
+.accessibility-enhanced [role="main"]::before {
+  content: "Contenido principal";
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.accessibility-enhanced [role="navigation"]::before {
+  content: "Navegación";
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.accessibility-enhanced [role="complementary"]::before {
+  content: "Contenido complementario";
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.accessibility-enhanced [role="banner"]::before {
+  content: "Encabezado del sitio";
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.accessibility-enhanced [role="contentinfo"]::before {
+  content: "Información del sitio";
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+/* ============================================
+   MODO SOLO TEXTO
+   ============================================ */
+
+.theme-text-only {
+  --accessibility-name: "Solo Texto";
+}
+
+.theme-text-only * {
+  background: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  background-image: none !important;
+}
+
+.theme-text-only .loading-spinner,
+.theme-text-only .skeleton,
+.theme-text-only [class*="icon"],
+.theme-text-only [class*="emoji"],
+.theme-text-only .decorative {
+  display: none !important;
+}
+
+.theme-text-only button::before,
+.theme-text-only .btn::before {
+  content: "[BOTÓN] ";
+  font-weight: bold;
+}
+
+.theme-text-only a::before {
+  content: "[ENLACE] ";
+  font-weight: bold;
+}
+
+.theme-text-only input::before {
+  content: "[CAMPO] ";
+  font-weight: bold;
+}
+
+.theme-text-only .nav-item.active::after {
+  content: " [ACTIVO]";
+  font-weight: bold;
+}
+
+/* ============================================
+   CONFIGURACIONES DE LECTURA
+   ============================================ */
+
+.reading-mode-dyslexia {
+  --accessibility-name: "Modo Dislexia";
+  
+  /* Fuente amigable para dislexia */
+  font-family: 'OpenDyslexic', 'Comic Sans MS', cursive;
+  
+  /* Espaciado mejorado */
+  line-height: 2;
+  letter-spacing: 0.1em;
+  word-spacing: 0.2em;
+  
+  /* Párrafos más cortos */
+  text-align: left;
+}
+
+.reading-mode-dyslexia p {
+  max-width: 60ch;
+  margin-bottom: 1.5rem;
+}
+
+.reading-mode-dyslexia .content-title,
+.reading-mode-dyslexia .sidebar-section-title {
+  font-weight: 700;
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+/* Resaltado de línea de lectura */
+.reading-guide {
+  position: relative;
+}
+
+.reading-guide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  right: -2rem;
+  height: 1.5em;
+  background: rgba(255, 255, 0, 0.2);
+  border: 2px solid #ffff00;
+  pointer-events: none;
+  z-index: 10;
+  transition: top 0.1s ease;
+}
+
+/* ============================================
+   MODO DE CONCENTRACIÓN
+   ============================================ */
+
+.theme-focus-mode {
+  --accessibility-name: "Modo Concentración";
+}
+
+.theme-focus-mode .main-sidebar,
+.theme-focus-mode .main-aside,
+.theme-focus-mode .nav-search,
+.theme-focus-mode .nav-notifications,
+.theme-focus-mode .sponsor-integration {
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.theme-focus-mode .main-sidebar:hover,
+.theme-focus-mode .main-aside:hover {
+  opacity: 1;
+}
+
+.theme-focus-mode .main-content {
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem;
+}
+
+.theme-focus-mode .content-wrapper {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   INDICADORES DE ACCESIBILIDAD
+   ============================================ */
+
+.accessibility-indicator {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accessibility-indicator-icon {
+  width: 1rem;
+  height: 1rem;
+  background: #4f46e5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+/* Estados de contraste */
+.contrast-checker {
+  position: relative;
+}
+
+.contrast-checker::after {
+  content: attr(data-contrast-ratio);
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  background: black;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.contrast-checker:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   CONFIGURADOR DE ACCESIBILIDAD
+   ============================================ */
+
+.accessibility-panel {
+  position: fixed;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  min-width: 18rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-50%) translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.accessibility-panel.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+.accessibility-panel-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accessibility-panel-title::before {
+  content: "♿";
+  font-size: 1.5rem;
+}
+
+.accessibility-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.accessibility-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.accessibility-option:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: #4f46e5;
+}
+
+.accessibility-option-info {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+.accessibility-option-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.accessibility-option-description {
+  font-size: 0.75rem;
+  color: #718096;
+  line-height: 1.4;
+}
+
+.accessibility-toggle {
+  position: relative;
+  width: 3rem;
+  height: 1.5rem;
+  background: #cbd5e0;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.accessibility-toggle.active {
+  background: #4f46e5;
+}
+
+.accessibility-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-toggle.active::before {
+  transform: translateX(1.5rem);
+}
+
+/* Sección de font size */
+.font-size-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.font-size-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-right: auto;
+}
+
+.font-size-button {
+  width: 2rem;
+  height: 2rem;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.font-size-button:hover {
+  background: #4338ca;
+  transform: scale(1.1);
+}
+
+.font-size-display {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4f46e5;
+  min-width: 3rem;
+  text-align: center;
+}
+
+/* ============================================
+   TOOLTIPS ACCESIBLES
+   ============================================ */
+
+.accessible-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.accessible-tooltip-content {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-bottom: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accessible-tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.accessible-tooltip:hover .accessible-tooltip-content,
+.accessible-tooltip:focus .accessible-tooltip-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ============================================
+   ANUNCIOS PARA LECTORES DE PANTALLA
+   ============================================ */
+
+.sr-announcements {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.sr-announcements[aria-live="polite"]:not(:empty),
+.sr-announcements[aria-live="assertive"]:not(:empty) {
+  position: static;
+  width: auto;
+  height: auto;
+  clip: unset;
+  background: #4f46e5;
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+
+/* ============================================
+   MEDIA QUERIES PARA ACCESIBILIDAD
+   ============================================ */
+
+/* Respeto por las preferencias del sistema */
+@media (prefers-reduced-motion: reduce) {
+  .accessibility-enhanced *,
+  .accessibility-enhanced *::before,
+  .accessibility-enhanced *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  body {
+    filter: contrast(1.5);
+  }
+  
+  .accessibility-enhanced {
+    --focus-width: 4px;
+    --theme-border-primary: #000000;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .accessibility-panel {
+    background: rgba(45, 55, 72, 0.95);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .accessibility-option {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  
+  .accessibility-option-name {
+    color: white;
+  }
+  
+  .accessibility-option-description {
+    color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+/* ============================================
+   RESPONSIVE PARA ACCESIBILIDAD
+   ============================================ */
+
+@media (max-width: 768px) {
+  .accessibility-panel {
+    position: fixed;
+    top: auto;
+    bottom: 5rem;
+    right: 1rem;
+    left: 1rem;
+    transform: none;
+    max-height: 60vh;
+  }
+  
+  .accessibility-panel.active {
+    transform: none;
+  }
+  
+  .theme-low-vision .nav-item {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .theme-low-vision .sidebar-menu-link {
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    min-height: 4rem;
+  }
+  
+  .skip-links {
+    font-size: 1.25rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ============================================
+   PRINT STYLES ACCESIBLES
+   ============================================ */
+
+@media print {
+  .accessibility-enhanced {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: black;
+    background: white;
+  }
+  
+  .accessibility-enhanced a::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+  
+  .accessibility-enhanced .skip-links,
+  .accessibility-enhanced .accessibility-panel,
+  .accessibility-enhanced .accessibility-indicator {
+    display: none;
+  }
+}
