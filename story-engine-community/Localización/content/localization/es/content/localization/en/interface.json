@@ -1,0 +1,32 @@
+{
+  "ui_elements": {
+    "navigation": {
+      "next": "Next",
+      "previous": "Previous",
+      "menu": "Menu",
+      "home": "Home",
+      "progress": "Progress",
+      "settings": "Settings"
+    },
+    "actions": {
+      "start_story": "Start Story",
+      "save_progress": "Save Progress",
+      "load_game": "Load Game",
+      "restart": "Restart",
+      "pause": "Pause",
+      "resume": "Resume"
+    },
+    "feedback": {
+      "choice_confirmed": "Choice confirmed",
+      "progress_saved": "Progress saved",
+      "chapter_completed": "Chapter completed",
+      "story_finished": "Story completed"
+    },
+    "accessibility": {
+      "audio_description": "Audio description",
+      "high_contrast": "High contrast",
+      "large_text": "Large text",
+      "slow_pace": "Slow pace"
+    }
+  }
+}

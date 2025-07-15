@@ -1,0 +1,63 @@
+{
+  "main_characters": {
+    "maria_elder": {
+      "age_range": "65-75",
+      "role": "Community Elder",
+      "personality_traits": ["wise", "patient", "protective", "traditional"],
+      "motivations": ["preserve culture", "guide youth", "maintain harmony"],
+      "character_arc": "Learns to balance tradition with necessary change",
+      "relationships": {
+        "carlos_youth": "mentor-student, mutual respect",
+        "ana_mother": "advisor-advisee, maternal bond",
+        "community": "respected leader, cultural guardian"
+      },
+      "dialogue_style": "Measured, metaphorical, story-driven",
+      "cultural_significance": "Represents wisdom and continuity"
+    },
+    "carlos_youth": {
+      "age_range": "20-25",
+      "role": "Innovation Catalyst",
+      "personality_traits": ["enthusiastic", "respectful", "creative", "ambitious"],
+      "motivations": ["modernize community", "honor traditions", "create opportunities"],
+      "character_arc": "Learns to integrate innovation with cultural respect",
+      "relationships": {
+        "maria_elder": "student-mentor, deep respect",
+        "ana_mother": "peer-supporter, collaborative",
+        "community": "bridge between generations"
+      },
+      "dialogue_style": "Energetic, forward-thinking, collaborative",
+      "cultural_significance": "Represents progress and adaptation"
+    },
+    "ana_mother": {
+      "age_range": "35-45",
+      "role": "Community Backbone",
+      "personality_traits": ["determined", "nurturing", "pragmatic", "resilient"],
+      "motivations": ["secure family future", "strengthen community", "balance responsibilities"],
+      "character_arc": "Finds her voice as a community leader",
+      "relationships": {
+        "maria_elder": "advisee-advisor, respectful trust",
+        "carlos_youth": "supporter-collaborator, mutual aid",
+        "community": "essential contributor, problem-solver"
+      },
+      "dialogue_style": "Direct, caring, solution-oriented",
+      "cultural_significance": "Represents stability and practical wisdom"
+    }
+  },
+  "supporting_characters": {
+    "community_children": {
+      "role": "Future generation",
+      "significance": "Represent hope and continuity",
+      "interaction_level": "observational, occasional dialogue"
+    },
+    "neighboring_communities": {
+      "role": "External perspective",
+      "significance": "Provide comparison and collaboration opportunities",
+      "interaction_level": "formal meetings, cultural exchanges"
+    },
+    "community_council": {
+      "role": "Decision-making body",
+      "significance": "Democratic process representation",
+      "interaction_level": "formal discussions, voting scenarios"
+    }
+  }
+}

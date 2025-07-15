@@ -1,0 +1,25 @@
+{
+  "characters": {
+    "maria_elder": {
+      "name": "María, la Anciana Sabia",
+      "role": "Guardiana de tradiciones",
+      "arc": "Transmitir sabiduría ancestral a las nuevas generaciones",
+      "personality": ["sabia", "paciente", "protectora"],
+      "goals": ["preservar cultura", "guiar jóvenes", "mantener unidad"]
+    },
+    "carlos_youth": {
+      "name": "Carlos, el Joven Innovador",
+      "role": "Impulsor del cambio",
+      "arc": "Equilibrar innovación con respeto a las tradiciones",
+      "personality": ["entusiasta", "creativo", "respetuoso"],
+      "goals": ["modernizar comunidad", "crear oportunidades", "honrar tradiciones"]
+    },
+    "ana_mother": {
+      "name": "Ana, la Madre Trabajadora",
+      "role": "Pilar familiar",
+      "arc": "Construir un futuro mejor para sus hijos",
+      "personality": ["determinada", "cariñosa", "pragmática"],
+      "goals": ["proteger familia", "contribuir comunidad", "asegurar futuro"]
+    }
+  }
+}
